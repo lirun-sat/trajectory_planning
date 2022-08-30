@@ -32,7 +32,7 @@ void delta_var(double* Pe_desired, double* eta_end_desired, double* xi_end_desir
 			   double* delta_eta_base, double* delta_xi_base);
 
 int calc_binomial(int n, int k);
-
+int readinput(const char *inputfile, double ***pts, int *out);
 
 
 #endif //CALC_FORWARD_KINEMATICS
