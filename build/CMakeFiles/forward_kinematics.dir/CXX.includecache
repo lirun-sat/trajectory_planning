@@ -48,15 +48,15 @@ cstring
 cstdlib
 -
 
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/src/test_main_4.cpp
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/src/test_main_4.cpp
 forward_kinematics.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/src/forward_kinematics.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/src/forward_kinematics.h
 data.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/src/data.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/src/data.h
 utils.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/src/utils.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/src/utils.h
 WOAAlgorithm.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/src/WOAAlgorithm.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/src/WOAAlgorithm.h
 TLBO_Algorithm.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/src/TLBO_Algorithm.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/src/TLBO_Algorithm.h
 

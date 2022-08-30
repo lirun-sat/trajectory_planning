@@ -173,9 +173,9 @@ int main()
 				cout << "Iteration is :" << Iter << endl;	
 				woa_tlbo_fitness_temp_3 = woa_tlbo_fitness[student_whale_count - 1];
 				cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_3 << endl;
-				if(woa_tlbo_fitness_temp_3 > 200)
+				if(woa_tlbo_fitness_temp_3 > 300)
 				{
-					cout << "Too large woa_tlbo_fitness after 300 steps " << endl;
+					cout << "Too large woa_tlbo_fitness after 3000 steps " << endl;
 					break;
 				}
 				/*
@@ -465,7 +465,7 @@ double calc_fitness_woa(WOA_Whale& whale)
 	double K_p = 1 / 0.002;  //  0.002 meter error tolerance for end-effector
     // double K_s = 1 / 0.1;  // locus tolerance 0.1 meter.
     double K_s = 0;  // locus tolerance 0.1 meter.
-    double K_b = 1 / 0.0008;  // attitude error tolerance for base is 5 degree
+    double K_b = 0; //1 / 0.0008;  // attitude error tolerance for base is 5 degree
     double K_M = 0;
     double K_t = 0;  //  max allowed motion time is set to 100 seconds, tolerance is 10 seconds.
 
@@ -512,8 +512,6 @@ double calc_fitness_woa(WOA_Whale& whale)
 
 
 	// ****************************************  RPY error of end-effector,  Pe error  ********************************************************************************
-
-	// cost_func = K_a * delta_xi_end_mod_temp + K_p * delta_Pe_end_mod_temp;
 
     cost_func = K_a * delta_xi_end_mod_temp 
                 + K_p * delta_Pe_end_mod_temp 
@@ -582,7 +580,7 @@ double calc_fitness_tlbo(Student& student)
 	double K_p = 1 / 0.002;  //  0.002 meter error tolerance for end-effector
     // double K_s = 1 / 0.1;  // locus tolerance 0.1 meter for end-effector.
     double K_s = 0;  // locus tolerance 0.1 meter for end-effector.
-    double K_b = 1 / 0.0008;  // attitude error tolerance for base is 5 degree
+    double K_b = 0; //1 / 0.0008;  // attitude error tolerance for base is 5 degree
     double K_M = 0;
     double K_t = 0;  //  max allowed motion time is set to 100 seconds, tolerance is 10 seconds.
 

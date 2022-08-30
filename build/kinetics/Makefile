@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2
+CMAKE_SOURCE_DIR = /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build
+CMAKE_BINARY_DIR = /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/CMakeFiles /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/kinetics/CMakeFiles/progress.marks
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f CMakeFiles/Makefile2 kinetics/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/CMakeFiles 0
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/kinetics/CMakeFiles/progress.marks
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f CMakeFiles/Makefile2 kinetics/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f CMakeFiles/Makefile2 kinetics/clean
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f CMakeFiles/Makefile2 kinetics/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,22 +97,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f CMakeFiles/Makefile2 kinetics/preinstall
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f CMakeFiles/Makefile2 kinetics/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f CMakeFiles/Makefile2 kinetics/preinstall
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f CMakeFiles/Makefile2 kinetics/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 kinetics/CMakeFiles/kinetics.dir/rule:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f CMakeFiles/Makefile2 kinetics/CMakeFiles/kinetics.dir/rule
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f CMakeFiles/Makefile2 kinetics/CMakeFiles/kinetics.dir/rule
 .PHONY : kinetics/CMakeFiles/kinetics.dir/rule
 
 # Convenience name for target.
@@ -122,7 +122,7 @@ kinetics: kinetics/CMakeFiles/kinetics.dir/rule
 
 # fast build rule for target.
 kinetics/fast:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/build
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/build
 .PHONY : kinetics/fast
 
 A_b.o: A_b.cpp.o
@@ -131,7 +131,7 @@ A_b.o: A_b.cpp.o
 
 # target to build an object file
 A_b.cpp.o:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/A_b.cpp.o
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/A_b.cpp.o
 .PHONY : A_b.cpp.o
 
 A_b.i: A_b.cpp.i
@@ -140,7 +140,7 @@ A_b.i: A_b.cpp.i
 
 # target to preprocess a source file
 A_b.cpp.i:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/A_b.cpp.i
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/A_b.cpp.i
 .PHONY : A_b.cpp.i
 
 A_b.s: A_b.cpp.s
@@ -149,7 +149,7 @@ A_b.s: A_b.cpp.s
 
 # target to generate assembly for a file
 A_b.cpp.s:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/A_b.cpp.s
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/A_b.cpp.s
 .PHONY : A_b.cpp.s
 
 J_Base2EE.o: J_Base2EE.cpp.o
@@ -158,7 +158,7 @@ J_Base2EE.o: J_Base2EE.cpp.o
 
 # target to build an object file
 J_Base2EE.cpp.o:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/J_Base2EE.cpp.o
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/J_Base2EE.cpp.o
 .PHONY : J_Base2EE.cpp.o
 
 J_Base2EE.i: J_Base2EE.cpp.i
@@ -167,7 +167,7 @@ J_Base2EE.i: J_Base2EE.cpp.i
 
 # target to preprocess a source file
 J_Base2EE.cpp.i:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/J_Base2EE.cpp.i
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/J_Base2EE.cpp.i
 .PHONY : J_Base2EE.cpp.i
 
 J_Base2EE.s: J_Base2EE.cpp.s
@@ -176,7 +176,7 @@ J_Base2EE.s: J_Base2EE.cpp.s
 
 # target to generate assembly for a file
 J_Base2EE.cpp.s:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/J_Base2EE.cpp.s
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/J_Base2EE.cpp.s
 .PHONY : J_Base2EE.cpp.s
 
 J_bm.o: J_bm.cpp.o
@@ -185,7 +185,7 @@ J_bm.o: J_bm.cpp.o
 
 # target to build an object file
 J_bm.cpp.o:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/J_bm.cpp.o
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/J_bm.cpp.o
 .PHONY : J_bm.cpp.o
 
 J_bm.i: J_bm.cpp.i
@@ -194,7 +194,7 @@ J_bm.i: J_bm.cpp.i
 
 # target to preprocess a source file
 J_bm.cpp.i:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/J_bm.cpp.i
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/J_bm.cpp.i
 .PHONY : J_bm.cpp.i
 
 J_bm.s: J_bm.cpp.s
@@ -203,7 +203,7 @@ J_bm.s: J_bm.cpp.s
 
 # target to generate assembly for a file
 J_bm.cpp.s:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/J_bm.cpp.s
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/J_bm.cpp.s
 .PHONY : J_bm.cpp.s
 
 calc_binomial.o: calc_binomial.cpp.o
@@ -212,7 +212,7 @@ calc_binomial.o: calc_binomial.cpp.o
 
 # target to build an object file
 calc_binomial.cpp.o:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/calc_binomial.cpp.o
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/calc_binomial.cpp.o
 .PHONY : calc_binomial.cpp.o
 
 calc_binomial.i: calc_binomial.cpp.i
@@ -221,7 +221,7 @@ calc_binomial.i: calc_binomial.cpp.i
 
 # target to preprocess a source file
 calc_binomial.cpp.i:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/calc_binomial.cpp.i
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/calc_binomial.cpp.i
 .PHONY : calc_binomial.cpp.i
 
 calc_binomial.s: calc_binomial.cpp.s
@@ -230,7 +230,7 @@ calc_binomial.s: calc_binomial.cpp.s
 
 # target to generate assembly for a file
 calc_binomial.cpp.s:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/calc_binomial.cpp.s
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/calc_binomial.cpp.s
 .PHONY : calc_binomial.cpp.s
 
 calc_p.o: calc_p.cpp.o
@@ -239,7 +239,7 @@ calc_p.o: calc_p.cpp.o
 
 # target to build an object file
 calc_p.cpp.o:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/calc_p.cpp.o
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/calc_p.cpp.o
 .PHONY : calc_p.cpp.o
 
 calc_p.i: calc_p.cpp.i
@@ -248,7 +248,7 @@ calc_p.i: calc_p.cpp.i
 
 # target to preprocess a source file
 calc_p.cpp.i:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/calc_p.cpp.i
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/calc_p.cpp.i
 .PHONY : calc_p.cpp.i
 
 calc_p.s: calc_p.cpp.s
@@ -257,7 +257,7 @@ calc_p.s: calc_p.cpp.s
 
 # target to generate assembly for a file
 calc_p.cpp.s:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/calc_p.cpp.s
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/calc_p.cpp.s
 .PHONY : calc_p.cpp.s
 
 calc_para_range.o: calc_para_range.cpp.o
@@ -266,7 +266,7 @@ calc_para_range.o: calc_para_range.cpp.o
 
 # target to build an object file
 calc_para_range.cpp.o:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/calc_para_range.cpp.o
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/calc_para_range.cpp.o
 .PHONY : calc_para_range.cpp.o
 
 calc_para_range.i: calc_para_range.cpp.i
@@ -275,7 +275,7 @@ calc_para_range.i: calc_para_range.cpp.i
 
 # target to preprocess a source file
 calc_para_range.cpp.i:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/calc_para_range.cpp.i
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/calc_para_range.cpp.i
 .PHONY : calc_para_range.cpp.i
 
 calc_para_range.s: calc_para_range.cpp.s
@@ -284,7 +284,7 @@ calc_para_range.s: calc_para_range.cpp.s
 
 # target to generate assembly for a file
 calc_para_range.cpp.s:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/calc_para_range.cpp.s
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/calc_para_range.cpp.s
 .PHONY : calc_para_range.cpp.s
 
 calc_q_ddot.o: calc_q_ddot.cpp.o
@@ -293,7 +293,7 @@ calc_q_ddot.o: calc_q_ddot.cpp.o
 
 # target to build an object file
 calc_q_ddot.cpp.o:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/calc_q_ddot.cpp.o
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/calc_q_ddot.cpp.o
 .PHONY : calc_q_ddot.cpp.o
 
 calc_q_ddot.i: calc_q_ddot.cpp.i
@@ -302,7 +302,7 @@ calc_q_ddot.i: calc_q_ddot.cpp.i
 
 # target to preprocess a source file
 calc_q_ddot.cpp.i:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/calc_q_ddot.cpp.i
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/calc_q_ddot.cpp.i
 .PHONY : calc_q_ddot.cpp.i
 
 calc_q_ddot.s: calc_q_ddot.cpp.s
@@ -311,7 +311,7 @@ calc_q_ddot.s: calc_q_ddot.cpp.s
 
 # target to generate assembly for a file
 calc_q_ddot.cpp.s:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/calc_q_ddot.cpp.s
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/calc_q_ddot.cpp.s
 .PHONY : calc_q_ddot.cpp.s
 
 calc_q_dot.o: calc_q_dot.cpp.o
@@ -320,7 +320,7 @@ calc_q_dot.o: calc_q_dot.cpp.o
 
 # target to build an object file
 calc_q_dot.cpp.o:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/calc_q_dot.cpp.o
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/calc_q_dot.cpp.o
 .PHONY : calc_q_dot.cpp.o
 
 calc_q_dot.i: calc_q_dot.cpp.i
@@ -329,7 +329,7 @@ calc_q_dot.i: calc_q_dot.cpp.i
 
 # target to preprocess a source file
 calc_q_dot.cpp.i:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/calc_q_dot.cpp.i
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/calc_q_dot.cpp.i
 .PHONY : calc_q_dot.cpp.i
 
 calc_q_dot.s: calc_q_dot.cpp.s
@@ -338,7 +338,7 @@ calc_q_dot.s: calc_q_dot.cpp.s
 
 # target to generate assembly for a file
 calc_q_dot.cpp.s:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/calc_q_dot.cpp.s
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/calc_q_dot.cpp.s
 .PHONY : calc_q_dot.cpp.s
 
 calc_r.o: calc_r.cpp.o
@@ -347,7 +347,7 @@ calc_r.o: calc_r.cpp.o
 
 # target to build an object file
 calc_r.cpp.o:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/calc_r.cpp.o
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/calc_r.cpp.o
 .PHONY : calc_r.cpp.o
 
 calc_r.i: calc_r.cpp.i
@@ -356,7 +356,7 @@ calc_r.i: calc_r.cpp.i
 
 # target to preprocess a source file
 calc_r.cpp.i:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/calc_r.cpp.i
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/calc_r.cpp.i
 .PHONY : calc_r.cpp.i
 
 calc_r.s: calc_r.cpp.s
@@ -365,7 +365,7 @@ calc_r.s: calc_r.cpp.s
 
 # target to generate assembly for a file
 calc_r.cpp.s:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/calc_r.cpp.s
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/calc_r.cpp.s
 .PHONY : calc_r.cpp.s
 
 delta_var.o: delta_var.cpp.o
@@ -374,7 +374,7 @@ delta_var.o: delta_var.cpp.o
 
 # target to build an object file
 delta_var.cpp.o:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/delta_var.cpp.o
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/delta_var.cpp.o
 .PHONY : delta_var.cpp.o
 
 delta_var.i: delta_var.cpp.i
@@ -383,7 +383,7 @@ delta_var.i: delta_var.cpp.i
 
 # target to preprocess a source file
 delta_var.cpp.i:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/delta_var.cpp.i
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/delta_var.cpp.i
 .PHONY : delta_var.cpp.i
 
 delta_var.s: delta_var.cpp.s
@@ -392,7 +392,7 @@ delta_var.s: delta_var.cpp.s
 
 # target to generate assembly for a file
 delta_var.cpp.s:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/delta_var.cpp.s
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/delta_var.cpp.s
 .PHONY : delta_var.cpp.s
 
 forward_kin.o: forward_kin.cpp.o
@@ -401,7 +401,7 @@ forward_kin.o: forward_kin.cpp.o
 
 # target to build an object file
 forward_kin.cpp.o:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/forward_kin.cpp.o
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/forward_kin.cpp.o
 .PHONY : forward_kin.cpp.o
 
 forward_kin.i: forward_kin.cpp.i
@@ -410,7 +410,7 @@ forward_kin.i: forward_kin.cpp.i
 
 # target to preprocess a source file
 forward_kin.cpp.i:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/forward_kin.cpp.i
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/forward_kin.cpp.i
 .PHONY : forward_kin.cpp.i
 
 forward_kin.s: forward_kin.cpp.s
@@ -419,7 +419,7 @@ forward_kin.s: forward_kin.cpp.s
 
 # target to generate assembly for a file
 forward_kin.cpp.s:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/forward_kin.cpp.s
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/forward_kin.cpp.s
 .PHONY : forward_kin.cpp.s
 
 forward_kin_2.o: forward_kin_2.cpp.o
@@ -428,7 +428,7 @@ forward_kin_2.o: forward_kin_2.cpp.o
 
 # target to build an object file
 forward_kin_2.cpp.o:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/forward_kin_2.cpp.o
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/forward_kin_2.cpp.o
 .PHONY : forward_kin_2.cpp.o
 
 forward_kin_2.i: forward_kin_2.cpp.i
@@ -437,7 +437,7 @@ forward_kin_2.i: forward_kin_2.cpp.i
 
 # target to preprocess a source file
 forward_kin_2.cpp.i:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/forward_kin_2.cpp.i
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/forward_kin_2.cpp.i
 .PHONY : forward_kin_2.cpp.i
 
 forward_kin_2.s: forward_kin_2.cpp.s
@@ -446,7 +446,7 @@ forward_kin_2.s: forward_kin_2.cpp.s
 
 # target to generate assembly for a file
 forward_kin_2.cpp.s:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/forward_kin_2.cpp.s
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/forward_kin_2.cpp.s
 .PHONY : forward_kin_2.cpp.s
 
 global_data.o: global_data.cpp.o
@@ -455,7 +455,7 @@ global_data.o: global_data.cpp.o
 
 # target to build an object file
 global_data.cpp.o:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/global_data.cpp.o
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/global_data.cpp.o
 .PHONY : global_data.cpp.o
 
 global_data.i: global_data.cpp.i
@@ -464,7 +464,7 @@ global_data.i: global_data.cpp.i
 
 # target to preprocess a source file
 global_data.cpp.i:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/global_data.cpp.i
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/global_data.cpp.i
 .PHONY : global_data.cpp.i
 
 global_data.s: global_data.cpp.s
@@ -473,7 +473,7 @@ global_data.s: global_data.cpp.s
 
 # target to generate assembly for a file
 global_data.cpp.s:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/global_data.cpp.s
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/global_data.cpp.s
 .PHONY : global_data.cpp.s
 
 links_transform.o: links_transform.cpp.o
@@ -482,7 +482,7 @@ links_transform.o: links_transform.cpp.o
 
 # target to build an object file
 links_transform.cpp.o:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/links_transform.cpp.o
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/links_transform.cpp.o
 .PHONY : links_transform.cpp.o
 
 links_transform.i: links_transform.cpp.i
@@ -491,7 +491,7 @@ links_transform.i: links_transform.cpp.i
 
 # target to preprocess a source file
 links_transform.cpp.i:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/links_transform.cpp.i
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/links_transform.cpp.i
 .PHONY : links_transform.cpp.i
 
 links_transform.s: links_transform.cpp.s
@@ -500,7 +500,7 @@ links_transform.s: links_transform.cpp.s
 
 # target to generate assembly for a file
 links_transform.cpp.s:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/links_transform.cpp.s
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/links_transform.cpp.s
 .PHONY : links_transform.cpp.s
 
 # Help Target
@@ -565,6 +565,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2
+CMAKE_SOURCE_DIR = /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build
+CMAKE_BINARY_DIR = /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build
 
 # Include any dependencies generated for this target.
 include utils/CMakeFiles/utils.dir/depend.make
@@ -59,328 +59,328 @@ include utils/CMakeFiles/utils.dir/flags.make
 
 utils/CMakeFiles/utils.dir/LU_inv_solver.cpp.o: utils/CMakeFiles/utils.dir/flags.make
 utils/CMakeFiles/utils.dir/LU_inv_solver.cpp.o: ../utils/LU_inv_solver.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object utils/CMakeFiles/utils.dir/LU_inv_solver.cpp.o"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/LU_inv_solver.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/LU_inv_solver.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object utils/CMakeFiles/utils.dir/LU_inv_solver.cpp.o"
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/LU_inv_solver.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/LU_inv_solver.cpp
 
 utils/CMakeFiles/utils.dir/LU_inv_solver.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/utils.dir/LU_inv_solver.cpp.i"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/LU_inv_solver.cpp > CMakeFiles/utils.dir/LU_inv_solver.cpp.i
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/LU_inv_solver.cpp > CMakeFiles/utils.dir/LU_inv_solver.cpp.i
 
 utils/CMakeFiles/utils.dir/LU_inv_solver.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/utils.dir/LU_inv_solver.cpp.s"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/LU_inv_solver.cpp -o CMakeFiles/utils.dir/LU_inv_solver.cpp.s
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/LU_inv_solver.cpp -o CMakeFiles/utils.dir/LU_inv_solver.cpp.s
 
 utils/CMakeFiles/utils.dir/MatrixAdd_.cpp.o: utils/CMakeFiles/utils.dir/flags.make
 utils/CMakeFiles/utils.dir/MatrixAdd_.cpp.o: ../utils/MatrixAdd_.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object utils/CMakeFiles/utils.dir/MatrixAdd_.cpp.o"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/MatrixAdd_.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/MatrixAdd_.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object utils/CMakeFiles/utils.dir/MatrixAdd_.cpp.o"
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/MatrixAdd_.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/MatrixAdd_.cpp
 
 utils/CMakeFiles/utils.dir/MatrixAdd_.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/utils.dir/MatrixAdd_.cpp.i"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/MatrixAdd_.cpp > CMakeFiles/utils.dir/MatrixAdd_.cpp.i
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/MatrixAdd_.cpp > CMakeFiles/utils.dir/MatrixAdd_.cpp.i
 
 utils/CMakeFiles/utils.dir/MatrixAdd_.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/utils.dir/MatrixAdd_.cpp.s"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/MatrixAdd_.cpp -o CMakeFiles/utils.dir/MatrixAdd_.cpp.s
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/MatrixAdd_.cpp -o CMakeFiles/utils.dir/MatrixAdd_.cpp.s
 
 utils/CMakeFiles/utils.dir/MatrixCopy_.cpp.o: utils/CMakeFiles/utils.dir/flags.make
 utils/CMakeFiles/utils.dir/MatrixCopy_.cpp.o: ../utils/MatrixCopy_.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object utils/CMakeFiles/utils.dir/MatrixCopy_.cpp.o"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/MatrixCopy_.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/MatrixCopy_.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object utils/CMakeFiles/utils.dir/MatrixCopy_.cpp.o"
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/MatrixCopy_.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/MatrixCopy_.cpp
 
 utils/CMakeFiles/utils.dir/MatrixCopy_.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/utils.dir/MatrixCopy_.cpp.i"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/MatrixCopy_.cpp > CMakeFiles/utils.dir/MatrixCopy_.cpp.i
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/MatrixCopy_.cpp > CMakeFiles/utils.dir/MatrixCopy_.cpp.i
 
 utils/CMakeFiles/utils.dir/MatrixCopy_.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/utils.dir/MatrixCopy_.cpp.s"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/MatrixCopy_.cpp -o CMakeFiles/utils.dir/MatrixCopy_.cpp.s
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/MatrixCopy_.cpp -o CMakeFiles/utils.dir/MatrixCopy_.cpp.s
 
 utils/CMakeFiles/utils.dir/MatrixDiagExpand.cpp.o: utils/CMakeFiles/utils.dir/flags.make
 utils/CMakeFiles/utils.dir/MatrixDiagExpand.cpp.o: ../utils/MatrixDiagExpand.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object utils/CMakeFiles/utils.dir/MatrixDiagExpand.cpp.o"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/MatrixDiagExpand.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/MatrixDiagExpand.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object utils/CMakeFiles/utils.dir/MatrixDiagExpand.cpp.o"
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/MatrixDiagExpand.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/MatrixDiagExpand.cpp
 
 utils/CMakeFiles/utils.dir/MatrixDiagExpand.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/utils.dir/MatrixDiagExpand.cpp.i"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/MatrixDiagExpand.cpp > CMakeFiles/utils.dir/MatrixDiagExpand.cpp.i
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/MatrixDiagExpand.cpp > CMakeFiles/utils.dir/MatrixDiagExpand.cpp.i
 
 utils/CMakeFiles/utils.dir/MatrixDiagExpand.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/utils.dir/MatrixDiagExpand.cpp.s"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/MatrixDiagExpand.cpp -o CMakeFiles/utils.dir/MatrixDiagExpand.cpp.s
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/MatrixDiagExpand.cpp -o CMakeFiles/utils.dir/MatrixDiagExpand.cpp.s
 
 utils/CMakeFiles/utils.dir/MatrixExtract_.cpp.o: utils/CMakeFiles/utils.dir/flags.make
 utils/CMakeFiles/utils.dir/MatrixExtract_.cpp.o: ../utils/MatrixExtract_.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object utils/CMakeFiles/utils.dir/MatrixExtract_.cpp.o"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/MatrixExtract_.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/MatrixExtract_.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object utils/CMakeFiles/utils.dir/MatrixExtract_.cpp.o"
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/MatrixExtract_.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/MatrixExtract_.cpp
 
 utils/CMakeFiles/utils.dir/MatrixExtract_.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/utils.dir/MatrixExtract_.cpp.i"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/MatrixExtract_.cpp > CMakeFiles/utils.dir/MatrixExtract_.cpp.i
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/MatrixExtract_.cpp > CMakeFiles/utils.dir/MatrixExtract_.cpp.i
 
 utils/CMakeFiles/utils.dir/MatrixExtract_.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/utils.dir/MatrixExtract_.cpp.s"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/MatrixExtract_.cpp -o CMakeFiles/utils.dir/MatrixExtract_.cpp.s
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/MatrixExtract_.cpp -o CMakeFiles/utils.dir/MatrixExtract_.cpp.s
 
 utils/CMakeFiles/utils.dir/MatrixMulti.cpp.o: utils/CMakeFiles/utils.dir/flags.make
 utils/CMakeFiles/utils.dir/MatrixMulti.cpp.o: ../utils/MatrixMulti.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object utils/CMakeFiles/utils.dir/MatrixMulti.cpp.o"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/MatrixMulti.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/MatrixMulti.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object utils/CMakeFiles/utils.dir/MatrixMulti.cpp.o"
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/MatrixMulti.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/MatrixMulti.cpp
 
 utils/CMakeFiles/utils.dir/MatrixMulti.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/utils.dir/MatrixMulti.cpp.i"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/MatrixMulti.cpp > CMakeFiles/utils.dir/MatrixMulti.cpp.i
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/MatrixMulti.cpp > CMakeFiles/utils.dir/MatrixMulti.cpp.i
 
 utils/CMakeFiles/utils.dir/MatrixMulti.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/utils.dir/MatrixMulti.cpp.s"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/MatrixMulti.cpp -o CMakeFiles/utils.dir/MatrixMulti.cpp.s
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/MatrixMulti.cpp -o CMakeFiles/utils.dir/MatrixMulti.cpp.s
 
 utils/CMakeFiles/utils.dir/MatrixMultiTranspose.cpp.o: utils/CMakeFiles/utils.dir/flags.make
 utils/CMakeFiles/utils.dir/MatrixMultiTranspose.cpp.o: ../utils/MatrixMultiTranspose.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object utils/CMakeFiles/utils.dir/MatrixMultiTranspose.cpp.o"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/MatrixMultiTranspose.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/MatrixMultiTranspose.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object utils/CMakeFiles/utils.dir/MatrixMultiTranspose.cpp.o"
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/MatrixMultiTranspose.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/MatrixMultiTranspose.cpp
 
 utils/CMakeFiles/utils.dir/MatrixMultiTranspose.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/utils.dir/MatrixMultiTranspose.cpp.i"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/MatrixMultiTranspose.cpp > CMakeFiles/utils.dir/MatrixMultiTranspose.cpp.i
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/MatrixMultiTranspose.cpp > CMakeFiles/utils.dir/MatrixMultiTranspose.cpp.i
 
 utils/CMakeFiles/utils.dir/MatrixMultiTranspose.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/utils.dir/MatrixMultiTranspose.cpp.s"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/MatrixMultiTranspose.cpp -o CMakeFiles/utils.dir/MatrixMultiTranspose.cpp.s
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/MatrixMultiTranspose.cpp -o CMakeFiles/utils.dir/MatrixMultiTranspose.cpp.s
 
 utils/CMakeFiles/utils.dir/MatrixMulti_.cpp.o: utils/CMakeFiles/utils.dir/flags.make
 utils/CMakeFiles/utils.dir/MatrixMulti_.cpp.o: ../utils/MatrixMulti_.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object utils/CMakeFiles/utils.dir/MatrixMulti_.cpp.o"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/MatrixMulti_.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/MatrixMulti_.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object utils/CMakeFiles/utils.dir/MatrixMulti_.cpp.o"
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/MatrixMulti_.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/MatrixMulti_.cpp
 
 utils/CMakeFiles/utils.dir/MatrixMulti_.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/utils.dir/MatrixMulti_.cpp.i"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/MatrixMulti_.cpp > CMakeFiles/utils.dir/MatrixMulti_.cpp.i
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/MatrixMulti_.cpp > CMakeFiles/utils.dir/MatrixMulti_.cpp.i
 
 utils/CMakeFiles/utils.dir/MatrixMulti_.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/utils.dir/MatrixMulti_.cpp.s"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/MatrixMulti_.cpp -o CMakeFiles/utils.dir/MatrixMulti_.cpp.s
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/MatrixMulti_.cpp -o CMakeFiles/utils.dir/MatrixMulti_.cpp.s
 
 utils/CMakeFiles/utils.dir/MatrixSub_.cpp.o: utils/CMakeFiles/utils.dir/flags.make
 utils/CMakeFiles/utils.dir/MatrixSub_.cpp.o: ../utils/MatrixSub_.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object utils/CMakeFiles/utils.dir/MatrixSub_.cpp.o"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/MatrixSub_.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/MatrixSub_.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object utils/CMakeFiles/utils.dir/MatrixSub_.cpp.o"
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/MatrixSub_.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/MatrixSub_.cpp
 
 utils/CMakeFiles/utils.dir/MatrixSub_.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/utils.dir/MatrixSub_.cpp.i"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/MatrixSub_.cpp > CMakeFiles/utils.dir/MatrixSub_.cpp.i
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/MatrixSub_.cpp > CMakeFiles/utils.dir/MatrixSub_.cpp.i
 
 utils/CMakeFiles/utils.dir/MatrixSub_.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/utils.dir/MatrixSub_.cpp.s"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/MatrixSub_.cpp -o CMakeFiles/utils.dir/MatrixSub_.cpp.s
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/MatrixSub_.cpp -o CMakeFiles/utils.dir/MatrixSub_.cpp.s
 
 utils/CMakeFiles/utils.dir/MatrixTranspose.cpp.o: utils/CMakeFiles/utils.dir/flags.make
 utils/CMakeFiles/utils.dir/MatrixTranspose.cpp.o: ../utils/MatrixTranspose.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object utils/CMakeFiles/utils.dir/MatrixTranspose.cpp.o"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/MatrixTranspose.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/MatrixTranspose.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object utils/CMakeFiles/utils.dir/MatrixTranspose.cpp.o"
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/MatrixTranspose.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/MatrixTranspose.cpp
 
 utils/CMakeFiles/utils.dir/MatrixTranspose.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/utils.dir/MatrixTranspose.cpp.i"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/MatrixTranspose.cpp > CMakeFiles/utils.dir/MatrixTranspose.cpp.i
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/MatrixTranspose.cpp > CMakeFiles/utils.dir/MatrixTranspose.cpp.i
 
 utils/CMakeFiles/utils.dir/MatrixTranspose.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/utils.dir/MatrixTranspose.cpp.s"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/MatrixTranspose.cpp -o CMakeFiles/utils.dir/MatrixTranspose.cpp.s
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/MatrixTranspose.cpp -o CMakeFiles/utils.dir/MatrixTranspose.cpp.s
 
 utils/CMakeFiles/utils.dir/MatrixTranspose_.cpp.o: utils/CMakeFiles/utils.dir/flags.make
 utils/CMakeFiles/utils.dir/MatrixTranspose_.cpp.o: ../utils/MatrixTranspose_.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object utils/CMakeFiles/utils.dir/MatrixTranspose_.cpp.o"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/MatrixTranspose_.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/MatrixTranspose_.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object utils/CMakeFiles/utils.dir/MatrixTranspose_.cpp.o"
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/MatrixTranspose_.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/MatrixTranspose_.cpp
 
 utils/CMakeFiles/utils.dir/MatrixTranspose_.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/utils.dir/MatrixTranspose_.cpp.i"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/MatrixTranspose_.cpp > CMakeFiles/utils.dir/MatrixTranspose_.cpp.i
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/MatrixTranspose_.cpp > CMakeFiles/utils.dir/MatrixTranspose_.cpp.i
 
 utils/CMakeFiles/utils.dir/MatrixTranspose_.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/utils.dir/MatrixTranspose_.cpp.s"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/MatrixTranspose_.cpp -o CMakeFiles/utils.dir/MatrixTranspose_.cpp.s
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/MatrixTranspose_.cpp -o CMakeFiles/utils.dir/MatrixTranspose_.cpp.s
 
 utils/CMakeFiles/utils.dir/ScaleMatrix_.cpp.o: utils/CMakeFiles/utils.dir/flags.make
 utils/CMakeFiles/utils.dir/ScaleMatrix_.cpp.o: ../utils/ScaleMatrix_.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object utils/CMakeFiles/utils.dir/ScaleMatrix_.cpp.o"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/ScaleMatrix_.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/ScaleMatrix_.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object utils/CMakeFiles/utils.dir/ScaleMatrix_.cpp.o"
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/ScaleMatrix_.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/ScaleMatrix_.cpp
 
 utils/CMakeFiles/utils.dir/ScaleMatrix_.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/utils.dir/ScaleMatrix_.cpp.i"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/ScaleMatrix_.cpp > CMakeFiles/utils.dir/ScaleMatrix_.cpp.i
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/ScaleMatrix_.cpp > CMakeFiles/utils.dir/ScaleMatrix_.cpp.i
 
 utils/CMakeFiles/utils.dir/ScaleMatrix_.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/utils.dir/ScaleMatrix_.cpp.s"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/ScaleMatrix_.cpp -o CMakeFiles/utils.dir/ScaleMatrix_.cpp.s
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/ScaleMatrix_.cpp -o CMakeFiles/utils.dir/ScaleMatrix_.cpp.s
 
 utils/CMakeFiles/utils.dir/SetZeroMatrix_.cpp.o: utils/CMakeFiles/utils.dir/flags.make
 utils/CMakeFiles/utils.dir/SetZeroMatrix_.cpp.o: ../utils/SetZeroMatrix_.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object utils/CMakeFiles/utils.dir/SetZeroMatrix_.cpp.o"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/SetZeroMatrix_.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/SetZeroMatrix_.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object utils/CMakeFiles/utils.dir/SetZeroMatrix_.cpp.o"
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/SetZeroMatrix_.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/SetZeroMatrix_.cpp
 
 utils/CMakeFiles/utils.dir/SetZeroMatrix_.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/utils.dir/SetZeroMatrix_.cpp.i"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/SetZeroMatrix_.cpp > CMakeFiles/utils.dir/SetZeroMatrix_.cpp.i
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/SetZeroMatrix_.cpp > CMakeFiles/utils.dir/SetZeroMatrix_.cpp.i
 
 utils/CMakeFiles/utils.dir/SetZeroMatrix_.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/utils.dir/SetZeroMatrix_.cpp.s"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/SetZeroMatrix_.cpp -o CMakeFiles/utils.dir/SetZeroMatrix_.cpp.s
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/SetZeroMatrix_.cpp -o CMakeFiles/utils.dir/SetZeroMatrix_.cpp.s
 
 utils/CMakeFiles/utils.dir/calc_Euler_dev2angvl.cpp.o: utils/CMakeFiles/utils.dir/flags.make
 utils/CMakeFiles/utils.dir/calc_Euler_dev2angvl.cpp.o: ../utils/calc_Euler_dev2angvl.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object utils/CMakeFiles/utils.dir/calc_Euler_dev2angvl.cpp.o"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/calc_Euler_dev2angvl.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/calc_Euler_dev2angvl.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object utils/CMakeFiles/utils.dir/calc_Euler_dev2angvl.cpp.o"
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/calc_Euler_dev2angvl.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/calc_Euler_dev2angvl.cpp
 
 utils/CMakeFiles/utils.dir/calc_Euler_dev2angvl.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/utils.dir/calc_Euler_dev2angvl.cpp.i"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/calc_Euler_dev2angvl.cpp > CMakeFiles/utils.dir/calc_Euler_dev2angvl.cpp.i
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/calc_Euler_dev2angvl.cpp > CMakeFiles/utils.dir/calc_Euler_dev2angvl.cpp.i
 
 utils/CMakeFiles/utils.dir/calc_Euler_dev2angvl.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/utils.dir/calc_Euler_dev2angvl.cpp.s"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/calc_Euler_dev2angvl.cpp -o CMakeFiles/utils.dir/calc_Euler_dev2angvl.cpp.s
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/calc_Euler_dev2angvl.cpp -o CMakeFiles/utils.dir/calc_Euler_dev2angvl.cpp.s
 
 utils/CMakeFiles/utils.dir/cross.cpp.o: utils/CMakeFiles/utils.dir/flags.make
 utils/CMakeFiles/utils.dir/cross.cpp.o: ../utils/cross.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object utils/CMakeFiles/utils.dir/cross.cpp.o"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/cross.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/cross.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object utils/CMakeFiles/utils.dir/cross.cpp.o"
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/cross.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/cross.cpp
 
 utils/CMakeFiles/utils.dir/cross.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/utils.dir/cross.cpp.i"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/cross.cpp > CMakeFiles/utils.dir/cross.cpp.i
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/cross.cpp > CMakeFiles/utils.dir/cross.cpp.i
 
 utils/CMakeFiles/utils.dir/cross.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/utils.dir/cross.cpp.s"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/cross.cpp -o CMakeFiles/utils.dir/cross.cpp.s
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/cross.cpp -o CMakeFiles/utils.dir/cross.cpp.s
 
 utils/CMakeFiles/utils.dir/cxyz.cpp.o: utils/CMakeFiles/utils.dir/flags.make
 utils/CMakeFiles/utils.dir/cxyz.cpp.o: ../utils/cxyz.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object utils/CMakeFiles/utils.dir/cxyz.cpp.o"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/cxyz.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/cxyz.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object utils/CMakeFiles/utils.dir/cxyz.cpp.o"
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/cxyz.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/cxyz.cpp
 
 utils/CMakeFiles/utils.dir/cxyz.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/utils.dir/cxyz.cpp.i"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/cxyz.cpp > CMakeFiles/utils.dir/cxyz.cpp.i
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/cxyz.cpp > CMakeFiles/utils.dir/cxyz.cpp.i
 
 utils/CMakeFiles/utils.dir/cxyz.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/utils.dir/cxyz.cpp.s"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/cxyz.cpp -o CMakeFiles/utils.dir/cxyz.cpp.s
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/cxyz.cpp -o CMakeFiles/utils.dir/cxyz.cpp.s
 
 utils/CMakeFiles/utils.dir/dc2euler.cpp.o: utils/CMakeFiles/utils.dir/flags.make
 utils/CMakeFiles/utils.dir/dc2euler.cpp.o: ../utils/dc2euler.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object utils/CMakeFiles/utils.dir/dc2euler.cpp.o"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/dc2euler.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/dc2euler.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object utils/CMakeFiles/utils.dir/dc2euler.cpp.o"
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/dc2euler.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/dc2euler.cpp
 
 utils/CMakeFiles/utils.dir/dc2euler.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/utils.dir/dc2euler.cpp.i"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/dc2euler.cpp > CMakeFiles/utils.dir/dc2euler.cpp.i
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/dc2euler.cpp > CMakeFiles/utils.dir/dc2euler.cpp.i
 
 utils/CMakeFiles/utils.dir/dc2euler.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/utils.dir/dc2euler.cpp.s"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/dc2euler.cpp -o CMakeFiles/utils.dir/dc2euler.cpp.s
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/dc2euler.cpp -o CMakeFiles/utils.dir/dc2euler.cpp.s
 
 utils/CMakeFiles/utils.dir/determinantOfMatrix.cpp.o: utils/CMakeFiles/utils.dir/flags.make
 utils/CMakeFiles/utils.dir/determinantOfMatrix.cpp.o: ../utils/determinantOfMatrix.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object utils/CMakeFiles/utils.dir/determinantOfMatrix.cpp.o"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/determinantOfMatrix.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/determinantOfMatrix.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object utils/CMakeFiles/utils.dir/determinantOfMatrix.cpp.o"
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/determinantOfMatrix.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/determinantOfMatrix.cpp
 
 utils/CMakeFiles/utils.dir/determinantOfMatrix.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/utils.dir/determinantOfMatrix.cpp.i"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/determinantOfMatrix.cpp > CMakeFiles/utils.dir/determinantOfMatrix.cpp.i
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/determinantOfMatrix.cpp > CMakeFiles/utils.dir/determinantOfMatrix.cpp.i
 
 utils/CMakeFiles/utils.dir/determinantOfMatrix.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/utils.dir/determinantOfMatrix.cpp.s"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/determinantOfMatrix.cpp -o CMakeFiles/utils.dir/determinantOfMatrix.cpp.s
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/determinantOfMatrix.cpp -o CMakeFiles/utils.dir/determinantOfMatrix.cpp.s
 
 utils/CMakeFiles/utils.dir/euler_ZYX2dc.cpp.o: utils/CMakeFiles/utils.dir/flags.make
 utils/CMakeFiles/utils.dir/euler_ZYX2dc.cpp.o: ../utils/euler_ZYX2dc.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object utils/CMakeFiles/utils.dir/euler_ZYX2dc.cpp.o"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/euler_ZYX2dc.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/euler_ZYX2dc.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object utils/CMakeFiles/utils.dir/euler_ZYX2dc.cpp.o"
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/euler_ZYX2dc.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/euler_ZYX2dc.cpp
 
 utils/CMakeFiles/utils.dir/euler_ZYX2dc.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/utils.dir/euler_ZYX2dc.cpp.i"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/euler_ZYX2dc.cpp > CMakeFiles/utils.dir/euler_ZYX2dc.cpp.i
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/euler_ZYX2dc.cpp > CMakeFiles/utils.dir/euler_ZYX2dc.cpp.i
 
 utils/CMakeFiles/utils.dir/euler_ZYX2dc.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/utils.dir/euler_ZYX2dc.cpp.s"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/euler_ZYX2dc.cpp -o CMakeFiles/utils.dir/euler_ZYX2dc.cpp.s
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/euler_ZYX2dc.cpp -o CMakeFiles/utils.dir/euler_ZYX2dc.cpp.s
 
 utils/CMakeFiles/utils.dir/primerange.cpp.o: utils/CMakeFiles/utils.dir/flags.make
 utils/CMakeFiles/utils.dir/primerange.cpp.o: ../utils/primerange.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object utils/CMakeFiles/utils.dir/primerange.cpp.o"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/primerange.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/primerange.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object utils/CMakeFiles/utils.dir/primerange.cpp.o"
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/primerange.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/primerange.cpp
 
 utils/CMakeFiles/utils.dir/primerange.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/utils.dir/primerange.cpp.i"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/primerange.cpp > CMakeFiles/utils.dir/primerange.cpp.i
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/primerange.cpp > CMakeFiles/utils.dir/primerange.cpp.i
 
 utils/CMakeFiles/utils.dir/primerange.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/utils.dir/primerange.cpp.s"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/primerange.cpp -o CMakeFiles/utils.dir/primerange.cpp.s
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/primerange.cpp -o CMakeFiles/utils.dir/primerange.cpp.s
 
 utils/CMakeFiles/utils.dir/quaternion2dc.cpp.o: utils/CMakeFiles/utils.dir/flags.make
 utils/CMakeFiles/utils.dir/quaternion2dc.cpp.o: ../utils/quaternion2dc.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object utils/CMakeFiles/utils.dir/quaternion2dc.cpp.o"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/quaternion2dc.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/quaternion2dc.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object utils/CMakeFiles/utils.dir/quaternion2dc.cpp.o"
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/quaternion2dc.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/quaternion2dc.cpp
 
 utils/CMakeFiles/utils.dir/quaternion2dc.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/utils.dir/quaternion2dc.cpp.i"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/quaternion2dc.cpp > CMakeFiles/utils.dir/quaternion2dc.cpp.i
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/quaternion2dc.cpp > CMakeFiles/utils.dir/quaternion2dc.cpp.i
 
 utils/CMakeFiles/utils.dir/quaternion2dc.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/utils.dir/quaternion2dc.cpp.s"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/quaternion2dc.cpp -o CMakeFiles/utils.dir/quaternion2dc.cpp.s
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/quaternion2dc.cpp -o CMakeFiles/utils.dir/quaternion2dc.cpp.s
 
 utils/CMakeFiles/utils.dir/quaternion2euler.cpp.o: utils/CMakeFiles/utils.dir/flags.make
 utils/CMakeFiles/utils.dir/quaternion2euler.cpp.o: ../utils/quaternion2euler.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object utils/CMakeFiles/utils.dir/quaternion2euler.cpp.o"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/quaternion2euler.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/quaternion2euler.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object utils/CMakeFiles/utils.dir/quaternion2euler.cpp.o"
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/quaternion2euler.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/quaternion2euler.cpp
 
 utils/CMakeFiles/utils.dir/quaternion2euler.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/utils.dir/quaternion2euler.cpp.i"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/quaternion2euler.cpp > CMakeFiles/utils.dir/quaternion2euler.cpp.i
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/quaternion2euler.cpp > CMakeFiles/utils.dir/quaternion2euler.cpp.i
 
 utils/CMakeFiles/utils.dir/quaternion2euler.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/utils.dir/quaternion2euler.cpp.s"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/quaternion2euler.cpp -o CMakeFiles/utils.dir/quaternion2euler.cpp.s
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/quaternion2euler.cpp -o CMakeFiles/utils.dir/quaternion2euler.cpp.s
 
 utils/CMakeFiles/utils.dir/random_float_generation.cpp.o: utils/CMakeFiles/utils.dir/flags.make
 utils/CMakeFiles/utils.dir/random_float_generation.cpp.o: ../utils/random_float_generation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object utils/CMakeFiles/utils.dir/random_float_generation.cpp.o"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/random_float_generation.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/random_float_generation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object utils/CMakeFiles/utils.dir/random_float_generation.cpp.o"
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/random_float_generation.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/random_float_generation.cpp
 
 utils/CMakeFiles/utils.dir/random_float_generation.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/utils.dir/random_float_generation.cpp.i"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/random_float_generation.cpp > CMakeFiles/utils.dir/random_float_generation.cpp.i
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/random_float_generation.cpp > CMakeFiles/utils.dir/random_float_generation.cpp.i
 
 utils/CMakeFiles/utils.dir/random_float_generation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/utils.dir/random_float_generation.cpp.s"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/random_float_generation.cpp -o CMakeFiles/utils.dir/random_float_generation.cpp.s
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/random_float_generation.cpp -o CMakeFiles/utils.dir/random_float_generation.cpp.s
 
 utils/CMakeFiles/utils.dir/rpy2dc.cpp.o: utils/CMakeFiles/utils.dir/flags.make
 utils/CMakeFiles/utils.dir/rpy2dc.cpp.o: ../utils/rpy2dc.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object utils/CMakeFiles/utils.dir/rpy2dc.cpp.o"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/rpy2dc.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/rpy2dc.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object utils/CMakeFiles/utils.dir/rpy2dc.cpp.o"
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/rpy2dc.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/rpy2dc.cpp
 
 utils/CMakeFiles/utils.dir/rpy2dc.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/utils.dir/rpy2dc.cpp.i"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/rpy2dc.cpp > CMakeFiles/utils.dir/rpy2dc.cpp.i
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/rpy2dc.cpp > CMakeFiles/utils.dir/rpy2dc.cpp.i
 
 utils/CMakeFiles/utils.dir/rpy2dc.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/utils.dir/rpy2dc.cpp.s"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/rpy2dc.cpp -o CMakeFiles/utils.dir/rpy2dc.cpp.s
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/rpy2dc.cpp -o CMakeFiles/utils.dir/rpy2dc.cpp.s
 
 utils/CMakeFiles/utils.dir/zyx2quaternion.cpp.o: utils/CMakeFiles/utils.dir/flags.make
 utils/CMakeFiles/utils.dir/zyx2quaternion.cpp.o: ../utils/zyx2quaternion.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object utils/CMakeFiles/utils.dir/zyx2quaternion.cpp.o"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/zyx2quaternion.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/zyx2quaternion.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object utils/CMakeFiles/utils.dir/zyx2quaternion.cpp.o"
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utils.dir/zyx2quaternion.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/zyx2quaternion.cpp
 
 utils/CMakeFiles/utils.dir/zyx2quaternion.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/utils.dir/zyx2quaternion.cpp.i"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/zyx2quaternion.cpp > CMakeFiles/utils.dir/zyx2quaternion.cpp.i
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/zyx2quaternion.cpp > CMakeFiles/utils.dir/zyx2quaternion.cpp.i
 
 utils/CMakeFiles/utils.dir/zyx2quaternion.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/utils.dir/zyx2quaternion.cpp.s"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils/zyx2quaternion.cpp -o CMakeFiles/utils.dir/zyx2quaternion.cpp.s
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/zyx2quaternion.cpp -o CMakeFiles/utils.dir/zyx2quaternion.cpp.s
 
 # Object files for target utils
 utils_OBJECTS = \
@@ -440,9 +440,9 @@ utils_EXTERNAL_OBJECTS =
 ../lib/libutils.a: utils/CMakeFiles/utils.dir/zyx2quaternion.cpp.o
 ../lib/libutils.a: utils/CMakeFiles/utils.dir/build.make
 ../lib/libutils.a: utils/CMakeFiles/utils.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Linking CXX static library ../../lib/libutils.a"
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && $(CMAKE_COMMAND) -P CMakeFiles/utils.dir/cmake_clean_target.cmake
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/utils.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Linking CXX static library ../../lib/libutils.a"
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && $(CMAKE_COMMAND) -P CMakeFiles/utils.dir/cmake_clean_target.cmake
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/utils.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 utils/CMakeFiles/utils.dir/build: ../lib/libutils.a
@@ -450,10 +450,10 @@ utils/CMakeFiles/utils.dir/build: ../lib/libutils.a
 .PHONY : utils/CMakeFiles/utils.dir/build
 
 utils/CMakeFiles/utils.dir/clean:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils && $(CMAKE_COMMAND) -P CMakeFiles/utils.dir/cmake_clean.cmake
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils && $(CMAKE_COMMAND) -P CMakeFiles/utils.dir/cmake_clean.cmake
 .PHONY : utils/CMakeFiles/utils.dir/clean
 
 utils/CMakeFiles/utils.dir/depend:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2 /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/utils /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils/CMakeFiles/utils.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils/CMakeFiles/utils.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : utils/CMakeFiles/utils.dir/depend
 

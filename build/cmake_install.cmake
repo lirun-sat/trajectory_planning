@@ -1,4 +1,4 @@
-# Install script for directory: /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2
+# Install script for directory: /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,8 +39,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/kinetics/cmake_install.cmake")
-  include("/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/utils/cmake_install.cmake")
+  include("/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/kinetics/cmake_install.cmake")
+  include("/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils/cmake_install.cmake")
 
 endif()
 
@@ -52,5 +52,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
