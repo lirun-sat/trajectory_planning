@@ -24,101 +24,101 @@ cstring
 cstdlib
 -
 
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/A_b.cpp
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/A_b.cpp
 utils.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/utils.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/utils.h
 
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/J_Base2EE.cpp
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/J_Base2EE.cpp
 forward_kinematics.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/forward_kinematics.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/forward_kinematics.h
 data.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/data.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/data.h
 utils.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/utils.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/utils.h
 
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/J_bm.cpp
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/J_bm.cpp
 forward_kinematics.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/forward_kinematics.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/forward_kinematics.h
 data.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/data.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/data.h
 utils.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/utils.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/utils.h
 
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/calc_binomial.cpp
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/calc_binomial.cpp
 
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/calc_p.cpp
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/calc_p.cpp
 forward_kinematics.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/forward_kinematics.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/forward_kinematics.h
 data.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/data.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/data.h
 utils.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/utils.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/utils.h
 
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/calc_para_range.cpp
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/calc_para_range.cpp
 forward_kinematics.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/forward_kinematics.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/forward_kinematics.h
 data.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/data.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/data.h
 utils.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/utils.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/utils.h
 
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/calc_q_ddot.cpp
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/calc_q_ddot.cpp
 forward_kinematics.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/forward_kinematics.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/forward_kinematics.h
 data.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/data.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/data.h
 utils.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/utils.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/utils.h
 
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/calc_q_dot.cpp
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/calc_q_dot.cpp
 forward_kinematics.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/forward_kinematics.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/forward_kinematics.h
 data.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/data.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/data.h
 utils.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/utils.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/utils.h
 
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/calc_r.cpp
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/calc_r.cpp
 forward_kinematics.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/forward_kinematics.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/forward_kinematics.h
 data.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/data.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/data.h
 utils.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/utils.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/utils.h
 
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/delta_var.cpp
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/delta_var.cpp
 forward_kinematics.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/forward_kinematics.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/forward_kinematics.h
 data.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/data.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/data.h
 utils.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/utils.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/utils.h
 
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/forward_kin.cpp
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/forward_kin.cpp
 forward_kinematics.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/forward_kinematics.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/forward_kinematics.h
 data.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/data.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/data.h
 utils.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/utils.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/utils.h
 
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/forward_kin_2.cpp
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/forward_kin_2.cpp
 forward_kinematics.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/forward_kinematics.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/forward_kinematics.h
 data.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/data.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/data.h
 utils.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/utils.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/utils.h
 
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/global_data.cpp
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/global_data.cpp
 cmath
 -
 
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/links_transform.cpp
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/links_transform.cpp
 forward_kinematics.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/forward_kinematics.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/forward_kinematics.h
 data.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/data.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/data.h
 utils.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics/utils.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/utils.h
 
