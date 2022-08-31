@@ -1,7 +1,8 @@
 #define _USE_MATH_DEFINES 
-#include "forward_kinematics.h"
-#include"data.h"
-#include "utils.h"
+// #include "forward_kinematics.h"
+// #include"data.h"
+// #include "utils.h"
+
 
 void MatrixTranspose_(int row, int col, double* M, double* M_T)
 {

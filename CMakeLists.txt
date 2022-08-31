@@ -1,5 +1,8 @@
 
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION          3.10)
+cmake_policy(SET CMP0048                NEW) 
+
+
 project(forward_kinematics VERSION 1.0)
 
 # specify the C++ standard
@@ -19,11 +22,13 @@ endif()
 
 add_subdirectory(kinetics)
 add_subdirectory(utils)
+add_subdirectory(openGJK)
 
 # add_executable(${PROJECT_NAME} ../src/test_main.cpp)
 # add_executable(${PROJECT_NAME} ../src/test_main_2.cpp)
+# add_executable(forward_kinematics ../src/test_main_4.cpp)  # 运行 cmake 命令的目录，通常为${PROJECT_SOURCE_DIR}/build， ../ 表示上一级目录
 
-add_executable(forward_kinematics ../src/test_main_4.cpp)
+add_executable(forward_kinematics ${PROJECT_SOURCE_DIR}/src/test_main_5.cpp)
 set (EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 
 # add_executable(test_kinematics ../src/test_kinematics.cpp)
@@ -31,7 +36,8 @@ set (EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 
 target_include_directories(forward_kinematics 
 # PUBLIC ${PROJECT_BINARY_DIR}
-PUBLIC ${PROJECT_SOURCE_DIR}/include
+PUBLIC 
+	${PROJECT_SOURCE_DIR}/include
 )
 
 # target_include_directories(test_kinematics 
@@ -46,6 +52,7 @@ link_directories(${PROJECT_SOURCE_DIR}/lib)
 
 target_link_libraries(forward_kinematics kinetics)
 target_link_libraries(forward_kinematics utils)
+target_link_libraries(forward_kinematics opengjk)
 
 # target_link_libraries(test_kinematics kinetics)
 # target_link_libraries(test_kinematics utils)

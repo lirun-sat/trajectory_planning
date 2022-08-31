@@ -1,6 +1,6 @@
 #define _USE_MATH_DEFINES 
 #include "forward_kinematics.h"
-#include"data.h"
+#include "data.h"
 #include "utils.h"
 #include "WOAAlgorithm.h"
 #include "TLBO_Algorithm.h"
@@ -24,11 +24,6 @@ int main()
 	cout << "Pe_DESIRED:" << endl;
 	cout << Pe_DESIRED[0] << "  " << Pe_DESIRED[1] << "  " << Pe_DESIRED[2] << endl;
 
-
-	/*注意，徐 论文中的 3-41 和 3-42 有问题
-	末端初始位置 根据 初始关节角和原点定义（整个系统质心）可以求出，末端的初始姿态 为 【0.0000， 0.9848， 0.0000， 0.1736】
-	末端的期望位置 [1.3501, -0.0137, 0.1401], 末端的期望姿态 [-0.0085, 0.9988, 0.0096, 0.0472]
-    */
 
 	int dimension = N;
 	int student_whale_count = 40;
@@ -68,7 +63,6 @@ int main()
 	double woa_tlbo_fitness_temp_50 = 0;
 	double woa_tlbo_fitness_temp_80 = 0;
 
-	
 // *******************************************************************************************************************************************************************
 	calc_para_range(result_min, result_max);
 
@@ -77,14 +71,12 @@ int main()
 		para_low_bound[i] = result_min[i];
 		para_up_bound[i] = result_max[i];
 	}
-
 	cout << "result_min:" << endl;
 	for(int i=0;i<N;i++)
 	{
 		cout << result_min[i] << "  ";
 	}
 	cout << endl;
-
 	cout << "result_max:" << endl;
 	for(int i=0;i<N;i++)
 	{
@@ -166,7 +158,6 @@ int main()
 					cout << "Convergence reached" << endl;
 					break;
 				}
-				
 			}
 			else if (Iter == 3*Iter_Max / 100)
 			{
@@ -226,7 +217,6 @@ int main()
 					cout << "Convergence reached" << endl;
 					break;
 				}
-				
 			}
 			/*
 			else if (Iter == 7*Iter_Max / 40)
@@ -267,9 +257,7 @@ int main()
 					cout << "Convergence reached" << endl;
 					break;
 				}
-				
 			}
-			
 			else if (Iter == 15*Iter_Max / 100)
 			{
 				cout << "Iteration is :" << Iter << endl;
@@ -281,9 +269,7 @@ int main()
 					cout << "Convergence reached" << endl;
 					break;
 				}
-				
 			}
-			
 			else if (Iter == 22*Iter_Max / 100)
 			{
 				cout << "Iteration is :" << Iter << endl;
@@ -295,9 +281,7 @@ int main()
 					cout << "Convergence reached" << endl;
 					break;
 				}
-				
 			}
-			
 			else if (Iter == 35*Iter_Max / 100)
 			{
 				cout << "Iteration is :" << Iter << endl;
@@ -309,7 +293,6 @@ int main()
 					cout << "Convergence reached" << endl;
 					break;
 				}
-				
 			}
 			else if (Iter == 50*Iter_Max / 100)
 			{
@@ -322,7 +305,6 @@ int main()
 					cout << "Convergence reached" << endl;
 					break;
 				}
-				
 			}
 			else if (Iter == 80*Iter_Max / 100)
 			{
@@ -335,7 +317,6 @@ int main()
 					cout << "Convergence reached" << endl;
 					break;
 				}
-				
 			}
 			if (woa_tlbo_fitness[student_whale_count - 1] < 1)
 			{
@@ -355,7 +336,6 @@ int main()
 					{
 						woa._whaleSet[i]._position[j] = woa_tlbo_position[woa_tlbo_index[i]][j];
 					}
-
 				}
 				else
 				{
@@ -366,9 +346,7 @@ int main()
 						tlbo._studentSet[i - student_whale_count / 2]._position[j] = woa_tlbo_position[woa_tlbo_index[i]][j];
 					}
 				}
-
 			}
-
 			woa.refresh();
 			tlbo.refresh();
 			woa.update();
@@ -394,9 +372,7 @@ int main()
 					woa_tlbo_position[i][j] = tlbo._studentSet[i - student_whale_count / 2]._position[j];
 				}
 			}
-			
 			woa_tlbo_index[i] = i;
-
 		}
 
 		// for (int k = 0; k < student_whale_count; k++)
@@ -421,7 +397,9 @@ int main()
 	delete[] woa_tlbo_index;
 
 	for (int i = 0; i<student_whale_count; i++)
+	{
 		delete[] woa_tlbo_position[i];
+	}
 	delete[] woa_tlbo_position;
 
 	delete[] para_low_bound;
@@ -455,6 +433,7 @@ double calc_fitness_woa(WOA_Whale& whale)
     double* delta_xi_b_distrb_max = new double;
     double* manipl = new double;
     double* T_min = new double;
+	double* collision_times = new double;
 
 	for (int i = 0; i < N; i++)
 		para[i] = whale._position[i];
@@ -475,7 +454,7 @@ double calc_fitness_woa(WOA_Whale& whale)
 	double delta_Pe_end_mod_temp = 0;
 	double delta_xi_base_mod_temp = 0;
 
-	forward_kin_2( para,  eta_end,  xi_end,  Pe,  eta_b,  xi_b,  p_e_initial,  locus,  delta_xi_b_distrb_max,  manipl, T_min);
+	forward_kin_3( para,  eta_end,  xi_end,  Pe,  eta_b,  xi_b,  p_e_initial,  locus,  delta_xi_b_distrb_max,  manipl, T_min, collision_times);
 
 // ********************************************************  straight_line_locus  ************************************************************************************
     double delta_p_e = 0;
@@ -540,6 +519,7 @@ double calc_fitness_woa(WOA_Whale& whale)
 	delete delta_xi_b_distrb_max;
 	delete manipl;
 	delete T_min;
+	delete collision_times;
 
 
 	return cost_func;
@@ -570,6 +550,8 @@ double calc_fitness_tlbo(Student& student)
     double* delta_xi_b_distrb_max = new double;
     double* manipl = new double;
     double* T_min = new double;
+	double* collision_times = new double;
+
 
 	for (int i = 0; i < N; i++)
 		para[i] = student._position[i];
@@ -590,7 +572,7 @@ double calc_fitness_tlbo(Student& student)
 	double delta_Pe_end_mod_temp = 0;
 	double delta_xi_base_mod_temp = 0;
 
-	forward_kin_2( para,  eta_end,  xi_end,  Pe,  eta_b,  xi_b,  p_e_initial,  locus,  delta_xi_b_distrb_max,  manipl, T_min);
+	forward_kin_3( para,  eta_end,  xi_end,  Pe,  eta_b,  xi_b,  p_e_initial,  locus,  delta_xi_b_distrb_max,  manipl, T_min, collision_times);
 
 // ********************************************************  straight_line_locus  ************************************************************************************
     double delta_p_e = 0;
@@ -654,6 +636,8 @@ double calc_fitness_tlbo(Student& student)
 	delete delta_xi_b_distrb_max ;
 	delete manipl;
 	delete T_min ;
+	delete collision_times;
+
 
 
 	return cost_func;

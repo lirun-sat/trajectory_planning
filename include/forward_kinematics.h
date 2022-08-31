@@ -26,6 +26,10 @@ void forward_kin(double* para, double* eta_end, double* xi_end, double* Pe, doub
 void forward_kin_2(double* para, double* eta_end, double* xi_end, double* Pe, double* eta_b, double* xi_b, 
 				   double* p_e_initial, double* locus, double* RPY_base_distrb_max, double* manipl, double* T_min);
 
+void forward_kin_3(double* para, double* eta_end, double* xi_end, double* Pe, double* eta_b, double* xi_b, 
+                   double* p_e_initial, double* locus, double* delta_xi_b_distrb_max, double* manipl, double* T_min, double* collision);
+
+
 void delta_var(double* Pe_desired, double* eta_end_desired, double* xi_end_desired, 
 			   double* Pe, double eta_end, double* xi_end, double eta_b, double* xi_b,
 			   double* delta_eta_end, double* delta_xi_end, double* delta_Pe_end, 

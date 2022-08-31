@@ -5,8 +5,8 @@
 #include "openGJK.h"
 
 
-void forward_kin_2(double* para, double* eta_end, double* xi_end, double* Pe, double* eta_b, double* xi_b, 
-                   double* p_e_initial, double* locus, double* delta_xi_b_distrb_max, double* manipl, double* T_min)
+void forward_kin_3(double* para, double* eta_end, double* xi_end, double* Pe, double* eta_b, double* xi_b, 
+                   double* p_e_initial, double* locus, double* delta_xi_b_distrb_max, double* manipl, double* T_min, double* collision)
 {
     double* q = new double[N];
     double* q_dot = new double[N];
@@ -84,7 +84,7 @@ void forward_kin_2(double* para, double* eta_end, double* xi_end, double* Pe, do
     double* delta_eta_base_tempt = new double;
     double* delta_eta_base = new double;
     double* delta_xi_base_tempt = new double[3];
-    
+
     double eta_end_dot = 0;
     double eta_b_dot = 0;
     double total_mass_for_links = 0;
@@ -99,7 +99,214 @@ void forward_kin_2(double* para, double* eta_end, double* xi_end, double* Pe, do
     double q_dot_max_vmax = 0;
     double q_ddot_max_alphamax = 0;
     double T_min_temp = 0;
+
+
+
+
+    double* base_object_tempt = new double[nvrtx * 3];
+    double* left_solar_object_tempt = new double[nvrtx * 3];
+    double* right_solar_object_tempt = new double[nvrtx * 3];
+    double* link_1_part_1_object_tempt = new double[nvrtx * 3];
+    double* link_1_part_2_object_tempt = new double[nvrtx * 3];
+    double* link_2_part_1_object_tempt = new double[nvrtx * 3];
+    double* link_2_part_2_object_tempt = new double[nvrtx * 3];
+    double* link_5_part_1_object_tempt = new double[nvrtx * 3];
+    double* link_5_part_2_object_tempt = new double[nvrtx * 3];
+    double* link_5_part_3_object_tempt = new double[nvrtx * 3];
+    double* link_5_part_4_object_tempt = new double[nvrtx * 3];
+    double* link_5_part_5_object_tempt = new double[nvrtx * 3];
+    double* link_6_part_1_object_tempt = new double[nvrtx * 3];
+    double* link_6_part_2_object_tempt = new double[nvrtx * 3];
+    double* link_7_object_tempt = new double[nvrtx * 3];
+
+    double* A_links_transform_0 = new double[3*3];
+    double* A_links_transform_1 = new double[3*3];
+    double* A_links_transform_4 = new double[3*3];
+    double* A_links_transform_5 = new double[3*3];
+    double* A_links_transform_6 = new double[3*3];
+
+    double** base_object = new double*[nvrtx];
+    double** left_solar_object = new double*[nvrtx];
+    double** right_solar_object = new double*[nvrtx];
+    double** link_1_part_1_object = new double*[nvrtx];
+    double** link_1_part_2_object = new double*[nvrtx];
+    double** link_2_part_1_object = new double*[nvrtx];
+    double** link_2_part_2_object = new double*[nvrtx];
+    double** link_5_part_1_object = new double*[nvrtx];
+    double** link_5_part_2_object = new double*[nvrtx];
+    double** link_5_part_3_object = new double*[nvrtx];
+    double** link_5_part_4_object = new double*[nvrtx];
+    double** link_5_part_5_object = new double*[nvrtx];
+    double** link_6_part_1_object = new double*[nvrtx];
+    double** link_6_part_2_object = new double*[nvrtx];
+    double** link_7_object = new double*[nvrtx];
     
+    for(int i = 0; i < nvrtx; i++)
+    {
+        base_object[i] = new double[3];
+        left_solar_object[i] = new double[3];
+        right_solar_object[i] = new double[3];
+        link_1_part_1_object[i] = new double[3];
+        link_1_part_2_object[i] = new double[3];
+        link_2_part_1_object[i] = new double[3];
+        link_2_part_2_object[i] = new double[3];
+        link_5_part_1_object[i] = new double[3];
+        link_5_part_2_object[i] = new double[3];
+        link_5_part_3_object[i] = new double[3];
+        link_5_part_4_object[i] = new double[3];
+        link_5_part_5_object[i] = new double[3];
+        link_6_part_1_object[i] = new double[3];
+        link_6_part_2_object[i] = new double[3];
+        link_7_object[i] = new double[3];
+    }
+
+    double* base_center2vertex_temp = new double[nvrtx * 3]; 
+    double* base_center2left_solar_vertex_temp = new double[nvrtx * 3]; 
+    double* base_center2right_solar_vertex_temp = new double[nvrtx * 3]; 
+    double* link_1_center2link_1_part_1_vertex_temp = new double[nvrtx * 3]; 
+    double* link_1_center2link_1_part_2_vertex_temp = new double[nvrtx * 3]; 
+    double* link_2_center2link_2_part_1_vertex_temp = new double[nvrtx * 3]; 
+    double* link_2_center2link_2_part_2_vertex_temp = new double[nvrtx * 3]; 
+    double* link_5_center2link_5_part_1_vertex_temp = new double[nvrtx * 3]; 
+    double* link_5_center2link_5_part_2_vertex_temp = new double[nvrtx * 3]; 
+    double* link_5_center2link_5_part_3_vertex_temp = new double[nvrtx * 3]; 
+    double* link_5_center2link_5_part_4_vertex_temp = new double[nvrtx * 3]; 
+    double* link_5_center2link_5_part_5_vertex_temp = new double[nvrtx * 3]; 
+    double* link_6_center2link_6_part_1_vertex_temp = new double[nvrtx * 3]; 
+    double* link_6_center2link_6_part_2_vertex_temp = new double[nvrtx * 3]; 
+    double* link_7_center2link_7_vertex_temp = new double[nvrtx * 3]; 
+
+    double* distance_base2link_567 = new double[8];
+    double* distance_left2link_567 =new double[7];
+    double* distance_right2link_567 = new double[7];
+    double* distance_link_12link_567 = new double[14];
+    double* distance_link_22link_567 = new double[14];
+
+
+    gkSimplex s;
+    s.nvrtx = 0;
+    
+    gkPolytope bd_base_object;
+    gkPolytope bd_left_solar_object;
+    gkPolytope bd_right_solar_object;
+    gkPolytope bd_link_1_part_1_object;
+    gkPolytope bd_link_1_part_2_object;
+    gkPolytope bd_link_2_part_1_object;
+    gkPolytope bd_link_2_part_2_object;
+    gkPolytope bd_link_5_part_1_object;
+    gkPolytope bd_link_5_part_2_object;
+    gkPolytope bd_link_5_part_3_object;
+    gkPolytope bd_link_5_part_4_object;
+    gkPolytope bd_link_5_part_5_object;
+    gkPolytope bd_link_6_part_1_object;
+    gkPolytope bd_link_6_part_2_object;
+    gkPolytope bd_link_7_object;
+    
+
+    double collision_test_base_link567 = 0;
+    double collision_test_left_link567 = 0;
+    double collision_test_right_link567 = 0;
+    double collision_test_link_1_link567 = 0;
+    double collision_test_link_2_link567 = 0;
+
+    double collision_test = 0;
+
+    double distance_base2link_5_part_1 = 0;
+    double distance_base2link_5_part_2 = 0;
+    double distance_base2link_5_part_3 = 0;
+    double distance_base2link_5_part_4 = 0;
+    double distance_base2link_5_part_5 = 0;
+    double distance_base2link_6_part_1 = 0;
+    double distance_base2link_6_part_2 = 0;
+    double distance_base2link_7 = 0;
+    double distance_left2link_5_part_2 = 0;
+    double distance_left2link_5_part_3 = 0;
+    double distance_left2link_5_part_4 = 0;
+    double distance_left2link_5_part_5 = 0;
+    double distance_left2link_6_part_1 = 0;
+    double distance_left2link_6_part_2 = 0;
+    double distance_left2link_7        = 0;
+    double distance_right2link_5_part_2 = 0;
+    double distance_right2link_5_part_3 = 0;
+    double distance_right2link_5_part_4 = 0;
+    double distance_right2link_5_part_5 = 0;
+    double distance_right2link_6_part_1 = 0;
+    double distance_right2link_6_part_2 = 0;
+    double distance_right2link_7        = 0;
+    double distance_link_1_part_1_link_5_part_2 = 0;
+    double distance_link_1_part_1_link_5_part_3 = 0;
+    double distance_link_1_part_1_link_5_part_4 = 0;
+    double distance_link_1_part_1_link_5_part_5 = 0;
+    double distance_link_1_part_1_link_6_part_1 = 0;
+    double distance_link_1_part_1_link_6_part_2 = 0;
+    double distance_link_1_part_1_link_7        = 0; 
+    double distance_link_1_part_2_link_5_part_2 = 0;
+    double distance_link_1_part_2_link_5_part_3 = 0;
+    double distance_link_1_part_2_link_5_part_4 = 0;
+    double distance_link_1_part_2_link_5_part_5 = 0;
+    double distance_link_1_part_2_link_6_part_1 = 0;
+    double distance_link_1_part_2_link_6_part_2 = 0;
+    double distance_link_1_part_2_link_7        = 0;
+    double distance_link_2_part_1_link_5_part_2 = 0;
+    double distance_link_2_part_1_link_5_part_3 = 0;
+    double distance_link_2_part_1_link_5_part_4 = 0;
+    double distance_link_2_part_1_link_5_part_5 = 0;
+    double distance_link_2_part_1_link_6_part_1 = 0;
+    double distance_link_2_part_1_link_6_part_2 = 0;
+    double distance_link_2_part_1_link_7        = 0;
+    double distance_link_2_part_2_link_5_part_2 = 0;
+    double distance_link_2_part_2_link_5_part_3 = 0;
+    double distance_link_2_part_2_link_5_part_4 = 0;
+    double distance_link_2_part_2_link_5_part_5 = 0;
+    double distance_link_2_part_2_link_6_part_1 = 0;
+    double distance_link_2_part_2_link_6_part_2 = 0;
+    double distance_link_2_part_2_link_7        = 0;
+
+    double distance_limit = 0.005;
+
+    // transform two dimensional array to one array
+    
+
+    for(int i = 0; i < nvrtx; i++)
+    {
+        for(int j = 0; j < 3; j++)
+        {
+            base_center2vertex_temp[i*3 + j]                 = base_center2vertex[i][j];
+            base_center2left_solar_vertex_temp[i*3 + j]      = base_center2left_solar_vertex[i][j];
+            base_center2right_solar_vertex_temp[i*3 + j]     = base_center2right_solar_vertex[i][j];
+            link_1_center2link_1_part_1_vertex_temp[i*3 + j] = link_1_center2link_1_part_1_vertex[i][j];
+            link_1_center2link_1_part_2_vertex_temp[i*3 + j] = link_1_center2link_1_part_2_vertex[i][j];
+            link_2_center2link_2_part_1_vertex_temp[i*3 + j] = link_2_center2link_2_part_1_vertex[i][j];
+            link_2_center2link_2_part_2_vertex_temp[i*3 + j] = link_2_center2link_2_part_2_vertex[i][j];
+            link_5_center2link_5_part_1_vertex_temp[i*3 + j] = link_5_center2link_5_part_1_vertex[i][j];
+            link_5_center2link_5_part_2_vertex_temp[i*3 + j] = link_5_center2link_5_part_2_vertex[i][j];
+            link_5_center2link_5_part_3_vertex_temp[i*3 + j] = link_5_center2link_5_part_3_vertex[i][j];
+            link_5_center2link_5_part_4_vertex_temp[i*3 + j] = link_5_center2link_5_part_4_vertex[i][j];
+            link_5_center2link_5_part_5_vertex_temp[i*3 + j] = link_5_center2link_5_part_5_vertex[i][j];
+            link_6_center2link_6_part_1_vertex_temp[i*3 + j] = link_6_center2link_6_part_1_vertex[i][j];
+            link_6_center2link_6_part_2_vertex_temp[i*3 + j] = link_6_center2link_6_part_2_vertex[i][j];
+            link_7_center2link_7_vertex_temp[i*3 + j]        = link_7_center2link_7_vertex[i][j];            
+        }
+    }
+
+    MatrixTranspose_(nvrtx, 3, base_center2vertex_temp, base_center2vertex_temp);
+    MatrixTranspose_(nvrtx, 3, base_center2left_solar_vertex_temp, base_center2left_solar_vertex_temp);
+    MatrixTranspose_(nvrtx, 3, base_center2right_solar_vertex_temp, base_center2right_solar_vertex_temp);
+    MatrixTranspose_(nvrtx, 3, link_1_center2link_1_part_1_vertex_temp, link_1_center2link_1_part_1_vertex_temp);
+    MatrixTranspose_(nvrtx, 3, link_1_center2link_1_part_2_vertex_temp, link_1_center2link_1_part_2_vertex_temp);
+    MatrixTranspose_(nvrtx, 3, link_2_center2link_2_part_1_vertex_temp, link_2_center2link_2_part_1_vertex_temp);
+    MatrixTranspose_(nvrtx, 3, link_2_center2link_2_part_2_vertex_temp, link_2_center2link_2_part_2_vertex_temp);
+    MatrixTranspose_(nvrtx, 3, link_5_center2link_5_part_1_vertex_temp, link_5_center2link_5_part_1_vertex_temp);
+    MatrixTranspose_(nvrtx, 3, link_5_center2link_5_part_2_vertex_temp, link_5_center2link_5_part_2_vertex_temp);
+    MatrixTranspose_(nvrtx, 3, link_5_center2link_5_part_3_vertex_temp, link_5_center2link_5_part_3_vertex_temp);
+    MatrixTranspose_(nvrtx, 3, link_5_center2link_5_part_4_vertex_temp, link_5_center2link_5_part_4_vertex_temp);
+    MatrixTranspose_(nvrtx, 3, link_5_center2link_5_part_5_vertex_temp, link_5_center2link_5_part_5_vertex_temp);
+    MatrixTranspose_(nvrtx, 3, link_6_center2link_6_part_1_vertex_temp, link_6_center2link_6_part_1_vertex_temp);
+    MatrixTranspose_(nvrtx, 3, link_6_center2link_6_part_2_vertex_temp, link_6_center2link_6_part_2_vertex_temp);
+    MatrixTranspose_(nvrtx, 3, link_7_center2link_7_vertex_temp, link_7_center2link_7_vertex_temp);
+
+
+//**************************************************************************************************************************************************
     for(int i = 0; i < N; i++)
         q[i] = q_INITIAL[i];
     
@@ -117,7 +324,7 @@ void forward_kin_2(double* para, double* eta_end, double* xi_end, double* Pe, do
 	*locus = 0;
     
 
-// ************************************************************************************************************************************************************************* 
+// ***************************************************************************************************************************************
     links_transform(A_b, q, A_links_transform);
       
     for(int i=0;i<3;i++)
@@ -195,7 +402,7 @@ void forward_kin_2(double* para, double* eta_end, double* xi_end, double* Pe, do
 	for(int i=0;i<3;i++)
 		r_e[i] = r[(N-1)*3+i] + r_e_tempt[i];    
 		
-// ********************************************** 初始末端位姿 ************************************************************************************************************   	
+// ********************************************** 初始末端位姿 ******************************************************************************************   	
     for(int i=0;i<3;i++)
         Pe_initial[i] = r_e[i];  
         
@@ -210,11 +417,11 @@ void forward_kin_2(double* para, double* eta_end, double* xi_end, double* Pe, do
         p_e_initial[i] = Pe_initial[i];
     }
         
-// ********************************************************************************************************************************************************************************         
+// ***********************************************************************************************************************************************************      
     // 计算 关节位置
 	calc_p(r, A_links_transform, p);    
 
-// *************************************  计算 初始 Jm_v, Jm_w, Jm, J_bm_w, J_bm_v, J_bm, J_g_v, J_g_w, J_g  **************************************************************************
+// *************************************  计算 初始 Jm_v, Jm_w, Jm, J_bm_w, J_bm_v, J_bm, J_g_v, J_g_w, J_g  ****************************************************
     for(int i=0;i<N;i++)
 	{
 
@@ -358,21 +565,21 @@ void forward_kin_2(double* para, double* eta_end, double* xi_end, double* Pe, do
         {
             xi_end_dot[i] = xi_end_dot_tempt_3[i] / 2;
         }
-		//**********************************************************************************************************************************************************
+		//******************************************************************************************************************************************
         
-		// ****************  next eta_b, xi_b, eta_end, xi_end, Pe, r_b, A_b, A_links_transform, r, r_e, p, Jm, J_bm, J_g *******************************************
+		// ****************  next eta_b, xi_b, eta_end, xi_end, Pe, r_b, A_b, A_links_transform, r, r_e, p, Jm, J_bm, J_g ****************************
         (*eta_b) = (*eta_b) + eta_b_dot * delta_tau;
         for(int i = 0; i < 3; i++)
         {
             xi_b[i] = xi_b[i] + xi_b_dot[i] * delta_tau;
         }
-        //**********************************************************  Normalization *****************************************************************************
+        //**********************************************************  Normalization **************************************************************
         (*eta_b) = (*eta_b) / sqrt((*eta_b) * (*eta_b) + xi_b[0] * xi_b[0] + xi_b[1] * xi_b[1] + xi_b[2] * xi_b[2]);
         for(int i = 0; i < 3; i++)
         {
             xi_b[i] = xi_b[i] / sqrt((*eta_b) * (*eta_b) + xi_b[0] * xi_b[0] + xi_b[1] * xi_b[1] + xi_b[2] * xi_b[2]);
         }
-		// **************************************************  计算基座扰动 RPY and delta_xi_b 最大值  ********************************************************************************
+		// **************************************************  计算基座扰动 RPY and delta_xi_b 最大值  *************************************************
     
         cross(xi_b, cross_xi_b);
         MatrixMulti_(3, 3, 1, cross_xi_b, xi_b_initial, delta_xi_base_tempt);
@@ -393,14 +600,14 @@ void forward_kin_2(double* para, double* eta_end, double* xi_end, double* Pe, do
         if(delta_xi_base_norm > delta_xi_base_norm_max)
             delta_xi_base_norm_max = delta_xi_base_norm;
 
-		// *************************************************************************************************************************************************************************
+		// ********************************************************************************************************************************
         
         (*eta_end) = (*eta_end) + eta_end_dot * delta_tau;
         for(int i=0;i<3;i++)
         {
             xi_end[i] = xi_end[i] + xi_end_dot[i] * delta_tau;
         }
-        //**********************************************************  Normalization *****************************************************************************
+        //**********************************************************  Normalization ***************************************************
         (*eta_end) = (*eta_end) / sqrt((*eta_end) * (*eta_end) + xi_end[0] * xi_end[0] + xi_end[1] * xi_end[1] + xi_end[2] * xi_end[2]);
         for(int i = 0; i < 3; i++)
         {
@@ -409,9 +616,9 @@ void forward_kin_2(double* para, double* eta_end, double* xi_end, double* Pe, do
         
         MatrixMulti_( 3, N, 1, J_g_v, q_dot, v_e);
 
-		// ******************************************  计算末端走过的路程  *********************************************************************************************
+		// ******************************************  计算末端走过的路程  ***************************************************************************
 		(*locus) += sqrt(v_e[0] * v_e[0] + v_e[1] * v_e[1] + v_e[2] * v_e[2]) * delta_tau;
-		//***********************************************************************************************************************************************************
+		//**************************************************************************************************************************************
 
         for(int i=0;i<3;i++)
             Pe[i] = Pe[i] + v_e[i] * delta_tau;
@@ -440,15 +647,16 @@ void forward_kin_2(double* para, double* eta_end, double* xi_end, double* Pe, do
         // 计算 关节位置
 	    calc_p(r, A_links_transform, p);
         
+        //  Jm, Jbm, Jg
         for(int i=0;i<N;i++)
 	    {
 		        
-//*****************************************************************************************************************************************************************
+//**************************************************************************************************************************************
 		    MatrixExtract_( 1, 3*N, 1, 1, i*3+1, i*3+3, p, p_tempt);		
 		    ScaleMatrix_( 1, 3, (-1), p_tempt, p_tempt);		
 		    MatrixAdd_( 1, 3, r_e, p_tempt, r_e_minus_p_i);		
 		    MatrixExtract_( 1, 3*3*N, 1, 1, i*9+1, i*9+9, A_links_transform, A_links_transform_tempt_i);
-//**************************************************************************************************************************************************************
+//***************************************************************************************************************************************
 		    
 		    MatrixMulti_(3, 3, 1, A_links_transform_tempt_i, Ez, A_links_transform_tempt_i_multi_Ez);		    
 		    cross(A_links_transform_tempt_i_multi_Ez, A_links_transform_tempt_i_multi_Ez_cross);		    
@@ -480,12 +688,16 @@ void forward_kin_2(double* para, double* eta_end, double* xi_end, double* Pe, do
 		    for(int k = 0; k < N; k++)
 			    {
 				    if(j < 3)
-					    J_bm[j * N + k] = J_bm_v[j * N + k];
+                    {
+                        J_bm[j * N + k] = J_bm_v[j * N + k];
+                    }
 				    else
-					    J_bm[j * N + k] = J_bm_w[(j-3) * N + k];
+                    {
+                        J_bm[j * N + k] = J_bm_w[(j-3) * N + k];
+                    }
+					    
 			    }
         }
-
 	    J_Base2EE(r_e, r_b, J_bE);
 	    MatrixMulti_(6, 6, N, J_bE, J_bm, J_bE_multi_J_bm);
 	    for(int i = 0; i < 6; i++)
@@ -500,15 +712,268 @@ void forward_kin_2(double* para, double* eta_end, double* xi_end, double* Pe, do
 			    J_g_w[i*N+j] = J_g[(i+3)*N+j];
 		    }
         } 
-        
+
+        MatrixMulti_(3, 3, nvrtx, A_b, base_center2vertex_temp, base_object_tempt);
+        MatrixMulti_(3, 3, nvrtx, A_b, base_center2left_solar_vertex_temp, left_solar_object_tempt);
+        MatrixMulti_(3, 3, nvrtx, A_b, base_center2right_solar_vertex_temp, right_solar_object_tempt);
+
+        MatrixTranspose_(3, 8, base_object_tempt, base_object_tempt);
+        MatrixTranspose_(3, 8, left_solar_object_tempt, left_solar_object_tempt);
+        MatrixTranspose_(3, 8, right_solar_object_tempt, right_solar_object_tempt);
+
+        MatrixExtract_( 1, 3*3*N, 1, 1, 0*9+1, 0*9+9, A_links_transform, A_links_transform_0);
+        MatrixMulti_(3, 3, nvrtx, A_links_transform_0, link_1_center2link_1_part_1_vertex_temp, link_1_part_1_object_tempt);
+        MatrixMulti_(3, 3, nvrtx, A_links_transform_0, link_1_center2link_1_part_2_vertex_temp, link_1_part_2_object_tempt);
+
+        MatrixTranspose_(3, 8, link_1_part_1_object_tempt, link_1_part_1_object_tempt);
+        MatrixTranspose_(3, 8, link_1_part_2_object_tempt, link_1_part_2_object_tempt);
+
+        MatrixExtract_( 1, 3*3*N, 1, 1, 1*9+1, 1*9+9, A_links_transform, A_links_transform_1);
+        MatrixMulti_(3, 3, nvrtx, A_links_transform_1, link_2_center2link_2_part_1_vertex_temp, link_2_part_1_object_tempt);
+        MatrixMulti_(3, 3, nvrtx, A_links_transform_1, link_2_center2link_2_part_2_vertex_temp, link_2_part_2_object_tempt);
+
+        MatrixTranspose_(3, 8, link_2_part_1_object_tempt, link_2_part_1_object_tempt);
+        MatrixTranspose_(3, 8, link_2_part_2_object_tempt, link_2_part_2_object_tempt);
+
+        MatrixExtract_( 1, 3*3*N, 1, 1, 4*9+1, 4*9+9, A_links_transform, A_links_transform_4);
+        MatrixMulti_(3, 3, nvrtx, A_links_transform_4, link_5_center2link_5_part_1_vertex_temp, link_5_part_1_object_tempt);
+        MatrixMulti_(3, 3, nvrtx, A_links_transform_4, link_5_center2link_5_part_2_vertex_temp, link_5_part_2_object_tempt);
+        MatrixMulti_(3, 3, nvrtx, A_links_transform_4, link_5_center2link_5_part_3_vertex_temp, link_5_part_3_object_tempt);
+        MatrixMulti_(3, 3, nvrtx, A_links_transform_4, link_5_center2link_5_part_4_vertex_temp, link_5_part_4_object_tempt);
+        MatrixMulti_(3, 3, nvrtx, A_links_transform_4, link_5_center2link_5_part_5_vertex_temp, link_5_part_5_object_tempt);
+
+        MatrixTranspose_(3, 8, link_5_part_1_object_tempt, link_5_part_1_object_tempt);
+        MatrixTranspose_(3, 8, link_5_part_2_object_tempt, link_5_part_2_object_tempt);
+        MatrixTranspose_(3, 8, link_5_part_3_object_tempt, link_5_part_3_object_tempt);
+        MatrixTranspose_(3, 8, link_5_part_4_object_tempt, link_5_part_4_object_tempt);
+        MatrixTranspose_(3, 8, link_5_part_5_object_tempt, link_5_part_5_object_tempt);
+
+        MatrixExtract_( 1, 3*3*N, 1, 1, 5*9+1, 5*9+9, A_links_transform, A_links_transform_5);
+        MatrixMulti_(3, 3, nvrtx, A_links_transform_5, link_6_center2link_6_part_1_vertex_temp, link_6_part_1_object_tempt);
+        MatrixMulti_(3, 3, nvrtx, A_links_transform_5, link_6_center2link_6_part_2_vertex_temp, link_6_part_2_object_tempt);
+
+        MatrixTranspose_(3, 8, link_6_part_1_object_tempt, link_6_part_1_object_tempt);
+        MatrixTranspose_(3, 8, link_6_part_2_object_tempt, link_6_part_2_object_tempt);
+
+        MatrixExtract_( 1, 3*3*N, 1, 1, 6*9+1, 6*9+9, A_links_transform, A_links_transform_6);
+        MatrixMulti_(3, 3, nvrtx, A_links_transform_6, link_7_center2link_7_vertex_temp, link_7_object_tempt);
+
+        MatrixTranspose_(3, 8, link_7_object_tempt, link_7_object_tempt);
+
+
+        for(int i = 0; i < nvrtx; i++)
+        {
+            for(int j = 0; j < 3; j++)
+            {
+                base_object[i][j]          = base_object_tempt[i*3 + j];
+                left_solar_object[i][j]    = left_solar_object_tempt[i*3 + j];
+                right_solar_object[i][j]   = right_solar_object_tempt[i*3 + j];
+                link_1_part_1_object[i][j] = link_1_part_1_object_tempt[i*3 + j];
+                link_1_part_2_object[i][j] = link_1_part_2_object_tempt[i*3 + j];
+                link_2_part_1_object[i][j] = link_2_part_1_object_tempt[i*3 + j];
+                link_2_part_2_object[i][j] = link_2_part_2_object_tempt[i*3 + j];
+                link_5_part_1_object[i][j] = link_5_part_1_object_tempt[i*3 + j];
+                link_5_part_2_object[i][j] = link_5_part_2_object_tempt[i*3 + j];
+                link_5_part_3_object[i][j] = link_5_part_3_object_tempt[i*3 + j];
+                link_5_part_4_object[i][j] = link_5_part_4_object_tempt[i*3 + j];
+                link_5_part_5_object[i][j] = link_5_part_5_object_tempt[i*3 + j];
+                link_6_part_1_object[i][j] = link_6_part_1_object_tempt[i*3 + j];
+                link_6_part_2_object[i][j] = link_6_part_2_object_tempt[i*3 + j];
+                link_7_object[i][j]        = link_7_object_tempt[i*3 + j];
+            }
+        }
+
+        // base_object = (r_b + base_object_tempt).T
+        for(int j = 0; j < 3; j++)
+        {
+            for(int i = 0; i < nvrtx; i++)
+            {
+                base_object[i][j] = base_object[i][j] + r_b[j];
+                left_solar_object[i][j] = left_solar_object[i][j] + r_b[j];
+                right_solar_object[i][j] = right_solar_object[i][j] + r_b[j];
+                link_1_part_1_object[i][j] = link_1_part_1_object[i][j] + r[0 * 3 + j];
+                link_1_part_2_object[i][j] = link_1_part_2_object[i][j] + r[0 * 3 + j];
+                link_2_part_1_object[i][j] = link_2_part_1_object[i][j] + r[1 * 3 + j];
+                link_2_part_2_object[i][j] = link_2_part_2_object[i][j] + r[1 * 3 + j];
+                link_5_part_1_object[i][j] = link_5_part_1_object[i][j] + r[4 * 3 + j];
+                link_5_part_2_object[i][j] = link_5_part_2_object[i][j] + r[4 * 3 + j];
+                link_5_part_3_object[i][j] = link_5_part_3_object[i][j] + r[4 * 3 + j];
+                link_5_part_4_object[i][j] = link_5_part_4_object[i][j] + r[4 * 3 + j];
+                link_5_part_5_object[i][j] = link_5_part_5_object[i][j] + r[4 * 3 + j];
+                link_6_part_1_object[i][j] = link_6_part_1_object[i][j] + r[5 * 3 + j];
+                link_6_part_2_object[i][j] = link_6_part_2_object[i][j] + r[5 * 3 + j];
+                link_7_object[i][j] = link_7_object[i][j] + r[6 * 3 + j];
+            }
+        }
+
+        bd_base_object.coord = base_object;
+        bd_base_object.numpoints = nvrtx;
+        bd_left_solar_object.coord = left_solar_object;
+        bd_left_solar_object.numpoints = nvrtx;
+        bd_right_solar_object.coord = right_solar_object;
+        bd_right_solar_object.numpoints = nvrtx;
+
+        bd_link_1_part_1_object.coord = link_1_part_1_object;
+        bd_link_1_part_1_object.numpoints = nvrtx;
+        bd_link_1_part_2_object.coord = link_1_part_2_object;
+        bd_link_1_part_2_object.numpoints = nvrtx;
+
+        bd_link_2_part_1_object.coord = link_2_part_1_object;
+        bd_link_2_part_1_object.numpoints = nvrtx;
+        bd_link_2_part_2_object.coord = link_2_part_2_object;
+        bd_link_2_part_2_object.numpoints = nvrtx;
+
+        bd_link_5_part_1_object.coord = link_5_part_1_object;
+        bd_link_5_part_1_object.numpoints = nvrtx;
+        bd_link_5_part_2_object.coord = link_5_part_2_object;
+        bd_link_5_part_2_object.numpoints = nvrtx;
+        bd_link_5_part_3_object.coord = link_5_part_3_object;
+        bd_link_5_part_3_object.numpoints = nvrtx;
+        bd_link_5_part_4_object.coord = link_5_part_4_object;
+        bd_link_5_part_4_object.numpoints = nvrtx;
+        bd_link_5_part_5_object.coord = link_5_part_5_object;
+        bd_link_5_part_5_object.numpoints = nvrtx;
+
+        bd_link_6_part_1_object.coord = link_6_part_1_object;
+        bd_link_6_part_1_object.numpoints = nvrtx;
+        bd_link_6_part_2_object.coord = link_6_part_2_object;
+        bd_link_6_part_2_object.numpoints = nvrtx;
+
+        bd_link_7_object.coord = link_7_object;
+        bd_link_7_object.numpoints = nvrtx;
+
+        distance_base2link_5_part_1 = compute_minimum_distance(bd_base_object, bd_link_5_part_1_object, &s);
+        distance_base2link_5_part_2 = compute_minimum_distance(bd_base_object, bd_link_5_part_2_object, &s);
+        distance_base2link_5_part_3 = compute_minimum_distance(bd_base_object, bd_link_5_part_3_object, &s);
+        distance_base2link_5_part_4 = compute_minimum_distance(bd_base_object, bd_link_5_part_4_object, &s);
+        distance_base2link_5_part_5 = compute_minimum_distance(bd_base_object, bd_link_5_part_5_object, &s);
+        distance_base2link_6_part_1 = compute_minimum_distance(bd_base_object, bd_link_6_part_1_object, &s);
+        distance_base2link_6_part_2 = compute_minimum_distance(bd_base_object, bd_link_6_part_2_object, &s);
+        distance_base2link_7 = compute_minimum_distance(bd_base_object, bd_link_7_object, &s);
+
+        distance_left2link_5_part_2 = compute_minimum_distance(bd_left_solar_object, bd_link_5_part_2_object, &s);
+        distance_left2link_5_part_3 = compute_minimum_distance(bd_left_solar_object, bd_link_5_part_3_object, &s);
+        distance_left2link_5_part_4 = compute_minimum_distance(bd_left_solar_object, bd_link_5_part_4_object, &s);
+        distance_left2link_5_part_5 = compute_minimum_distance(bd_left_solar_object, bd_link_5_part_5_object, &s);
+        distance_left2link_6_part_1 = compute_minimum_distance(bd_left_solar_object, bd_link_6_part_1_object, &s);
+        distance_left2link_6_part_2 = compute_minimum_distance(bd_left_solar_object, bd_link_6_part_2_object, &s);
+        distance_left2link_7        = compute_minimum_distance(bd_left_solar_object, bd_link_7_object, &s);
+
+        distance_right2link_5_part_2 = compute_minimum_distance(bd_right_solar_object, bd_link_5_part_2_object, &s);
+        distance_right2link_5_part_3 = compute_minimum_distance(bd_right_solar_object, bd_link_5_part_3_object, &s);
+        distance_right2link_5_part_4 = compute_minimum_distance(bd_right_solar_object, bd_link_5_part_4_object, &s);
+        distance_right2link_5_part_5 = compute_minimum_distance(bd_right_solar_object, bd_link_5_part_5_object, &s);
+        distance_right2link_6_part_1 = compute_minimum_distance(bd_right_solar_object, bd_link_6_part_1_object, &s);
+        distance_right2link_6_part_2 = compute_minimum_distance(bd_right_solar_object, bd_link_6_part_2_object, &s);
+        distance_right2link_7        = compute_minimum_distance(bd_right_solar_object, bd_link_7_object, &s);
+
+        distance_link_1_part_1_link_5_part_2 = compute_minimum_distance(bd_link_1_part_1_object, bd_link_5_part_2_object, &s);
+        distance_link_1_part_1_link_5_part_3 = compute_minimum_distance(bd_link_1_part_1_object, bd_link_5_part_3_object, &s);
+        distance_link_1_part_1_link_5_part_4 = compute_minimum_distance(bd_link_1_part_1_object, bd_link_5_part_4_object, &s);
+        distance_link_1_part_1_link_5_part_5 = compute_minimum_distance(bd_link_1_part_1_object, bd_link_5_part_5_object, &s);
+        distance_link_1_part_1_link_6_part_1 = compute_minimum_distance(bd_link_1_part_1_object, bd_link_6_part_1_object, &s);
+        distance_link_1_part_1_link_6_part_2 = compute_minimum_distance(bd_link_1_part_1_object, bd_link_6_part_2_object, &s);
+        distance_link_1_part_1_link_7        = compute_minimum_distance(bd_link_1_part_1_object, bd_link_7_object, &s);
+
+        distance_link_1_part_2_link_5_part_2 = compute_minimum_distance(bd_link_1_part_2_object, bd_link_5_part_2_object, &s);
+        distance_link_1_part_2_link_5_part_3 = compute_minimum_distance(bd_link_1_part_2_object, bd_link_5_part_3_object, &s);
+        distance_link_1_part_2_link_5_part_4 = compute_minimum_distance(bd_link_1_part_2_object, bd_link_5_part_4_object, &s);
+        distance_link_1_part_2_link_5_part_5 = compute_minimum_distance(bd_link_1_part_2_object, bd_link_5_part_5_object, &s);
+        distance_link_1_part_2_link_6_part_1 = compute_minimum_distance(bd_link_1_part_2_object, bd_link_6_part_1_object, &s);
+        distance_link_1_part_2_link_6_part_2 = compute_minimum_distance(bd_link_1_part_2_object, bd_link_6_part_2_object, &s);
+        distance_link_1_part_2_link_7        = compute_minimum_distance(bd_link_1_part_2_object, bd_link_7_object, &s);
+
+        distance_link_2_part_1_link_5_part_2 = compute_minimum_distance(bd_link_2_part_1_object, bd_link_5_part_2_object, &s);
+        distance_link_2_part_1_link_5_part_3 = compute_minimum_distance(bd_link_2_part_1_object, bd_link_5_part_3_object, &s);
+        distance_link_2_part_1_link_5_part_4 = compute_minimum_distance(bd_link_2_part_1_object, bd_link_5_part_4_object, &s);
+        distance_link_2_part_1_link_5_part_5 = compute_minimum_distance(bd_link_2_part_1_object, bd_link_5_part_5_object, &s);
+        distance_link_2_part_1_link_6_part_1 = compute_minimum_distance(bd_link_2_part_1_object, bd_link_6_part_1_object, &s);
+        distance_link_2_part_1_link_6_part_2 = compute_minimum_distance(bd_link_2_part_1_object, bd_link_6_part_2_object, &s);
+        distance_link_2_part_1_link_7        = compute_minimum_distance(bd_link_2_part_1_object, bd_link_7_object, &s);
+
+        distance_link_2_part_2_link_5_part_2 = compute_minimum_distance(bd_link_2_part_2_object, bd_link_5_part_2_object, &s);
+        distance_link_2_part_2_link_5_part_3 = compute_minimum_distance(bd_link_2_part_2_object, bd_link_5_part_3_object, &s);
+        distance_link_2_part_2_link_5_part_4 = compute_minimum_distance(bd_link_2_part_2_object, bd_link_5_part_4_object, &s);
+        distance_link_2_part_2_link_5_part_5 = compute_minimum_distance(bd_link_2_part_2_object, bd_link_5_part_5_object, &s);
+        distance_link_2_part_2_link_6_part_1 = compute_minimum_distance(bd_link_2_part_2_object, bd_link_6_part_1_object, &s);
+        distance_link_2_part_2_link_6_part_2 = compute_minimum_distance(bd_link_2_part_2_object, bd_link_6_part_2_object, &s);
+        distance_link_2_part_2_link_7        = compute_minimum_distance(bd_link_2_part_2_object, bd_link_7_object, &s);
+
+        distance_base2link_567[0] = distance_base2link_5_part_1; distance_base2link_567[1] = distance_base2link_5_part_2; 
+        distance_base2link_567[2] = distance_base2link_5_part_3; distance_base2link_567[3] = distance_base2link_5_part_4; 
+        distance_base2link_567[4] = distance_base2link_5_part_5; distance_base2link_567[5] = distance_base2link_6_part_1; 
+        distance_base2link_567[6] = distance_base2link_6_part_2; distance_base2link_567[7] = distance_base2link_7; 
+        for(int ii = 0; ii < 8; ii++)
+        {
+            if(distance_base2link_567[ii] > distance_limit)
+            {
+                collision_test_base_link567 += 1; 
+            }
+        }
+        distance_left2link_567[0] = distance_left2link_5_part_2; distance_left2link_567[1] = distance_left2link_5_part_3; 
+        distance_left2link_567[2] = distance_left2link_5_part_4; distance_left2link_567[3] = distance_left2link_5_part_5; 
+        distance_left2link_567[4] = distance_left2link_6_part_1; distance_left2link_567[5] = distance_left2link_6_part_2;
+        distance_left2link_567[6] = distance_left2link_7;  
+        for(int ii = 0; ii < 7; ii++)
+        {
+            if(distance_left2link_567[ii] > distance_limit)
+            {
+                collision_test_left_link567 += 1; 
+            }
+        }
+        distance_right2link_567[0] = distance_right2link_5_part_2; distance_right2link_567[1] = distance_right2link_5_part_3;
+        distance_right2link_567[2] = distance_right2link_5_part_4; distance_right2link_567[3] = distance_right2link_5_part_5;
+        distance_right2link_567[4] = distance_right2link_6_part_1; distance_right2link_567[5] = distance_right2link_6_part_2;
+        distance_right2link_567[6] = distance_right2link_7;
+        for(int ii = 0; ii < 7; ii++)
+        {
+            if(distance_right2link_567[ii] > distance_limit)
+            {
+                collision_test_right_link567 += 1; 
+            }
+        }
+        distance_link_12link_567[0]  = distance_link_1_part_1_link_5_part_2; distance_link_12link_567[1]  = distance_link_1_part_1_link_5_part_3; 
+        distance_link_12link_567[2]  = distance_link_1_part_1_link_5_part_4; distance_link_12link_567[3]  = distance_link_1_part_1_link_5_part_5; 
+        distance_link_12link_567[4]  = distance_link_1_part_1_link_6_part_1; distance_link_12link_567[5]  = distance_link_1_part_1_link_6_part_2; 
+        distance_link_12link_567[6]  = distance_link_1_part_1_link_7;        distance_link_12link_567[7]  = distance_link_1_part_2_link_5_part_2; 
+        distance_link_12link_567[8]  = distance_link_1_part_2_link_5_part_3; distance_link_12link_567[9]  = distance_link_1_part_2_link_5_part_4; 
+        distance_link_12link_567[10] = distance_link_1_part_2_link_5_part_5; distance_link_12link_567[11] = distance_link_1_part_2_link_6_part_1; 
+        distance_link_12link_567[12] = distance_link_1_part_2_link_6_part_2; distance_link_12link_567[13] = distance_link_1_part_2_link_7; 
+        for(int ii = 0; ii < 14; ii++)
+        {
+            if(distance_link_12link_567[ii] > distance_limit)
+            {
+                collision_test_link_1_link567 += 1; 
+            }
+        }
+        distance_link_22link_567[0]  = distance_link_2_part_1_link_5_part_2; distance_link_22link_567[1]  = distance_link_2_part_1_link_5_part_3; 
+        distance_link_22link_567[2]  = distance_link_2_part_1_link_5_part_4; distance_link_22link_567[3]  = distance_link_2_part_1_link_5_part_5; 
+        distance_link_22link_567[4]  = distance_link_2_part_1_link_6_part_1; distance_link_22link_567[5]  = distance_link_2_part_1_link_6_part_2; 
+        distance_link_22link_567[6]  = distance_link_2_part_1_link_7;        distance_link_22link_567[7]  = distance_link_2_part_2_link_5_part_2; 
+        distance_link_22link_567[8]  = distance_link_2_part_2_link_5_part_3; distance_link_22link_567[9]  = distance_link_2_part_2_link_5_part_4; 
+        distance_link_22link_567[10] = distance_link_2_part_2_link_5_part_5; distance_link_22link_567[11] = distance_link_2_part_2_link_6_part_1; 
+        distance_link_22link_567[12] = distance_link_2_part_2_link_6_part_2; distance_link_22link_567[13] = distance_link_2_part_2_link_7; 
+        for(int ii = 0; ii < 14; ii++)
+        {
+            if(distance_link_22link_567[ii] > distance_limit)
+            {
+                collision_test_link_2_link567 += 1; 
+            }
+        }
+
+        collision_test = collision_test + collision_test_base_link567 + collision_test_left_link567 + collision_test_right_link567 + collision_test_link_1_link567 + collision_test_link_2_link567;
+
+
     }
 
-//**************************************************************************************************************************************************************
+//*************************************************************************************************************************************
     (*delta_xi_b_distrb_max) = delta_xi_base_norm_max;
 
     (*T_min) = T_min_temp;
 
-	// ****************************************************    计算最终时刻的可操作度   ****************************************************************************
+    (*collision) = collision_test;    //  total collision times during whole motion process
+
+	// ****************************************************    计算最终时刻的可操作度   ****************************************************
 	
     double manipl_temp_2 = 0;
 	MatrixDiagExpand( A_b, 3, 3, A_b_expand);
@@ -520,6 +985,87 @@ void forward_kin_2(double* para, double* eta_end, double* xi_end, double* Pe, do
 
 	*manipl = sqrt(manipl_temp_2);
 
+
+
+
+    delete[] base_object_tempt;
+    delete[] left_solar_object_tempt;
+    delete[] right_solar_object_tempt;
+    delete[] link_1_part_1_object_tempt;
+    delete[] link_1_part_2_object_tempt;
+    delete[] link_2_part_1_object_tempt;
+    delete[] link_2_part_2_object_tempt;
+    delete[] link_5_part_1_object_tempt;
+    delete[] link_5_part_2_object_tempt;
+    delete[] link_5_part_3_object_tempt;
+    delete[] link_5_part_4_object_tempt;
+    delete[] link_5_part_5_object_tempt;
+    delete[] link_6_part_1_object_tempt;
+    delete[] link_6_part_2_object_tempt;
+    delete[] link_7_object_tempt;
+    delete[] A_links_transform_0;
+    delete[] A_links_transform_1;
+    delete[] A_links_transform_4;
+    delete[] A_links_transform_5;
+    delete[] A_links_transform_6;
+
+    delete[] base_center2vertex_temp;
+    delete[] base_center2left_solar_vertex_temp;
+    delete[] base_center2right_solar_vertex_temp;
+    delete[] link_1_center2link_1_part_1_vertex_temp;
+    delete[] link_1_center2link_1_part_2_vertex_temp;
+    delete[] link_2_center2link_2_part_1_vertex_temp;
+    delete[] link_2_center2link_2_part_2_vertex_temp;
+    delete[] link_5_center2link_5_part_1_vertex_temp;
+    delete[] link_5_center2link_5_part_2_vertex_temp;
+    delete[] link_5_center2link_5_part_3_vertex_temp;
+    delete[] link_5_center2link_5_part_4_vertex_temp;
+    delete[] link_5_center2link_5_part_5_vertex_temp;
+    delete[] link_6_center2link_6_part_1_vertex_temp;
+    delete[] link_6_center2link_6_part_2_vertex_temp;
+    delete[] link_7_center2link_7_vertex_temp;
+
+    delete[] distance_base2link_567;
+    delete[] distance_left2link_567;
+    delete[] distance_right2link_567;
+    delete[] distance_link_12link_567;
+    delete[] distance_link_22link_567;
+
+
+
+    for (int i = 0; i < nvrtx; i++)
+    {
+        delete[] (bd_base_object.coord[i]);
+        delete[] (bd_left_solar_object.coord[i]);
+        delete[] (bd_right_solar_object.coord[i]);
+        delete[] (bd_link_1_part_1_object.coord[i]);
+        delete[] (bd_link_1_part_2_object.coord[i]);
+        delete[] (bd_link_2_part_1_object.coord[i]);
+        delete[] (bd_link_2_part_2_object.coord[i]);
+        delete[] (bd_link_5_part_1_object.coord[i]);
+        delete[] (bd_link_5_part_2_object.coord[i]);
+        delete[] (bd_link_5_part_3_object.coord[i]);
+        delete[] (bd_link_5_part_4_object.coord[i]);
+        delete[] (bd_link_5_part_5_object.coord[i]);
+        delete[] (bd_link_6_part_1_object.coord[i]);
+        delete[] (bd_link_6_part_2_object.coord[i]);
+        delete[] (bd_link_7_object.coord[i]);
+    }
+    delete[] (bd_base_object.coord);    
+    delete[] (bd_left_solar_object.coord);
+    delete[] (bd_right_solar_object.coord);    
+    delete[] (bd_link_1_part_1_object.coord);
+    delete[] (bd_link_1_part_2_object.coord);
+    delete[] (bd_link_2_part_1_object.coord);    
+    delete[] (bd_link_2_part_2_object.coord);
+    delete[] (bd_link_5_part_1_object.coord);    
+    delete[] (bd_link_5_part_2_object.coord);
+    delete[] (bd_link_5_part_3_object.coord);
+    delete[] (bd_link_5_part_4_object.coord);
+    delete[] (bd_link_5_part_5_object.coord);
+    delete[] (bd_link_6_part_1_object.coord);
+    delete[] (bd_link_6_part_2_object.coord);
+    delete[] (bd_link_7_object.coord);
 
 
 	delete[] q ;
@@ -598,6 +1144,7 @@ void forward_kin_2(double* para, double* eta_end, double* xi_end, double* Pe, do
     delete delta_eta_base_tempt;
     delete delta_eta_base ;
     delete[] delta_xi_base_tempt;
+
 
 }
 

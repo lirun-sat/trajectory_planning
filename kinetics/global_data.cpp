@@ -37,7 +37,6 @@ double q_INITIAL[] = {
 0, 
 0};
 
-
 double RPY_END_INITIAL[] = {0, M_PI / 2, M_PI / 2};                                    
 double RPY_BASE_INITIAL[] = {0, 0, 0};
 double RPY_END_DESIRED[] = {-30 * M_PI / 180, -50 * M_PI /180, 45 * M_PI /180 };
