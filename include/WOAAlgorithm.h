@@ -2,6 +2,7 @@
 #ifndef _WOAALGORITHM_H
 #define _WOAALGORITHM_H
 
+
 #define _USE_MATH_DEFINES 
 
 #include <iostream>
@@ -9,8 +10,11 @@
 #include <time.h>
 #include <cmath>
 #include <iomanip>
+#include <random>
+#include <chrono>
 
 
+// using namespace std;
 
 
 #define EPS 0.000001
@@ -21,24 +25,23 @@ double stddev(double* parameter, int n);
 void MatrixMultiMatrix(int row_1, int col_1, int col_2, double* A, double* B, double* AB);
 int primerange(int start, int end, int* result, int count);
 void gen_good_point_set(int num_particles, int dim, double* low_bound, double* up_bound, double* good_point_set);
-
 void sort_max2min(double* a, int length, int* b);
 
 
 class WOA_Whale
 {
 public:
-	int _dimension; //粒子维度
-	double *_position; //粒子所在位置数组指针
-	double _fitness; //例子适应度
+	int _dimension;     // 维度
+	double* _position;  // 位置数组指针
+	double _fitness;    // 适应度
 
-					 //构造函数，粒子维度初始化为0
+					    // 构造函数，维度初始化为0
 	WOA_Whale(void)
 	{
 		_dimension = 0;
 	}
 
-	//析构函数，释放粒子内存
+	// 析构函数，释放内存
 	~WOA_Whale(void)
 	{
 		if (_dimension)
@@ -47,23 +50,23 @@ public:
 		}
 	}
 
-	//初始化函数，用于为粒子开辟内存空间
+	// 初始化函数，用于开辟内存空间
 	void initial(int dimension)
 	{
 		if (_dimension != dimension && dimension)
 		{
-			//需要重新分配内存
+			// 需要重新分配内存
 			if (_dimension)
 			{
-				//消除已有内存
+				// 消除已有内存
 				delete[] _position;
 			}
-			//开辟新内存
+			// 开辟新内存
 			_dimension = dimension;
 			_position = new double[_dimension];
 		}
 	}
-	//复制函数，用于粒子间的复制操作
+	// 复制函数，用于复制操作
 	void copy(WOA_Whale& whale)
 	{
 		this->initial(whale._dimension);
@@ -77,7 +80,7 @@ public:
 
 };
 
-//PSO算法
+// 算法
 class WOA_Algorithm
 {
 public:
@@ -138,6 +141,32 @@ public:
 	double rand0_1(void)
 	{
 		return((1.0 * rand()) / RAND_MAX);
+	}
+
+	double normal_distribution_number(double mean_temp, double std_devation)
+	{
+		unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+		std::default_random_engine generator(seed);
+		std::normal_distribution<double> distribution(mean_temp, std_devation);
+		return(distribution(generator));
+	}
+
+	double levy_flight_step()
+	{
+		double beta = rand0_1() * 2;
+
+		double alpha_u = pow(((tgamma(1+beta)*sin(M_PI*beta/2)) / 
+							 (tgamma((1+beta)/2) * beta * pow(2, (beta-1)/2))), 
+							(1/beta));
+
+		double alpha_v = 1;
+
+		double u = normal_distribution_number(0, alpha_u);
+		double v = normal_distribution_number(0, alpha_v);
+		double step = u / pow(fabs(v), (1 / beta));
+
+		return step;
+
 	}
 
 
@@ -247,8 +276,9 @@ public:
 			{
 				if (fabs(A) > 1)
 				{
-					q = (rand() % ((_whaleCount - 1) - 0 + 1)) + 0;   //  要取得[a,b]的随机整数，使用(rand() % (b-a+1))+ a;
-																	  // q = (rand() % (_whaleCount - 0)) + 0;  // 要取得[a,b)的随机整数，使用(rand() % (b-a))+ a;
+					q = (rand() % ((_whaleCount - 1) - 0 + 1)) + 0;   
+					//  要取得[a,b]的随机整数，使用(rand() % (b-a+1))+ a;
+					// q = (rand() % (_whaleCount - 0)) + 0;  // 要取得[a,b)的随机整数，使用(rand() % (b-a))+ a;
 
 					while (q == i)
 						q = (rand() % ((_whaleCount - 1) - 0 + 1)) + 0;
@@ -640,6 +670,25 @@ void gen_good_point_set(int num_particles, int dim, double* low_bound, double* u
 	delete[] prime_list;
 
 }
+
+
+
+
+// double normal_distribution(double mean_temp, double std_devation)
+// {
+// 	unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+// 	std::default_random_engine generator(seed);
+
+// 	std::normal_distribution<double> distribution(mean_temp, std_devation);
+
+// 	double number = distribution(generator);
+
+// 	return number;
+
+// }
+
+
+
 
 
 
