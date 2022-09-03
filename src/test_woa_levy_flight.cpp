@@ -18,21 +18,21 @@ int main(void)
     //定义问题描述参数
     int dimension = 3; 
     int whaleCount = 30; 
-    int generation = 800; //粒子群进化代数
+    int generation = 800;  //进化代数
     int num_calc = 20;
     double* tempt;
-    tempt = new double[num_calc];  //  计算 200 次， 求 计算的 均值 和 标准差
+    tempt = new double[num_calc];  //  计算 20 次， 求 计算的 均值 和 标准差
     
     //构建gwo算法
     WOA_Algorithm woa(objFunction, minPos, maxPos, dimension, whaleCount);
 
-    WOA_Whale bestWhale; //粒子群最终进化结果
+    WOA_Whale bestWhale;  //最终进化结果
     
     for(int i = 0; i < num_calc; i++)
     {
     	// TLBO_Algorithm tlbo(objFunction, minPos, maxPos, dimension, studentCount);
     	// srand((unsigned int)time(NULL));
-        woa.findMin(generation, bestWhale); //获取最终进化结果
+        woa.findMin(generation, bestWhale);  //获取最终进化结果
         tempt[i] = bestWhale._fitness;
         cout <<  tempt[i] << endl;
     }
