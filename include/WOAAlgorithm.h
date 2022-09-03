@@ -118,8 +118,9 @@ public:
 		_whaleSet = new WOA_Whale[_whaleCount];
 
 		for (int i = 0; i < _whaleCount; i++)
+		{
 			_whaleSet[i].initial(_dimension);
-
+		}
 		_best_Whale.initial(_dimension);
 
 		//配置随机数种子
@@ -148,12 +149,13 @@ public:
 		unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
 		std::default_random_engine generator(seed);
 		std::normal_distribution<double> distribution(mean_temp, std_devation);
+
 		return(distribution(generator));
 	}
 
 	double levy_flight_step()
 	{
-		double beta = rand0_1() * 2;
+		double beta = rand0_1() * 2;  // beta is stochastic 
 
 		double alpha_u = pow(((tgamma(1+beta)*sin(M_PI*beta/2)) / 
 							 (tgamma((1+beta)/2) * beta * pow(2, (beta-1)/2))), 
@@ -169,6 +171,20 @@ public:
 
 	}
 
+	double sign_fun(double x)
+	{
+		if(x==0)
+		{
+			return 0;
+		}
+		else if(x>0)
+		{
+			return 1;
+		}
+		else{
+			return (-1);
+		}
+	}
 
 	// 对 _whaleSet 按照 _fitness 从大到小排列, 并对 _best_Whale 赋值
 	void refresh(void)
@@ -182,11 +198,15 @@ public:
 		int* index = new int[_whaleCount];
 
 		for (int i = 0; i < _whaleCount; i++)
+		{
 			fitness_temp[i] = _whaleSet[i]._fitness;
-
+		}
+			
 		for (int k = 0; k < _whaleCount; k++)
+		{
 			index[k] = k;
-
+		}
+			
 		sort_max2min(fitness_temp, _whaleCount, index);  // fitness_temp 从大到小排序
 
 														 // 选出适应度函数最小的值
@@ -198,7 +218,6 @@ public:
 		{
 			_best_Whale.copy(_whaleSet[_globalBestWhaleIndex]);
 		}
-
 
 		for (int i = 0; i < _whaleCount; i++)
 		{
@@ -289,7 +308,7 @@ public:
 
 						X_D[j] = fabs(C * Xrand[j] - _whaleSet[i]._position[j]);
 						Xnew[j] = Xrand[j] - A * X_D[j];
-
+						Xnew[j] = Xnew[j] + rand0_1() * sign_fun(rand0_1() - 0.5) * levy_flight_step();   // ************************************************
 					}
 
 				}
@@ -299,6 +318,7 @@ public:
 					{
 						X_D[j] = fabs(C * _best_Whale._position[j] - _whaleSet[i]._position[j]);
 						Xnew[j] = _best_Whale._position[j] - A * X_D[j];
+						Xnew[j] = Xnew[j] + rand0_1() * sign_fun(rand0_1() - 0.5) * levy_flight_step();  // ***************************************************
 					}
 				}
 
@@ -307,10 +327,9 @@ public:
 			{
 				for (int j = 0; j < _dimension; j++)
 				{
-					// X_D_prime[j] = fabs(C * _best_Whale._position[j] - _whaleSet[i]._position[j]);  //  BUG
-
 					X_D_prime[j] = fabs(_best_Whale._position[j] - _whaleSet[i]._position[j]);
 					Xnew[j] = X_D_prime[j] * exp(b * l) * cos(2 * M_PI * l) + _best_Whale._position[j];
+					Xnew[j] = Xnew[j] + rand0_1() * sign_fun(rand0_1() - 0.5) * levy_flight_step();  // *******************************************************
 				}
 
 			}

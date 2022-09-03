@@ -1,6 +1,6 @@
 
 cmake_minimum_required(VERSION 3.10)
-project(forward_kinematics VERSION 1.0)
+project(test_woa_levy_flight VERSION 1.0)
 
 # specify the C++ standard
 set(CMAKE_CXX_STANDARD 11)
@@ -17,19 +17,19 @@ else()
 endif()
 
 
-add_subdirectory(kinetics)
-add_subdirectory(utils)
+# add_subdirectory(kinetics)
+# add_subdirectory(utils)
 
 # add_executable(${PROJECT_NAME} ../src/test_main.cpp)
 # add_executable(${PROJECT_NAME} ../src/test_main_2.cpp)
 
-add_executable(forward_kinematics ../src/test_main_4.cpp)
+add_executable(test_woa_levy_flight ../src/test_woa_levy_flight.cpp)
 set (EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 
 # add_executable(test_kinematics ../src/test_kinematics.cpp)
 # set (EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 
-target_include_directories(forward_kinematics 
+target_include_directories(test_woa_levy_flight 
 # PUBLIC ${PROJECT_BINARY_DIR}
 PUBLIC ${PROJECT_SOURCE_DIR}/include
 )
@@ -40,12 +40,12 @@ PUBLIC ${PROJECT_SOURCE_DIR}/include
 # )
 
 
-link_directories(${PROJECT_SOURCE_DIR}/lib)
+# link_directories(${PROJECT_SOURCE_DIR}/lib)
 
 # target_link_libraries(${PROJECT_NAME} openGJKlib test)
 
-target_link_libraries(forward_kinematics kinetics)
-target_link_libraries(forward_kinematics utils)
+# target_link_libraries(forward_kinematics kinetics)
+# target_link_libraries(forward_kinematics utils)
 
 # target_link_libraries(test_kinematics kinetics)
 # target_link_libraries(test_kinematics utils)
