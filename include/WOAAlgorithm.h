@@ -24,21 +24,21 @@ void bubbleSort(double* arr, int n);
 
 
 
-//粒子群算法例子个体
+// 算法例子个体
 class WOA_Whale
 {
 public:
-    int _dimension; //粒子维度
-    double *_position; //粒子所在位置数组指针
-    double _fitness; //例子适应度
+    int _dimension; //维度
+    double *_position; //位置数组指针
+    double _fitness; //适应度
     
-    //构造函数，粒子维度初始化为0
+    //构造函数，维度初始化为0
     WOA_Whale(void)
     {
         _dimension = 0;
     }
     
-    //析构函数，释放粒子内存
+    //析构函数，释放内存
     ~WOA_Whale(void)
     {
         if(_dimension)
@@ -47,7 +47,7 @@ public:
         }
     }
     
-    //初始化函数，用于为粒子开辟内存空间
+    //初始化函数，用于开辟内存空间
     void initial(int dimension)
     {
         if(_dimension != dimension && dimension)
@@ -63,7 +63,7 @@ public:
             _position = new double[_dimension];
         }
     }
-    //复制函数，用于粒子间的复制操作
+    //复制函数，用于复制操作
     void copy(WOA_Whale& whale)
     {
         this->initial(whale._dimension);
@@ -77,7 +77,7 @@ public:
     
 };
 
-//PSO算法
+// WOA算法
 class WOA_Algorithm
 {
 public:
@@ -115,8 +115,9 @@ public:
         _whaleSet = new WOA_Whale[_whaleCount];
         
         for(int i = 0; i < _whaleCount; i++)
+        {
             _whaleSet[i].initial(_dimension);
-            
+        }
         _best_Whale.initial(_dimension);  
              
         //配置随机数种子
@@ -124,7 +125,7 @@ public:
         
     }
     /***************************************************************
-     * 函数描述：析构一个PSO算法，释放算法内存
+     * 函数描述：析构一个算法，释放算法内存
     ***************************************************************/
     ~WOA_Algorithm(void)
     {
@@ -132,7 +133,6 @@ public:
         delete [] _positionMinValue;
         delete [] _positionMaxValue;
         delete [] _whaleSet;
-        
     }
     
     double rand0_1(void)
@@ -145,28 +145,33 @@ public:
     	// 选出最小的适应度函数值，找到对应的粒子，将其作为最优粒子
         _globalBestWhaleIndex = -1;
         
-        double* fitness_temp;
-        fitness_temp = new double[_whaleCount];
+        double* fitness_temp = new double[_whaleCount];
         
         for(int i = 0; i < _whaleCount; i++)
+        {
             fitness_temp[i] = _whaleSet[i]._fitness;
+        }
 
         bubbleSort(fitness_temp, _whaleCount);
         
-        _globalBestFitness = fitness_temp[0];  // 选出适应度函数最小的值
+        _globalBestFitness = fitness_temp[0];  // 选出适应度函数最小的值, the first one is the best!
         
         for(int i = 0; i < _whaleCount; i++)
         {
             if((_whaleSet[i]._fitness - _globalBestFitness) < EPS)
+            {
                 _globalBestWhaleIndex = i;
-                
+            }
             else
+            {
                 continue;
-                
+            }
         }
 
         if(_globalBestWhaleIndex != -1)
+        {
             _best_Whale.copy(_whaleSet[_globalBestWhaleIndex]);
+        }
 
         delete[] fitness_temp;
             
@@ -174,16 +179,17 @@ public:
 
     void randomlyInitial(void)
     {
-    	double* good_point_set_temp;
-        good_point_set_temp = new double[_whaleCount * _dimension];
+    	double* good_point_set_temp = new double[_whaleCount * _dimension];
+
         //  产生佳点集
         gen_good_point_set( _whaleCount,  _dimension,  _positionMinValue,  _positionMaxValue,  good_point_set_temp);
         
     	for(int i = 0; i < _whaleCount; i++)
     	{
     		for(int j = 0; j < _dimension; j++)
+            {
     			_whaleSet[i]._position[j] = good_point_set_temp[i * _dimension + j];
-    		
+            }
     		_whaleSet[i]._fitness = _fitnessFunction(_whaleSet[i]); 
     	}
     	
@@ -195,17 +201,10 @@ public:
 
     void update(void)
     {
-        double* X_D;
-        X_D = new double[_dimension];
-            
-        double* Xnew;
-        Xnew = new double[_dimension];
-            
-        double* X_D_prime;
-        X_D_prime = new double[_dimension];
-        
-        double* Xrand;
-        Xrand = new double[_dimension];
+        double* X_D = new double[_dimension];
+        double* Xnew = new double[_dimension];
+        double* X_D_prime = new double[_dimension];
+        double* Xrand = new double[_dimension];
         
         double r1;
         double r2;
@@ -235,17 +234,16 @@ public:
                     // q = (rand() % (_whaleCount - 0)) + 0;  // 要取得[a,b)的随机整数，使用(rand() % (b-a))+ a;
                     
                     while(q == i)
+                    {
                         q = (rand() % ((_whaleCount-1) - 0 + 1)) + 0;
+                    }
                     
                     for(int j = 0; j < _dimension; j++)
                     {
                         Xrand[j] = _whaleSet[q]._position[j];
-                        
                         X_D[j] = fabs(C * Xrand[j] - _whaleSet[i]._position[j]);
                         Xnew[j] = Xrand[j] - A * X_D[j];
-                    
                     }   
-
                 }
                 else
                 {
@@ -255,7 +253,6 @@ public:
                         Xnew[j] = _best_Whale._position[j] - A * X_D[j];
                     }
                 }
-                
             }
             else
             {
@@ -266,22 +263,22 @@ public:
                     X_D_prime[j] = fabs(_best_Whale._position[j] - _whaleSet[i]._position[j]);
                     Xnew[j] = X_D_prime[j] * exp(b * l) * cos(2 * PI * l) + _best_Whale._position[j];
                 }
-                
             }
-            
             for(int j = 0; j < _dimension; j++)
             {
                 if(Xnew[j] <= _positionMaxValue[j] && Xnew[j] >= _positionMinValue[j])
+                {
                     _whaleSet[i]._position[j] = Xnew[j];
-                    
+                }
                 else if(Xnew[j] > _positionMaxValue[j])
+                {
                     _whaleSet[i]._position[j] = _positionMaxValue[j];
-                    
+                } 
                 else
+                {
                     _whaleSet[i]._position[j] = _positionMinValue[j];
-                
+                }
             }
-            
             _whaleSet[i]._fitness = this->_fitnessFunction(_whaleSet[i]);
             
        } 
