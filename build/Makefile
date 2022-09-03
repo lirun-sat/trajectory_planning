@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named test_woa
+# Target rules for targets named woa
 
 # Build rule for target.
-test_woa: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test_woa
-.PHONY : test_woa
+woa: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 woa
+.PHONY : woa
 
 # fast build rule for target.
-test_woa/fast:
-	$(MAKE) -f CMakeFiles/test_woa.dir/build.make CMakeFiles/test_woa.dir/build
-.PHONY : test_woa/fast
+woa/fast:
+	$(MAKE) -f CMakeFiles/woa.dir/build.make CMakeFiles/woa.dir/build
+.PHONY : woa/fast
 
 src/main_1.o: src/main_1.cpp.o
 
@@ -129,7 +129,7 @@ src/main_1.o: src/main_1.cpp.o
 
 # target to build an object file
 src/main_1.cpp.o:
-	$(MAKE) -f CMakeFiles/test_woa.dir/build.make CMakeFiles/test_woa.dir/src/main_1.cpp.o
+	$(MAKE) -f CMakeFiles/woa.dir/build.make CMakeFiles/woa.dir/src/main_1.cpp.o
 .PHONY : src/main_1.cpp.o
 
 src/main_1.i: src/main_1.cpp.i
@@ -138,7 +138,7 @@ src/main_1.i: src/main_1.cpp.i
 
 # target to preprocess a source file
 src/main_1.cpp.i:
-	$(MAKE) -f CMakeFiles/test_woa.dir/build.make CMakeFiles/test_woa.dir/src/main_1.cpp.i
+	$(MAKE) -f CMakeFiles/woa.dir/build.make CMakeFiles/woa.dir/src/main_1.cpp.i
 .PHONY : src/main_1.cpp.i
 
 src/main_1.s: src/main_1.cpp.s
@@ -147,7 +147,7 @@ src/main_1.s: src/main_1.cpp.s
 
 # target to generate assembly for a file
 src/main_1.cpp.s:
-	$(MAKE) -f CMakeFiles/test_woa.dir/build.make CMakeFiles/test_woa.dir/src/main_1.cpp.s
+	$(MAKE) -f CMakeFiles/woa.dir/build.make CMakeFiles/woa.dir/src/main_1.cpp.s
 .PHONY : src/main_1.cpp.s
 
 # Help Target
@@ -158,7 +158,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... test_woa"
+	@echo "... woa"
 	@echo "... src/main_1.o"
 	@echo "... src/main_1.i"
 	@echo "... src/main_1.s"

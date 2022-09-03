@@ -116,5 +116,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/test_woa.dir/DependInfo.cmake"
+  "CMakeFiles/woa.dir/DependInfo.cmake"
   )

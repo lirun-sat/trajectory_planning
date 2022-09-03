@@ -18,21 +18,18 @@ int main(void)
     //定义问题描述参数
     int dimension = 3; 
     int whaleCount = 30; 
-    int generation = 800; //粒子群进化代数
-    int num_calc = 10;
-    double* tempt;
-    tempt = new double[num_calc];  //  计算 200 次， 求 计算的 均值 和 标准差
+    int iteration_max = 800; //粒子群进化代数
+    int num_calc = 20;
+    double* tempt = new double[num_calc];  //  计算 20 次， 求 计算的 均值 和 标准差
     
     //构建gwo算法
     WOA_Algorithm woa(objFunction, minPos, maxPos, dimension, whaleCount);
 
-    WOA_Whale bestWhale; //粒子群最终进化结果
+    WOA_Whale bestWhale; // 最终进化结果
     
     for(int i = 0; i < num_calc; i++)
     {
-    	// TLBO_Algorithm tlbo(objFunction, minPos, maxPos, dimension, studentCount);
-    	// srand((unsigned int)time(NULL));
-        woa.findMin(generation, bestWhale); //获取最终进化结果
+        woa.findMin(iteration_max, bestWhale); //获取最终进化结果
         tempt[i] = bestWhale._fitness;
         cout <<  tempt[i] << endl;
     }
@@ -42,12 +39,9 @@ int main(void)
     avgFitness = avg(tempt, num_calc);
     stddevFitness = stddev(tempt, num_calc);
     
-    cout << avgFitness << endl;
-    cout << stddevFitness << endl;
-    
-    
-    // delete[] bestParticleset;
-    
+    cout << "avgFitness:" << avgFitness << endl;
+    cout << "stddevFitness:" << stddevFitness << endl;
+        
     delete[] tempt;
     
     return(0);
@@ -66,7 +60,7 @@ double objFunction(WOA_Whale &whale)
         
         // fitnessVal += x_i * x_i - (10 * cos(2 * PI * x_i)) + 10;
         // fitnessVal += x_i * x_i;
-        fitnessVal += (-(x_i * sin(sqrt(fabs(x_i)))));  // bug
+        fitnessVal += (-(x_i * sin(sqrt(fabs(x_i)))));  // 
         
         
     }

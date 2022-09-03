@@ -53,7 +53,7 @@ CMAKE_BINARY_DIR = /home/lirun/Documents/test_1/trajectory_planning_for_AA/simul
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/test_woa.dir/all
+all: CMakeFiles/woa.dir/all
 
 .PHONY : all
 
@@ -63,36 +63,36 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/test_woa.dir/clean
+clean: CMakeFiles/woa.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/test_woa.dir
+# Target rules for target CMakeFiles/woa.dir
 
 # All Build rule for target.
-CMakeFiles/test_woa.dir/all:
-	$(MAKE) -f CMakeFiles/test_woa.dir/build.make CMakeFiles/test_woa.dir/depend
-	$(MAKE) -f CMakeFiles/test_woa.dir/build.make CMakeFiles/test_woa.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles --progress-num=1,2 "Built target test_woa"
-.PHONY : CMakeFiles/test_woa.dir/all
+CMakeFiles/woa.dir/all:
+	$(MAKE) -f CMakeFiles/woa.dir/build.make CMakeFiles/woa.dir/depend
+	$(MAKE) -f CMakeFiles/woa.dir/build.make CMakeFiles/woa.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles --progress-num=1,2 "Built target woa"
+.PHONY : CMakeFiles/woa.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/test_woa.dir/rule: cmake_check_build_system
+CMakeFiles/woa.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/test_woa.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/woa.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles 0
-.PHONY : CMakeFiles/test_woa.dir/rule
+.PHONY : CMakeFiles/woa.dir/rule
 
 # Convenience name for target.
-test_woa: CMakeFiles/test_woa.dir/rule
+woa: CMakeFiles/woa.dir/rule
 
-.PHONY : test_woa
+.PHONY : woa
 
 # clean rule for target.
-CMakeFiles/test_woa.dir/clean:
-	$(MAKE) -f CMakeFiles/test_woa.dir/build.make CMakeFiles/test_woa.dir/clean
-.PHONY : CMakeFiles/test_woa.dir/clean
+CMakeFiles/woa.dir/clean:
+	$(MAKE) -f CMakeFiles/woa.dir/build.make CMakeFiles/woa.dir/clean
+.PHONY : CMakeFiles/woa.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
