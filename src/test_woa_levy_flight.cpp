@@ -19,7 +19,7 @@ int main(void)
     int dimension = 3; 
     int whaleCount = 30; 
     int generation = 800; //粒子群进化代数
-    int num_calc = 10;
+    int num_calc = 20;
     double* tempt;
     tempt = new double[num_calc];  //  计算 200 次， 求 计算的 均值 和 标准差
     
@@ -42,8 +42,8 @@ int main(void)
     avgFitness = avg(tempt, num_calc);
     stddevFitness = stddev(tempt, num_calc);
     
-    cout << avgFitness << endl;
-    cout << stddevFitness << endl;
+    cout << "avgFitness" << avgFitness << endl;
+    cout << "stddevFitness" << stddevFitness << endl;
     
     
     // delete[] bestParticleset;
