@@ -177,10 +177,11 @@ public:
 
 	void randomlyInitial(void)
 	{
-		double* good_point_set_temp;
-		good_point_set_temp = new double[_studentCount* _dimension];
+		double* good_point_set_temp = new double[_studentCount* _dimension];
+
 		//  产生佳点集
 		gen_good_point_set(_studentCount, _dimension, _positionMinValue, _positionMaxValue, good_point_set_temp);
+		
 		for (int i = 0; i < _studentCount; i++)
 		{
 			for (int j = 0; j < _dimension; j++)
@@ -228,11 +229,13 @@ public:
 				Xnew_temp_1._position[j] = _studentSet[i]._position[j] + r1 * (_best_student._position[j] - TF * X_mean[j]);
 
 				if (Xnew_temp_1._position[j] >= _positionMaxValue[j])
+				{
 					Xnew_temp_1._position[j] = _positionMaxValue[j];
-
+				}
 				else if (Xnew_temp_1._position[j] <= _positionMinValue[j])
+				{
 					Xnew_temp_1._position[j] = _positionMinValue[j];
-
+				}
 			}
 
 			Xnew_temp_1._fitness = this->_fitnessFunction(Xnew_temp_1);
@@ -319,17 +322,17 @@ public:
 	}
 
 
-	void findMin(int max_iter, Student& bestStudent)
-	{
-		this->randomlyInitial();
+	// void findMin(int max_iter, Student& bestStudent)
+	// {
+	// 	this->randomlyInitial();
 
-		for (int iter = 0; iter < max_iter; iter++)
-		{
-			this->update();
-		}
+	// 	for (int iter = 0; iter < max_iter; iter++)
+	// 	{
+	// 		this->update();
+	// 	}
 
-		bestStudent.copy(_best_student);
-	}
+	// 	bestStudent.copy(_best_student);
+	// }
 
 };
 
