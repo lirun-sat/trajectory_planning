@@ -145,7 +145,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=test_woa
+CMAKE_PROJECT_NAME:STATIC=test_tlbo
 
 //Value Computed by CMake
 CMAKE_PROJECT_VERSION:STATIC=1.0
@@ -225,10 +225,10 @@ CMAKE_STRIP:FILEPATH=/usr/bin/strip
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
 //Value Computed by CMake
-test_woa_BINARY_DIR:STATIC=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build
+test_tlbo_BINARY_DIR:STATIC=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build
 
 //Value Computed by CMake
-test_woa_SOURCE_DIR:STATIC=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning
+test_tlbo_SOURCE_DIR:STATIC=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning
 
 
 ########################

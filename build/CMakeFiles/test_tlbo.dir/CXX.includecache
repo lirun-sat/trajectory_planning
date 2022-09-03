@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-../include/WOAAlgorithm.h
+../include/TLBO_Algorithm.h
 iostream
 -
 stdlib.h
@@ -19,8 +19,8 @@ iomanip
 -
 
 /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/src/main_1.cpp
-WOAAlgorithm.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/src/WOAAlgorithm.h
+TLBO_Algorithm.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/src/TLBO_Algorithm.h
 cmath
 -
 iostream
