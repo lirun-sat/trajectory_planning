@@ -325,12 +325,10 @@ public:
 	// void findMin(int max_iter, Student& bestStudent)
 	// {
 	// 	this->randomlyInitial();
-
 	// 	for (int iter = 0; iter < max_iter; iter++)
 	// 	{
 	// 		this->update();
 	// 	}
-
 	// 	bestStudent.copy(_best_student);
 	// }
 

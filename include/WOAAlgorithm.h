@@ -98,7 +98,7 @@ public:
 	WOA_Whale* _whaleSet;
 	double *_positionMinValue;
 	double *_positionMaxValue;
-	double(*_fitnessFunction)(WOA_Whale&);
+	double (*_fitnessFunction)(WOA_Whale&);
 
 	WOA_Algorithm(double(*objFunction)(WOA_Whale&), double *positionMinValue, double *positionMaxValue, int dimension, int whaleCount)
 	{
@@ -143,47 +143,39 @@ public:
 		return((1.0 * rand()) / RAND_MAX);
 	}
 
-	double normal_distribution_number(double mean_temp, double std_devation)
-	{
-		unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
-		std::default_random_engine generator(seed);
-		std::normal_distribution<double> distribution(mean_temp, std_devation);
-
-		return(distribution(generator));
-	}
-
-	double levy_flight_step()
-	{
-		double beta = rand0_1() * 2;  // beta is stochastic 
-
-		double alpha_u = pow(((tgamma(1+beta)*sin(M_PI*beta/2)) / 
-							 (tgamma((1+beta)/2) * beta * pow(2, (beta-1)/2))), 
-							(1/beta));
-
-		double alpha_v = 1;
-
-		double u = normal_distribution_number(0, alpha_u);
-		double v = normal_distribution_number(0, alpha_v);
-		double step = u / pow(fabs(v), (1 / beta));
-
-		return step;
-
-	}
-
-	double sign_fun(double x)
-	{
-		if(x==0)
-		{
-			return 0;
-		}
-		else if(x>0)
-		{
-			return 1;
-		}
-		else{
-			return (-1);
-		}
-	}
+	// double normal_distribution_number(double mean_temp, double std_devation)
+	// {
+	// 	unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+	// 	std::default_random_engine generator(seed);
+	// 	std::normal_distribution<double> distribution(mean_temp, std_devation);
+	// 	return(distribution(generator));
+	// }
+	// double levy_flight_step()
+	// {
+	// 	double beta = rand0_1() * 2;  // beta is stochastic 
+	// 	double alpha_u = pow(((tgamma(1+beta)*sin(M_PI*beta/2)) / 
+	// 						 (tgamma((1+beta)/2) * beta * pow(2, (beta-1)/2))), 
+	// 						(1/beta));
+	// 	double alpha_v = 1;
+	// 	double u = normal_distribution_number(0, alpha_u);
+	// 	double v = normal_distribution_number(0, alpha_v);
+	// 	double step = u / pow(fabs(v), (1 / beta));
+	// 	return step;
+	// }
+	// double sign_fun(double x)
+	// {
+	// 	if(x==0)
+	// 	{
+	// 		return 0;
+	// 	}
+	// 	else if(x>0)
+	// 	{
+	// 		return 1;
+	// 	}
+	// 	else{
+	// 		return (-1);
+	// 	}
+	// }
 
 	// 对 _whaleSet 按照 _fitness 从大到小排列, 并对 _best_Whale 赋值
 	void refresh(void)
@@ -283,17 +275,16 @@ public:
 					// q = (rand() % (_whaleCount - 0)) + 0;  // 要取得[a,b)的随机整数，使用(rand() % (b-a))+ a;
 
 					while (q == i)
+					{
 						q = (rand() % ((_whaleCount - 1) - 0 + 1)) + 0;
-
+					}
 					for (int j = 0; j < _dimension; j++)
 					{
 						Xrand[j] = _whaleSet[q]._position[j];
-
 						X_D[j] = fabs(C * Xrand[j] - _whaleSet[i]._position[j]);
 						Xnew[j] = Xrand[j] - A * X_D[j];
-						Xnew[j] = Xnew[j] + rand0_1() * sign_fun(rand0_1() - 0.5) * levy_flight_step();   // ************************************************
+						// Xnew[j] = Xnew[j] + rand0_1() * sign_fun(rand0_1() - 0.5) * levy_flight_step();   // ************************************************
 					}
-
 				}
 				else
 				{
@@ -301,7 +292,7 @@ public:
 					{
 						X_D[j] = fabs(C * _best_Whale._position[j] - _whaleSet[i]._position[j]);
 						Xnew[j] = _best_Whale._position[j] - A * X_D[j];
-						Xnew[j] = Xnew[j] + rand0_1() * sign_fun(rand0_1() - 0.5) * levy_flight_step();  // ***************************************************
+						// Xnew[j] = Xnew[j] + rand0_1() * sign_fun(rand0_1() - 0.5) * levy_flight_step();  // ***************************************************
 					}
 				}
 
@@ -312,7 +303,7 @@ public:
 				{
 					X_D_prime[j] = fabs(_best_Whale._position[j] - _whaleSet[i]._position[j]);
 					Xnew[j] = X_D_prime[j] * exp(b * l) * cos(2 * M_PI * l) + _best_Whale._position[j];
-					Xnew[j] = Xnew[j] + rand0_1() * sign_fun(rand0_1() - 0.5) * levy_flight_step();  // *******************************************************
+					// Xnew[j] = Xnew[j] + rand0_1() * sign_fun(rand0_1() - 0.5) * levy_flight_step();  // *******************************************************
 				}
 
 			}
@@ -320,22 +311,23 @@ public:
 			for (int j = 0; j < _dimension; j++)
 			{
 				if (Xnew[j] <= _positionMaxValue[j] && Xnew[j] >= _positionMinValue[j])
+				{
 					_whaleSet[i]._position[j] = Xnew[j];
-
+				}
 				else if (Xnew[j] > _positionMaxValue[j])
+				{
 					_whaleSet[i]._position[j] = _positionMaxValue[j];
-
+				}
 				else
+				{
 					_whaleSet[i]._position[j] = _positionMinValue[j];
-
+				}
 			}
 
 			_whaleSet[i]._fitness = this->_fitnessFunction(_whaleSet[i]);
 
 		}
 
-
-		// this->refresh();
 
 		delete[] X_D;
 		delete[] Xnew;

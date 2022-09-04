@@ -1,6 +1,6 @@
 
 cmake_minimum_required(VERSION 3.10)
-project(test_woa_levy_flight_tlbo VERSION 1.0)
+project(woa_tlbo VERSION 1.0)
 
 # specify the C++ standard
 set(CMAKE_CXX_STANDARD 11)
@@ -23,13 +23,13 @@ endif()
 # add_executable(${PROJECT_NAME} ../src/test_main.cpp)
 # add_executable(${PROJECT_NAME} ../src/test_main_2.cpp)
 
-add_executable(test_woa_levy_flight_tlbo ../src/main_1.cpp)
+add_executable(woa_tlbo ../src/main_1.cpp)
 set (EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 
 # add_executable(test_kinematics ../src/test_kinematics.cpp)
 # set (EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 
-target_include_directories(test_woa_levy_flight_tlbo 
+target_include_directories(woa_tlbo 
 # PUBLIC ${PROJECT_BINARY_DIR}
 PUBLIC ${PROJECT_SOURCE_DIR}/include
 )

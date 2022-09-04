@@ -28,7 +28,7 @@ int main(void)
     // int dimension = 3; 
     int dimension = 30;
     int student_whale_count = 40;
-    int Iter_Max = 2000;
+    int Iter_Max = 1200;
     int num_calc = 15;
 
     double* tempt = new double[num_calc];  
