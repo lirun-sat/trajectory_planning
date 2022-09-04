@@ -48,7 +48,7 @@ int main()
 	int* woa_tlbo_index = new int[student_whale_count];
 	
 	double** woa_tlbo_position = new double*[student_whale_count];
-	for (int i = 0; i < student_whale_count; i++)
+	for (int i = 0; i < student_whale_count; ++i)
 	{
 		woa_tlbo_position[i] = new double[dimension];
 	}
@@ -72,19 +72,19 @@ int main()
 // *******************************************************************************************************************************************************************
 	calc_para_range(result_min, result_max);
 
-	for(int i = 0; i<N; i++){
+	for(int i = 0; i<N; ++i){
 		para_low_bound[i] = result_min[i];
 		para_up_bound[i] = result_max[i];
 	}
 
 	cout << "result_min:" << endl;
-	for(int i=0;i<N;i++){
+	for(int i = 0; i < N; ++i){
 		cout << para_low_bound[i] << "  ";
 	}
 	cout << endl;
 
 	cout << "result_max:" << endl;
-	for(int i=0;i<N;i++){
+	for(int i = 0; i < N ; ++i){
 		cout << para_up_bound[i] << "  ";
 	}
 	cout << endl;
@@ -98,23 +98,21 @@ int main()
 // *****************************************************************************************************************************************************************
 	cout << "算法构建完成，进入迭代搜索过程......" << endl;
 
-	for (int kk = 0; kk < num_calc; kk++)
+	for (int kk = 0; kk < num_calc; ++kk)
 	{	
 		cout << "第" << kk << "次搜索......" << endl;
 		start = clock();
 
 		woa.randomlyInitial();
 		cout << "WOA 初始化完成......" << endl;
-		// woa.refresh();
 		tlbo.randomlyInitial();
 		cout << "TLBO 初始化完成......" << endl;
-		// tlbo.refresh();
 
-		for(int iter = 0; iter < Iter_Max; iter++){
-			for(int i = 0; i < student_whale_count; i++){
+		for(int iter = 0; iter < Iter_Max; ++iter){
+			for(int i = 0; i < student_whale_count; ++i){
 				if(i < student_whale_count / 2){
 					woa_tlbo_fitness[i] = woa._whaleSet[i]._fitness;
-					for(int j = 0; j < dimension; j++){
+					for(int j = 0; j < dimension; ++j){
 						woa_tlbo_position[i][j] = woa._whaleSet[i]._position[j];
 					}
 				}
@@ -131,31 +129,31 @@ int main()
 // ***********************************************  Termination condition  *************************************************************************    
 			sort_max2min_main(woa_tlbo_fitness, student_whale_count, woa_tlbo_index);
 			
-			// if (Iter == Iter_Max / 100)
+			// if (iter == Iter_Max / 100)
 			// {
-			// 	cout << "Iteration is :" << Iter << endl;	
+			// 	cout << "Iteration is :" << iter << endl;	
 			// 	woa_tlbo_fitness_temp_1 = woa_tlbo_fitness[student_whale_count - 1];
 			// 	cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_1 << endl;
-			// 	if(fabs(woa_tlbo_fitness_temp_1 - woa_tlbo_fitness_temp_2) < 0.01)
+			// 	if(fabs(woa_tlbo_fitness_temp_1 - woa_tlbo_fitness_temp_2) < 0.1)
 			// 	{
 			// 		cout << "Convergence reached" << endl;
 			// 		break;
 			// 	}
 			// }
-			// else if (Iter == 2*Iter_Max / 100)
+			// else if (iter == 2*Iter_Max / 100)
 			// {
-			// 	cout << "Iteration is :" << Iter << endl;	
+			// 	cout << "Iteration is :" << iter << endl;	
 			// 	woa_tlbo_fitness_temp_2 = woa_tlbo_fitness[student_whale_count - 1];
 			// 	cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_2 << endl;
-			// 	if(fabs(woa_tlbo_fitness_temp_2 - woa_tlbo_fitness_temp_1) < 0.01)
+			// 	if(fabs(woa_tlbo_fitness_temp_2 - woa_tlbo_fitness_temp_1) < 0.1)
 			// 	{
 			// 		cout << "Convergence reached" << endl;
 			// 		break;
 			// 	}
 			// }
-			// else if (Iter == 3*Iter_Max / 100)
+			// else if (iter == 3*Iter_Max / 100)
 			// {
-			// 	cout << "Iteration is :" << Iter << endl;	
+			// 	cout << "Iteration is :" << iter << endl;	
 			// 	woa_tlbo_fitness_temp_3 = woa_tlbo_fitness[student_whale_count - 1];
 			// 	cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_3 << endl;
 			// 	if(woa_tlbo_fitness_temp_3 > 200)
@@ -299,10 +297,10 @@ int main()
 
 //***************************************************************************************************************************************************
 
-			for(int i = 0; i < student_whale_count; i++){
+			for(int i = 0; i < student_whale_count; ++i){
 				if(i < student_whale_count / 2){
 					woa._whaleSet[i]._fitness = woa_tlbo_fitness[i];
-					for(int j = 0; j < dimension; j++){
+					for(int j = 0; j < dimension; ++j){
 						woa._whaleSet[i]._position[j] = woa_tlbo_position[woa_tlbo_index[i]][j];
 					}
 				}
@@ -321,10 +319,10 @@ int main()
 
 		}
 
-		for (int i = 0; i < student_whale_count; i++){
+		for (int i = 0; i < student_whale_count; ++i){
 			if (i < student_whale_count / 2){
 				woa_tlbo_fitness[i] = woa._whaleSet[i]._fitness;
-				for (int j = 0; j < dimension; j++){
+				for (int j = 0; j < dimension; ++j){
 					woa_tlbo_position[i][j] = woa._whaleSet[i]._position[j];
 				}
 			}
@@ -340,7 +338,7 @@ int main()
 		sort_max2min_main(woa_tlbo_fitness, student_whale_count, woa_tlbo_index);
 
 		cout << "woa_tlbo_fitness:" << "  " << woa_tlbo_fitness[student_whale_count - 1] << endl;
-		for (int j = 0; j < dimension; j++){
+		for (int j = 0; j < dimension; ++j){
 			cout << woa_tlbo_position[woa_tlbo_index[student_whale_count - 1]][j] << "  ";
 		}
 		cout << endl;
@@ -354,7 +352,7 @@ int main()
 	delete[] woa_tlbo_fitness;
 	delete[] woa_tlbo_index;
 
-	for (int i = 0; i<student_whale_count; i++){
+	for (int i = 0; i<student_whale_count; ++i){
 		delete[] woa_tlbo_position[i];
 	}
 	delete[] woa_tlbo_position;
