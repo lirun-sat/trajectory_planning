@@ -12,13 +12,24 @@ double objFunction(WOA_Whale& whale);
 int main(void)
 {
     //定义求解范围,x在[-10,10]范围，y在[-10,10]范围
-    double minPos[] = {-500, -500, -500};
-    double maxPos[] = {500, 500, 500};
+    // double minPos[] = {-500, -500, -500};
+    // double maxPos[] = {500, 500, 500};
     
-    //定义问题描述参数
-    int dimension = 3; 
+    // //定义问题描述参数
+    // int dimension = 3;
+
+    double* minPos = new double[30];
+    double* maxPos = new double[30];
+
+    for(int i = 0; i < 30; i++)
+    {
+    	minPos[i] = -500;
+    	maxPos[i] = 500;
+    }
+    
+    int dimension = 30; 
     int whaleCount = 30; 
-    int iteration_max = 5000; //粒子群进化代数
+    int iteration_max = 10000; //粒子群进化代数
     int num_calc = 10;
     double* tempt = new double[num_calc];  //  计算 20 次， 求 计算的 均值 和 标准差
     
