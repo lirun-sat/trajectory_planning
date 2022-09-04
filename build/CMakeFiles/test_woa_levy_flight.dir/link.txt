@@ -1,1 +1,0 @@
-/usr/bin/c++   -O0 -Wall -g2 -ggdb   CMakeFiles/test_woa_levy_flight.dir/src/test_woa_levy_flight.cpp.o  -o ../bin/test_woa_levy_flight 
