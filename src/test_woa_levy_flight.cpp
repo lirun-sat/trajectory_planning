@@ -18,19 +18,19 @@ int main(void)
     // //定义问题描述参数
     // int dimension = 3; 
 
-    double* minPos = new double[10];
-    double* maxPos = new double[10];
+    double* minPos = new double[30];
+    double* maxPos = new double[30];
 
-    for(int i = 0; i < 10; i++)
+    for(int i = 0; i < 30; i++)
     {
     	minPos[i] = -500;
     	maxPos[i] = 500;
     }
     
     // int dimension = 3; 
-    int dimension = 10;
+    int dimension = 30;
     int whaleCount = 30; 
-    int iteration_max = 1000;
+    int iteration_max = 3000;
     int num_calc = 10;
     double* tempt = new double[num_calc];  //  计算 20 次， 求 计算的 均值 和 标准差
     
