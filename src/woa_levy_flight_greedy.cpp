@@ -30,7 +30,7 @@ int main(void)
     // int dimension = 3; 
     int dimension = 10;
     int whaleCount = 30; 
-    int iteration_max = 1000;
+    int iteration_max = 10000;
     int num_calc = 10;
     double* tempt = new double[num_calc];  //  计算 20 次， 求 计算的 均值 和 标准差
     

@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/WOAAlgorithm.h
+iostream
+-
+stdlib.h
+-
+time.h
+-
+cmath
+-
+iomanip
+-
+random
+-
+chrono
+-
+
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/src/woa_levy_flight_greedy.cpp
+WOAAlgorithm.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/src/WOAAlgorithm.h
+cmath
+-
+iostream
+-
+

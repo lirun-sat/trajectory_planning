@@ -14,9 +14,6 @@
 #include <chrono>
 
 
-// using namespace std;
-
-
 #define EPS 0.000001
 
 
@@ -238,20 +235,19 @@ public:
 
 	void randomlyInitial(void)
 	{
-		double* good_point_set_temp;
-		good_point_set_temp = new double[_whaleCount * _dimension];
+		double* good_point_set_temp = new double[_whaleCount * _dimension];
+
 		//  产生佳点集
 		gen_good_point_set(_whaleCount, _dimension, _positionMinValue, _positionMaxValue, good_point_set_temp);
 
 		for (int i = 0; i < _whaleCount; i++)
 		{
 			for (int j = 0; j < _dimension; j++)
+			{
 				_whaleSet[i]._position[j] = good_point_set_temp[i * _dimension + j];
-
+			}
 			_whaleSet[i]._fitness = _fitnessFunction(_whaleSet[i]);
 		}
-
-		// this->refresh(); 
 
 		delete[] good_point_set_temp;
 
@@ -259,17 +255,13 @@ public:
 
 	void update(void)
 	{
-		double* X_D;
-		X_D = new double[_dimension];
+		double* X_D = new double[_dimension];
+		double* Xnew = new double[_dimension];
+		double* X_D_prime = new double[_dimension];
+		double* Xrand = new double[_dimension];
 
-		double* Xnew;
-		Xnew = new double[_dimension];
-
-		double* X_D_prime;
-		X_D_prime = new double[_dimension];
-
-		double* Xrand;
-		Xrand = new double[_dimension];
+		WOA_Whale Whale_temp;
+		Whale_temp.initial(_dimension);
 
 		double r1;
 		double r2;
@@ -277,6 +269,7 @@ public:
 
 		double p;
 		int q;
+		double p_greedy;
 
 		for (int i = 0; i < _whaleCount; i++)
 		{
@@ -290,6 +283,7 @@ public:
 			l = (a2 - 1) * r3 + 1;
 
 			p = rand0_1();
+			p_greedy = rand0_1();
 
 			if (p < 0.5)
 			{
@@ -300,12 +294,12 @@ public:
 					// q = (rand() % (_whaleCount - 0)) + 0;  // 要取得[a,b)的随机整数，使用(rand() % (b-a))+ a;
 
 					while (q == i)
+					{
 						q = (rand() % ((_whaleCount - 1) - 0 + 1)) + 0;
-
+					}
 					for (int j = 0; j < _dimension; j++)
 					{
 						Xrand[j] = _whaleSet[q]._position[j];
-
 						X_D[j] = fabs(C * Xrand[j] - _whaleSet[i]._position[j]);
 						Xnew[j] = Xrand[j] - A * X_D[j];
 						Xnew[j] = Xnew[j] + rand0_1() * sign_fun(rand0_1() - 0.5) * levy_flight_step();   // ************************************************
@@ -337,22 +331,32 @@ public:
 			for (int j = 0; j < _dimension; j++)
 			{
 				if (Xnew[j] <= _positionMaxValue[j] && Xnew[j] >= _positionMinValue[j])
-					_whaleSet[i]._position[j] = Xnew[j];
-
+				{
+					Whale_temp._position[j] = Xnew[j];
+				}
 				else if (Xnew[j] > _positionMaxValue[j])
-					_whaleSet[i]._position[j] = _positionMaxValue[j];
-
+				{
+					Whale_temp._position[j] = _positionMaxValue[j];
+				}
 				else
-					_whaleSet[i]._position[j] = _positionMinValue[j];
-
+				{
+					Whale_temp._position[j] = _positionMinValue[j];
+				}
 			}
 
-			_whaleSet[i]._fitness = this->_fitnessFunction(_whaleSet[i]);
+			Whale_temp._fitness = _fitnessFunction(Whale_temp);
 
+			if((Whale_temp._fitness > _whaleSet[i]._fitness) && (p_greedy < p))
+			{
+				;
+			}
+			else
+			{
+				_whaleSet[i].copy(Whale_temp);
+			}
+				
 		}
 
-
-		// this->refresh();
 
 		delete[] X_D;
 		delete[] Xnew;
