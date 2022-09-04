@@ -24,12 +24,12 @@ void bubbleSort(double* arr, int n);
 
 
 
-// 算法例子个体
+// 算法个体
 class WOA_Whale
 {
 public:
     int _dimension; //维度
-    double *_position; //位置数组指针
+    double* _position; //位置数组指针
     double _fitness; //适应度
     
     //构造函数，维度初始化为0

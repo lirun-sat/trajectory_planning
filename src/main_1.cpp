@@ -18,8 +18,8 @@ int main(void)
     //定义问题描述参数
     int dimension = 3; 
     int whaleCount = 30; 
-    int iteration_max = 800; //粒子群进化代数
-    int num_calc = 20;
+    int iteration_max = 5000; //粒子群进化代数
+    int num_calc = 10;
     double* tempt = new double[num_calc];  //  计算 20 次， 求 计算的 均值 和 标准差
     
     //构建gwo算法
