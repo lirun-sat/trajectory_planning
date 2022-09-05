@@ -155,7 +155,8 @@ public:
 
 	double levy_flight_step()
 	{
-		double beta = rand0_1() * 2;  // beta is stochastic 
+		// double beta = rand0_1() * 2;  // beta is stochastic 
+		double beta = 1.5;
 
 		double alpha_u = pow(((tgamma(1+beta)*sin(M_PI*beta/2)) / 
 							 (tgamma((1+beta)/2) * beta * pow(2, (beta-1)/2))), 
