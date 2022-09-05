@@ -1,4 +1,4 @@
-# Install script for directory: /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning_without_collision_avoidance_2/kinetics
+# Install script for directory: /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
