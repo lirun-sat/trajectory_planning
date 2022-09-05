@@ -23,13 +23,15 @@ int main(void)
     {
     	minPos[i] = -500;
     	maxPos[i] = 500;
+		// minPos[i] = -5.12;
+    	// maxPos[i] = 5.12;
     }
     
     // int dimension = 3; 
     int dimension = 30;
     int student_whale_count = 40;
     int Iter_Max = 1200;
-    int num_calc = 15;
+    int num_calc = 20;
 
     double* tempt = new double[num_calc];  
 
@@ -177,11 +179,11 @@ double objFunction_TLBO(Student &student)
     double fitnessVal = 0;
     double x_i = 0;
     
-    for(int i = 0; i < student._dimension; i++)
+    for(int i = 0; i < student._dimension; ++i)
     {
         x_i = student._position[i];
         
-        // fitnessVal += x_i * x_i - (10 * cos(2 * PI * x_i)) + 10;
+        // fitnessVal += x_i * x_i - (10 * cos(2 * M_PI * x_i)) + 10;
         // fitnessVal += x_i * x_i;
         fitnessVal += (-(x_i * sin(sqrt(fabs(x_i)))));  // bug
  
@@ -197,11 +199,11 @@ double objFunction_WOA(WOA_Whale &whale)
     double fitnessVal = 0;
     double x_i = 0;
     
-    for(int i = 0; i < whale._dimension; i++)
+    for(int i = 0; i < whale._dimension; ++i)
     {
         x_i = whale._position[i];
         
-        // fitnessVal += x_i * x_i - (10 * cos(2 * PI * x_i)) + 10;
+        // fitnessVal += x_i * x_i - (10 * cos(2 * M_PI * x_i)) + 10;
         // fitnessVal += x_i * x_i;
         fitnessVal += (-(x_i * sin(sqrt(fabs(x_i)))));  // bug
         

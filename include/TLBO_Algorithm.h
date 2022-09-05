@@ -23,9 +23,7 @@ class Student
 {
 public:
 	int _dimension;
-
 	double* _position;
-
 	double _fitness;
 
 	//构造函数，维度初始化为0
