@@ -30,7 +30,11 @@ int main(void)
     // int dimension = 3; 
     int dimension = 30;
     int whaleCount = 30; 
+<<<<<<< Updated upstream:src/test_woa_levy_flight.cpp
     int iteration_max = 3000;
+=======
+    int iteration_max = 3000; //粒子群进化代数
+>>>>>>> Stashed changes:src/main_1.cpp
     int num_calc = 20;
     double* tempt = new double[num_calc];  //  计算 20 次， 求 计算的 均值 和 标准差
     
