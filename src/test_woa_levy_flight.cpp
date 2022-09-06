@@ -18,23 +18,21 @@ int main(void)
     // //定义问题描述参数
     // int dimension = 3; 
 
-    double* minPos = new double[30];
-    double* maxPos = new double[30];
+    double* minPos = new double[10];
+    double* maxPos = new double[10];
 
-    for(int i = 0; i < 30; i++)
+    for(int i = 0; i < 10; i++)
     {
     	minPos[i] = -500;
     	maxPos[i] = 500;
     }
     
     // int dimension = 3; 
-    int dimension = 30;
+    int dimension = 10;
     int whaleCount = 30; 
-<<<<<<< Updated upstream:src/test_woa_levy_flight.cpp
-    int iteration_max = 3000;
-=======
-    int iteration_max = 3000; //粒子群进化代数
->>>>>>> Stashed changes:src/main_1.cpp
+
+    int iteration_max = 5000; //粒子群进化代数
+
     int num_calc = 20;
     double* tempt = new double[num_calc];  //  计算 20 次， 求 计算的 均值 和 标准差
     
