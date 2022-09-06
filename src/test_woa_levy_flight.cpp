@@ -18,23 +18,25 @@ int main(void)
     // //定义问题描述参数
     // int dimension = 3; 
 
-    double* minPos = new double[10];
-    double* maxPos = new double[10];
+    double* minPos = new double[30];
+    double* maxPos = new double[30];
 
-    for(int i = 0; i < 10; i++)
+    for(int i = 0; i < 30; i++)
     {
     	minPos[i] = -500;
     	maxPos[i] = 500;
     }
     
     // int dimension = 3; 
-    int dimension = 10;
+    int dimension = 30;
     int whaleCount = 30; 
-
-    int iteration_max = 5000; //粒子群进化代数
-
+    int iteration_max = 1000; //进化代数
     int num_calc = 20;
     double* tempt = new double[num_calc];  //  计算 20 次， 求 计算的 均值 和 标准差
+
+    cout << "dimension:" << dimension << endl;
+    cout << "iteration_max:" << iteration_max << endl;
+    cout << "num_calc:" << num_calc << endl;
     
     //构建gwo算法
     WOA_Algorithm woa(objFunction, minPos, maxPos, dimension, whaleCount);
