@@ -2,6 +2,7 @@
 #ifndef _WOAALGORITHM_H
 #define _WOAALGORITHM_H
 
+
 #define _USE_MATH_DEFINES 
 
 #include <iostream>
@@ -9,8 +10,11 @@
 #include <time.h>
 #include <cmath>
 #include <iomanip>
-#include<algorithm>
+#include <random>
+#include <chrono>
 
+
+// using namespace std;
 
 
 #define EPS 0.000001
@@ -21,43 +25,42 @@ double stddev(double* parameter, int n);
 void MatrixMultiMatrix(int row_1, int col_1, int col_2, double* A, double* B, double* AB);
 int primerange(int start, int end, int* result, int count);
 void gen_good_point_set(int num_particles, int dim, double* low_bound, double* up_bound, double* good_point_set);
-
-void sort_max2min(double* a, int length, int* b);
+void bubbleSort(double* arr, int n);
 
 
 class WOA_Whale
 {
 public:
-	int _dimension; //维度
-	double* _position; //所在位置数组指针
-	double _fitness; //适应度
+	int _dimension;     // 维度
+	double* _position;  // 位置数组指针
+	double _fitness;    // 适应度
 
-	//构造函数，维度初始化为0
+	// 构造函数，维度初始化为0
 	WOA_Whale(void){
 		_dimension = 0;
 	}
 
-	//析构函数，释放内存
+	// 析构函数，释放内存
 	~WOA_Whale(void){
-		if (_dimension){
+		if(_dimension){
 			delete[] _position;
 		}
 	}
 
-	//初始化函数，用于开辟内存空间
+	// 初始化函数，用于开辟内存空间
 	void initial(int dimension){
 		if (_dimension != dimension && dimension){
-			//需要重新分配内存
+			// 需要重新分配内存
 			if (_dimension){
-				//消除已有内存
+				// 消除已有内存
 				delete[] _position;
 			}
-			//开辟新内存
+			// 开辟新内存
 			_dimension = dimension;
 			_position = new double[_dimension];
 		}
 	}
-	//复制函数，用于复制操作
+	// 复制函数，用于复制操作
 	void copy(WOA_Whale& whale){
 		this->initial(whale._dimension);
 		for (int i = 0; i<_dimension; i++){
@@ -67,7 +70,8 @@ public:
 	}
 };
 
-//算法
+
+// 算法
 class WOA_Algorithm
 {
 public:
@@ -77,13 +81,10 @@ public:
 	double a, a2;
 	double A, C, b, l;
 
-	int pooling_size = 1.5 * _whaleCount * _dimension;
-
 	double _globalBestFitness = 0;
 	int _globalBestWhaleIndex = -1;
 
 	WOA_Whale _best_Whale;
-
 	WOA_Whale* _whaleSet;
 	double *_positionMinValue;
 	double *_positionMaxValue;
@@ -100,18 +101,14 @@ public:
 			_positionMinValue[i] = positionMinValue[i];
 			_positionMaxValue[i] = positionMaxValue[i];
 		}
-
 		_whaleCount = whaleCount;
 		_whaleSet = new WOA_Whale[_whaleCount];
-
 		for (int i = 0; i < _whaleCount; i++){
 			_whaleSet[i].initial(_dimension);
 		}
 		_best_Whale.initial(_dimension);
-
 		//配置随机数种子
 		srand((unsigned int)time(NULL));
-
 	}
 	/***************************************************************
 	* 函数描述：析构一个PSO算法，释放算法内存
@@ -127,15 +124,74 @@ public:
 		return((1.0 * rand()) / RAND_MAX);
 	}
 
+	double normal_distribution_number(double mean_temp, double std_devation){
+		unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+		std::default_random_engine generator(seed);
+		std::normal_distribution<double> distribution(mean_temp, std_devation);
+		return(distribution(generator));
+	}
+
+	double levy_flight_step(){
+		// double beta = rand0_1() * 2;  // beta is stochastic 
+		double beta = 1.5;
+		double alpha_u = pow(((tgamma(1+beta)*sin(M_PI*beta/2)) / (tgamma((1+beta)/2) * beta * pow(2, (beta-1)/2))), (1/beta));
+		double alpha_v = 1;
+		double u = normal_distribution_number(0, alpha_u);
+		double v = normal_distribution_number(0, alpha_v);
+		double step = u / pow(fabs(v), (1 / beta));
+		return step;
+	}
+
+	double sign_fun(double x){
+		if(x==0){
+			return 0;
+		}
+		else if(x>0){
+			return 1;
+		}
+		else{
+			return (-1);
+		}
+	}
+
+	void refresh(void){
+		_globalBestWhaleIndex = -1;
+		double* fitness_temp = new double[_whaleCount];
+
+		for (int i = 0; i < _whaleCount; i++){
+			fitness_temp[i] = _whaleSet[i]._fitness;
+		}
+		// fitness_temp 从大到小排序, sorting is not necessary
+		bubbleSort(fitness_temp, _whaleCount);  
+		// 选出适应度函数最小的值
+		_globalBestFitness = fitness_temp[_whaleCount - 1];
+
+		for(int i = 0; i < _whaleCount; ++i){
+			if((_whaleSet[i]._fitness - _globalBestFitness) < EPS){
+				_globalBestWhaleIndex = i;
+			}
+			else{
+				continue;
+			}
+		}
+
+		if (_globalBestWhaleIndex != -1){
+			_best_Whale.copy(_whaleSet[_globalBestWhaleIndex]);
+		}
+			
+		delete[] fitness_temp;
+
+	}
+
+
 	void randomlyInitial(void){
-		double* good_point_set_temp;
-		good_point_set_temp = new double[_whaleCount * _dimension];
-		
+		double* good_point_set_temp = new double[_whaleCount * _dimension];
+
 		//  产生佳点集
 		gen_good_point_set(_whaleCount, _dimension, _positionMinValue, _positionMaxValue, good_point_set_temp);
 
-		for(int i = 0; i < _whaleCount; i++){
-			for(int j = 0; j < _dimension; j++){
+		for (int i = 0; i < _whaleCount; i++){
+			for (int j = 0; j < _dimension; j++){
 				_whaleSet[i]._position[j] = good_point_set_temp[i * _dimension + j];
 			}
 			_whaleSet[i]._fitness = _fitnessFunction(_whaleSet[i]);
@@ -145,91 +201,15 @@ public:
 
 	}
 
-	// 对 _whaleSet 按照 _fitness 从大到小排列, 并对 _best_Whale 赋值
-	void refresh(void){
-		_globalBestWhaleIndex = -1;
-		double* fitness_temp = new double[_whaleCount];
-		WOA_Whale* _whaleSet_temp = new WOA_Whale[_whaleCount];
-		int* index = new int[_whaleCount];
-
-		for (int i = 0; i < _whaleCount; i++){
-			fitness_temp[i] = _whaleSet[i]._fitness;
-			index[i] = i;
-		}
-
-		// fitness_temp 从大到小排序
-		sort_max2min(fitness_temp, _whaleCount, index);  
-
-		// 选出适应度函数最小的值
-		_globalBestFitness = fitness_temp[_whaleCount - 1];
-		_globalBestWhaleIndex = index[_whaleCount - 1];
-
-		if (_globalBestWhaleIndex != -1){
-			_best_Whale.copy(_whaleSet[_globalBestWhaleIndex]);
-		}
-
-		for (int i = 0; i < _whaleCount; i++){
-			_whaleSet_temp[i].copy(_whaleSet[index[i]]);
-		}
-
-		for (int i = 0; i < _whaleCount; i++){
-			_whaleSet[i].copy(_whaleSet_temp[i]);
-		}
-
-		delete[] fitness_temp;
-		delete[] index;
-		delete[] _whaleSet_temp;
-
-	}
-
-	void pooling(WOA_Whale best_whale, WOA_Whale worst_whale){
-
-		double best_max;
-		double best_min;
-
-		best_max = *max_element(best_whale._position, best_whale._position + best_whale._dimension);
-		best_min = *min_element(best_whale._position, best_whale._position + best_whale._dimension);
-
-		double x_brnd;
-
-		x_brnd = rand0_1() * (best_max - best_min) + best_min;
-
-
-
-		int binary_rand_num = (rand() % (1-0+1))+ 0;
-		int non_binary_rand_num;
-		if(binary_rand_num = 0){
-			non_binary_rand_num = 1;
-		}
-		else{
-			non_binary_rand_num = 0;
-		}
-		 
-
-	}
-
-<<<<<<< Updated upstream
-	void update(int iter, int max_iter)
-	{
+	void update(int iter, int max_iter){
 		a = 2 * (1 - (double)iter / (double)max_iter);  
 		//  需要对 iter 进行类型转换， 因为 a 是 double 型变量.
 		a2 = (-1) + (double)iter * ((-1) / (double)max_iter);
-=======
-	
 
-	void update(void){
-		double* X_D;
-		X_D = new double[_dimension];
-
-		double* Xnew;
-		Xnew = new double[_dimension];
->>>>>>> Stashed changes
-
-		double* X_D_prime;
-		X_D_prime = new double[_dimension];
-
-		double* Xrand;
-		Xrand = new double[_dimension];
+		double* X_D = new double[_dimension];
+		double* Xnew = new double[_dimension];
+		double* X_D_prime = new double[_dimension];
+		double* Xrand = new double[_dimension];
 
 		double r1;
 		double r2;
@@ -238,8 +218,7 @@ public:
 		double p;
 		int q;
 
-		for (int i = 0; i < _whaleCount; i++)
-		{
+		for (int i = 0; i < _whaleCount; i++){
 			r1 = rand0_1();
 			r2 = rand0_1();
 			r3 = rand0_1();
@@ -251,66 +230,53 @@ public:
 
 			p = rand0_1();
 
-			if (p < 0.5)
-			{
-				if (fabs(A) > 1)
-				{
+			if (p < 0.5){
+				if (fabs(A) > 1){
 					q = (rand() % ((_whaleCount - 1) - 0 + 1)) + 0;   
 					//  要取得[a,b]的随机整数，使用(rand() % (b-a+1))+ a;
 					// q = (rand() % (_whaleCount - 0)) + 0;  // 要取得[a,b)的随机整数，使用(rand() % (b-a))+ a;
 
-					while (q == i)
+					while (q == i){
 						q = (rand() % ((_whaleCount - 1) - 0 + 1)) + 0;
+					}
 
-					for (int j = 0; j < _dimension; j++)
-					{
+					for (int j = 0; j < _dimension; j++){
 						Xrand[j] = _whaleSet[q]._position[j];
-
 						X_D[j] = fabs(C * Xrand[j] - _whaleSet[i]._position[j]);
 						Xnew[j] = Xrand[j] - A * X_D[j];
-
+						Xnew[j] = Xnew[j] + rand0_1() * sign_fun(rand0_1() - 0.5) * levy_flight_step();   // ************************************************
 					}
-
 				}
-				else
-				{
-					for (int j = 0; j < _dimension; j++)
-					{
+				else{
+					for (int j = 0; j < _dimension; j++){
 						X_D[j] = fabs(C * _best_Whale._position[j] - _whaleSet[i]._position[j]);
 						Xnew[j] = _best_Whale._position[j] - A * X_D[j];
+						// Xnew[j] = Xnew[j] + rand0_1() * sign_fun(rand0_1() - 0.5) * levy_flight_step();  // ***************************************************
 					}
 				}
-
 			}
-			else
-			{
-				for (int j = 0; j < _dimension; j++)
-				{
+			else{
+				for (int j = 0; j < _dimension; j++){
 					X_D_prime[j] = fabs(_best_Whale._position[j] - _whaleSet[i]._position[j]);
 					Xnew[j] = X_D_prime[j] * exp(b * l) * cos(2 * M_PI * l) + _best_Whale._position[j];
+					// Xnew[j] = Xnew[j] + rand0_1() * sign_fun(rand0_1() - 0.5) * levy_flight_step();  // *******************************************************
 				}
-
 			}
-
-			for (int j = 0; j < _dimension; j++)
-			{
-				if (Xnew[j] <= _positionMaxValue[j] && Xnew[j] >= _positionMinValue[j])
+			for (int j = 0; j < _dimension; j++){
+				if (Xnew[j] <= _positionMaxValue[j] && Xnew[j] >= _positionMinValue[j]){
 					_whaleSet[i]._position[j] = Xnew[j];
-
-				else if (Xnew[j] > _positionMaxValue[j])
-					_whaleSet[i]._position[j] = _positionMaxValue[j];
-
-				else
-					_whaleSet[i]._position[j] = _positionMinValue[j];
-
+				}
+				else if (Xnew[j] > _positionMaxValue[j]){
+					_whaleSet[i]._position[j] = (_whaleSet[i]._position[j] + _positionMaxValue[j]) / 2;
+				}
+				else{
+					_whaleSet[i]._position[j] = (_whaleSet[i]._position[j] + _positionMinValue[j]) / 2;
+				}
 			}
 
 			_whaleSet[i]._fitness = this->_fitnessFunction(_whaleSet[i]);
 
 		}
-
-
-		// this->refresh();
 
 		delete[] X_D;
 		delete[] Xnew;
@@ -320,23 +286,19 @@ public:
 	}
 
 
-	void findMin(int max_iter, WOA_Whale& bestWhale)
-	{
-		this->randomlyInitial();
-		this->refresh();
-
-		for (int iter = 0; iter < max_iter; iter++)
-		{
-			a = 2 * (1 - (double)iter / (double)max_iter);  //  需要对 iter 进行类型转换， 因为 a 是 double 型变量.
-			a2 = (-1) + (double)iter * ((-1) / (double)max_iter);
-
-			this->update();
-			this->refresh();
-
-		}
-
-		bestWhale.copy(_best_Whale);
-	}
+	// void findMin(int max_iter, WOA_Whale& bestWhale)
+	// {
+	// 	this->randomlyInitial();
+	// 	this->refresh();
+	// 	for (int iter = 0; iter < max_iter; iter++)
+	// 	{
+	// 		a = 2 * (1 - (double)iter / (double)max_iter);  //  需要对 iter 进行类型转换， 因为 a 是 double 型变量.
+	// 		a2 = (-1) + (double)iter * ((-1) / (double)max_iter);
+	// 		this->update();
+	// 		this->refresh();
+	// 	}
+	// 	bestWhale.copy(_best_Whale);
+	// }
 
 };
 
@@ -347,8 +309,7 @@ public:
 double avg(double* parameter, int n)
 {
 	double num = 0;
-	for (int i = 0; i < n; i++)
-	{
+	for (int i = 0; i < n; i++){
 		num += parameter[i];
 	}
 
@@ -362,8 +323,7 @@ double stddev(double* parameter, int n)
 	double num = avg(parameter, n);
 	double sum = 0.0;
 
-	for (int i = 0; i < n; i++)
-	{
+	for (int i = 0; i < n; i++){
 		sum += (parameter[i] - num) * (parameter[i] - num);
 	}
 
@@ -373,25 +333,16 @@ double stddev(double* parameter, int n)
 
 
 
-// 数组排序，从大到小排序，并返回排序后的数组对应原数组的下标
-void sort_max2min(double* a, int length, int* b)
+// 仅仅找出最小的元素，并将其放在最后
+void bubbleSort(double* arr, int n)
 {
-	int temp_index;
 	double temp;
-	for (int j = 0; j < length; j++)
-	{
-		for (int i = 0; i < length - 1 - j; i++)
-		{
-			if (a[i] < a[i + 1])
-			{
-				temp = a[i];
-				a[i] = a[i + 1];
-				a[i + 1] = temp;
-
-				temp_index = b[i];
-				b[i] = b[i + 1];
-				b[i + 1] = temp_index;
-			}
+	//比较两个相邻的元素   
+	for (int j = 0; j < n - 1; j++){
+		if (arr[j] < arr[j + 1]){
+			temp = arr[j];
+			arr[j] = arr[j + 1];
+			arr[j + 1] = temp;
 		}
 	}
 }
@@ -651,5 +602,23 @@ void gen_good_point_set(int num_particles, int dim, double* low_bound, double* u
 
 
 
-#endif // _ZPSOALGORITHM_H
+// double normal_distribution(double mean_temp, double std_devation)
+// {
+// 	unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+// 	std::default_random_engine generator(seed);
 
+// 	std::normal_distribution<double> distribution(mean_temp, std_devation);
+
+// 	double number = distribution(generator);
+
+// 	return number;
+
+// }
+
+
+
+
+
+
+
+#endif // _ZPSOALGORITHM_H

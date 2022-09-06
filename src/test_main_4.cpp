@@ -142,16 +142,16 @@ int main()
 				// 	break;
 				// }
 			}
-			// else if (iter == 2*Iter_Max / 100){
-			// 	cout << "Iteration is :" << iter << endl;	
-			// 	woa_tlbo_fitness_temp_2 = woa_tlbo_fitness[student_whale_count - 1];
-			// 	cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_2 << endl;
-			// 	if(woa_tlbo_fitness_temp_2 > 200 && fabs(woa_tlbo_fitness_temp_2 - woa_tlbo_fitness_temp_1) < 1)
-			// 	{
-			// 		cout << "Convergence reached" << endl;
-			// 		break;
-			// 	}
-			// }
+			else if (iter == 2*Iter_Max / 100){
+				cout << "Iteration is :" << iter << endl;	
+				woa_tlbo_fitness_temp_2 = woa_tlbo_fitness[student_whale_count - 1];
+				cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_2 << endl;
+				// if(woa_tlbo_fitness_temp_2 > 200 && fabs(woa_tlbo_fitness_temp_2 - woa_tlbo_fitness_temp_1) < 1)
+				// {
+				// 	cout << "Convergence reached" << endl;
+				// 	break;
+				// }
+			}
 			else if (iter == 3*Iter_Max / 100){
 				cout << "Iteration is :" << iter << endl;	
 				woa_tlbo_fitness_temp_3 = woa_tlbo_fitness[student_whale_count - 1];
@@ -162,16 +162,16 @@ int main()
 				// 	break;
 				// }
 			}
-			// else if (iter == 4*Iter_Max / 100){
-			// 	cout << "Iteration is :" << iter << endl;	
-			// 	woa_tlbo_fitness_temp_4 = woa_tlbo_fitness[student_whale_count - 1];
-			// 	cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_4 << endl;
-			// 	if(woa_tlbo_fitness_temp_4 > 200 && fabs(woa_tlbo_fitness_temp_4 - woa_tlbo_fitness_temp_3) < 1)
-			// 	{
-			// 		cout << "Convergence reached" << endl;
-			// 		break;
-			// 	}
-			// }
+			else if (iter == 4*Iter_Max / 100){
+				cout << "Iteration is :" << iter << endl;	
+				woa_tlbo_fitness_temp_4 = woa_tlbo_fitness[student_whale_count - 1];
+				cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_4 << endl;
+				// if(woa_tlbo_fitness_temp_4 > 200 && fabs(woa_tlbo_fitness_temp_4 - woa_tlbo_fitness_temp_3) < 1)
+				// {
+				// 	cout << "Convergence reached" << endl;
+				// 	break;
+				// }
+			}
 			else if (iter == 5*Iter_Max / 100){
 				cout << "Iteration is :" << iter << endl;	
 				woa_tlbo_fitness_temp_5 = woa_tlbo_fitness[student_whale_count - 1];
@@ -182,16 +182,16 @@ int main()
 				// 	break;
 				// }
 			}
-			// else if (iter == 6*Iter_Max / 100){
-			// 	cout << "Iteration is :" << iter << endl;	
-			// 	woa_tlbo_fitness_temp_6 = woa_tlbo_fitness[student_whale_count - 1];
-			// 	cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_6 << endl;		
-			// 	if(woa_tlbo_fitness_temp_6 > 200 && fabs(woa_tlbo_fitness_temp_6 - woa_tlbo_fitness_temp_5) < 1)
-			// 	{
-			// 		cout << "Convergence reached" << endl;
-			// 		break;
-			// 	}				
-			// }
+			else if (iter == 6*Iter_Max / 100){
+				cout << "Iteration is :" << iter << endl;	
+				woa_tlbo_fitness_temp_6 = woa_tlbo_fitness[student_whale_count - 1];
+				cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_6 << endl;		
+				// if(woa_tlbo_fitness_temp_6 > 200 && fabs(woa_tlbo_fitness_temp_6 - woa_tlbo_fitness_temp_5) < 1)
+				// {
+				// 	cout << "Convergence reached" << endl;
+				// 	break;
+				// }				
+			}
 			else if (iter == 7*Iter_Max / 100){
 				cout << "Iteration is :" << iter << endl;	
 				woa_tlbo_fitness_temp_7 = woa_tlbo_fitness[student_whale_count - 1];
@@ -202,16 +202,16 @@ int main()
 				// 	break;
 				// }
 			}
-			// else if (iter == 8*Iter_Max / 100){
-			// 	cout << "Iteration is :" << iter << endl;	
-			// 	woa_tlbo_fitness_temp_8 = woa_tlbo_fitness[student_whale_count - 1];
-			// 	cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_8 << endl;
-			// 	if(woa_tlbo_fitness_temp_8 > 200 && fabs(woa_tlbo_fitness_temp_8 - woa_tlbo_fitness_temp_7) < 1)
-			// 	{
-			// 		cout << "Convergence reached" << endl;
-			// 		break;
-			// 	}
-			// }
+			else if (iter == 8*Iter_Max / 100){
+				cout << "Iteration is :" << iter << endl;	
+				woa_tlbo_fitness_temp_8 = woa_tlbo_fitness[student_whale_count - 1];
+				cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_8 << endl;
+				// if(woa_tlbo_fitness_temp_8 > 200 && fabs(woa_tlbo_fitness_temp_8 - woa_tlbo_fitness_temp_7) < 1)
+				// {
+				// 	cout << "Convergence reached" << endl;
+				// 	break;
+				// }
+			}
 			else if (iter == 9*Iter_Max / 100){
 				cout << "Iteration is :" << iter << endl;
 				woa_tlbo_fitness_temp_9 = woa_tlbo_fitness[student_whale_count - 1];	
