@@ -224,7 +224,8 @@ public:
 
 	void update(int iter, int max_iter)
 	{
-		a = 2 * (1 - (double)iter / (double)max_iter);  //  需要对 iter 进行类型转换， 因为 a 是 double 型变量.
+		a = 2 * (1 - (double)iter / (double)max_iter);  
+		//  需要对 iter 进行类型转换， 因为 a 是 double 型变量.
 		a2 = (-1) + (double)iter * ((-1) / (double)max_iter);
 
 		double* X_D = new double[_dimension];

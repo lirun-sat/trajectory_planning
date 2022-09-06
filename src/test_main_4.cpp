@@ -35,7 +35,8 @@ int main()
 	int student_whale_count = 100;
 	// int Iter_Max = 40000;
 	// int Iter_Max = 100000;
-	int Iter_Max = 10000;
+	// int Iter_Max = 10000;
+	int Iter_Max = 5000;
 	int num_calc = 100;
 	
 	cout << "Iter_Max = " << "  " << Iter_Max << endl;
@@ -221,16 +222,16 @@ int main()
 				// 	break;
 				// }
 			}
-			// else if (iter == 15*Iter_Max / 100){
-			// 	cout << "Iteration is :" << iter << endl;
-			// 	woa_tlbo_fitness_temp_15 = woa_tlbo_fitness[student_whale_count - 1];	
-			// 	cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_15 << endl;
-			// 	if(woa_tlbo_fitness_temp_15 > 50 && fabs(woa_tlbo_fitness_temp_15 - woa_tlbo_fitness_temp_9) < 0.1)
-			// 	{
-			// 		cout << "Convergence reached" << endl;
-			// 		break;
-			// 	}
-			// }		
+			else if (iter == 15*Iter_Max / 100){
+				cout << "Iteration is :" << iter << endl;
+				woa_tlbo_fitness_temp_15 = woa_tlbo_fitness[student_whale_count - 1];	
+				cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_15 << endl;
+				// if(woa_tlbo_fitness_temp_15 > 50 && fabs(woa_tlbo_fitness_temp_15 - woa_tlbo_fitness_temp_9) < 0.1)
+				// {
+				// 	cout << "Convergence reached" << endl;
+				// 	break;
+				// }
+			}		
 			else if (iter == 22*Iter_Max / 100){
 				cout << "Iteration is :" << iter << endl;
 				woa_tlbo_fitness_temp_22 = woa_tlbo_fitness[student_whale_count - 1];	
@@ -241,20 +242,30 @@ int main()
 				// 	break;
 				// }				
 			}			
-			// else if (iter == 35*Iter_Max / 100){
-			// 	cout << "Iteration is :" << iter << endl;
-			// 	woa_tlbo_fitness_temp_35 = woa_tlbo_fitness[student_whale_count - 1];	
-			// 	cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_35 << endl;				
-			// 	if(woa_tlbo_fitness_temp_35 > 30 && fabs(woa_tlbo_fitness_temp_35 - woa_tlbo_fitness_temp_22) < 0.1)
-			// 	{
-			// 		cout << "Convergence reached" << endl;
-			// 		break;
-			// 	}
-			// }
+			else if (iter == 35*Iter_Max / 100){
+				cout << "Iteration is :" << iter << endl;
+				woa_tlbo_fitness_temp_35 = woa_tlbo_fitness[student_whale_count - 1];	
+				cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_35 << endl;				
+				// if(woa_tlbo_fitness_temp_35 > 30 && fabs(woa_tlbo_fitness_temp_35 - woa_tlbo_fitness_temp_22) < 0.1)
+				// {
+				// 	cout << "Convergence reached" << endl;
+				// 	break;
+				// }
+			}
 			else if (iter == 50*Iter_Max / 100){
 				cout << "Iteration is :" << iter << endl;
 				woa_tlbo_fitness_temp_50 = woa_tlbo_fitness[student_whale_count - 1];	
 				cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_50 << endl;
+				// if(woa_tlbo_fitness_temp_50 > 10 && fabs(woa_tlbo_fitness_temp_50 - woa_tlbo_fitness_temp_35) < 0.1)
+				// {
+				// 	cout << "Convergence reached" << endl;
+				// 	break;
+				// }
+			}
+			else if (iter == 80*Iter_Max / 100){
+				cout << "Iteration is :" << iter << endl;
+				woa_tlbo_fitness_temp_80 = woa_tlbo_fitness[student_whale_count - 1];	
+				cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_80 << endl;
 				// if(woa_tlbo_fitness_temp_50 > 10 && fabs(woa_tlbo_fitness_temp_50 - woa_tlbo_fitness_temp_35) < 0.1)
 				// {
 				// 	cout << "Convergence reached" << endl;
@@ -370,7 +381,7 @@ double calc_fitness_woa(WOA_Whale& whale)
 	double K_p = 1 / 0.002;  //  0.002 meter error tolerance for end-effector
     // double K_s = 1 / 0.1;  // locus tolerance 0.1 meter.
     double K_s = 0;  // locus tolerance 0.1 meter.
-    double K_b = 1 / 0.0008;  // attitude error tolerance for base is 5 degree
+    double K_b = 0; //  1 / 0.0008;  // attitude error tolerance for base is 5 degree
     double K_M = 0;
     double K_t = 0;  //  max allowed motion time is set to 100 seconds, tolerance is 10 seconds.
 
@@ -484,7 +495,7 @@ double calc_fitness_tlbo(Student& student)
 	double K_p = 1 / 0.002;  //  0.002 meter error tolerance for end-effector
     // double K_s = 1 / 0.1;  // locus tolerance 0.1 meter for end-effector.
     double K_s = 0;  // locus tolerance 0.1 meter for end-effector.
-    double K_b = 1 / 0.0008;  // attitude error tolerance for base is 5 degree
+    double K_b = 0; //  1 / 0.0008;  // attitude error tolerance for base is 5 degree
     double K_M = 0;
     double K_t = 0;  //  max allowed motion time is set to 100 seconds, tolerance is 10 seconds.
 
