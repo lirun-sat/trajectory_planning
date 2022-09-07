@@ -149,32 +149,45 @@ utils/fast:
 	$(MAKE) -f utils/CMakeFiles/utils.dir/build.make utils/CMakeFiles/utils.dir/build
 .PHONY : utils/fast
 
-src/test_main_4.o: src/test_main_4.cpp.o
+#=============================================================================
+# Target rules for targets named opengjk
 
-.PHONY : src/test_main_4.o
+# Build rule for target.
+opengjk: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 opengjk
+.PHONY : opengjk
+
+# fast build rule for target.
+opengjk/fast:
+	$(MAKE) -f openGJK/CMakeFiles/opengjk.dir/build.make openGJK/CMakeFiles/opengjk.dir/build
+.PHONY : opengjk/fast
+
+src/test_main_5.o: src/test_main_5.cpp.o
+
+.PHONY : src/test_main_5.o
 
 # target to build an object file
-src/test_main_4.cpp.o:
-	$(MAKE) -f CMakeFiles/forward_kinematics.dir/build.make CMakeFiles/forward_kinematics.dir/src/test_main_4.cpp.o
-.PHONY : src/test_main_4.cpp.o
+src/test_main_5.cpp.o:
+	$(MAKE) -f CMakeFiles/forward_kinematics.dir/build.make CMakeFiles/forward_kinematics.dir/src/test_main_5.cpp.o
+.PHONY : src/test_main_5.cpp.o
 
-src/test_main_4.i: src/test_main_4.cpp.i
+src/test_main_5.i: src/test_main_5.cpp.i
 
-.PHONY : src/test_main_4.i
+.PHONY : src/test_main_5.i
 
 # target to preprocess a source file
-src/test_main_4.cpp.i:
-	$(MAKE) -f CMakeFiles/forward_kinematics.dir/build.make CMakeFiles/forward_kinematics.dir/src/test_main_4.cpp.i
-.PHONY : src/test_main_4.cpp.i
+src/test_main_5.cpp.i:
+	$(MAKE) -f CMakeFiles/forward_kinematics.dir/build.make CMakeFiles/forward_kinematics.dir/src/test_main_5.cpp.i
+.PHONY : src/test_main_5.cpp.i
 
-src/test_main_4.s: src/test_main_4.cpp.s
+src/test_main_5.s: src/test_main_5.cpp.s
 
-.PHONY : src/test_main_4.s
+.PHONY : src/test_main_5.s
 
 # target to generate assembly for a file
-src/test_main_4.cpp.s:
-	$(MAKE) -f CMakeFiles/forward_kinematics.dir/build.make CMakeFiles/forward_kinematics.dir/src/test_main_4.cpp.s
-.PHONY : src/test_main_4.cpp.s
+src/test_main_5.cpp.s:
+	$(MAKE) -f CMakeFiles/forward_kinematics.dir/build.make CMakeFiles/forward_kinematics.dir/src/test_main_5.cpp.s
+.PHONY : src/test_main_5.cpp.s
 
 # Help Target
 help:
@@ -187,9 +200,10 @@ help:
 	@echo "... forward_kinematics"
 	@echo "... kinetics"
 	@echo "... utils"
-	@echo "... src/test_main_4.o"
-	@echo "... src/test_main_4.i"
-	@echo "... src/test_main_4.s"
+	@echo "... opengjk"
+	@echo "... src/test_main_5.o"
+	@echo "... src/test_main_5.i"
+	@echo "... src/test_main_5.s"
 .PHONY : help
 
 

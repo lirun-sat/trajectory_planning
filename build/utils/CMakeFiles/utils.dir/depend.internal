@@ -28,9 +28,6 @@ utils/CMakeFiles/utils.dir/MatrixMultiTranspose.cpp.o
  ../include/utils.h
  /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/MatrixMultiTranspose.cpp
 utils/CMakeFiles/utils.dir/MatrixMulti_.cpp.o
- ../include/data.h
- ../include/forward_kinematics.h
- ../include/utils.h
  /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/MatrixMulti_.cpp
 utils/CMakeFiles/utils.dir/MatrixSub_.cpp.o
  /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/MatrixSub_.cpp
@@ -40,9 +37,6 @@ utils/CMakeFiles/utils.dir/MatrixTranspose.cpp.o
  ../include/utils.h
  /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/MatrixTranspose.cpp
 utils/CMakeFiles/utils.dir/MatrixTranspose_.cpp.o
- ../include/data.h
- ../include/forward_kinematics.h
- ../include/utils.h
  /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/MatrixTranspose_.cpp
 utils/CMakeFiles/utils.dir/ScaleMatrix_.cpp.o
  /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/ScaleMatrix_.cpp

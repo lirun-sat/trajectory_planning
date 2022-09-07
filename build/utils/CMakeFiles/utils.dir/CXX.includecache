@@ -63,12 +63,6 @@ utils.h
 /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/utils.h
 
 /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/MatrixMulti_.cpp
-forward_kinematics.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/forward_kinematics.h
-data.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/data.h
-utils.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/utils.h
 
 /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/MatrixSub_.cpp
 
@@ -81,12 +75,6 @@ utils.h
 /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/utils.h
 
 /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/MatrixTranspose_.cpp
-forward_kinematics.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/forward_kinematics.h
-data.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/data.h
-utils.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/utils.h
 
 /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/utils/ScaleMatrix_.cpp
 

@@ -1,7 +1,7 @@
 #define _USE_MATH_DEFINES 
-#include "forward_kinematics.h"
-#include"data.h"
-#include "utils.h"
+// #include "forward_kinematics.h"
+// #include"data.h"
+// #include "utils.h"
 
 void MatrixMulti_(int row_1, int col_1, int col_2, double* A, double* B, double* AB)
 {

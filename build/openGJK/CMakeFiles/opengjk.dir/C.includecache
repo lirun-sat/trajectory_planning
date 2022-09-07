@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/openGJK.h
+
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/openGJK/openGJK.c
+openGJK.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/openGJK/openGJK.h
+stdio.h
+-
+stdlib.h
+-
+math.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/openGJK/math.h
+mex.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/openGJK/mex.h
+

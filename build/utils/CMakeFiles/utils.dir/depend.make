@@ -27,9 +27,6 @@ utils/CMakeFiles/utils.dir/MatrixMultiTranspose.cpp.o: ../include/forward_kinema
 utils/CMakeFiles/utils.dir/MatrixMultiTranspose.cpp.o: ../include/utils.h
 utils/CMakeFiles/utils.dir/MatrixMultiTranspose.cpp.o: ../utils/MatrixMultiTranspose.cpp
 
-utils/CMakeFiles/utils.dir/MatrixMulti_.cpp.o: ../include/data.h
-utils/CMakeFiles/utils.dir/MatrixMulti_.cpp.o: ../include/forward_kinematics.h
-utils/CMakeFiles/utils.dir/MatrixMulti_.cpp.o: ../include/utils.h
 utils/CMakeFiles/utils.dir/MatrixMulti_.cpp.o: ../utils/MatrixMulti_.cpp
 
 utils/CMakeFiles/utils.dir/MatrixSub_.cpp.o: ../utils/MatrixSub_.cpp
@@ -39,9 +36,6 @@ utils/CMakeFiles/utils.dir/MatrixTranspose.cpp.o: ../include/forward_kinematics.
 utils/CMakeFiles/utils.dir/MatrixTranspose.cpp.o: ../include/utils.h
 utils/CMakeFiles/utils.dir/MatrixTranspose.cpp.o: ../utils/MatrixTranspose.cpp
 
-utils/CMakeFiles/utils.dir/MatrixTranspose_.cpp.o: ../include/data.h
-utils/CMakeFiles/utils.dir/MatrixTranspose_.cpp.o: ../include/forward_kinematics.h
-utils/CMakeFiles/utils.dir/MatrixTranspose_.cpp.o: ../include/utils.h
 utils/CMakeFiles/utils.dir/MatrixTranspose_.cpp.o: ../utils/MatrixTranspose_.cpp
 
 utils/CMakeFiles/utils.dir/ScaleMatrix_.cpp.o: ../utils/ScaleMatrix_.cpp

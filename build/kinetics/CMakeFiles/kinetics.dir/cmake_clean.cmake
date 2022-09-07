@@ -13,8 +13,10 @@ file(REMOVE_RECURSE
   "CMakeFiles/kinetics.dir/delta_var.cpp.o"
   "CMakeFiles/kinetics.dir/forward_kin.cpp.o"
   "CMakeFiles/kinetics.dir/forward_kin_2.cpp.o"
+  "CMakeFiles/kinetics.dir/forward_kin_3.cpp.o"
   "CMakeFiles/kinetics.dir/global_data.cpp.o"
   "CMakeFiles/kinetics.dir/links_transform.cpp.o"
+  "CMakeFiles/kinetics.dir/read_vertex_file.cpp.o"
 )
 
 # Per-language clean rules from dependency scanning.

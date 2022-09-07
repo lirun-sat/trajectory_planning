@@ -213,9 +213,22 @@ kinetics/CMakeFiles/kinetics.dir/forward_kin_2.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/kinetics.dir/forward_kin_2.cpp.s"
 	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/kinetics && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/forward_kin_2.cpp -o CMakeFiles/kinetics.dir/forward_kin_2.cpp.s
 
+kinetics/CMakeFiles/kinetics.dir/forward_kin_3.cpp.o: kinetics/CMakeFiles/kinetics.dir/flags.make
+kinetics/CMakeFiles/kinetics.dir/forward_kin_3.cpp.o: ../kinetics/forward_kin_3.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object kinetics/CMakeFiles/kinetics.dir/forward_kin_3.cpp.o"
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/kinetics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kinetics.dir/forward_kin_3.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/forward_kin_3.cpp
+
+kinetics/CMakeFiles/kinetics.dir/forward_kin_3.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/kinetics.dir/forward_kin_3.cpp.i"
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/kinetics && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/forward_kin_3.cpp > CMakeFiles/kinetics.dir/forward_kin_3.cpp.i
+
+kinetics/CMakeFiles/kinetics.dir/forward_kin_3.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/kinetics.dir/forward_kin_3.cpp.s"
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/kinetics && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/forward_kin_3.cpp -o CMakeFiles/kinetics.dir/forward_kin_3.cpp.s
+
 kinetics/CMakeFiles/kinetics.dir/global_data.cpp.o: kinetics/CMakeFiles/kinetics.dir/flags.make
 kinetics/CMakeFiles/kinetics.dir/global_data.cpp.o: ../kinetics/global_data.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object kinetics/CMakeFiles/kinetics.dir/global_data.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object kinetics/CMakeFiles/kinetics.dir/global_data.cpp.o"
 	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/kinetics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kinetics.dir/global_data.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/global_data.cpp
 
 kinetics/CMakeFiles/kinetics.dir/global_data.cpp.i: cmake_force
@@ -228,7 +241,7 @@ kinetics/CMakeFiles/kinetics.dir/global_data.cpp.s: cmake_force
 
 kinetics/CMakeFiles/kinetics.dir/links_transform.cpp.o: kinetics/CMakeFiles/kinetics.dir/flags.make
 kinetics/CMakeFiles/kinetics.dir/links_transform.cpp.o: ../kinetics/links_transform.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object kinetics/CMakeFiles/kinetics.dir/links_transform.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object kinetics/CMakeFiles/kinetics.dir/links_transform.cpp.o"
 	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/kinetics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kinetics.dir/links_transform.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/links_transform.cpp
 
 kinetics/CMakeFiles/kinetics.dir/links_transform.cpp.i: cmake_force
@@ -238,6 +251,19 @@ kinetics/CMakeFiles/kinetics.dir/links_transform.cpp.i: cmake_force
 kinetics/CMakeFiles/kinetics.dir/links_transform.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/kinetics.dir/links_transform.cpp.s"
 	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/kinetics && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/links_transform.cpp -o CMakeFiles/kinetics.dir/links_transform.cpp.s
+
+kinetics/CMakeFiles/kinetics.dir/read_vertex_file.cpp.o: kinetics/CMakeFiles/kinetics.dir/flags.make
+kinetics/CMakeFiles/kinetics.dir/read_vertex_file.cpp.o: ../kinetics/read_vertex_file.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object kinetics/CMakeFiles/kinetics.dir/read_vertex_file.cpp.o"
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/kinetics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kinetics.dir/read_vertex_file.cpp.o -c /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/read_vertex_file.cpp
+
+kinetics/CMakeFiles/kinetics.dir/read_vertex_file.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/kinetics.dir/read_vertex_file.cpp.i"
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/kinetics && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/read_vertex_file.cpp > CMakeFiles/kinetics.dir/read_vertex_file.cpp.i
+
+kinetics/CMakeFiles/kinetics.dir/read_vertex_file.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/kinetics.dir/read_vertex_file.cpp.s"
+	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/kinetics && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/read_vertex_file.cpp -o CMakeFiles/kinetics.dir/read_vertex_file.cpp.s
 
 # Object files for target kinetics
 kinetics_OBJECTS = \
@@ -253,8 +279,10 @@ kinetics_OBJECTS = \
 "CMakeFiles/kinetics.dir/delta_var.cpp.o" \
 "CMakeFiles/kinetics.dir/forward_kin.cpp.o" \
 "CMakeFiles/kinetics.dir/forward_kin_2.cpp.o" \
+"CMakeFiles/kinetics.dir/forward_kin_3.cpp.o" \
 "CMakeFiles/kinetics.dir/global_data.cpp.o" \
-"CMakeFiles/kinetics.dir/links_transform.cpp.o"
+"CMakeFiles/kinetics.dir/links_transform.cpp.o" \
+"CMakeFiles/kinetics.dir/read_vertex_file.cpp.o"
 
 # External object files for target kinetics
 kinetics_EXTERNAL_OBJECTS =
@@ -271,11 +299,13 @@ kinetics_EXTERNAL_OBJECTS =
 ../lib/libkinetics.a: kinetics/CMakeFiles/kinetics.dir/delta_var.cpp.o
 ../lib/libkinetics.a: kinetics/CMakeFiles/kinetics.dir/forward_kin.cpp.o
 ../lib/libkinetics.a: kinetics/CMakeFiles/kinetics.dir/forward_kin_2.cpp.o
+../lib/libkinetics.a: kinetics/CMakeFiles/kinetics.dir/forward_kin_3.cpp.o
 ../lib/libkinetics.a: kinetics/CMakeFiles/kinetics.dir/global_data.cpp.o
 ../lib/libkinetics.a: kinetics/CMakeFiles/kinetics.dir/links_transform.cpp.o
+../lib/libkinetics.a: kinetics/CMakeFiles/kinetics.dir/read_vertex_file.cpp.o
 ../lib/libkinetics.a: kinetics/CMakeFiles/kinetics.dir/build.make
 ../lib/libkinetics.a: kinetics/CMakeFiles/kinetics.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX static library ../../lib/libkinetics.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking CXX static library ../../lib/libkinetics.a"
 	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/kinetics && $(CMAKE_COMMAND) -P CMakeFiles/kinetics.dir/cmake_clean_target.cmake
 	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/kinetics && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/kinetics.dir/link.txt --verbose=$(VERBOSE)
 

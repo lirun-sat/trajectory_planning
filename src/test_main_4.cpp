@@ -31,13 +31,10 @@ int main()
     */
 
 	int dimension = N;
-	// int student_whale_count = 40;
-	int student_whale_count = 100;
+	int student_whale_count = 40;
 	// int Iter_Max = 40000;
-	// int Iter_Max = 100000;
-	// int Iter_Max = 10000;
-	int Iter_Max = 5000;
-	int num_calc = 100;
+	int Iter_Max = 100000;
+	int num_calc = 1000;
 	
 	cout << "Iter_Max = " << "  " << Iter_Max << endl;
 	cout << "num_calc = " << "  " << num_calc << endl;
@@ -51,7 +48,7 @@ int main()
 	int* woa_tlbo_index = new int[student_whale_count];
 	
 	double** woa_tlbo_position = new double*[student_whale_count];
-	for (int i = 0; i < student_whale_count; ++i)
+	for (int i = 0; i < student_whale_count; i++)
 	{
 		woa_tlbo_position[i] = new double[dimension];
 	}
@@ -75,53 +72,68 @@ int main()
 // *******************************************************************************************************************************************************************
 	calc_para_range(result_min, result_max);
 
-	for(int i = 0; i<N; ++i){
+	for (int i = 0; i<N; i++)
+	{
 		para_low_bound[i] = result_min[i];
 		para_up_bound[i] = result_max[i];
 	}
 
 	cout << "result_min:" << endl;
-	for(int i = 0; i < N; ++i){
-		cout << para_low_bound[i] << "  ";
+	for(int i=0;i<N;i++)
+	{
+		cout << result_min[i] << "  ";
 	}
 	cout << endl;
 
 	cout << "result_max:" << endl;
-	for(int i = 0; i < N ; ++i){
-		cout << para_up_bound[i] << "  ";
+	for(int i=0;i<N;i++)
+	{
+		cout << result_max[i] << "  ";
 	}
 	cout << endl;
 // *******************************************************************************************************************************************************************
 
 	//构建算法
 	WOA_Algorithm woa(calc_fitness_woa, para_low_bound, para_up_bound, dimension, student_whale_count / 2);
+	woa.randomlyInitial();
+	woa.refresh();
 
 	TLBO_Algorithm tlbo(calc_fitness_tlbo, para_low_bound, para_up_bound, dimension, student_whale_count / 2);
+	tlbo.randomlyInitial();
+	tlbo.refresh();
 
 // *****************************************************************************************************************************************************************
 	cout << "算法构建完成，进入迭代搜索过程......" << endl;
 
-	for (int kk = 0; kk < num_calc; ++kk)
+	for (int kk = 0; kk < num_calc; kk++)
 	{	
 		cout << "第" << kk << "次搜索......" << endl;
 		start = clock();
 
 		woa.randomlyInitial();
 		cout << "WOA 初始化完成......" << endl;
+		woa.refresh();
 		tlbo.randomlyInitial();
 		cout << "TLBO 初始化完成......" << endl;
+		tlbo.refresh();
 
-		for(int iter = 0; iter < Iter_Max; ++iter){
-			for(int i = 0; i < student_whale_count; ++i){
-				if(i < student_whale_count / 2){
+		for (int Iter = 0; Iter < Iter_Max; Iter++)
+		{
+			for (int i = 0; i < student_whale_count; i++)
+			{
+				if (i < student_whale_count / 2)
+				{
 					woa_tlbo_fitness[i] = woa._whaleSet[i]._fitness;
-					for(int j = 0; j < dimension; ++j){
+					for (int j = 0; j < dimension; j++)
+					{
 						woa_tlbo_position[i][j] = woa._whaleSet[i]._position[j];
 					}
 				}
-				else{
+				else
+				{
 					woa_tlbo_fitness[i] = tlbo._studentSet[i - student_whale_count / 2]._fitness;
-					for (int j = 0; j < dimension; j++){
+					for (int j = 0; j < dimension; j++)
+					{
 						woa_tlbo_position[i][j] = tlbo._studentSet[i - student_whale_count / 2]._position[j];
 					}
 				}
@@ -132,196 +144,269 @@ int main()
 // ***********************************************  Termination condition  *************************************************************************    
 			sort_max2min_main(woa_tlbo_fitness, student_whale_count, woa_tlbo_index);
 			
-			if (iter == Iter_Max / 100){
-				cout << "Iteration is :" << iter << endl;	
+			if (Iter == Iter_Max / 100)
+			{
+				cout << "Iteration is :" << Iter << endl;	
 				woa_tlbo_fitness_temp_1 = woa_tlbo_fitness[student_whale_count - 1];
 				cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_1 << endl;
-				// if(fabs(woa_tlbo_fitness_temp_1 - woa_tlbo_fitness_temp_2) < 0.1)
-				// {
-				// 	cout << "Convergence reached" << endl;
-				// 	break;
-				// }
+				if(fabs(woa_tlbo_fitness_temp_1 - woa_tlbo_fitness_temp_2) < 0.01)
+				{
+					cout << "Convergence reached" << endl;
+					break;
+				}
 			}
-			else if (iter == 2*Iter_Max / 100){
-				cout << "Iteration is :" << iter << endl;	
+			else if (Iter == 2*Iter_Max / 100)
+			{
+				cout << "Iteration is :" << Iter << endl;	
 				woa_tlbo_fitness_temp_2 = woa_tlbo_fitness[student_whale_count - 1];
 				cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_2 << endl;
-				// if(woa_tlbo_fitness_temp_2 > 200 && fabs(woa_tlbo_fitness_temp_2 - woa_tlbo_fitness_temp_1) < 1)
-				// {
-				// 	cout << "Convergence reached" << endl;
-				// 	break;
-				// }
+				
+				if(fabs(woa_tlbo_fitness_temp_2 - woa_tlbo_fitness_temp_1) < 0.01)
+				{
+					cout << "Convergence reached" << endl;
+					break;
+				}
+				
 			}
-			else if (iter == 3*Iter_Max / 100){
-				cout << "Iteration is :" << iter << endl;	
+			else if (Iter == 3*Iter_Max / 100)
+			{
+				cout << "Iteration is :" << Iter << endl;	
 				woa_tlbo_fitness_temp_3 = woa_tlbo_fitness[student_whale_count - 1];
 				cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_3 << endl;
-				// if(woa_tlbo_fitness_temp_3 > 200 && fabs(woa_tlbo_fitness_temp_3 - woa_tlbo_fitness_temp_2) < 1)
-				// {
-				// 	cout << "Convergence reached" << endl;
-				// 	break;
-				// }
+				if(woa_tlbo_fitness_temp_3 > 300)
+				{
+					cout << "Too large woa_tlbo_fitness after 3000 steps " << endl;
+					break;
+				}
+				/*
+				if(fabs(woa_tlbo_fitness_temp_3 - woa_tlbo_fitness_temp_2) < 0.01)
+				{
+					cout << "Convergence reached" << endl;
+					break;
+				}
+				*/
 			}
-			else if (iter == 4*Iter_Max / 100){
-				cout << "Iteration is :" << iter << endl;	
+			/*
+			else if (Iter == 4*Iter_Max / 40)
+			{
+				cout << "Iteration is :" << Iter << endl;	
 				woa_tlbo_fitness_temp_4 = woa_tlbo_fitness[student_whale_count - 1];
 				cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_4 << endl;
-				// if(woa_tlbo_fitness_temp_4 > 200 && fabs(woa_tlbo_fitness_temp_4 - woa_tlbo_fitness_temp_3) < 1)
-				// {
-				// 	cout << "Convergence reached" << endl;
-				// 	break;
-				// }
+				
+				if(fabs(woa_tlbo_fitness_temp_4 - woa_tlbo_fitness_temp_3) < 0.01)
+				{
+					cout << "Convergence reached" << endl;
+					break;
+				}
+				
 			}
-			else if (iter == 5*Iter_Max / 100){
-				cout << "Iteration is :" << iter << endl;	
+			else if (Iter == 5*Iter_Max / 40)
+			{
+				cout << "Iteration is :" << Iter << endl;	
 				woa_tlbo_fitness_temp_5 = woa_tlbo_fitness[student_whale_count - 1];
 				cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_5 << endl;
-				// if(woa_tlbo_fitness_temp_5 > 200 && fabs(woa_tlbo_fitness_temp_5 - woa_tlbo_fitness_temp_4) < 1)
-				// {
-				// 	cout << "Convergence reached" << endl;
-				// 	break;
-				// }
+				
+				if(fabs(woa_tlbo_fitness_temp_5 - woa_tlbo_fitness_temp_4) < 0.01)
+				{
+					cout << "Convergence reached" << endl;
+					break;
+				}
+				
 			}
-			else if (iter == 6*Iter_Max / 100){
-				cout << "Iteration is :" << iter << endl;	
+			*/
+			else if (Iter == 6*Iter_Max / 100)
+			{
+				cout << "Iteration is :" << Iter << endl;	
 				woa_tlbo_fitness_temp_6 = woa_tlbo_fitness[student_whale_count - 1];
-				cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_6 << endl;		
-				// if(woa_tlbo_fitness_temp_6 > 200 && fabs(woa_tlbo_fitness_temp_6 - woa_tlbo_fitness_temp_5) < 1)
-				// {
-				// 	cout << "Convergence reached" << endl;
-				// 	break;
-				// }				
+				cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_6 << endl;
+				
+				// if(fabs(woa_tlbo_fitness_temp_6 - woa_tlbo_fitness_temp_5) < 0.01)
+				if(fabs(woa_tlbo_fitness_temp_6 - woa_tlbo_fitness_temp_3) < 0.01)
+				{
+					cout << "Convergence reached" << endl;
+					break;
+				}
+				
 			}
-			else if (iter == 7*Iter_Max / 100){
-				cout << "Iteration is :" << iter << endl;	
+			/*
+			else if (Iter == 7*Iter_Max / 40)
+			{
+				cout << "Iteration is :" << Iter << endl;	
 				woa_tlbo_fitness_temp_7 = woa_tlbo_fitness[student_whale_count - 1];
 				cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_7 << endl;
-				// if(woa_tlbo_fitness_temp_7 > 200 && fabs(woa_tlbo_fitness_temp_7 - woa_tlbo_fitness_temp_6) < 1)
-				// {
-				// 	cout << "Convergence reached" << endl;
-				// 	break;
-				// }
+				
+				if(fabs(woa_tlbo_fitness_temp_7 - woa_tlbo_fitness_temp_6) < 0.01)
+				{
+					cout << "Convergence reached" << endl;
+					break;
+				}
+				
 			}
-			else if (iter == 8*Iter_Max / 100){
-				cout << "Iteration is :" << iter << endl;	
+			else if (Iter == 8*Iter_Max / 80)
+			{
+				cout << "Iteration is :" << Iter << endl;	
 				woa_tlbo_fitness_temp_8 = woa_tlbo_fitness[student_whale_count - 1];
 				cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_8 << endl;
-				// if(woa_tlbo_fitness_temp_8 > 200 && fabs(woa_tlbo_fitness_temp_8 - woa_tlbo_fitness_temp_7) < 1)
-				// {
-				// 	cout << "Convergence reached" << endl;
-				// 	break;
-				// }
+				
+				if(fabs(woa_tlbo_fitness_temp_8 - woa_tlbo_fitness_temp_7) < 0.01)
+				{
+					cout << "Convergence reached" << endl;
+					break;
+				}
+				
 			}
-			else if (iter == 9*Iter_Max / 100){
-				cout << "Iteration is :" << iter << endl;
+			*/
+			else if (Iter == 9*Iter_Max / 100)
+			{
+				cout << "Iteration is :" << Iter << endl;
 				woa_tlbo_fitness_temp_9 = woa_tlbo_fitness[student_whale_count - 1];	
 				cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_9 << endl;
-				// if(woa_tlbo_fitness_temp_9 > 100 && fabs(woa_tlbo_fitness_temp_9 - woa_tlbo_fitness_temp_6) < 0.1)
-				// {
-				// 	cout << "Convergence reached" << endl;
-				// 	break;
-				// }
+				
+				if(fabs(woa_tlbo_fitness_temp_9 - woa_tlbo_fitness_temp_6) < 0.01)
+				{
+					cout << "Convergence reached" << endl;
+					break;
+				}
+				
 			}
-			else if (iter == 15*Iter_Max / 100){
-				cout << "Iteration is :" << iter << endl;
+			
+			else if (Iter == 15*Iter_Max / 100)
+			{
+				cout << "Iteration is :" << Iter << endl;
 				woa_tlbo_fitness_temp_15 = woa_tlbo_fitness[student_whale_count - 1];	
 				cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_15 << endl;
-				// if(woa_tlbo_fitness_temp_15 > 50 && fabs(woa_tlbo_fitness_temp_15 - woa_tlbo_fitness_temp_9) < 0.1)
-				// {
-				// 	cout << "Convergence reached" << endl;
-				// 	break;
-				// }
-			}		
-			else if (iter == 22*Iter_Max / 100){
-				cout << "Iteration is :" << iter << endl;
-				woa_tlbo_fitness_temp_22 = woa_tlbo_fitness[student_whale_count - 1];	
-				cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_22 << endl;				
-				// if(woa_tlbo_fitness_temp_22 > 50 && fabs(woa_tlbo_fitness_temp_22 - woa_tlbo_fitness_temp_15) < 0.1)
-				// {
-				// 	cout << "Convergence reached" << endl;
-				// 	break;
-				// }				
-			}			
-			else if (iter == 35*Iter_Max / 100){
-				cout << "Iteration is :" << iter << endl;
-				woa_tlbo_fitness_temp_35 = woa_tlbo_fitness[student_whale_count - 1];	
-				cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_35 << endl;				
-				// if(woa_tlbo_fitness_temp_35 > 30 && fabs(woa_tlbo_fitness_temp_35 - woa_tlbo_fitness_temp_22) < 0.1)
-				// {
-				// 	cout << "Convergence reached" << endl;
-				// 	break;
-				// }
+				
+				if(fabs(woa_tlbo_fitness_temp_15 - woa_tlbo_fitness_temp_9) < 0.01)
+				{
+					cout << "Convergence reached" << endl;
+					break;
+				}
+				
 			}
-			else if (iter == 50*Iter_Max / 100){
-				cout << "Iteration is :" << iter << endl;
+			
+			else if (Iter == 22*Iter_Max / 100)
+			{
+				cout << "Iteration is :" << Iter << endl;
+				woa_tlbo_fitness_temp_22 = woa_tlbo_fitness[student_whale_count - 1];	
+				cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_22 << endl;
+				
+				if(fabs(woa_tlbo_fitness_temp_22 - woa_tlbo_fitness_temp_15) < 0.01)
+				{
+					cout << "Convergence reached" << endl;
+					break;
+				}
+				
+			}
+			
+			else if (Iter == 35*Iter_Max / 100)
+			{
+				cout << "Iteration is :" << Iter << endl;
+				woa_tlbo_fitness_temp_35 = woa_tlbo_fitness[student_whale_count - 1];	
+				cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_35 << endl;
+				
+				if(fabs(woa_tlbo_fitness_temp_35 - woa_tlbo_fitness_temp_22) < 0.01)
+				{
+					cout << "Convergence reached" << endl;
+					break;
+				}
+				
+			}
+			else if (Iter == 50*Iter_Max / 100)
+			{
+				cout << "Iteration is :" << Iter << endl;
 				woa_tlbo_fitness_temp_50 = woa_tlbo_fitness[student_whale_count - 1];	
 				cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_50 << endl;
-				// if(woa_tlbo_fitness_temp_50 > 10 && fabs(woa_tlbo_fitness_temp_50 - woa_tlbo_fitness_temp_35) < 0.1)
-				// {
-				// 	cout << "Convergence reached" << endl;
-				// 	break;
-				// }
+				
+				if(fabs(woa_tlbo_fitness_temp_50 - woa_tlbo_fitness_temp_35) < 0.01)
+				{
+					cout << "Convergence reached" << endl;
+					break;
+				}
+				
 			}
-			else if (iter == 80*Iter_Max / 100){
-				cout << "Iteration is :" << iter << endl;
+			else if (Iter == 80*Iter_Max / 100)
+			{
+				cout << "Iteration is :" << Iter << endl;
 				woa_tlbo_fitness_temp_80 = woa_tlbo_fitness[student_whale_count - 1];	
 				cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_80 << endl;
-				// if(woa_tlbo_fitness_temp_50 > 10 && fabs(woa_tlbo_fitness_temp_50 - woa_tlbo_fitness_temp_35) < 0.1)
-				// {
-				// 	cout << "Convergence reached" << endl;
-				// 	break;
-				// }
+				
+				if(fabs(woa_tlbo_fitness_temp_80 - woa_tlbo_fitness_temp_50) < 0.01)
+				{
+					cout << "Convergence reached" << endl;
+					break;
+				}
+				
 			}
-
-			if (woa_tlbo_fitness[student_whale_count - 1] < 1){
-				cout << "Find solution, Iter:" << iter << endl;
+			if (woa_tlbo_fitness[student_whale_count - 1] < 1)
+			{
+				cout << "Find solution, Iter:" << Iter << endl;
 				break;
 			}
 
 //***************************************************************************************************************************************************
 
-			for(int i = 0; i < student_whale_count; ++i){
-				if(i < student_whale_count / 2){
+			for (int i = 0; i < student_whale_count; i++)
+			{
+				if (i < student_whale_count / 2)
+				{
 					woa._whaleSet[i]._fitness = woa_tlbo_fitness[i];
-					for(int j = 0; j < dimension; ++j){
+
+					for (int j = 0; j < dimension; j++)
+					{
 						woa._whaleSet[i]._position[j] = woa_tlbo_position[woa_tlbo_index[i]][j];
 					}
+
 				}
-				else{
+				else
+				{
 					tlbo._studentSet[i - student_whale_count / 2]._fitness = woa_tlbo_fitness[i];
-					for (int j = 0; j < dimension; j++){
+
+					for (int j = 0; j < dimension; j++)
+					{
 						tlbo._studentSet[i - student_whale_count / 2]._position[j] = woa_tlbo_position[woa_tlbo_index[i]][j];
 					}
 				}
+
 			}
 
 			woa.refresh();
 			tlbo.refresh();
-			woa.update(iter, Iter_Max);
+			woa.update();
 			tlbo.update();
 
 		}
 
-		for (int i = 0; i < student_whale_count; ++i){
-			if (i < student_whale_count / 2){
+		for (int i = 0; i < student_whale_count; i++)
+		{
+			if (i < student_whale_count / 2)
+			{
 				woa_tlbo_fitness[i] = woa._whaleSet[i]._fitness;
-				for (int j = 0; j < dimension; ++j){
+				for (int j = 0; j < dimension; j++)
+				{
 					woa_tlbo_position[i][j] = woa._whaleSet[i]._position[j];
 				}
 			}
-			else{
+			else
+			{
 				woa_tlbo_fitness[i] = tlbo._studentSet[i - student_whale_count / 2]._fitness;
-				for (int j = 0; j < dimension; j++){
+				for (int j = 0; j < dimension; j++)
+				{
 					woa_tlbo_position[i][j] = tlbo._studentSet[i - student_whale_count / 2]._position[j];
 				}
 			}
+			
 			woa_tlbo_index[i] = i;
+
 		}
+
+		// for (int k = 0; k < student_whale_count; k++)
+		// 	woa_tlbo_index[k] = k;
 
 		sort_max2min_main(woa_tlbo_fitness, student_whale_count, woa_tlbo_index);
 
 		cout << "woa_tlbo_fitness:" << "  " << woa_tlbo_fitness[student_whale_count - 1] << endl;
-		for (int j = 0; j < dimension; ++j){
+		for (int j = 0; j < dimension; j++)
+		{
 			cout << woa_tlbo_position[woa_tlbo_index[student_whale_count - 1]][j] << "  ";
 		}
 		cout << endl;
@@ -335,9 +420,8 @@ int main()
 	delete[] woa_tlbo_fitness;
 	delete[] woa_tlbo_index;
 
-	for (int i = 0; i<student_whale_count; ++i){
+	for (int i = 0; i<student_whale_count; i++)
 		delete[] woa_tlbo_position[i];
-	}
 	delete[] woa_tlbo_position;
 
 	delete[] para_low_bound;
@@ -381,7 +465,7 @@ double calc_fitness_woa(WOA_Whale& whale)
 	double K_p = 1 / 0.002;  //  0.002 meter error tolerance for end-effector
     // double K_s = 1 / 0.1;  // locus tolerance 0.1 meter.
     double K_s = 0;  // locus tolerance 0.1 meter.
-    double K_b = 0; //  1 / 0.0008;  // attitude error tolerance for base is 5 degree
+    double K_b = 0; //1 / 0.0008;  // attitude error tolerance for base is 5 degree
     double K_M = 0;
     double K_t = 0;  //  max allowed motion time is set to 100 seconds, tolerance is 10 seconds.
 
@@ -396,7 +480,8 @@ double calc_fitness_woa(WOA_Whale& whale)
 // ********************************************************  straight_line_locus  ************************************************************************************
     double delta_p_e = 0;
     double straight_line_locus = 0;
-    for(int i=0;i<3;i++){
+    for(int i=0;i<3;i++)
+    {
         delta_p_e = p_e_initial[i] - Pe[i];
         straight_line_locus += delta_p_e * delta_p_e;
     }
@@ -407,13 +492,15 @@ double calc_fitness_woa(WOA_Whale& whale)
 
 	*eta_end_desired = quaternion_end_desired[0];
 
-	for (int i = 0; i<3; i++){
+	for (int i = 0; i<3; i++)
+	{
 		xi_end_desired[i] = quaternion_end_desired[i + 1];
 	}
 
 	delta_var(Pe_DESIRED, eta_end_desired, xi_end_desired, Pe, *eta_end, xi_end, *eta_b, xi_b, delta_eta_end, delta_xi_end, delta_Pe_end, delta_eta_base, delta_xi_base);
 
-	for (int i = 0; i < 3; i++){
+	for (int i = 0; i < 3; i++)
+	{
 		delta_xi_end_mod_temp += delta_xi_end[i] * delta_xi_end[i];
 		delta_Pe_end_mod_temp += delta_Pe_end[i] * delta_Pe_end[i];
 		delta_xi_base_mod_temp += delta_xi_base[i] * delta_xi_base[i];
@@ -425,8 +512,6 @@ double calc_fitness_woa(WOA_Whale& whale)
 
 
 	// ****************************************  RPY error of end-effector,  Pe error  ********************************************************************************
-
-	// cost_func = K_a * delta_xi_end_mod_temp + K_p * delta_Pe_end_mod_temp;
 
     cost_func = K_a * delta_xi_end_mod_temp 
                 + K_p * delta_Pe_end_mod_temp 
@@ -495,7 +580,7 @@ double calc_fitness_tlbo(Student& student)
 	double K_p = 1 / 0.002;  //  0.002 meter error tolerance for end-effector
     // double K_s = 1 / 0.1;  // locus tolerance 0.1 meter for end-effector.
     double K_s = 0;  // locus tolerance 0.1 meter for end-effector.
-    double K_b = 0; //  1 / 0.0008;  // attitude error tolerance for base is 5 degree
+    double K_b = 0; //1 / 0.0008;  // attitude error tolerance for base is 5 degree
     double K_M = 0;
     double K_t = 0;  //  max allowed motion time is set to 100 seconds, tolerance is 10 seconds.
 
@@ -510,7 +595,8 @@ double calc_fitness_tlbo(Student& student)
 // ********************************************************  straight_line_locus  ************************************************************************************
     double delta_p_e = 0;
     double straight_line_locus = 0;
-    for(int i=0;i<3;i++){
+    for(int i=0;i<3;i++)
+    {
         delta_p_e = p_e_initial[i] - Pe[i];
         straight_line_locus += delta_p_e * delta_p_e;
     }
@@ -521,13 +607,15 @@ double calc_fitness_tlbo(Student& student)
 
 	*eta_end_desired = quaternion_end_desired[0];
 
-	for (int i = 0; i<3; i++){
+	for (int i = 0; i<3; i++)
+	{
 		xi_end_desired[i] = quaternion_end_desired[i + 1];
 	}
 
 	delta_var(Pe_DESIRED, eta_end_desired, xi_end_desired, Pe, *eta_end, xi_end, *eta_b, xi_b, delta_eta_end, delta_xi_end, delta_Pe_end, delta_eta_base, delta_xi_base);
 
-	for (int i = 0; i < 3; i++){
+	for (int i = 0; i < 3; i++)
+	{
 		delta_xi_end_mod_temp += delta_xi_end[i] * delta_xi_end[i];
 		delta_Pe_end_mod_temp += delta_Pe_end[i] * delta_Pe_end[i];
 		delta_xi_base_mod_temp += delta_xi_base[i] * delta_xi_base[i];

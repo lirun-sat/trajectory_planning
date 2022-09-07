@@ -27,50 +27,28 @@ extern double Pe_DESIRED[];
 extern double RPY_END_DESIRED[];
 extern double RPY_BASE_INITIAL[];
 //******************************************************************************************************************************
-// extern double base_vertex[][3];
-// extern double left_solar_vertex[][3];
-// extern double right_solar_vertex[][3];
-// extern double link_1_part_1_vertex[][3];
-// extern double link_1_part_2_vertex[][3];
-// extern double link_2_part_1_vertex[][3];
-// extern double link_2_part_2_vertex[][3];
-// extern double link_5_part_1_vertex[][3];
-// extern double link_5_part_2_vertex[][3];
-// extern double link_5_part_3_vertex[][3];
-// extern double link_5_part_4_vertex[][3];
-// extern double link_5_part_5_vertex[][3];
-// extern double link_6_part_1_vertex[][3];
-// extern double link_6_part_2_vertex[][3];
-// extern double link_7_vertex[][3];
+//*****************************************************************************************************************************
+extern double base_center2vertex[][3];
+extern double base_center2left_solar_vertex[][3];
+extern double base_center2right_solar_vertex[][3];
 
-// extern double base_center[3];
-// extern double link_1_center[3];
-// extern double link_2_center[3];
-// extern double link_5_center[3];
-// extern double link_6_center[3];
-// extern double link_7_center[3];
-// //*****************************************************************************************************************************
-// extern double base_center2vertex[][3];
-// extern double base_center2left_solar_vertex[][3];
-// extern double base_center2right_solar_vertex[][3];
+extern double link_1_center2link_1_part_1_vertex[][3];
+extern double link_1_center2link_1_part_2_vertex[][3];
 
-// extern double link_1_center2link_1_part_1_vertex[][3];
-// extern double link_1_center2link_1_part_2_vertex[][3];
+extern double link_2_center2link_2_part_1_vertex[][3];
+extern double link_2_center2link_2_part_2_vertex[][3];
 
-// extern double link_2_center2link_2_part_1_vertex[][3];
-// extern double link_2_center2link_2_part_2_vertex[][3];
+extern double link_5_center2link_5_part_1_vertex[][3];
+extern double link_5_center2link_5_part_2_vertex[][3];
+extern double link_5_center2link_5_part_3_vertex[][3];
+extern double link_5_center2link_5_part_4_vertex[][3];
+extern double link_5_center2link_5_part_5_vertex[][3];
 
-// extern double link_5_center2link_5_part_1_vertex[][3];
-// extern double link_5_center2link_5_part_2_vertex[][3];
-// extern double link_5_center2link_5_part_3_vertex[][3];
-// extern double link_5_center2link_5_part_4_vertex[][3];
-// extern double link_5_center2link_5_part_5_vertex[][3];
+extern double link_6_center2link_6_part_1_vertex[][3];
+extern double link_6_center2link_6_part_2_vertex[][3];
 
-// extern double link_6_center2link_6_part_1_vertex[][3];
-// extern double link_6_center2link_6_part_2_vertex[][3];
+extern double link_7_center2link_7_vertex[][3];
 
-// extern double link_7_center2link_7_vertex[][3];
-
-// extern int nvrtx;
+extern int nvrtx;
 
 
