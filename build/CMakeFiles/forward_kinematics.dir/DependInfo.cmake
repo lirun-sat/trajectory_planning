@@ -11,14 +11,12 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../include"
-  "."
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
   "/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/kinetics/CMakeFiles/kinetics.dir/DependInfo.cmake"
   "/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils/CMakeFiles/utils.dir/DependInfo.cmake"
-  "/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/openGJK/CMakeFiles/opengjk.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

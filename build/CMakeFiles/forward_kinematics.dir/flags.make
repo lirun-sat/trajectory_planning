@@ -6,5 +6,5 @@ CXX_FLAGS =  -O0 -Wall -g2 -ggdb   -std=gnu++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/include -I/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build 
+CXX_INCLUDES = -I/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/include 
 

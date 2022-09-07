@@ -56,12 +56,6 @@ kinetics/CMakeFiles/kinetics.dir/forward_kin_2.cpp.o
  ../include/forward_kinematics.h
  ../include/utils.h
  /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/forward_kin_2.cpp
-kinetics/CMakeFiles/kinetics.dir/forward_kin_3.cpp.o
- ../include/data.h
- ../include/forward_kinematics.h
- ../include/openGJK.h
- ../include/utils.h
- /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/forward_kin_3.cpp
 kinetics/CMakeFiles/kinetics.dir/global_data.cpp.o
  /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/global_data.cpp
 kinetics/CMakeFiles/kinetics.dir/links_transform.cpp.o

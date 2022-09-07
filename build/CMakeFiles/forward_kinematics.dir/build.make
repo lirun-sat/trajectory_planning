@@ -81,7 +81,6 @@ forward_kinematics_EXTERNAL_OBJECTS =
 ../bin/forward_kinematics: CMakeFiles/forward_kinematics.dir/build.make
 ../bin/forward_kinematics: ../lib/libkinetics.a
 ../bin/forward_kinematics: ../lib/libutils.a
-../bin/forward_kinematics: ../lib/libopengjk.a
 ../bin/forward_kinematics: CMakeFiles/forward_kinematics.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../bin/forward_kinematics"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/forward_kinematics.dir/link.txt --verbose=$(VERBOSE)

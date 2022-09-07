@@ -12,7 +12,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.16.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.16.3/CMakeSystem.cmake"
   "../kinetics/CMakeLists.txt"
-  "../openGJK/CMakeLists.txt"
   "../utils/CMakeLists.txt"
   "/usr/share/cmake-3.16/Modules/CMakeCInformation.cmake"
   "/usr/share/cmake-3.16/Modules/CMakeCXXInformation.cmake"
@@ -46,7 +45,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "kinetics/CMakeFiles/CMakeDirectoryInformation.cmake"
   "utils/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "openGJK/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -54,5 +52,4 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/forward_kinematics.dir/DependInfo.cmake"
   "kinetics/CMakeFiles/kinetics.dir/DependInfo.cmake"
   "utils/CMakeFiles/utils.dir/DependInfo.cmake"
-  "openGJK/CMakeFiles/opengjk.dir/DependInfo.cmake"
   )

@@ -358,7 +358,7 @@ int main()
 }
 
 
-// cost function 考虑末端位姿, and locus, and collision times
+// cost function 考虑末端位姿, and locus, and base attitude
 double calc_fitness_woa(WOA_Whale& whale){
 
 	double* para = new double[N];
@@ -380,7 +380,7 @@ double calc_fitness_woa(WOA_Whale& whale){
     double* delta_xi_b_distrb_max = new double;
     double* manipl = new double;
     double* T_min = new double;
-	double* collision_times = new double;
+	// double* collision_times = new double;
 
 	for (int i = 0; i < N; i++){
 		para[i] = whale._position[i];
@@ -392,7 +392,7 @@ double calc_fitness_woa(WOA_Whale& whale){
 	double K_p = 1 / 0.002;  //  0.002 meter error tolerance for end-effector
     // double K_s = 1 / 0.1;  // locus tolerance 0.1 meter.
     double K_s = 1 / 0.2;  // locus tolerance 0.1 meter.
-    double K_b = 0; // 1 / 0.0008;  // attitude error tolerance for base is 5 degree
+    double K_b = 1 / 0.0008;  // attitude error tolerance for base is 5 degree
     double K_M = 0;
     double K_t = 0;  //  max allowed motion time is set to 100 seconds, tolerance is 10 seconds.
 
@@ -402,7 +402,7 @@ double calc_fitness_woa(WOA_Whale& whale){
 	double delta_Pe_end_mod_temp = 0;
 	double delta_xi_base_mod_temp = 0;
 
-	forward_kin_3( para,  eta_end,  xi_end,  Pe,  eta_b,  xi_b,  p_e_initial,  locus,  delta_xi_b_distrb_max,  manipl, T_min, collision_times);
+	forward_kin_2(para, eta_end,  xi_end, Pe, eta_b, xi_b, p_e_initial, locus, delta_xi_b_distrb_max, manipl, T_min);
 
 // ********************************************************  straight_line_locus  ************************************************************************************
     double delta_p_e = 0;
@@ -465,7 +465,7 @@ double calc_fitness_woa(WOA_Whale& whale){
 	delete delta_xi_b_distrb_max;
 	delete manipl;
 	delete T_min;
-	delete collision_times;
+	// delete collision_times;
 
 
 	return cost_func;
@@ -496,7 +496,7 @@ double calc_fitness_tlbo(Student& student){
     double* delta_xi_b_distrb_max = new double;
     double* manipl = new double;
     double* T_min = new double;
-	double* collision_times = new double;
+	// double* collision_times = new double;
 
 
 	for (int i = 0; i < N; i++){
@@ -509,7 +509,7 @@ double calc_fitness_tlbo(Student& student){
 	double K_p = 1 / 0.002;  //  0.002 meter error tolerance for end-effector
     // double K_s = 1 / 0.1;  // locus tolerance 0.1 meter for end-effector.
     double K_s = 1 / 0.2;  // locus tolerance 0.1 meter for end-effector.
-    double K_b = 0; //1 / 0.0008;  // attitude error tolerance for base is 5 degree
+    double K_b = 1 / 0.0008;  // attitude error tolerance for base is 5 degree
     double K_M = 0;
     double K_t = 0;  //  max allowed motion time is set to 100 seconds, tolerance is 10 seconds.
 
@@ -519,9 +519,9 @@ double calc_fitness_tlbo(Student& student){
 	double delta_Pe_end_mod_temp = 0;
 	double delta_xi_base_mod_temp = 0;
 
-	forward_kin_3( para,  eta_end,  xi_end,  Pe,  eta_b,  xi_b,  p_e_initial,  locus,  delta_xi_b_distrb_max,  manipl, T_min, collision_times);
+	forward_kin_2( para,  eta_end,  xi_end,  Pe,  eta_b,  xi_b,  p_e_initial,  locus,  delta_xi_b_distrb_max,  manipl, T_min);
 
-// ********************************************************  straight_line_locus  ************************************************************************************
+// ********************************************************  straight_line_locus  ********************************************************************
     double delta_p_e = 0;
     double straight_line_locus = 0;
     for(int i=0;i<3;i++){
@@ -529,7 +529,7 @@ double calc_fitness_tlbo(Student& student){
         straight_line_locus += delta_p_e * delta_p_e;
     }
     straight_line_locus = sqrt(straight_line_locus);
-// **********************************************************************************************************************************************************************
+// ***************************************************************************************************************************************************
 
 	zyx2quaternion(RPY_END_DESIRED[2], RPY_END_DESIRED[1], RPY_END_DESIRED[0], quaternion_end_desired);
 
@@ -580,7 +580,7 @@ double calc_fitness_tlbo(Student& student){
 	delete delta_xi_b_distrb_max ;
 	delete manipl;
 	delete T_min ;
-	delete collision_times;
+	// delete collision_times;
 
 	return cost_func;
 

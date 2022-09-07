@@ -56,12 +56,6 @@ kinetics/CMakeFiles/kinetics.dir/forward_kin_2.cpp.o: ../include/forward_kinemat
 kinetics/CMakeFiles/kinetics.dir/forward_kin_2.cpp.o: ../include/utils.h
 kinetics/CMakeFiles/kinetics.dir/forward_kin_2.cpp.o: ../kinetics/forward_kin_2.cpp
 
-kinetics/CMakeFiles/kinetics.dir/forward_kin_3.cpp.o: ../include/data.h
-kinetics/CMakeFiles/kinetics.dir/forward_kin_3.cpp.o: ../include/forward_kinematics.h
-kinetics/CMakeFiles/kinetics.dir/forward_kin_3.cpp.o: ../include/openGJK.h
-kinetics/CMakeFiles/kinetics.dir/forward_kin_3.cpp.o: ../include/utils.h
-kinetics/CMakeFiles/kinetics.dir/forward_kin_3.cpp.o: ../kinetics/forward_kin_3.cpp
-
 kinetics/CMakeFiles/kinetics.dir/global_data.cpp.o: ../kinetics/global_data.cpp
 
 kinetics/CMakeFiles/kinetics.dir/links_transform.cpp.o: ../include/data.h

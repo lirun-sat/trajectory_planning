@@ -41,7 +41,6 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/kinetics/cmake_install.cmake")
   include("/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/utils/cmake_install.cmake")
-  include("/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/openGJK/cmake_install.cmake")
 
 endif()
 

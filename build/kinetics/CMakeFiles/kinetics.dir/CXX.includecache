@@ -6,33 +6,3 @@
 
 #IncludeRegexTransform: 
 
-../include/data.h
-
-../include/forward_kinematics.h
-
-../include/openGJK.h
-
-../include/utils.h
-stdio.h
--
-cmath
--
-iostream
--
-ctime
--
-cstring
--
-cstdlib
--
-
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/forward_kin_3.cpp
-forward_kinematics.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/forward_kinematics.h
-data.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/data.h
-utils.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/utils.h
-openGJK.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/kinetics/openGJK.h
-

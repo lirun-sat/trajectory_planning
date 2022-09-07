@@ -449,33 +449,6 @@ forward_kin_2.cpp.s:
 	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/forward_kin_2.cpp.s
 .PHONY : forward_kin_2.cpp.s
 
-forward_kin_3.o: forward_kin_3.cpp.o
-
-.PHONY : forward_kin_3.o
-
-# target to build an object file
-forward_kin_3.cpp.o:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/forward_kin_3.cpp.o
-.PHONY : forward_kin_3.cpp.o
-
-forward_kin_3.i: forward_kin_3.cpp.i
-
-.PHONY : forward_kin_3.i
-
-# target to preprocess a source file
-forward_kin_3.cpp.i:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/forward_kin_3.cpp.i
-.PHONY : forward_kin_3.cpp.i
-
-forward_kin_3.s: forward_kin_3.cpp.s
-
-.PHONY : forward_kin_3.s
-
-# target to generate assembly for a file
-forward_kin_3.cpp.s:
-	cd /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build && $(MAKE) -f kinetics/CMakeFiles/kinetics.dir/build.make kinetics/CMakeFiles/kinetics.dir/forward_kin_3.cpp.s
-.PHONY : forward_kin_3.cpp.s
-
 global_data.o: global_data.cpp.o
 
 .PHONY : global_data.o
@@ -602,9 +575,6 @@ help:
 	@echo "... forward_kin_2.o"
 	@echo "... forward_kin_2.i"
 	@echo "... forward_kin_2.s"
-	@echo "... forward_kin_3.o"
-	@echo "... forward_kin_3.i"
-	@echo "... forward_kin_3.s"
 	@echo "... global_data.o"
 	@echo "... global_data.i"
 	@echo "... global_data.s"

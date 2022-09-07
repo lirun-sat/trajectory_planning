@@ -22,7 +22,6 @@ endif()
 
 add_subdirectory(kinetics)
 add_subdirectory(utils)
-add_subdirectory(openGJK)
 
 # add_executable(${PROJECT_NAME} ../src/test_main.cpp)
 # add_executable(${PROJECT_NAME} ../src/test_main_2.cpp)
@@ -52,7 +51,6 @@ link_directories(${PROJECT_SOURCE_DIR}/lib)
 
 target_link_libraries(forward_kinematics kinetics)
 target_link_libraries(forward_kinematics utils)
-target_link_libraries(forward_kinematics opengjk)
 
 # target_link_libraries(test_kinematics kinetics)
 # target_link_libraries(test_kinematics utils)

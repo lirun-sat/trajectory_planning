@@ -1,2 +1,0 @@
-/usr/bin/ar qc ../../lib/libopengjk.a  CMakeFiles/opengjk.dir/openGJK.c.o
-/usr/bin/ranlib ../../lib/libopengjk.a

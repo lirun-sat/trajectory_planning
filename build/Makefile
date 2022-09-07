@@ -149,19 +149,6 @@ utils/fast:
 	$(MAKE) -f utils/CMakeFiles/utils.dir/build.make utils/CMakeFiles/utils.dir/build
 .PHONY : utils/fast
 
-#=============================================================================
-# Target rules for targets named opengjk
-
-# Build rule for target.
-opengjk: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 opengjk
-.PHONY : opengjk
-
-# fast build rule for target.
-opengjk/fast:
-	$(MAKE) -f openGJK/CMakeFiles/opengjk.dir/build.make openGJK/CMakeFiles/opengjk.dir/build
-.PHONY : opengjk/fast
-
 src/test_main_5.o: src/test_main_5.cpp.o
 
 .PHONY : src/test_main_5.o
@@ -200,7 +187,6 @@ help:
 	@echo "... forward_kinematics"
 	@echo "... kinetics"
 	@echo "... utils"
-	@echo "... opengjk"
 	@echo "... src/test_main_5.o"
 	@echo "... src/test_main_5.i"
 	@echo "... src/test_main_5.s"
