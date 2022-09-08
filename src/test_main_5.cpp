@@ -441,7 +441,7 @@ double calc_fitness_woa(WOA_Whale& whale){
                 + K_p * delta_Pe_end_mod_temp 
                 + K_b * (*delta_xi_b_distrb_max) 
                 + K_s * fabs((*locus) - straight_line_locus)  
-                + K_M * (*manipl) 
+                + K_M * (1 / (*manipl)) 
                 + K_t * (*T_min);
 				// + (*collision_times);
 
@@ -556,7 +556,7 @@ double calc_fitness_tlbo(Student& student){
                 + K_p * delta_Pe_end_mod_temp 
                 + K_b * (*delta_xi_b_distrb_max) 
                 + K_s * fabs(*locus - straight_line_locus)  
-                + K_M * (*manipl) 
+                + K_M * (1 / (*manipl)) 
                 + K_t * (*T_min);
 				// + (*collision_times);
 
