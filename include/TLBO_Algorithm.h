@@ -124,6 +124,28 @@ public:
 		return((1.0 * rand()) / RAND_MAX);
 	}
 
+	void randomlyInitial(void){
+		// double* good_point_set_temp;
+		// good_point_set_temp = new double[_studentCount * _dimension];
+		//  产生佳点集
+		// gen_good_point_set(_studentCount, _dimension, _positionMinValue, _positionMaxValue, good_point_set_temp);
+
+		for (int i = 0; i < _studentCount; ++i){
+			_studentSet[i]._position[0] = 0.852354;
+			_studentSet[i]._position[1] = 0.433124;
+			_studentSet[i]._position[2] = 2.03323;
+			_studentSet[i]._position[3] = 2.9251;
+			_studentSet[i]._position[4] = 1.82466;
+			_studentSet[i]._position[5] = 1.94137;
+			_studentSet[i]._position[6] = 0.966595;
+			
+			_studentSet[i]._fitness = _fitnessFunction(_studentSet[i]);
+		}
+
+		// delete[] good_point_set_temp;
+
+	}
+
 	// 选出最小的适应度函数值，找到对应的粒子，将其作为最优粒子
 	void refresh(void){
 		_globalBestStudentIndex = -1;
@@ -151,24 +173,6 @@ public:
 		}
 
 		delete[] fitness_temp;
-
-	}
-
-
-	void randomlyInitial(void){
-		double* good_point_set_temp;
-		good_point_set_temp = new double[_studentCount * _dimension];
-		//  产生佳点集
-		gen_good_point_set(_studentCount, _dimension, _positionMinValue, _positionMaxValue, good_point_set_temp);
-
-		for (int i = 0; i < _studentCount; ++i){
-			for (int j = 0; j < _dimension; ++j){
-				_studentSet[i]._position[j] = good_point_set_temp[i * _dimension + j];
-			}
-			_studentSet[i]._fitness = _fitnessFunction(_studentSet[i]);
-		}
-
-		delete[] good_point_set_temp;
 
 	}
 
