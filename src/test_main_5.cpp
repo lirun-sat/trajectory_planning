@@ -391,7 +391,7 @@ double calc_fitness_woa(WOA_Whale& whale){
 	// double K_p = 1 / 0.005;  //  0.005 meter error tolerance
 	double K_p = 1 / 0.002;  //  0.002 meter error tolerance for end-effector
     // double K_s = 1 / 0.1;  // locus tolerance 0.1 meter.
-    double K_s = 1 / 0.2;  // locus tolerance 0.1 meter.
+    double K_s = 1 / 0.1;  // locus tolerance 0.1 meter.
     double K_b = 1 / 0.0008;  // attitude error tolerance for base is 5 degree
     double K_M = 0;
     double K_t = 0;  //  max allowed motion time is set to 100 seconds, tolerance is 10 seconds.
@@ -508,7 +508,7 @@ double calc_fitness_tlbo(Student& student){
 	// double K_p = 1 / 0.005;  //  0.005 meter error tolerance for end-effector
 	double K_p = 1 / 0.002;  //  0.002 meter error tolerance for end-effector
     // double K_s = 1 / 0.1;  // locus tolerance 0.1 meter for end-effector.
-    double K_s = 1 / 0.2;  // locus tolerance 0.1 meter for end-effector.
+    double K_s = 1 / 0.1;  // locus tolerance 0.1 meter for end-effector.
     double K_b = 1 / 0.0008;  // attitude error tolerance for base is 5 degree
     double K_M = 0;
     double K_t = 0;  //  max allowed motion time is set to 100 seconds, tolerance is 10 seconds.
