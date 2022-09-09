@@ -1,0 +1,1215 @@
+# lirun @ lirun-G3-3779 in ~/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/bin on git:dev_3 x [18:34:28] 
+$ ./forward_kinematics 
+Initial processing...
+delta_tau =   0.01
+RPY_END_DESIRED:
+-0.523599  -0.872665  0.785398
+Pe_DESIRED:
+1.5  -1.4  2.2
+Iter_Max =   5000
+num_calc =   100
+student_whale_count =   100
+result_min:
+-6.28319  0  -6.28319  -6.28319  -6.28319  -2.0944  -6.28319  
+result_max:
+6.28319  3.14159  6.28319  6.28319  6.28319  2.0944  6.28319  
+算法构建完成，进入迭代搜索过程......
+第0次搜索......
+WOA 初始化完成......
+TLBO 初始化完成......
+Iteration is :50
+woa_tlbo_fitness is :1400.98
+Iteration is :100
+woa_tlbo_fitness is :1103.34
+Iteration is :150
+woa_tlbo_fitness is :975.807
+Iteration is :200
+woa_tlbo_fitness is :472.29
+Iteration is :250
+woa_tlbo_fitness is :472.29
+Iteration is :300
+woa_tlbo_fitness is :472.29
+Iteration is :350
+woa_tlbo_fitness is :423.672
+Iteration is :400
+woa_tlbo_fitness is :410.181
+Iteration is :450
+woa_tlbo_fitness is :410.181
+Iteration is :750
+woa_tlbo_fitness is :396.536
+Iteration is :1100
+woa_tlbo_fitness is :396.536
+Iteration is :1750
+woa_tlbo_fitness is :344.686
+Iteration is :2500
+woa_tlbo_fitness is :318.93
+Iteration is :4000
+woa_tlbo_fitness is :283.953
+best fitness found is:   187.058
+1.51139  0.926508  1.99901  4.1554  1.61933  1.84097  1.54373  
+time = 4877.77s
+第1次搜索......
+WOA 初始化完成......
+TLBO 初始化完成......
+Iteration is :50
+woa_tlbo_fitness is :1455.08
+Iteration is :100
+woa_tlbo_fitness is :1151.96
+Iteration is :150
+woa_tlbo_fitness is :1151.96
+Iteration is :200
+woa_tlbo_fitness is :952.711
+Iteration is :250
+woa_tlbo_fitness is :761.261
+Iteration is :300
+woa_tlbo_fitness is :761.261
+Iteration is :350
+woa_tlbo_fitness is :726.422
+Iteration is :400
+woa_tlbo_fitness is :709.442
+Iteration is :450
+woa_tlbo_fitness is :704.931
+Iteration is :750
+woa_tlbo_fitness is :690.588
+Iteration is :1100
+woa_tlbo_fitness is :599.297
+Iteration is :1750
+woa_tlbo_fitness is :514.315
+Iteration is :2500
+woa_tlbo_fitness is :197.893
+Iteration is :4000
+woa_tlbo_fitness is :197.784
+best fitness found is:   127.321
+1.41351  0.868217  2.16595  4.07213  1.55446  1.91492  1.53613  
+time = 4870.42s
+第2次搜索......
+WOA 初始化完成......
+TLBO 初始化完成......
+Iteration is :50
+woa_tlbo_fitness is :1252.08
+Iteration is :100
+woa_tlbo_fitness is :1108.33
+Iteration is :150
+woa_tlbo_fitness is :855.569
+Iteration is :200
+woa_tlbo_fitness is :734.227
+Iteration is :250
+woa_tlbo_fitness is :734.227
+Iteration is :300
+woa_tlbo_fitness is :734.227
+Iteration is :350
+woa_tlbo_fitness is :725.787
+Iteration is :400
+woa_tlbo_fitness is :641.801
+Iteration is :450
+woa_tlbo_fitness is :641.801
+Iteration is :750
+woa_tlbo_fitness is :352.551
+Iteration is :1100
+woa_tlbo_fitness is :294.231
+Iteration is :1750
+woa_tlbo_fitness is :292.597
+Iteration is :2500
+woa_tlbo_fitness is :282.981
+Iteration is :4000
+woa_tlbo_fitness is :214.537
+best fitness found is:   213.849
+1.18617  1.04395  2.65327  4.09659  -1.94739  -2.04726  4.7081  
+time = 4873.94s
+第3次搜索......
+WOA 初始化完成......
+TLBO 初始化完成......
+Iteration is :50
+woa_tlbo_fitness is :1467.38
+Iteration is :100
+woa_tlbo_fitness is :740.372
+Iteration is :150
+woa_tlbo_fitness is :740.372
+Iteration is :200
+woa_tlbo_fitness is :740.372
+Iteration is :250
+woa_tlbo_fitness is :700.16
+Iteration is :300
+woa_tlbo_fitness is :669.87
+Iteration is :350
+woa_tlbo_fitness is :648.586
+Iteration is :400
+woa_tlbo_fitness is :646.85
+Iteration is :450
+woa_tlbo_fitness is :631.857
+Iteration is :750
+woa_tlbo_fitness is :565.254
+Iteration is :1100
+woa_tlbo_fitness is :530.97
+Iteration is :1750
+woa_tlbo_fitness is :297.382
+Iteration is :2500
+woa_tlbo_fitness is :295.579
+Iteration is :4000
+woa_tlbo_fitness is :279.702
+best fitness found is:   273.672
+1.5161  0.0911698  -5.4781  -2.40729  -3.60916  1.58574  -5.19575  
+time = 4875.85s
+第4次搜索......
+WOA 初始化完成......
+TLBO 初始化完成......
+Iteration is :50
+woa_tlbo_fitness is :1307.87
+Iteration is :100
+woa_tlbo_fitness is :1041.11
+Iteration is :150
+woa_tlbo_fitness is :762.901
+Iteration is :200
+woa_tlbo_fitness is :762.901
+Iteration is :250
+woa_tlbo_fitness is :546.915
+Iteration is :300
+woa_tlbo_fitness is :388.629
+Iteration is :350
+woa_tlbo_fitness is :360.092
+Iteration is :400
+woa_tlbo_fitness is :358.862
+Iteration is :450
+woa_tlbo_fitness is :358.412
+Iteration is :750
+woa_tlbo_fitness is :357.285
+Iteration is :1100
+woa_tlbo_fitness is :269.185
+Iteration is :1750
+woa_tlbo_fitness is :248.548
+Iteration is :2500
+woa_tlbo_fitness is :231.886
+Iteration is :4000
+woa_tlbo_fitness is :230.383
+best fitness found is:   230.328
+4.03249  2.90932  -0.611004  3.1774  4.55127  -1.91049  4.50827  
+time = 4873.16s
+第5次搜索......
+WOA 初始化完成......
+TLBO 初始化完成......
+Iteration is :50
+woa_tlbo_fitness is :1330.36
+Iteration is :100
+woa_tlbo_fitness is :1142.58
+Iteration is :150
+woa_tlbo_fitness is :1073.41
+Iteration is :200
+woa_tlbo_fitness is :863.776
+Iteration is :250
+woa_tlbo_fitness is :548.683
+Iteration is :300
+woa_tlbo_fitness is :499.636
+Iteration is :350
+woa_tlbo_fitness is :411.857
+Iteration is :400
+woa_tlbo_fitness is :374.701
+Iteration is :450
+woa_tlbo_fitness is :371.938
+Iteration is :750
+woa_tlbo_fitness is :358.186
+Iteration is :1100
+woa_tlbo_fitness is :348.206
+Iteration is :1750
+woa_tlbo_fitness is :310.183
+Iteration is :2500
+woa_tlbo_fitness is :300.668
+Iteration is :4000
+woa_tlbo_fitness is :278.436
+best fitness found is:   258.292
+0.880178  0.201725  2.66172  2.87725  -1.95729  -1.95106  4.2173  
+time = 4872.46s
+第6次搜索......
+WOA 初始化完成......
+TLBO 初始化完成......
+Iteration is :50
+woa_tlbo_fitness is :760.892
+Iteration is :100
+woa_tlbo_fitness is :713.249
+Iteration is :150
+woa_tlbo_fitness is :448.705
+Iteration is :200
+woa_tlbo_fitness is :318.094
+Iteration is :250
+woa_tlbo_fitness is :312.102
+Iteration is :300
+woa_tlbo_fitness is :283.083
+Iteration is :350
+woa_tlbo_fitness is :283.083
+Iteration is :400
+woa_tlbo_fitness is :278.127
+Iteration is :450
+woa_tlbo_fitness is :271.128
+Iteration is :750
+woa_tlbo_fitness is :158.045
+Iteration is :1100
+woa_tlbo_fitness is :107.916
+Iteration is :1750
+woa_tlbo_fitness is :76.2707
+Iteration is :2500
+woa_tlbo_fitness is :73.8236
+Iteration is :4000
+woa_tlbo_fitness is :64.3981
+best fitness found is:   64.3594
+1.10812  0.708544  2.5962  3.6871  1.27874  1.98507  1.37941  
+time = 4872.35s
+第7次搜索......
+WOA 初始化完成......
+TLBO 初始化完成......
+Iteration is :50
+woa_tlbo_fitness is :1052.69
+Iteration is :100
+woa_tlbo_fitness is :1052.69
+Iteration is :150
+woa_tlbo_fitness is :1052.69
+Iteration is :200
+woa_tlbo_fitness is :1052.69
+Iteration is :250
+woa_tlbo_fitness is :1052.69
+Iteration is :300
+woa_tlbo_fitness is :819.884
+Iteration is :350
+woa_tlbo_fitness is :656.784
+Iteration is :400
+woa_tlbo_fitness is :656.784
+Iteration is :450
+woa_tlbo_fitness is :625.534
+Iteration is :750
+woa_tlbo_fitness is :221.998
+Iteration is :1100
+woa_tlbo_fitness is :203.072
+Iteration is :1750
+woa_tlbo_fitness is :202.895
+Iteration is :2500
+woa_tlbo_fitness is :200.431
+Iteration is :4000
+woa_tlbo_fitness is :199.477
+best fitness found is:   143.088
+1.08876  0.493676  1.57423  3.19546  -0.923525  -2.00466  4.23309  
+time = 4873.77s
+第8次搜索......
+WOA 初始化完成......
+TLBO 初始化完成......
+Iteration is :50
+woa_tlbo_fitness is :1680.67
+Iteration is :100
+woa_tlbo_fitness is :1507.97
+Iteration is :150
+woa_tlbo_fitness is :1304.96
+Iteration is :200
+woa_tlbo_fitness is :1063.67
+Iteration is :250
+woa_tlbo_fitness is :1063.67
+Iteration is :300
+woa_tlbo_fitness is :1063.67
+Iteration is :350
+woa_tlbo_fitness is :972.66
+Iteration is :400
+woa_tlbo_fitness is :664.315
+Iteration is :450
+woa_tlbo_fitness is :664.315
+Iteration is :750
+woa_tlbo_fitness is :562.52
+Iteration is :1100
+woa_tlbo_fitness is :416.365
+Iteration is :1750
+woa_tlbo_fitness is :266.553
+Iteration is :2500
+woa_tlbo_fitness is :228.032
+Iteration is :4000
+woa_tlbo_fitness is :223.998
+best fitness found is:   223.338
+-5.42602  0.136871  -2.94097  -3.52244  -2.76597  -1.89963  -1.98726  
+time = 4874.01s
+第9次搜索......
+WOA 初始化完成......
+TLBO 初始化完成......
+Iteration is :50
+woa_tlbo_fitness is :1710.35
+Iteration is :100
+woa_tlbo_fitness is :936.274
+Iteration is :150
+woa_tlbo_fitness is :655.501
+Iteration is :200
+woa_tlbo_fitness is :617.74
+Iteration is :250
+woa_tlbo_fitness is :554.548
+Iteration is :300
+woa_tlbo_fitness is :493.244
+Iteration is :350
+woa_tlbo_fitness is :489.544
+Iteration is :400
+woa_tlbo_fitness is :364.147
+Iteration is :450
+woa_tlbo_fitness is :319.104
+Iteration is :750
+woa_tlbo_fitness is :291.959
+Iteration is :1100
+woa_tlbo_fitness is :280.363
+Iteration is :1750
+woa_tlbo_fitness is :257.045
+Iteration is :2500
+woa_tlbo_fitness is :222.879
+Iteration is :4000
+woa_tlbo_fitness is :184.76
+best fitness found is:   153.624
+4.11773  2.72469  -1.07939  3.35544  1.82302  1.76993  1.28496  
+time = 4891.62s
+第10次搜索......
+WOA 初始化完成......
+TLBO 初始化完成......
+Iteration is :50
+woa_tlbo_fitness is :1423.4
+Iteration is :100
+woa_tlbo_fitness is :1075.39
+Iteration is :150
+woa_tlbo_fitness is :467.333
+Iteration is :200
+woa_tlbo_fitness is :403.88
+Iteration is :250
+woa_tlbo_fitness is :371.401
+Iteration is :300
+woa_tlbo_fitness is :364.162
+Iteration is :350
+woa_tlbo_fitness is :133.04
+Iteration is :400
+woa_tlbo_fitness is :133.04
+Iteration is :450
+woa_tlbo_fitness is :108.149
+Iteration is :750
+woa_tlbo_fitness is :94.3742
+Iteration is :1100
+woa_tlbo_fitness is :54.2321
+Iteration is :1750
+woa_tlbo_fitness is :51.2007
+Iteration is :2500
+woa_tlbo_fitness is :50.1184
+Iteration is :4000
+woa_tlbo_fitness is :50.1075
+best fitness found is:   49.8358
+0.852354  0.433124  2.03323  2.9251  1.82466  1.94137  0.966595  
+time = 5102.36s
+第11次搜索......
+WOA 初始化完成......
+TLBO 初始化完成......
+Iteration is :50
+woa_tlbo_fitness is :1261.19
+Iteration is :100
+woa_tlbo_fitness is :1261.19
+Iteration is :150
+woa_tlbo_fitness is :1077.67
+Iteration is :200
+woa_tlbo_fitness is :897.589
+Iteration is :250
+woa_tlbo_fitness is :740.861
+Iteration is :300
+woa_tlbo_fitness is :681.827
+Iteration is :350
+woa_tlbo_fitness is :572.848
+Iteration is :400
+woa_tlbo_fitness is :541.03
+Iteration is :450
+woa_tlbo_fitness is :537.898
+Iteration is :750
+woa_tlbo_fitness is :495.21
+Iteration is :1100
+woa_tlbo_fitness is :479.342
+Iteration is :1750
+woa_tlbo_fitness is :438.873
+
+
+
+# lirun @ lirun-desktop in ~/Desktop/trajectory_planning/bin [14:51:21] C:130
+$ ./forward_kinematics
+Initial processing...
+delta_tau =   0.01
+RPY_END_DESIRED:
+-0.523599  -0.872665  0.785398
+Pe_DESIRED:
+1.5  -1.4  2.2
+Iter_Max =   3000
+num_calc =   100
+student_whale_count =   100
+result_min:
+-6.28319  0  -6.28319  -6.28319  -6.28319  -2.0944  -6.28319  
+result_max:
+6.28319  3.14159  6.28319  6.28319  6.28319  2.0944  6.28319  
+算法构建完成，进入迭代搜索过程......
+第0次搜索......
+WOA 初始化完成......
+TLBO 初始化完成......
+Iteration is :30
+woa_tlbo_fitness is :1402.06
+Iteration is :60
+woa_tlbo_fitness is :1402.06
+Iteration is :90
+woa_tlbo_fitness is :1103.59
+Iteration is :120
+woa_tlbo_fitness is :1103.59
+Iteration is :150
+woa_tlbo_fitness is :1103.59
+Iteration is :180
+woa_tlbo_fitness is :770.478
+Iteration is :210
+woa_tlbo_fitness is :695.11
+Iteration is :240
+woa_tlbo_fitness is :695.11
+Iteration is :270
+woa_tlbo_fitness is :668.787
+Iteration is :450
+woa_tlbo_fitness is :584.067
+Iteration is :660
+woa_tlbo_fitness is :567.532
+Iteration is :1050
+woa_tlbo_fitness is :378.852
+Iteration is :1500
+woa_tlbo_fitness is :293.09
+Iteration is :2400
+woa_tlbo_fitness is :271.18
+best fitness found is:   271.18
+1.29217  0.107473  -5.80268  -2.83919  2.98111  1.84397  0.947706  
+time = 3048.36s
+第1次搜索......
+WOA 初始化完成......
+TLBO 初始化完成......
+Iteration is :30
+woa_tlbo_fitness is :1678.36
+Iteration is :60
+woa_tlbo_fitness is :1470.36
+Iteration is :90
+woa_tlbo_fitness is :1214.16
+Iteration is :120
+woa_tlbo_fitness is :1050.07
+Iteration is :150
+woa_tlbo_fitness is :970.172
+Iteration is :180
+woa_tlbo_fitness is :889.368
+Iteration is :210
+woa_tlbo_fitness is :889.368
+Iteration is :240
+woa_tlbo_fitness is :872.056
+Iteration is :270
+woa_tlbo_fitness is :690.574
+Iteration is :450
+woa_tlbo_fitness is :382.305
+Iteration is :660
+woa_tlbo_fitness is :284.584
+Iteration is :1050
+woa_tlbo_fitness is :245.13
+Iteration is :1500
+woa_tlbo_fitness is :244.545
+Iteration is :2400
+woa_tlbo_fitness is :213.314
+best fitness found is:   196.591
+1.05679  0.568369  2.14927  3.20273  1.62968  1.88231  1.0199  
+time = 3044.97s
+第2次搜索......
+WOA 初始化完成......
+TLBO 初始化完成......
+Iteration is :30
+woa_tlbo_fitness is :1603.36
+Iteration is :60
+woa_tlbo_fitness is :1257.83
+Iteration is :90
+woa_tlbo_fitness is :1257.83
+Iteration is :120
+woa_tlbo_fitness is :1257.83
+Iteration is :150
+woa_tlbo_fitness is :939.02
+Iteration is :180
+woa_tlbo_fitness is :778.063
+Iteration is :210
+woa_tlbo_fitness is :644.796
+Iteration is :240
+woa_tlbo_fitness is :574.478
+Iteration is :270
+woa_tlbo_fitness is :524.272
+Iteration is :450
+woa_tlbo_fitness is :361.993
+Iteration is :660
+woa_tlbo_fitness is :357.364
+Iteration is :1050
+woa_tlbo_fitness is :356.328
+Iteration is :1500
+woa_tlbo_fitness is :350.802
+Iteration is :2400
+woa_tlbo_fitness is :184.287
+best fitness found is:   126.793
+1.33712  0.661804  1.90647  3.84838  1.8581  1.82211  1.43413  
+time = 3046.02s
+第3次搜索......
+WOA 初始化完成......
+TLBO 初始化完成......
+Iteration is :30
+woa_tlbo_fitness is :1821.46
+Iteration is :60
+woa_tlbo_fitness is :1320.28
+Iteration is :90
+woa_tlbo_fitness is :1177.54
+Iteration is :120
+woa_tlbo_fitness is :1177.54
+Iteration is :150
+woa_tlbo_fitness is :1177.54
+Iteration is :180
+woa_tlbo_fitness is :1016.5
+Iteration is :210
+woa_tlbo_fitness is :652.911
+Iteration is :240
+woa_tlbo_fitness is :652.911
+Iteration is :270
+woa_tlbo_fitness is :652.911
+Iteration is :450
+woa_tlbo_fitness is :530.808
+Iteration is :660
+woa_tlbo_fitness is :237.757
+Iteration is :1050
+woa_tlbo_fitness is :237.757
+Iteration is :1500
+woa_tlbo_fitness is :204.79
+Iteration is :2400
+woa_tlbo_fitness is :146.799
+best fitness found is:   92.8604
+1.44866  0.662999  1.66625  3.9295  2.01042  1.73994  1.3981  
+time = 3043.69s
+第4次搜索......
+WOA 初始化完成......
+TLBO 初始化完成......
+Iteration is :30
+woa_tlbo_fitness is :938.423
+Iteration is :60
+woa_tlbo_fitness is :938.423
+Iteration is :90
+woa_tlbo_fitness is :926.84
+Iteration is :120
+woa_tlbo_fitness is :926.84
+Iteration is :150
+woa_tlbo_fitness is :926.84
+Iteration is :180
+woa_tlbo_fitness is :926.84
+Iteration is :210
+woa_tlbo_fitness is :747.004
+Iteration is :240
+woa_tlbo_fitness is :726.147
+Iteration is :270
+woa_tlbo_fitness is :726.147
+Iteration is :450
+woa_tlbo_fitness is :322.5
+Iteration is :660
+woa_tlbo_fitness is :322.5
+Iteration is :1050
+woa_tlbo_fitness is :215.89
+Iteration is :1500
+woa_tlbo_fitness is :214.204
+Iteration is :2400
+woa_tlbo_fitness is :155.328
+best fitness found is:   154.871
+1.09887  0.0447709  6.26668  3.61062  0.708132  -1.96393  4.1845  
+time = 3046.52s
+第5次搜索......
+WOA 初始化完成......
+TLBO 初始化完成......
+Iteration is :30
+woa_tlbo_fitness is :1580.84
+Iteration is :60
+woa_tlbo_fitness is :1499.19
+Iteration is :90
+woa_tlbo_fitness is :1431.16
+Iteration is :120
+woa_tlbo_fitness is :1320.45
+Iteration is :150
+woa_tlbo_fitness is :1191.86
+Iteration is :180
+woa_tlbo_fitness is :1005.18
+Iteration is :210
+woa_tlbo_fitness is :1005.18
+Iteration is :240
+woa_tlbo_fitness is :844.59
+Iteration is :270
+woa_tlbo_fitness is :844.59
+Iteration is :450
+woa_tlbo_fitness is :820.982
+Iteration is :660
+woa_tlbo_fitness is :625.75
+Iteration is :1050
+woa_tlbo_fitness is :481.92
+Iteration is :1500
+woa_tlbo_fitness is :467.756
+Iteration is :2400
+woa_tlbo_fitness is :220.763
+best fitness found is:   198.604
+0.993356  0.521536  0.741169  3.16652  3.10265  1.92176  1.03637  
+time = 3045.07s
+第6次搜索......
+WOA 初始化完成......
+TLBO 初始化完成......
+Iteration is :30
+woa_tlbo_fitness is :1164.28
+Iteration is :60
+woa_tlbo_fitness is :905.532
+Iteration is :90
+woa_tlbo_fitness is :905.532
+Iteration is :120
+woa_tlbo_fitness is :905.532
+Iteration is :150
+woa_tlbo_fitness is :905.532
+Iteration is :180
+woa_tlbo_fitness is :905.532
+Iteration is :210
+woa_tlbo_fitness is :905.532
+Iteration is :240
+woa_tlbo_fitness is :859.607
+Iteration is :270
+woa_tlbo_fitness is :812.444
+Iteration is :450
+woa_tlbo_fitness is :500.959
+Iteration is :660
+woa_tlbo_fitness is :439.169
+Iteration is :1050
+woa_tlbo_fitness is :390.14
+Iteration is :1500
+woa_tlbo_fitness is :337.946
+Iteration is :2400
+woa_tlbo_fitness is :305.882
+best fitness found is:   295.472
+0.746397  0.359189  2.41549  2.84823  -1.61267  -1.84033  4.24591  
+time = 3044.74s
+第7次搜索......
+WOA 初始化完成......
+TLBO 初始化完成......
+Iteration is :30
+woa_tlbo_fitness is :1327.72
+Iteration is :60
+woa_tlbo_fitness is :1144.71
+Iteration is :90
+woa_tlbo_fitness is :1003.62
+Iteration is :120
+woa_tlbo_fitness is :1003.62
+Iteration is :150
+woa_tlbo_fitness is :759.342
+Iteration is :180
+woa_tlbo_fitness is :688.387
+Iteration is :210
+woa_tlbo_fitness is :630.724
+Iteration is :240
+woa_tlbo_fitness is :630.724
+Iteration is :270
+woa_tlbo_fitness is :630.724
+Iteration is :450
+woa_tlbo_fitness is :370.447
+Iteration is :660
+woa_tlbo_fitness is :194.71
+Iteration is :1050
+woa_tlbo_fitness is :159.438
+Iteration is :1500
+woa_tlbo_fitness is :159.171
+Iteration is :2400
+woa_tlbo_fitness is :153.697
+best fitness found is:   129.533
+1.14753  0.603299  1.8757  3.53204  1.94364  1.81226  1.26348  
+time = 3045.7s
+第8次搜索......
+WOA 初始化完成......
+TLBO 初始化完成......
+Iteration is :30
+woa_tlbo_fitness is :943.795
+Iteration is :60
+woa_tlbo_fitness is :905.291
+Iteration is :90
+woa_tlbo_fitness is :905.291
+Iteration is :120
+woa_tlbo_fitness is :905.291
+Iteration is :150
+woa_tlbo_fitness is :688.864
+Iteration is :180
+woa_tlbo_fitness is :510.883
+Iteration is :210
+woa_tlbo_fitness is :465.325
+Iteration is :240
+woa_tlbo_fitness is :412.764
+Iteration is :270
+woa_tlbo_fitness is :402.674
+Iteration is :450
+woa_tlbo_fitness is :381.742
+Iteration is :660
+woa_tlbo_fitness is :336.281
+Iteration is :1050
+woa_tlbo_fitness is :190.996
+Iteration is :1500
+woa_tlbo_fitness is :100.383
+Iteration is :2400
+woa_tlbo_fitness is :100.225
+best fitness found is:   100.195
+1.19227  0.712494  2.2423  3.72644  1.58129  1.88323  1.39456  
+time = 3046.19s
+第9次搜索......
+WOA 初始化完成......
+TLBO 初始化完成......
+Iteration is :30
+woa_tlbo_fitness is :1340.91
+Iteration is :60
+woa_tlbo_fitness is :1019
+Iteration is :90
+woa_tlbo_fitness is :937.407
+Iteration is :120
+woa_tlbo_fitness is :924.35
+Iteration is :150
+woa_tlbo_fitness is :798.983
+Iteration is :180
+woa_tlbo_fitness is :627.92
+Iteration is :210
+woa_tlbo_fitness is :627.92
+Iteration is :240
+woa_tlbo_fitness is :532.707
+Iteration is :270
+woa_tlbo_fitness is :532.707
+Iteration is :450
+woa_tlbo_fitness is :515.138
+Iteration is :660
+woa_tlbo_fitness is :504.533
+Iteration is :1050
+woa_tlbo_fitness is :502.433
+Iteration is :1500
+woa_tlbo_fitness is :502.365
+Iteration is :2400
+woa_tlbo_fitness is :342.442
+best fitness found is:   330.069
+-5.05947  0.420553  -5.37861  -2.60132  -0.451528  -1.71146  -2.09949  
+time = 3044.47s
+第10次搜索......
+WOA 初始化完成......
+TLBO 初始化完成......
+Iteration is :30
+woa_tlbo_fitness is :1527.34
+Iteration is :60
+woa_tlbo_fitness is :1458.35
+Iteration is :90
+woa_tlbo_fitness is :965.355
+Iteration is :120
+woa_tlbo_fitness is :965.355
+Iteration is :150
+woa_tlbo_fitness is :965.355
+Iteration is :180
+woa_tlbo_fitness is :965.355
+Iteration is :210
+woa_tlbo_fitness is :965.355
+Iteration is :240
+woa_tlbo_fitness is :804.194
+Iteration is :270
+woa_tlbo_fitness is :747.021
+Iteration is :450
+woa_tlbo_fitness is :260.636
+Iteration is :660
+woa_tlbo_fitness is :248.066
+Iteration is :1050
+woa_tlbo_fitness is :213.287
+Iteration is :1500
+woa_tlbo_fitness is :206.574
+Iteration is :2400
+woa_tlbo_fitness is :151.199
+best fitness found is:   128.468
+1.21293  0.618231  1.78405  3.60784  2.00232  1.78673  1.27537  
+time = 3045.49s
+第11次搜索......
+WOA 初始化完成......
+TLBO 初始化完成......
+Iteration is :30
+woa_tlbo_fitness is :1561.11
+Iteration is :60
+woa_tlbo_fitness is :1119.64
+Iteration is :90
+woa_tlbo_fitness is :1119.64
+Iteration is :120
+woa_tlbo_fitness is :877.754
+Iteration is :150
+woa_tlbo_fitness is :877.754
+Iteration is :180
+woa_tlbo_fitness is :877.754
+Iteration is :210
+woa_tlbo_fitness is :877.754
+Iteration is :240
+woa_tlbo_fitness is :799.189
+Iteration is :270
+woa_tlbo_fitness is :672.216
+Iteration is :450
+woa_tlbo_fitness is :575.321
+Iteration is :660
+woa_tlbo_fitness is :518.48
+Iteration is :1050
+woa_tlbo_fitness is :462.742
+Iteration is :1500
+woa_tlbo_fitness is :457.839
+Iteration is :2400
+woa_tlbo_fitness is :449.353
+best fitness found is:   188.216
+1.075  0.856378  2.75377  3.92303  -1.9598  -2.06768  -1.62981  
+time = 3046.1s
+第12次搜索......
+WOA 初始化完成......
+TLBO 初始化完成......
+Iteration is :30
+woa_tlbo_fitness is :1352.77
+Iteration is :60
+woa_tlbo_fitness is :1295.21
+Iteration is :90
+woa_tlbo_fitness is :1246.51
+Iteration is :120
+woa_tlbo_fitness is :1150.75
+Iteration is :150
+woa_tlbo_fitness is :1083.36
+Iteration is :180
+woa_tlbo_fitness is :680.213
+Iteration is :210
+woa_tlbo_fitness is :680.213
+Iteration is :240
+woa_tlbo_fitness is :680.213
+Iteration is :270
+woa_tlbo_fitness is :680.213
+Iteration is :450
+woa_tlbo_fitness is :599.297
+Iteration is :660
+woa_tlbo_fitness is :523.328
+Iteration is :1050
+woa_tlbo_fitness is :307.081
+Iteration is :1500
+woa_tlbo_fitness is :306.03
+Iteration is :2400
+woa_tlbo_fitness is :306.012
+best fitness found is:   306.004
+1.06227  0.527943  4.15409  3.30336  5.94661  2.00392  0.927442  
+time = 3040.6s
+第13次搜索......
+WOA 初始化完成......
+TLBO 初始化完成......
+Iteration is :30
+woa_tlbo_fitness is :1554.95
+Iteration is :60
+woa_tlbo_fitness is :1279.86
+Iteration is :90
+woa_tlbo_fitness is :1272.3
+Iteration is :120
+woa_tlbo_fitness is :1272.3
+Iteration is :150
+woa_tlbo_fitness is :779.717
+Iteration is :180
+woa_tlbo_fitness is :779.717
+Iteration is :210
+woa_tlbo_fitness is :779.717
+Iteration is :240
+woa_tlbo_fitness is :683.293
+Iteration is :270
+woa_tlbo_fitness is :515.183
+Iteration is :450
+woa_tlbo_fitness is :402.804
+Iteration is :660
+woa_tlbo_fitness is :402.61
+Iteration is :1050
+woa_tlbo_fitness is :402.196
+Iteration is :1500
+woa_tlbo_fitness is :395.841
+Iteration is :2400
+woa_tlbo_fitness is :273.062
+best fitness found is:   261.535
+4.13769  2.95398  2.29008  3.09101  4.77102  1.97193  1.34715  
+time = 3045.2s
+第14次搜索......
+WOA 初始化完成......
+TLBO 初始化完成......
+Iteration is :30
+woa_tlbo_fitness is :1384.12
+Iteration is :60
+woa_tlbo_fitness is :1381.85
+Iteration is :90
+woa_tlbo_fitness is :1381.85
+Iteration is :120
+woa_tlbo_fitness is :1288.22
+Iteration is :150
+woa_tlbo_fitness is :1134.75
+Iteration is :180
+woa_tlbo_fitness is :881.788
+Iteration is :210
+woa_tlbo_fitness is :881.788
+Iteration is :240
+woa_tlbo_fitness is :881.788
+Iteration is :270
+woa_tlbo_fitness is :881.788
+Iteration is :450
+woa_tlbo_fitness is :529.218
+Iteration is :660
+woa_tlbo_fitness is :451.029
+Iteration is :1050
+woa_tlbo_fitness is :413.887
+Iteration is :1500
+woa_tlbo_fitness is :392.827
+Iteration is :2400
+woa_tlbo_fitness is :388.038
+best fitness found is:   379.933
+3.67275  1.93191  0.14925  4.31893  1.01819  1.92041  1.6688  
+time = 3043.87s
+第15次搜索......
+WOA 初始化完成......
+TLBO 初始化完成......
+Iteration is :30
+woa_tlbo_fitness is :1585.13
+Iteration is :60
+woa_tlbo_fitness is :1302.08
+Iteration is :90
+woa_tlbo_fitness is :1302.08
+Iteration is :120
+woa_tlbo_fitness is :1302.08
+Iteration is :150
+woa_tlbo_fitness is :1038.5
+Iteration is :180
+woa_tlbo_fitness is :555.77
+Iteration is :210
+woa_tlbo_fitness is :555.77
+Iteration is :240
+woa_tlbo_fitness is :491.193
+Iteration is :270
+woa_tlbo_fitness is :491.193
+Iteration is :450
+woa_tlbo_fitness is :240.4
+Iteration is :660
+woa_tlbo_fitness is :148.585
+Iteration is :1050
+woa_tlbo_fitness is :88.8316
+Iteration is :1500
+woa_tlbo_fitness is :88.653
+Iteration is :2400
+woa_tlbo_fitness is :86.1525
+best fitness found is:   70.5254
+0.831033  0.271154  2.54445  2.77296  -1.84394  -1.92043  4.13208  
+time = 3044.35s
+第16次搜索......
+WOA 初始化完成......
+TLBO 初始化完成......
+Iteration is :30
+woa_tlbo_fitness is :1433.34
+Iteration is :60
+woa_tlbo_fitness is :1433.34
+Iteration is :90
+woa_tlbo_fitness is :933.549
+Iteration is :120
+woa_tlbo_fitness is :933.549
+Iteration is :150
+woa_tlbo_fitness is :653.021
+Iteration is :180
+woa_tlbo_fitness is :601.24
+Iteration is :210
+woa_tlbo_fitness is :601.24
+Iteration is :240
+woa_tlbo_fitness is :601.24
+Iteration is :270
+woa_tlbo_fitness is :501.662
+Iteration is :450
+woa_tlbo_fitness is :230.504
+Iteration is :660
+woa_tlbo_fitness is :158.793
+Iteration is :1050
+woa_tlbo_fitness is :137.221
+Iteration is :1500
+woa_tlbo_fitness is :90.8372
+Iteration is :2400
+woa_tlbo_fitness is :68.8645
+best fitness found is:   68.4446
+0.964577  0.35639  3.2309  3.10117  3.81491  -1.9252  -2.02777  
+time = 3040.48s
+第17次搜索......
+WOA 初始化完成......
+TLBO 初始化完成......
+Iteration is :30
+woa_tlbo_fitness is :1496.08
+Iteration is :60
+woa_tlbo_fitness is :935.738
+Iteration is :90
+woa_tlbo_fitness is :935.738
+Iteration is :120
+woa_tlbo_fitness is :935.738
+Iteration is :150
+woa_tlbo_fitness is :935.738
+Iteration is :180
+woa_tlbo_fitness is :908.641
+Iteration is :210
+woa_tlbo_fitness is :908.641
+Iteration is :240
+woa_tlbo_fitness is :908.641
+Iteration is :270
+woa_tlbo_fitness is :908.641
+Iteration is :450
+woa_tlbo_fitness is :591.749
+Iteration is :660
+woa_tlbo_fitness is :566.593
+Iteration is :1050
+woa_tlbo_fitness is :310.332
+Iteration is :1500
+woa_tlbo_fitness is :296.423
+Iteration is :2400
+woa_tlbo_fitness is :281.769
+best fitness found is:   281.742
+-5.39873  0.252978  -3.18242  2.94562  -2.55883  -1.82576  -2.13813  
+time = 3040.09s
+第18次搜索......
+WOA 初始化完成......
+TLBO 初始化完成......
+Iteration is :30
+woa_tlbo_fitness is :1443.01
+Iteration is :60
+woa_tlbo_fitness is :1046.88
+Iteration is :90
+woa_tlbo_fitness is :861.484
+Iteration is :120
+woa_tlbo_fitness is :840.532
+Iteration is :150
+woa_tlbo_fitness is :813.353
+Iteration is :180
+woa_tlbo_fitness is :629.55
+Iteration is :210
+woa_tlbo_fitness is :629.55
+Iteration is :240
+woa_tlbo_fitness is :611.477
+Iteration is :270
+woa_tlbo_fitness is :596.049
+Iteration is :450
+woa_tlbo_fitness is :509.883
+Iteration is :660
+woa_tlbo_fitness is :444.534
+Iteration is :1050
+woa_tlbo_fitness is :290.264
+Iteration is :1500
+woa_tlbo_fitness is :180.613
+Iteration is :2400
+woa_tlbo_fitness is :177.443
+best fitness found is:   177.438
+1.36786  0.205443  0.505509  3.90437  3.16793  1.67488  0.942275  
+time = 3044.59s
+第19次搜索......
+WOA 初始化完成......
+TLBO 初始化完成......
+Iteration is :30
+woa_tlbo_fitness is :1552.76
+Iteration is :60
+woa_tlbo_fitness is :1447.84
+Iteration is :90
+woa_tlbo_fitness is :1447.84
+Iteration is :120
+woa_tlbo_fitness is :1323.83
+Iteration is :150
+woa_tlbo_fitness is :883.548
+Iteration is :180
+woa_tlbo_fitness is :499.982
+Iteration is :210
+woa_tlbo_fitness is :499.982
+Iteration is :240
+woa_tlbo_fitness is :429.478
+Iteration is :270
+woa_tlbo_fitness is :422.522
+Iteration is :450
+woa_tlbo_fitness is :348.997
+Iteration is :660
+woa_tlbo_fitness is :292.819
+Iteration is :1050
+woa_tlbo_fitness is :292.819
+Iteration is :1500
+woa_tlbo_fitness is :292.819
+Iteration is :2400
+woa_tlbo_fitness is :291.734
+best fitness found is:   291.734
+0.978339  0.259173  -4.46626  -3.41804  -1.42994  -1.95575  -2.30472  
+time = 3045.61s
+第20次搜索......
+WOA 初始化完成......
+TLBO 初始化完成......
+Iteration is :30
+woa_tlbo_fitness is :1423.31
+Iteration is :60
+woa_tlbo_fitness is :987.092
+Iteration is :90
+woa_tlbo_fitness is :987.092
+Iteration is :120
+woa_tlbo_fitness is :987.092
+Iteration is :150
+woa_tlbo_fitness is :987.092
+Iteration is :180
+woa_tlbo_fitness is :987.092
+Iteration is :210
+woa_tlbo_fitness is :909.502
+Iteration is :240
+woa_tlbo_fitness is :862.441
+Iteration is :270
+woa_tlbo_fitness is :719.225
+Iteration is :450
+woa_tlbo_fitness is :437.203
+Iteration is :660
+woa_tlbo_fitness is :422.601
+Iteration is :1050
+woa_tlbo_fitness is :415.297
+Iteration is :1500
+woa_tlbo_fitness is :325.198
+Iteration is :2400
+woa_tlbo_fitness is :204.054
+best fitness found is:   198.675
+-5.51668  0.268797  -3.5223  -3.40847  -2.15769  -1.97135  -2.07071  
+time = 3046.18s
+第21次搜索......
+WOA 初始化完成......
+TLBO 初始化完成......
+Iteration is :30
+woa_tlbo_fitness is :1124.46
+Iteration is :60
+woa_tlbo_fitness is :1124.46
+Iteration is :90
+woa_tlbo_fitness is :1124.46
+Iteration is :120
+woa_tlbo_fitness is :1124.46
+Iteration is :150
+woa_tlbo_fitness is :1124.46
+Iteration is :180
+woa_tlbo_fitness is :1124.46
+Iteration is :210
+woa_tlbo_fitness is :1124.46
+Iteration is :240
+woa_tlbo_fitness is :1124.46
+Iteration is :270
+woa_tlbo_fitness is :1124.46
+Iteration is :450
+woa_tlbo_fitness is :589.209
+Iteration is :660
+woa_tlbo_fitness is :492.622
+Iteration is :1050
+woa_tlbo_fitness is :407.938
+Iteration is :1500
+woa_tlbo_fitness is :313.027
+Iteration is :2400
+woa_tlbo_fitness is :300.277
+best fitness found is:   144.456
+1.41212  0.577265  1.47745  3.8977  2.22624  1.68221  1.35942  
+time = 3045.12s
+第22次搜索......
+WOA 初始化完成......
+TLBO 初始化完成......
+Iteration is :30
+woa_tlbo_fitness is :1603.89
+Iteration is :60
+woa_tlbo_fitness is :1325.76
+Iteration is :90
+woa_tlbo_fitness is :1092.26
+Iteration is :120
+woa_tlbo_fitness is :1092.26
+Iteration is :150
+woa_tlbo_fitness is :818.724
+Iteration is :180
+woa_tlbo_fitness is :818.724
+Iteration is :210
+woa_tlbo_fitness is :782.791
+Iteration is :240
+woa_tlbo_fitness is :782.791
+Iteration is :270
+woa_tlbo_fitness is :680.415
+Iteration is :450
+woa_tlbo_fitness is :535.341
+Iteration is :660
+woa_tlbo_fitness is :434.489
+Iteration is :1050
+woa_tlbo_fitness is :383.8
+Iteration is :1500
+woa_tlbo_fitness is :286.791
+Iteration is :2400
+woa_tlbo_fitness is :274.246
