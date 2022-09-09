@@ -1,4 +1,25 @@
-# trajectory_planning
-在 WOA 函数中加入了levy flight，代价函数同时考虑末端位姿，基座姿态和末端轨迹路程；
-在WOA 和 TLBO函数的迭代中，如果新产生的值超过上下限的范围，则采用如下方法进行限制：
-新产生的值小于下限，将当前值与下限值相加除以2；新产生的值大于上限，将当前值与上限值相加除以2；
+void randomlyInitial(void){
+		for (int i = 0; i < _whaleCount; ++i){
+			_whaleSet[i]._position[0] = 0.852354;
+			_whaleSet[i]._position[1] = 0.433124;
+			_whaleSet[i]._position[2] = 2.03323;
+			_whaleSet[i]._position[3] = 2.9251;
+			_whaleSet[i]._position[4] = 1.82466;
+			_whaleSet[i]._position[5] = 1.94137;
+			_whaleSet[i]._position[6] = 0.966595;
+			_whaleSet[i]._fitness = _fitnessFunction(_whaleSet[i]);
+		}
+	}
+	
+	void randomlyInitial(void){
+		for (int i = 0; i < _studentCount; ++i){
+			_studentSet[i]._position[0] = 0.852354;
+			_studentSet[i]._position[1] = 0.433124;
+			_studentSet[i]._position[2] = 2.03323;
+			_studentSet[i]._position[3] = 2.9251;
+			_studentSet[i]._position[4] = 1.82466;
+			_studentSet[i]._position[5] = 1.94137;
+			_studentSet[i]._position[6] = 0.966595;
+			_studentSet[i]._fitness = _fitnessFunction(_studentSet[i]);
+		}
+	}
