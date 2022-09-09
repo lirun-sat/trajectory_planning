@@ -160,13 +160,22 @@ public:
 		// gen_good_point_set(_whaleCount, _dimension, _positionMinValue, _positionMaxValue, good_point_set_temp);
 
 		for (int i = 0; i < _whaleCount; ++i){
-			_whaleSet[i]._position[0] = 0.852354 + 0.1 * rand0_1();
-			_whaleSet[i]._position[1] = 0.433124 + 0.1 * rand0_1();
-			_whaleSet[i]._position[2] = 2.03323  + 0.5 * rand0_1();
-			_whaleSet[i]._position[3] = 2.9251   + 0.5 * rand0_1();
-			_whaleSet[i]._position[4] = 1.82466  + 0.5 * rand0_1();
-			_whaleSet[i]._position[5] = 1.94137  + 0.5 * rand0_1();
-			_whaleSet[i]._position[6] = 0.966595 + 0.5 * rand0_1();
+			// 1.10812  0.708544  2.5962  3.6871  1.27874  1.98507  1.37941
+			
+			// 0.934828  0.402759  2.85515  3.1233  1.0076  1.9028  1.13758    // woa_tlbo_fitness:  15.1031
+			// -5.59249  0.528139  -4.98639  -3.44058  -0.637893  -2.09406  -2.18027    // woa_tlbo_fitness:  11.873
+			// 1.50994  0.553687  5.11042  -3.9303  4.99181  1.91847  1.42916    // woa_tlbo_fitness:  5.6337
+            // 1.01095  0.330951  3.42279  -3.15999  0.389075  1.98681  1.2056    // woa_tlbo_fitness:  3.07665
+			// -5.41005  0.369534  -3.36115  -3.11444  4.028  -1.93586  -1.97808    // # woa_tlbo_fitness:  0.995754
+			// -5.55094  0.294247  -3.75749  -3.46536  -4.96809  1.86399  -5.29003    // # woa_tlbo_fitness:  0.974588
+			// -5.44003  0.269695  -3.29864  -3.3228  -2.32085  -1.87287  -2.03534    // # woa_tlbo_fitness:  1.02601
+			_whaleSet[i]._position[0] = -5.55094   + 0.1 * rand0_1();
+			_whaleSet[i]._position[1] = 0.294247   + 0.1 * rand0_1();
+			_whaleSet[i]._position[2] = -3.75749   + 0.5 * rand0_1();
+			_whaleSet[i]._position[3] = -3.46536   + 0.5 * rand0_1();
+			_whaleSet[i]._position[4] = -4.96809   + 0.5 * rand0_1();
+			_whaleSet[i]._position[5] = 1.86399    + 0.5 * rand0_1();
+			_whaleSet[i]._position[6] = -5.29003   + 0.5 * rand0_1();
 
 			_whaleSet[i]._fitness = _fitnessFunction(_whaleSet[i]);
 		
