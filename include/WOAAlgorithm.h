@@ -169,13 +169,13 @@ public:
 			// -5.41005  0.369534  -3.36115  -3.11444  4.028  -1.93586  -1.97808    // # woa_tlbo_fitness:  0.995754
 			// -5.55094  0.294247  -3.75749  -3.46536  -4.96809  1.86399  -5.29003    // # woa_tlbo_fitness:  0.974588
 			// -5.44003  0.269695  -3.29864  -3.3228  -2.32085  -1.87287  -2.03534    // # woa_tlbo_fitness:  1.02601
-			_whaleSet[i]._position[0] = -5.55094   + 0.1 * rand0_1();
-			_whaleSet[i]._position[1] = 0.294247   + 0.1 * rand0_1();
-			_whaleSet[i]._position[2] = -3.75749   + 0.5 * rand0_1();
-			_whaleSet[i]._position[3] = -3.46536   + 0.5 * rand0_1();
-			_whaleSet[i]._position[4] = -4.96809   + 0.5 * rand0_1();
-			_whaleSet[i]._position[5] = 1.86399    + 0.5 * rand0_1();
-			_whaleSet[i]._position[6] = -5.29003   + 0.5 * rand0_1();
+			_whaleSet[i]._position[0] = 1.11508   + 0.1 * rand0_1();
+			_whaleSet[i]._position[1] = 0.304819   + 0.1 * rand0_1();
+			_whaleSet[i]._position[2] = -0.678856   + 0.5 * rand0_1();
+			_whaleSet[i]._position[3] = 3.23913   + 0.5 * rand0_1();
+			_whaleSet[i]._position[4] = 1.23781   + 0.5 * rand0_1();
+			_whaleSet[i]._position[5] = -2.07818    + 0.5 * rand0_1();
+			_whaleSet[i]._position[6] = -2.15025   + 0.5 * rand0_1();
 
 			_whaleSet[i]._fitness = _fitnessFunction(_whaleSet[i]);
 		

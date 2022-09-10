@@ -26,9 +26,9 @@ int main()
 
 
 	int dimension = N;
-	int student_whale_count = 100;
+	int student_whale_count = 50;
 	// int Iter_Max = 40000;
-	int Iter_Max = 5000;
+	int Iter_Max = 3000;
 	int num_calc = 100;
 	
 	cout << "Iter_Max = " << "  " << Iter_Max << endl;
