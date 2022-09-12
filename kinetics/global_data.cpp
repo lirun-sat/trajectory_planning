@@ -2,7 +2,7 @@
 #include<cmath>
 
 
-double delta_tau = 0.001;
+double delta_tau = 0.01;
 // double delta_tau = 0.001;
 
 
