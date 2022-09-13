@@ -154,38 +154,20 @@ public:
 	}
 
 	void randomlyInitial(void){
-		// double* good_point_set_temp;
-		// good_point_set_temp = new double[_whaleCount* _dimension];
+		double* good_point_set_temp;
+		good_point_set_temp = new double[_whaleCount* _dimension];
+
 		//  产生佳点集
-		// gen_good_point_set(_whaleCount, _dimension, _positionMinValue, _positionMaxValue, good_point_set_temp);
+		gen_good_point_set(_whaleCount, _dimension, _positionMinValue, _positionMaxValue, good_point_set_temp);
 
 		for (int i = 0; i < _whaleCount; ++i){
-			// 1.10812  0.708544  2.5962  3.6871  1.27874  1.98507  1.37941
-			
-			// 0.934828  0.402759  2.85515  3.1233  1.0076  1.9028  1.13758             // woa_tlbo_fitness:  15.1031
-			// -5.59249  0.528139  -4.98639  -3.44058  -0.637893  -2.09406  -2.18027    // woa_tlbo_fitness:  11.873
-			// 1.50994  0.553687  5.11042  -3.9303  4.99181  1.91847  1.42916           // woa_tlbo_fitness:  5.6337
-            // 1.01095  0.330951  3.42279  -3.15999  0.389075  1.98681  1.2056          // woa_tlbo_fitness:  3.07665
-			// -5.41005  0.369534  -3.36115  -3.11444  4.028  -1.93586  -1.97808        // woa_tlbo_fitness:  0.995754
-			// -5.55094  0.294247  -3.75749  -3.46536  -4.96809  1.86399  -5.29003      // woa_tlbo_fitness:  0.974588
-			// -5.44003  0.269695  -3.29864  -3.3228  -2.32085  -1.87287  -2.03534      // woa_tlbo_fitness:  1.02601
-
-			// 0.890033  0.28735  2.78844  2.90451  1.05669  1.85941  1.0428            // best fitness found is:   41.3772
-			// 1.12455  0.188161  3.80347  -3.53113  -3.19964  -1.82293  -1.91245       // best fitness found is:   88.2415
- 
-			_whaleSet[i]._position[0] = 1.12455   + 0.2 * rand0_1();
-			_whaleSet[i]._position[1] = 0.18816   + 0.1 * rand0_1();
-			_whaleSet[i]._position[2] = 3.80347   + 1.0 * rand0_1();
-			_whaleSet[i]._position[3] = -3.53113   + 1.0 * rand0_1();
-			_whaleSet[i]._position[4] = -3.19964   + 0.5 * rand0_1();
-			_whaleSet[i]._position[5] = -1.82293   + 0.5 * rand0_1();
-			_whaleSet[i]._position[6] = -1.91245  + 0.5 * rand0_1();
-
+			for (int j = 0; j < _dimension; ++j){
+				_whaleSet[i]._position[j] = good_point_set_temp[i * _dimension + j];
+			}
 			_whaleSet[i]._fitness = _fitnessFunction(_whaleSet[i]);
-		
 		}
 
-		// delete[] good_point_set_temp;
+		delete[] good_point_set_temp;
 
 	}
 
@@ -299,7 +281,7 @@ public:
 				for (int j = 0; j < _dimension; ++j){
 					X_D_prime[j] = fabs(_best_Whale._position[j] - _whaleSet[i]._position[j]);
 					Xnew[j] = X_D_prime[j] * exp(b * l) * cos(2 * M_PI * l) + _best_Whale._position[j];
-					Xnew[j] = Xnew[j] + rand0_1() * sign_fun(rand0_1() - 0.5) * levy_flight_step();  // **************************************************
+					// Xnew[j] = Xnew[j] + rand0_1() * sign_fun(rand0_1() - 0.5) * levy_flight_step();     // **************************************************
 				}
 			}
 			for (int j = 0; j < _dimension; ++j){
