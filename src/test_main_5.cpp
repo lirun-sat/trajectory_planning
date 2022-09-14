@@ -3,17 +3,59 @@
 #include "data.h"
 #include "utils.h"
 #include "WOAAlgorithm.h"
+#include "PSOAlgorithm.h"
 
 
 double calc_fitness_woa(WOA_Whale& whale);
+double calc_fitness_pso(PSO_Particle& particle);
 void sort_max2min_main(double*, int, int*);
 
 
-// 仅仅考虑 末端 最终位置 和 基座姿态变化， 没有考虑 执行时间 和 路径是否是直线
 int main()
 {
 	clock_t start;
 	clock_t end;
+
+	
+	int dimension = N;
+	int pso_woa_count = 100;
+	int Iter_Max = 3000;
+	int num_calc = 100;
+	double inertGuideCoe = 0.9;
+	double globalGuideCoe = 1.5;
+	double localGuideCoe = 1.5;
+	double disturbanceRate = 0;  // 0.2;
+	double disturbanceVelocityCoe = 0;  // 0.05;
+
+	double* result_min = new double[N];
+	double* result_max = new double[N];
+	double* para_low_bound = new double[N];
+	double* para_up_bound = new double[N];
+	double* pso_woa_fitness = new double[pso_woa_count];
+	int* pso_woa_index = new int[pso_woa_count];
+	
+	double** pso_woa_position = new double*[pso_woa_count];
+	for (int i = 0; i < pso_woa_count; i++){
+		pso_woa_position[i] = new double[dimension];
+	}
+
+	double* maxSpeed = new double[N];
+	double* minSpeed = new double[N];
+	maxSpeed[0] = 1.95;
+	maxSpeed[1] = 0.628;
+	maxSpeed[2] = 1.95;
+	maxSpeed[3] = 1.95;
+	maxSpeed[4] = 1.95;
+	maxSpeed[5] = 0.8;
+	maxSpeed[6] = 1.95;
+
+	minSpeed[0] = -1.95;
+	minSpeed[1] = -0.628;
+	minSpeed[2] = -1.95;
+	minSpeed[3] = -1.95;
+	minSpeed[4] = -1.95;
+	minSpeed[5] = -0.8;
+	minSpeed[6] = -1.95;
 
 	cout << "Initial processing..." << endl;
 	cout << "delta_tau = " << "  " << delta_tau << endl;
@@ -22,66 +64,43 @@ int main()
 	cout << "Pe_DESIRED:" << endl;
 	cout << Pe_DESIRED[0] << "  " << Pe_DESIRED[1] << "  " << Pe_DESIRED[2] << endl;
 
-
-	int dimension = N;
-	int student_whale_count = 50;
-	int Iter_Max = 3000;
-	int num_calc = 100;
-	
 	cout << "Iter_Max = " << "  " << Iter_Max << endl;
 	cout << "num_calc = " << "  " << num_calc << endl;
-	cout << "student_whale_count = " << "  " << student_whale_count << endl;
+	cout << "pso_woa_count = " << "  " << pso_woa_count << endl;
 
-	double* result_min = new double[N];
-	double* result_max = new double[N];
-	double* para_low_bound = new double[N];
-	double* para_up_bound = new double[N];
-	double* woa_tlbo_fitness = new double[student_whale_count];
-	int* woa_tlbo_index = new int[student_whale_count];
-	
-	double** woa_tlbo_position = new double*[student_whale_count];
-	for (int i = 0; i < student_whale_count; i++){
-		woa_tlbo_position[i] = new double[dimension];
-	}
-	
-	double woa_tlbo_fitness_temp_1 = 0;
-	double woa_tlbo_fitness_temp_2 = 0;
-	double woa_tlbo_fitness_temp_3 = 0;
-	double woa_tlbo_fitness_temp_4 = 0;
-	double woa_tlbo_fitness_temp_5 = 0;
-	double woa_tlbo_fitness_temp_6 = 0;
-	double woa_tlbo_fitness_temp_7 = 0;
-	double woa_tlbo_fitness_temp_8 = 0;
-	double woa_tlbo_fitness_temp_9 = 0;
-	double woa_tlbo_fitness_temp_15 = 0;
-	double woa_tlbo_fitness_temp_22 = 0;
-	double woa_tlbo_fitness_temp_35 = 0;
-	double woa_tlbo_fitness_temp_50 = 0;
-	double woa_tlbo_fitness_temp_80 = 0;
+	cout << "inertGuideCoe = " << "  " << inertGuideCoe << endl;
+	cout << "globalGuideCoe = " << "  " << globalGuideCoe << endl;
+	cout << "localGuideCoe = " << "  " << localGuideCoe << endl;
+	cout << "disturbanceRate = " << "  " << disturbanceRate << endl;
+	cout << "disturbanceVelocityCoe = " << "  " << disturbanceVelocityCoe << endl;
 
-// *******************************************************************************************************************************************************************
+
+// ***************************************************************************************************************************************
 	calc_para_range(result_min, result_max);
 
-	for (int i = 0; i<N; i++){
+	for (int i = 0; i < N; i++){
 		para_low_bound[i] = result_min[i];
 		para_up_bound[i] = result_max[i];
 	}
 	cout << "result_min:" << endl;
-	for(int i=0;i<N;i++){
+	for(int i = 0; i < N; i++){
 		cout << result_min[i] << "  ";
 	}
 	cout << endl;
 	cout << "result_max:" << endl;
-	for(int i=0;i<N;i++){
+	for(int i = 0; i < N; i++){
 		cout << result_max[i] << "  ";
 	}
 	cout << endl;
-// *******************************************************************************************************************************************************************
+// ***************************************************************************************************************************************
 
 	//构建算法
-	WOA_Algorithm woa(calc_fitness_woa, para_low_bound, para_up_bound, dimension, student_whale_count);
+	WOA_Algorithm woa(calc_fitness_woa, para_low_bound, para_up_bound, dimension, pso_woa_count / 2);
 
-// *****************************************************************************************************************************************************************
+	PSO_Algorithm pso(calc_fitness_pso, para_low_bound, para_up_bound, dimension, pso_woa_count / 2, 
+					    maxSpeed, minSpeed, inertGuideCoe, globalGuideCoe, localGuideCoe);
+
+// **************************************************************************************************************************************
 	cout << "算法构建完成，进入迭代搜索过程......" << endl;
 
 	for (int kk = 0; kk < num_calc; kk++){	
@@ -89,209 +108,86 @@ int main()
 		start = clock();
 
 		woa.randomlyInitial();
-		cout << "WOA 初始化完成......" << endl;
+		pso.randomlyInitial();
+		cout << "WOA PSO 初始化完成......" << endl;
 
-		for (int Iter = 0; Iter < Iter_Max; Iter++){
-			for (int i = 0; i < student_whale_count; i++){
-				woa_tlbo_fitness[i] = woa._whaleSet[i]._fitness;
+		for (int iter = 0; iter < Iter_Max; iter++){
+			for (int i = 0; i < pso_woa_count; i++){
+				if (i < pso_woa_count / 2){
+					pso_woa_fitness[i] = woa._whaleSet[i]._fitness;
+					for (int j = 0; j < dimension; j++){
+						pso_woa_position[i][j] = woa._whaleSet[i]._position[j];
+					}
+				}
+				else{
+					pso_woa_fitness[i] = pso._particleSet[i - pso_woa_count / 2]._fitness;
+					for (int j = 0; j < dimension; j++){
+						pso_woa_position[i][j] = pso._particleSet[i - pso_woa_count / 2]._position[j];
+					}
+				}
+				pso_woa_index[i] = i;
+			}
+
+// ***********************************************  Termination condition  *************************************************************    
+			sort_max2min_main(pso_woa_fitness, pso_woa_count, pso_woa_index);
+
+			if(iter % 100 == 0){
+				cout << "iteration is :" << iter << endl;
+				cout << "pso_woa_fitness is :" << pso_woa_fitness[pso_woa_count - 1] << endl;
 				for (int j = 0; j < dimension; j++){
-					woa_tlbo_position[i][j] = woa._whaleSet[i]._position[j];
+					cout << pso_woa_position[pso_woa_index[pso_woa_count - 1]][j] << "  ";
 				}
-				woa_tlbo_index[i] = i;
 			}
 
-// ***********************************************  Termination condition  *************************************************************************    
-			sort_max2min_main(woa_tlbo_fitness, student_whale_count, woa_tlbo_index);
-			
-			if (Iter == Iter_Max / 100){
-				cout << "Iteration is :" << Iter << endl;	
-				woa_tlbo_fitness_temp_1 = woa_tlbo_fitness[student_whale_count - 1];
-				cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_1 << endl;
-				// if(fabs(woa_tlbo_fitness_temp_1 - woa_tlbo_fitness_temp_2) < 0.01)
-				// {
-				// 	cout << "Convergence reached" << endl;
-				// 	break;
-				// }
-			}
-			else if (Iter == 2*Iter_Max / 100){
-				cout << "Iteration is :" << Iter << endl;	
-				woa_tlbo_fitness_temp_2 = woa_tlbo_fitness[student_whale_count - 1];
-				cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_2 << endl;
-				// if(fabs(woa_tlbo_fitness_temp_2 - woa_tlbo_fitness_temp_1) < 0.01)
-				// {
-				// 	cout << "Convergence reached" << endl;
-				// 	break;
-				// }
-			}
-			else if (Iter == 3*Iter_Max / 100){
-				cout << "Iteration is :" << Iter << endl;	
-				woa_tlbo_fitness_temp_3 = woa_tlbo_fitness[student_whale_count - 1];
-				cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_3 << endl;
-				// if(woa_tlbo_fitness_temp_3 > 300)
-				// {
-				// 	cout << "Too large woa_tlbo_fitness after 3000 steps " << endl;
-				// 	break;
-				// }
-				/*
-				if(fabs(woa_tlbo_fitness_temp_3 - woa_tlbo_fitness_temp_2) < 0.01)
-				{
-					cout << "Convergence reached" << endl;
-					break;
-				}
-				*/
-			}
-			
-			else if (Iter == 4*Iter_Max / 100){
-				cout << "Iteration is :" << Iter << endl;	
-				woa_tlbo_fitness_temp_4 = woa_tlbo_fitness[student_whale_count - 1];
-				cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_4 << endl;
-				// if(fabs(woa_tlbo_fitness_temp_4 - woa_tlbo_fitness_temp_3) < 0.01)
-				// {
-				// 	cout << "Convergence reached" << endl;
-				// 	break;
-				// }
-				
-			}
-			else if (Iter == 5*Iter_Max / 100){
-				cout << "Iteration is :" << Iter << endl;	
-				woa_tlbo_fitness_temp_5 = woa_tlbo_fitness[student_whale_count - 1];
-				cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_5 << endl;
-				
-				// if(fabs(woa_tlbo_fitness_temp_5 - woa_tlbo_fitness_temp_4) < 0.01)
-				// {
-				// 	cout << "Convergence reached" << endl;
-				// 	break;
-				// }
-				
-			}
-			
-			else if (Iter == 6*Iter_Max / 100){
-				cout << "Iteration is :" << Iter << endl;	
-				woa_tlbo_fitness_temp_6 = woa_tlbo_fitness[student_whale_count - 1];
-				cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_6 << endl;
-				
-				// if(fabs(woa_tlbo_fitness_temp_6 - woa_tlbo_fitness_temp_5) < 0.01)
-				// if(fabs(woa_tlbo_fitness_temp_6 - woa_tlbo_fitness_temp_3) < 0.01)
-				// {
-				// 	cout << "Convergence reached" << endl;
-				// 	break;
-				// }
-			}
-			
-			else if (Iter == 7*Iter_Max / 100){
-				cout << "Iteration is :" << Iter << endl;	
-				woa_tlbo_fitness_temp_7 = woa_tlbo_fitness[student_whale_count - 1];
-				cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_7 << endl;
-				
-				// if(fabs(woa_tlbo_fitness_temp_7 - woa_tlbo_fitness_temp_6) < 0.01)
-				// {
-				// 	cout << "Convergence reached" << endl;
-				// 	break;
-				// }
-				
-			}
-			else if (Iter == 8*Iter_Max / 100){
-				cout << "Iteration is :" << Iter << endl;	
-				woa_tlbo_fitness_temp_8 = woa_tlbo_fitness[student_whale_count - 1];
-				cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_8 << endl;
-				
-				// if(fabs(woa_tlbo_fitness_temp_8 - woa_tlbo_fitness_temp_7) < 0.01)
-				// {
-				// 	cout << "Convergence reached" << endl;
-				// 	break;
-				// }
-				
-			}
-			else if (Iter == 9*Iter_Max / 100){
-				cout << "Iteration is :" << Iter << endl;
-				woa_tlbo_fitness_temp_9 = woa_tlbo_fitness[student_whale_count - 1];	
-				cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_9 << endl;
-				
-				// if(fabs(woa_tlbo_fitness_temp_9 - woa_tlbo_fitness_temp_6) < 0.01)
-				// {
-				// 	cout << "Convergence reached" << endl;
-				// 	break;
-				// }
-			}
-			else if (Iter == 15*Iter_Max / 100){
-				cout << "Iteration is :" << Iter << endl;
-				woa_tlbo_fitness_temp_15 = woa_tlbo_fitness[student_whale_count - 1];	
-				cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_15 << endl;
-				// if(fabs(woa_tlbo_fitness_temp_15 - woa_tlbo_fitness_temp_9) < 0.01)
-				// {
-				// 	cout << "Convergence reached" << endl;
-				// 	break;
-				// }
-			}
-			else if (Iter == 22*Iter_Max / 100){
-				cout << "Iteration is :" << Iter << endl;
-				woa_tlbo_fitness_temp_22 = woa_tlbo_fitness[student_whale_count - 1];	
-				cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_22 << endl;
-				
-				// if(fabs(woa_tlbo_fitness_temp_22 - woa_tlbo_fitness_temp_15) < 0.01)
-				// {
-				// 	cout << "Convergence reached" << endl;
-				// 	break;
-				// }
-			}
-			else if (Iter == 35*Iter_Max / 100){
-				cout << "Iteration is :" << Iter << endl;
-				woa_tlbo_fitness_temp_35 = woa_tlbo_fitness[student_whale_count - 1];	
-				cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_35 << endl;
-				
-				// if(fabs(woa_tlbo_fitness_temp_35 - woa_tlbo_fitness_temp_22) < 0.01)
-				// {
-				// 	cout << "Convergence reached" << endl;
-				// 	break;
-				// }
-			}
-			else if (Iter == 50*Iter_Max / 100){
-				cout << "Iteration is :" << Iter << endl;
-				woa_tlbo_fitness_temp_50 = woa_tlbo_fitness[student_whale_count - 1];	
-				cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_50 << endl;
-				
-				// if(fabs(woa_tlbo_fitness_temp_50 - woa_tlbo_fitness_temp_35) < 0.01)
-				// {
-				// 	cout << "Convergence reached" << endl;
-				// 	break;
-				// }
-			}
-			else if (Iter == 80*Iter_Max / 100){
-				cout << "Iteration is :" << Iter << endl;
-				woa_tlbo_fitness_temp_80 = woa_tlbo_fitness[student_whale_count - 1];	
-				cout << "woa_tlbo_fitness is :" << woa_tlbo_fitness_temp_80 << endl;
-				
-				// if(fabs(woa_tlbo_fitness_temp_80 - woa_tlbo_fitness_temp_50) < 0.01)
-				// {
-				// 	cout << "Convergence reached" << endl;
-				// 	break;
-				// }
-			}
-
-			if (woa_tlbo_fitness[student_whale_count - 1] < 1){
-				cout << "Find solution, Iter:" << Iter << endl;
+			if (pso_woa_fitness[pso_woa_count - 1] < 1){
+				cout << "Find solution, iteration is:" << iter << endl;
 				break;
 			}
 
-//***************************************************************************************************************************************************
-			woa.refresh();
-			woa.update(Iter, Iter_Max);
-
-		}
-
-		for (int i = 0; i < student_whale_count; i++){
-			woa_tlbo_fitness[i] = woa._whaleSet[i]._fitness;
-			for (int j = 0; j < dimension; j++){
-				woa_tlbo_position[i][j] = woa._whaleSet[i]._position[j];
+			for (int i = 0; i < pso_woa_count; i++){
+				if (i < pso_woa_count / 2){
+					woa._whaleSet[i]._fitness = pso_woa_fitness[i];
+					for (int j = 0; j < dimension; j++){
+						woa._whaleSet[i]._position[j] = pso_woa_position[pso_woa_index[i]][j];
+					}
+				}
+				else{
+					pso._particleSet[i - pso_woa_count / 2]._fitness = pso_woa_fitness[i];
+					for (int j = 0; j < dimension; j++){
+						pso._particleSet[i - pso_woa_count / 2]._position[j] = pso_woa_position[pso_woa_index[i]][j];
+					}
+				}
 			}
-			woa_tlbo_index[i] = i;
+
+//*******************************************************************************************************************************
+			woa.refresh();
+			pso.refresh();
+			woa.update(iter, Iter_Max);
+			pso.update(iter, Iter_Max, disturbanceRate, disturbanceVelocityCoe);
+
 		}
 
-		sort_max2min_main(woa_tlbo_fitness, student_whale_count, woa_tlbo_index);
+		for (int i = 0; i < pso_woa_count; i++){
+			if (i < pso_woa_count / 2){
+				pso_woa_fitness[i] = woa._whaleSet[i]._fitness;
+				for (int j = 0; j < dimension; j++){
+					pso_woa_position[i][j] = woa._whaleSet[i]._position[j];
+				}
+			}
+			else{
+				pso_woa_fitness[i] = pso._particleSet[i - pso_woa_count / 2]._fitness;
+				for (int j = 0; j < dimension; j++){
+					pso_woa_position[i][j] = pso._particleSet[i - pso_woa_count / 2]._position[j];
+				}
+			}
+			pso_woa_index[i] = i;
+		}
 
-		cout << "best fitness found is: " << "  " << woa_tlbo_fitness[student_whale_count - 1] << endl;
+		sort_max2min_main(pso_woa_fitness, pso_woa_count, pso_woa_index);
+
+		cout << "best fitness found is: " << "  " << pso_woa_fitness[pso_woa_count - 1] << endl;
 		for (int j = 0; j < dimension; j++){
-			cout << woa_tlbo_position[woa_tlbo_index[student_whale_count - 1]][j] << "  ";
+			cout << pso_woa_position[pso_woa_index[pso_woa_count - 1]][j] << "  ";
 		}
 		cout << endl;
 
@@ -300,17 +196,20 @@ int main()
 
 	}
 
-	delete[] woa_tlbo_fitness;
-	delete[] woa_tlbo_index;
-	for (int i = 0; i<student_whale_count; i++){
-		delete[] woa_tlbo_position[i];
+	delete[] pso_woa_fitness;
+	delete[] pso_woa_index;
+
+	for (int i = 0; i < pso_woa_count; i++){
+		delete[] pso_woa_position[i];
 	}
-	delete[] woa_tlbo_position;
+	delete[] pso_woa_position;
+
 	delete[] para_low_bound;
 	delete[] para_up_bound;
 	delete[] result_min;
 	delete[] result_max;
-
+	delete[] maxSpeed;
+	delete[] minSpeed;
 }
 
 
@@ -360,7 +259,7 @@ double calc_fitness_woa(WOA_Whale& whale){
 
 	forward_kin_2(para, eta_end,  xi_end, Pe, eta_b, xi_b, p_e_initial, locus, delta_xi_b_distrb_max, manipl, T_min);
 
-// ********************************************************  straight_line_locus  ************************************************************************************
+// ********************************************************  straight_line_locus  ************************************************************
     double delta_p_e = 0;
     double straight_line_locus = 0;
     for(int i=0;i<3;i++){
@@ -368,14 +267,15 @@ double calc_fitness_woa(WOA_Whale& whale){
         straight_line_locus += delta_p_e * delta_p_e;
     }
     straight_line_locus = sqrt(straight_line_locus);
-// **********************************************************************************************************************************************************************
+// **********************************************************************************************************************************
 
 	zyx2quaternion(RPY_END_DESIRED[2], RPY_END_DESIRED[1], RPY_END_DESIRED[0], quaternion_end_desired);
 	*eta_end_desired = quaternion_end_desired[0];
 	for (int i = 0; i<3; i++){
 		xi_end_desired[i] = quaternion_end_desired[i + 1];
 	}
-	delta_var(Pe_DESIRED, eta_end_desired, xi_end_desired, Pe, *eta_end, xi_end, *eta_b, xi_b, delta_eta_end, delta_xi_end, delta_Pe_end, delta_eta_base, delta_xi_base);
+	delta_var(Pe_DESIRED, eta_end_desired, xi_end_desired, Pe, *eta_end, xi_end, 
+			  *eta_b, xi_b, delta_eta_end, delta_xi_end, delta_Pe_end, delta_eta_base, delta_xi_base);
 	for (int i = 0; i < 3; i++){
 		delta_xi_end_mod_temp += delta_xi_end[i] * delta_xi_end[i];
 		delta_Pe_end_mod_temp += delta_Pe_end[i] * delta_Pe_end[i];
@@ -385,7 +285,7 @@ double calc_fitness_woa(WOA_Whale& whale){
     delta_Pe_end_mod_temp = sqrt(delta_Pe_end_mod_temp); 
     delta_xi_base_mod_temp = sqrt(delta_xi_base_mod_temp);
 
-	// ****************************************  RPY error of end-effector,  Pe error  ********************************************************************************
+	// ****************************************  RPY error of end-effector,  Pe error  *****************************************************
 
     cost_func = K_a * delta_xi_end_mod_temp 
                 + K_p * delta_Pe_end_mod_temp 
@@ -424,96 +324,101 @@ double calc_fitness_woa(WOA_Whale& whale){
 
 
 
-// double calc_fitness_tlbo(Student& student){
-// 	double* para = new double[N];
-// 	double* eta_end = new double;
-// 	double* xi_end = new double[3];
-// 	double* Pe = new double[3];
-// 	double* eta_b = new double;
-// 	double* xi_b = new double[3];
-// 	double* quaternion_end_desired = new double[4];
-// 	double* eta_end_desired = new double;
-// 	double* xi_end_desired = new double[3];
-// 	double* delta_eta_base = new double;
-// 	double* delta_eta_end = new double;
-// 	double* delta_xi_base = new double[3];
-// 	double* delta_xi_end = new double[3];
-// 	double* delta_Pe_end = new double[3];
-//     double* p_e_initial = new double[3];
-//     double* locus = new double;
-//     double* delta_xi_b_distrb_max = new double;
-//     double* manipl = new double;
-//     double* T_min = new double;
-// 	// double* collision_times = new double;
-// 	for (int i = 0; i < N; i++){
-// 		para[i] = student._position[i];
-// 	}
-// 	// double K_a = 1 / 0.0087;
-//     double K_a = 1 / 0.0002;  // 1 degree error tolerance for end-effector
-// 	// double K_p = 1 / 0.005;  //  0.005 meter error tolerance for end-effector
-// 	double K_p = 1 / 0.002;  //  0.002 meter error tolerance for end-effector
-//     // double K_s = 1 / 0.1;  // locus tolerance 0.1 meter for end-effector.
-//     double K_s = 1 / 0.1;  // locus tolerance 0.1 meter for end-effector.
-//     double K_b = 1 / 0.0008;  // attitude error tolerance for base is 5 degree
-//     double K_M = 0;
-//     double K_t = 0;  //  max allowed motion time is set to 100 seconds, tolerance is 10 seconds.
-// 	double cost_func = 0;
-// 	double delta_xi_end_mod_temp = 0;
-// 	double delta_Pe_end_mod_temp = 0;
-// 	double delta_xi_base_mod_temp = 0;
-// 	forward_kin_2( para,  eta_end,  xi_end,  Pe,  eta_b,  xi_b,  p_e_initial,  locus,  delta_xi_b_distrb_max,  manipl, T_min);
-// // ********************************************************  straight_line_locus  ********************************************************************
-//     double delta_p_e = 0;
-//     double straight_line_locus = 0;
-//     for(int i=0;i<3;i++){
-//         delta_p_e = p_e_initial[i] - Pe[i];
-//         straight_line_locus += delta_p_e * delta_p_e;
-//     }
-//     straight_line_locus = sqrt(straight_line_locus);
-// // ***************************************************************************************************************************************************
-// 	zyx2quaternion(RPY_END_DESIRED[2], RPY_END_DESIRED[1], RPY_END_DESIRED[0], quaternion_end_desired);
-// 	*eta_end_desired = quaternion_end_desired[0];
-// 	for (int i = 0; i<3; i++){
-// 		xi_end_desired[i] = quaternion_end_desired[i + 1];
-// 	}
-// 	delta_var(Pe_DESIRED, eta_end_desired, xi_end_desired, Pe, *eta_end, xi_end, *eta_b, xi_b, delta_eta_end, delta_xi_end, delta_Pe_end, delta_eta_base, delta_xi_base);
-// 	for (int i = 0; i < 3; i++){
-// 		delta_xi_end_mod_temp += delta_xi_end[i] * delta_xi_end[i];
-// 		delta_Pe_end_mod_temp += delta_Pe_end[i] * delta_Pe_end[i];
-// 		delta_xi_base_mod_temp += delta_xi_base[i] * delta_xi_base[i];
-// 	}
-// 	delta_xi_end_mod_temp = sqrt(delta_xi_end_mod_temp);
-// 	delta_Pe_end_mod_temp = sqrt(delta_Pe_end_mod_temp);
-// 	delta_xi_base_mod_temp = sqrt(delta_xi_base_mod_temp);
-//     cost_func = K_a * delta_xi_end_mod_temp 
-//                 + K_p * delta_Pe_end_mod_temp 
-//                 + K_b * (*delta_xi_b_distrb_max) 
-//                 + K_s * fabs(*locus - straight_line_locus)  
-//                 + K_M * (1 / (*manipl)) 
-//                 + K_t * (*T_min);
-// 				// + (*collision_times);
-//     delete[] para ;
-//     delete eta_end ;
-//     delete[] xi_end ;
-//     delete[] Pe ;
-//     delete eta_b ;
-// 	delete[] xi_b ;
-// 	delete[] quaternion_end_desired; 
-// 	delete eta_end_desired ;
-// 	delete[] xi_end_desired ;
-// 	delete delta_eta_base ;
-// 	delete delta_eta_end ;
-// 	delete[] delta_xi_base ;
-// 	delete[] delta_xi_end ;
-// 	delete[] delta_Pe_end ;
-// 	delete[] p_e_initial;
-// 	delete locus ;
-// 	delete delta_xi_b_distrb_max ;
-// 	delete manipl;
-// 	delete T_min ;
-// 	// delete collision_times;
-// 	return cost_func;
-// }
+double calc_fitness_pso(PSO_Particle& particle){
+	double* para = new double[N];
+	double* eta_end = new double;
+	double* xi_end = new double[3];
+	double* Pe = new double[3];
+	double* eta_b = new double;
+	double* xi_b = new double[3];
+	double* quaternion_end_desired = new double[4];
+	double* eta_end_desired = new double;
+	double* xi_end_desired = new double[3];
+	double* delta_eta_base = new double;
+	double* delta_eta_end = new double;
+	double* delta_xi_base = new double[3];
+	double* delta_xi_end = new double[3];
+	double* delta_Pe_end = new double[3];
+    double* p_e_initial = new double[3];
+    double* locus = new double;
+    double* delta_xi_b_distrb_max = new double;
+    double* manipl = new double;
+    double* T_min = new double;
+	// double* collision_times = new double;
+	for (int i = 0; i < N; i++){
+		para[i] = particle._position[i];
+	}
+	// double K_a = 1 / 0.0087;
+    double K_a = 1 / 0.0002;  // 1 degree error tolerance for end-effector
+	// double K_p = 1 / 0.005;  //  0.005 meter error tolerance for end-effector
+	double K_p = 1 / 0.002;  //  0.002 meter error tolerance for end-effector
+    // double K_s = 1 / 0.1;  // locus tolerance 0.1 meter for end-effector.
+    double K_s = 1 / 0.1;  // locus tolerance 0.1 meter for end-effector.
+    double K_b = 1 / 0.0008;  // attitude error tolerance for base is 5 degree
+    double K_M = 0;
+    double K_t = 0;  //  max allowed motion time is set to 100 seconds, tolerance is 10 seconds.
+	double cost_func = 0;
+	double delta_xi_end_mod_temp = 0;
+	double delta_Pe_end_mod_temp = 0;
+	double delta_xi_base_mod_temp = 0;
+	forward_kin_2( para,  eta_end,  xi_end,  Pe,  eta_b,  xi_b,  p_e_initial,  locus,  delta_xi_b_distrb_max,  manipl, T_min);
+// ********************************************************  straight_line_locus  ****************************************************
+    double delta_p_e = 0;
+    double straight_line_locus = 0;
+    for(int i=0;i<3;i++){
+        delta_p_e = p_e_initial[i] - Pe[i];
+        straight_line_locus += delta_p_e * delta_p_e;
+    }
+    straight_line_locus = sqrt(straight_line_locus);
+// ************************************************************************************************************************************
+	zyx2quaternion(RPY_END_DESIRED[2], RPY_END_DESIRED[1], RPY_END_DESIRED[0], quaternion_end_desired);
+	*eta_end_desired = quaternion_end_desired[0];
+	for (int i = 0; i<3; i++){
+		xi_end_desired[i] = quaternion_end_desired[i + 1];
+	}
+
+	delta_var(Pe_DESIRED, eta_end_desired, xi_end_desired, Pe, *eta_end, xi_end, 
+			  *eta_b, xi_b, delta_eta_end, delta_xi_end, delta_Pe_end, delta_eta_base, delta_xi_base);
+
+	for (int i = 0; i < 3; i++){
+		delta_xi_end_mod_temp += delta_xi_end[i] * delta_xi_end[i];
+		delta_Pe_end_mod_temp += delta_Pe_end[i] * delta_Pe_end[i];
+		delta_xi_base_mod_temp += delta_xi_base[i] * delta_xi_base[i];
+	}
+	delta_xi_end_mod_temp = sqrt(delta_xi_end_mod_temp);
+	delta_Pe_end_mod_temp = sqrt(delta_Pe_end_mod_temp);
+	delta_xi_base_mod_temp = sqrt(delta_xi_base_mod_temp);
+    cost_func = K_a * delta_xi_end_mod_temp 
+                + K_p * delta_Pe_end_mod_temp 
+                + K_b * (*delta_xi_b_distrb_max) 
+                + K_s * fabs(*locus - straight_line_locus)  
+                + K_M * (1 / (*manipl)) 
+                + K_t * (*T_min);
+				// + (*collision_times);
+
+
+    delete[] para ;
+    delete eta_end ;
+    delete[] xi_end ;
+    delete[] Pe ;
+    delete eta_b ;
+	delete[] xi_b ;
+	delete[] quaternion_end_desired; 
+	delete eta_end_desired ;
+	delete[] xi_end_desired ;
+	delete delta_eta_base ;
+	delete delta_eta_end ;
+	delete[] delta_xi_base ;
+	delete[] delta_xi_end ;
+	delete[] delta_Pe_end ;
+	delete[] p_e_initial;
+	delete locus ;
+	delete delta_xi_b_distrb_max ;
+	delete manipl;
+	delete T_min ;
+	// delete collision_times;
+	return cost_func;
+}
 
 
 

@@ -1,9 +1,7 @@
-
 #ifndef _ZPSOALGORITHM_H
 #define _ZPSOALGORITHM_H
 
 #define _USE_MATH_DEFINES 
-
 
 #include <iostream>
 #include <stdlib.h>
@@ -13,7 +11,6 @@
 #include <random>
 #include <chrono>
 
-using namespace std; 
 
 
 #define WMAX 0.9                           
@@ -234,22 +231,14 @@ public:
                 particle._velocity[i] = _minSpeed[i];
             }
         }
-
-        // for(int i = 0; i < _dimension; i++){
-        //     particle._velocity[i] += disturbanceVelocity[i];
-        //     if(particle._velocity[i] > _maxSpeed[i]){
-        //         particle._velocity[i] = _maxSpeed[i];
-        //     }
-        //     else if(particle._velocity[i] < _minSpeed[i]){
-        //         particle._velocity[i] = _minSpeed[i];
-        //     }
-        // }
                 
 		delete[] disturbanceVelocity;
 		
     }
 
-    void update(double disturbanceRate, double disturbanceVelocityCoe){
+    void update(int iter, int Iter_Max, double disturbanceRate, double disturbanceVelocityCoe){
+        _inertGuideCoe = WMAX - (WMAX - WMIN) / Iter_Max * (double)iter;  //  需要对 i 进行类型转换， 因为 _inertGuideCoe 是 double 型变量.
+
         for(int i = 0; i < _particleCount; i++){
             double r1 = rand0_1();
             double r2 = rand0_1();
@@ -279,83 +268,9 @@ public:
                 }
             }
         }
-        //更新粒子群适应度
-        this->refresh();
-        
     }
-
-    void findMin(int Iter_Max, PSO_Particle& bestParticle, double disturbanceRate = 0.2, double disturbanceVelocityCoe = 0.05)
-    {
-        this->randomlyInitial();
-        for(int iter = 0; iter < Iter_Max; iter++){            
-            _inertGuideCoe = WMAX - (WMAX - WMIN) / Iter_Max * (double)iter;  //  需要对 i 进行类型转换， 因为 _inertGuideCoe 是 double 型变量.
-            this->update(disturbanceRate, disturbanceVelocityCoe);
-            if(iter % 100 == 0){
-                cout << "iteration is: " << iter << endl;
-                cout << "_globalBestParticle fitness is: " << _globalBestParticle._fitness << endl;
-                for (int j = 0; j < _globalBestParticle._dimension; j++){
-			        cout << _globalBestParticle._position[j] << "  ";
-		        }
-		        cout << endl;
-            }
-        }
-        bestParticle.copy(_globalBestParticle);
-    }
-
-    /***************************************************************
-     * 函数名：findMax
-     * 函数描述：采用粒子群算法搜索最优解
-     * 输入参数：
-     *  interation：粒子群进化次数
-     *  bestParticleInEachLoop：每一次进化中的最优个体数组，
-     *                          interation+1，由外部调用者提供内存空间
-     *  disturbanceRate：粒子速度扰动概率，默认为0.2
-     *  disturbanceVelocityCoe：速度扰动因子，表征扰动速度相对_maxSpeed大小
-     *                          用于扰动粒子速度以提高局部搜索能力，默认为0.05
-     * 输出参数：void
-    ***************************************************************/
-    // void findMax(int interation, PSO_Particle *bestParticleInEachLoop, double disturbanceRate = 0.1, double disturbanceVelocityCoe = 0.05){
-    //     this->randomlyInitial();
-    //     for(int iter = 1; iter <= interation; iter++){
-    //         _inertGuideCoe = WMAX - (WMAX - WMIN) / interation * (double)iter;  //  需要对 i 进行类型转换， 因为 _inertGuideCoe 是 double 型变量.
-    //         this->update(disturbanceRate,disturbanceVelocityCoe);
-    //         bestParticleInEachLoop[iter].copy(_globalBestParticle);
-    //     }
-    // }
+    
 };
-
-
-
-
-// //  4、一些计算指标及随机数函数
-// double avg(double* parameter, int n)
-// {
-//     // 求平均数
-// 	double num = 0;
-// 	for (int i = 0; i < n; i++) 
-// 	{
-// 		num += parameter[i];
-// 	}
-    
-// 	return (num / n);
-    
-// }
-
-
-// double stddev(double* parameter, int n) 
-// {
-//     // 求标准差
-// 	double num = avg(parameter, n);
-// 	double sum = 0.0;
-    
-// 	for (int i = 0; i < n; i++) 
-// 	{
-// 		sum += (parameter[i] - num) * (parameter[i] - num);
-// 	}
-    
-// 	return sqrt(sum / n);
-    
-// }
 
 
 void MatrixMultiMatrix(int row_1, int col_1, int col_2, double* A, double* B, double* AB)
