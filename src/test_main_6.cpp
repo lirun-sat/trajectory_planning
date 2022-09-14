@@ -13,7 +13,7 @@ int main()
 	clock_t end;
 
 	int dimension = N;
-	int particleCount = 50;
+	int particleCount = 200;
 	int Iter_Max = 2000;
 	int num_calc = 100;
 

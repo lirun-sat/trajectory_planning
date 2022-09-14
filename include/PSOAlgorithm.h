@@ -16,8 +16,8 @@
 using namespace std; 
 
 
-#define WMAX 0.9                           //惯量权重最大值
-#define WMIN 0.2                           //惯量权重最小值
+#define WMAX 0.9                           
+#define WMIN 0.2      
 
 void MatrixMultiMatrix(int row_1, int col_1, int col_2, double* A, double* B, double* AB);
 int primerange(int start, int end, int* result, int count);
@@ -28,19 +28,17 @@ void bubbleSort(double* arr, int n);
 class PSO_Particle
 {
 public:
-    int _dimension;        // 粒子维度
-    double *_position;     // 粒子所在位置数组指针
-    double *_velocity;     // 例子速度
-    double *_bestPosition; // 当前粒子搜索得到过的最优位置
-    double _fitness;       // 例子适应度
-    double _bestFitness;   // 当前粒子搜索得到过的最优适应度
+    int _dimension;        
+    double *_position;     
+    double *_velocity;     
+    double *_bestPosition; 
+    double _fitness;       
+    double _bestFitness;   
     
-    //构造函数，粒子维度初始化为0
     PSO_Particle(void){
         _dimension = 0;
     }
     
-    //析构函数，释放粒子内存
     ~PSO_Particle(void){
         if(_dimension){
             delete [] _position;
@@ -49,10 +47,8 @@ public:
         }
     }
     
-    //初始化函数，用于为粒子开辟内存空间
     void initial(int dimension){
         if(_dimension!=dimension && dimension){
-            //需要重新分配内存
             if(_dimension){
                 //消除已有内存
                 delete [] _position;
@@ -71,7 +67,7 @@ public:
     //复制函数，用于粒子间的复制操作
     void copy(PSO_Particle& particle){
         this->initial(particle._dimension);
-        for(int i=0;i<_dimension;i++){
+        for(int i = 0; i < _dimension; i++){
             _position[i] = particle._position[i];
             _velocity[i] = particle._velocity[i];
             _bestPosition[i] = particle._bestPosition[i];
@@ -83,7 +79,6 @@ public:
 };
 
 
-//PSO算法
 class PSO_Algorithm
 {
 public:
@@ -101,7 +96,8 @@ public:
     PSO_Particle* _particleSet;  // 粒子集
     PSO_Particle _globalBestParticle;    // 搜索过程得到的全局最优粒子
 
-    PSO_Algorithm(double (*objFunction)(PSO_Particle&), double* positionMinValue, double* positionMaxValue, int dimension, int particleCount, double* maxSpeed, double* minSpeed, 
+    PSO_Algorithm(double (*objFunction)(PSO_Particle&), double* positionMinValue, double* positionMaxValue, 
+                  int dimension, int particleCount, double* maxSpeed, double* minSpeed, 
                   double inertGuideCoe, double globalGuideCoe = 2, double localGuideCoe = 2){
         //初始化类内参数并分配内存
         _fitnessFunction = objFunction;
@@ -155,6 +151,7 @@ public:
         
         //  产生佳点集
         gen_good_point_set(_particleCount, _dimension, _positionMinValue, _positionMaxValue, good_point_set_temp);
+
         for(int i = 0; i < _particleCount; i++){
             for(int j = 0; j < _dimension; j++){
                 _particleSet[i]._position[j] = good_point_set_temp[i * _dimension + j];
@@ -165,7 +162,6 @@ public:
                 else{
                     _particleSet[i]._velocity[j] = rand0_1() * _minSpeed[j];
                 }
-                
             }
             _particleSet[i]._fitness = _fitnessFunction(_particleSet[i]);
             _particleSet[i]._bestFitness = _particleSet[i]._fitness;
@@ -228,10 +224,9 @@ public:
             else{
                 disturbanceVelocity[i] = rand0_1() * disturbanceVelocityCoe * _minSpeed[i];
             }
-        }
 
-        for(int i = 0; i < _dimension; i++){
             particle._velocity[i] += disturbanceVelocity[i];
+            
             if(particle._velocity[i] > _maxSpeed[i]){
                 particle._velocity[i] = _maxSpeed[i];
             }
@@ -239,6 +234,16 @@ public:
                 particle._velocity[i] = _minSpeed[i];
             }
         }
+
+        // for(int i = 0; i < _dimension; i++){
+        //     particle._velocity[i] += disturbanceVelocity[i];
+        //     if(particle._velocity[i] > _maxSpeed[i]){
+        //         particle._velocity[i] = _maxSpeed[i];
+        //     }
+        //     else if(particle._velocity[i] < _minSpeed[i]){
+        //         particle._velocity[i] = _minSpeed[i];
+        //     }
+        // }
                 
 		delete[] disturbanceVelocity;
 		
