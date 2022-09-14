@@ -228,17 +228,27 @@ public:
             else{
                 disturbanceVelocity[i] = rand0_1() * disturbanceVelocityCoe * _minSpeed[i];
             }
-        }
 
-        for(int i = 0; i < _dimension; i++){
             particle._velocity[i] += disturbanceVelocity[i];
+            
             if(particle._velocity[i] > _maxSpeed[i]){
                 particle._velocity[i] = _maxSpeed[i];
             }
             else if(particle._velocity[i] < _minSpeed[i]){
                 particle._velocity[i] = _minSpeed[i];
             }
+
         }
+
+        // for(int i = 0; i < _dimension; i++){
+        //     particle._velocity[i] += disturbanceVelocity[i];
+        //     if(particle._velocity[i] > _maxSpeed[i]){
+        //         particle._velocity[i] = _maxSpeed[i];
+        //     }
+        //     else if(particle._velocity[i] < _minSpeed[i]){
+        //         particle._velocity[i] = _minSpeed[i];
+        //     }
+        // }
                 
 		delete[] disturbanceVelocity;
 		
