@@ -6,12 +6,12 @@
 
 #IncludeRegexTransform: 
 
-../include/WOAAlgorithm.h
+../include/PSOAlgorithm.h
 iostream
 -
 stdlib.h
 -
-time.h
+ctime
 -
 cmath
 -
@@ -40,13 +40,13 @@ cstring
 cstdlib
 -
 
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/src/test_main_5.cpp
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/src/test_main_6.cpp
 forward_kinematics.h
 /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/src/forward_kinematics.h
 data.h
 /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/src/data.h
 utils.h
 /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/src/utils.h
-WOAAlgorithm.h
-/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/src/WOAAlgorithm.h
+PSOAlgorithm.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/src/PSOAlgorithm.h
 

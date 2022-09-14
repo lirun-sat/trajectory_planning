@@ -27,7 +27,7 @@ add_subdirectory(utils)
 # add_executable(${PROJECT_NAME} ../src/test_main_2.cpp)
 # add_executable(forward_kinematics ../src/test_main_4.cpp)  # 运行 cmake 命令的目录，通常为${PROJECT_SOURCE_DIR}/build， ../ 表示上一级目录
 
-add_executable(forward_kinematics ${PROJECT_SOURCE_DIR}/src/test_main_5.cpp)
+add_executable(forward_kinematics ${PROJECT_SOURCE_DIR}/src/test_main_6.cpp)
 set (EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 
 # add_executable(test_kinematics ../src/test_kinematics.cpp)

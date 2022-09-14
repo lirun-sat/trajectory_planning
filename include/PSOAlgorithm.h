@@ -5,7 +5,6 @@
 #define _USE_MATH_DEFINES 
 
 
-
 #include <iostream>
 #include <stdlib.h>
 #include <ctime>
@@ -20,16 +19,12 @@ using namespace std;
 #define WMAX 0.9                           //惯量权重最大值
 #define WMIN 0.2                           //惯量权重最小值
 
-
-// double avg(double* parameter, int n);
-// double stddev(double* parameter, int n);
 void MatrixMultiMatrix(int row_1, int col_1, int col_2, double* A, double* B, double* AB);
 int primerange(int start, int end, int* result, int count);
 void gen_good_point_set(int num_particles, int dim, double* low_bound, double* up_bound, double* good_point_set);
 void bubbleSort(double* arr, int n);
 
 
-//粒子群算法例子个体
 class PSO_Particle
 {
 public:
@@ -92,36 +87,42 @@ public:
 class PSO_Algorithm
 {
 public:
-    int _dimension;         //粒子群维度
-    int _particleCount;     //种群粒子数量
-    double _globalGuideCoe; //全局最优引导系数
-    double _localGuideCoe;  //局部最优引导系数
-    double _inertGuideCoe;  // inertia coefficient **************************************************************************
-    double _globalBestParticleFitness = 0;  // *******************************************************************************
-    PSO_Particle _globalBestParticle; //搜索过程得到的全局最优粒子
-    double *_positionMinValue; //粒子位置的最小界
-    double *_positionMaxValue; //粒子位置的最大界
-    double _maxSpeed;          //粒子允许最大速度
-    double (*_fitnessFunction)(PSO_Particle&); //粒子适应度函数
-    PSO_Particle *_particleSet; //粒子集
+    int _dimension;         // 粒子群维度
+    int _particleCount;     // 种群粒子数量
+    double _globalGuideCoe; // 全局最优引导系数
+    double _localGuideCoe;  // 局部最优引导系数
+    double _inertGuideCoe;  // inertia coefficient 
+    double _globalBestParticleFitness = 0;  
+    double* _positionMinValue;  // 粒子位置的最小界
+    double* _positionMaxValue;  // 粒子位置的最大界
+    double* _maxSpeed;          // 粒子允许最大速度
+    double* _minSpeed;
+    double (*_fitnessFunction)(PSO_Particle&);  //粒子适应度函数
+    PSO_Particle* _particleSet;  // 粒子集
+    PSO_Particle _globalBestParticle;    // 搜索过程得到的全局最优粒子
 
-    PSO_Algorithm(double (*objFunction)(PSO_Particle&), double *positionMinValue, double *positionMaxValue, int dimension, int particleCount, double inertGuideCoe, 
-                   double globalGuideCoe = 2, double localGuideCoe = 2, double maxSpeed = 1){
+    PSO_Algorithm(double (*objFunction)(PSO_Particle&), double* positionMinValue, double* positionMaxValue, int dimension, int particleCount, double* maxSpeed, double* minSpeed, 
+                  double inertGuideCoe, double globalGuideCoe = 2, double localGuideCoe = 2){
         //初始化类内参数并分配内存
         _fitnessFunction = objFunction;
         _dimension = dimension;
         _positionMinValue = new double[_dimension];
         _positionMaxValue = new double[_dimension];
+        _maxSpeed = new double[_dimension];
+        _minSpeed = new double[_dimension];
+        _particleSet = new PSO_Particle[_particleCount];
+
         for(int i = 0; i < _dimension; i++){
             _positionMinValue[i] = positionMinValue[i];
             _positionMaxValue[i] = positionMaxValue[i];
+            _maxSpeed[i] = maxSpeed[i];
+            _minSpeed[i] = minSpeed[i];
         }
         _particleCount = particleCount;
         _globalGuideCoe = globalGuideCoe;
         _localGuideCoe = localGuideCoe;
         _inertGuideCoe = inertGuideCoe;
-        _maxSpeed = maxSpeed;
-        _particleSet = new PSO_Particle[_particleCount];
+
         for(int i = 0; i< _particleCount; i++){
             _particleSet[i].initial(_dimension);
         }   
@@ -139,10 +140,51 @@ public:
         delete [] _positionMinValue;
         delete [] _positionMaxValue;
         delete [] _particleSet;
+        delete [] _maxSpeed;
+        delete [] _minSpeed;
     }
 
     double rand0_1(void){
         return((1.0 * rand()) / RAND_MAX);
+    }
+
+    void randomlyInitial(void){
+        int globalBestParticleIndex = -1;
+        double* good_point_set_temp = new double[_particleCount * _dimension];
+        double* fitness_temp = new double[_particleCount];
+        
+        //  产生佳点集
+        gen_good_point_set(_particleCount, _dimension, _positionMinValue, _positionMaxValue, good_point_set_temp);
+        for(int i = 0; i < _particleCount; i++){
+            for(int j = 0; j < _dimension; j++){
+                _particleSet[i]._position[j] = good_point_set_temp[i * _dimension + j];
+                _particleSet[i]._bestPosition[j] = _particleSet[i]._position[j];
+                if(rand0_1() > 0.5){
+                    _particleSet[i]._velocity[j] = rand0_1() * _maxSpeed[j];
+                }
+                else{
+                    _particleSet[i]._velocity[j] = rand0_1() * _minSpeed[j];
+                }
+                
+            }
+            _particleSet[i]._fitness = _fitnessFunction(_particleSet[i]);
+            _particleSet[i]._bestFitness = _particleSet[i]._fitness;
+            fitness_temp[i] = _particleSet[i]._bestFitness;
+        }
+        bubbleSort(fitness_temp, _particleCount);
+        _globalBestParticleFitness = fitness_temp[ _particleCount - 1];
+        for(int i = 0; i < _particleCount; i++){
+            if(_particleSet[i]._bestFitness <= _globalBestParticleFitness){
+                globalBestParticleIndex = i;
+            }
+        }
+        if(globalBestParticleIndex != -1){
+            _globalBestParticle.copy(_particleSet[globalBestParticleIndex]);
+        }
+            
+        delete[] good_point_set_temp;
+        delete[] fitness_temp;
+       
     }
 
     void refresh(void){
@@ -166,48 +208,6 @@ public:
             _globalBestParticle.copy(_particleSet[globalBestParticleIndex]);
         }
     }
-
-    void randomlyInitial(void){
-        int globalBestParticleIndex = -1;
-        double velocityMod = 0;
-        double v_mod;
-        double* good_point_set_temp = new double[_particleCount * _dimension];
-        double* fitness_temp = new double[_particleCount];
-        
-        //  产生佳点集
-        gen_good_point_set(_particleCount, _dimension, _positionMinValue, _positionMaxValue, good_point_set_temp);
-        for(int i = 0; i < _particleCount; i++){
-            velocityMod = 0;
-            for(int j = 0; j < _dimension; j++){
-                _particleSet[i]._position[j] = good_point_set_temp[i * _dimension + j];
-                _particleSet[i]._bestPosition[j] = _particleSet[i]._position[j];
-                _particleSet[i]._velocity[j] = rand0_1();
-                velocityMod += _particleSet[i]._velocity[j] * _particleSet[i]._velocity[j];
-            }
-            v_mod = rand0_1() * _maxSpeed;
-            velocityMod = sqrt(velocityMod);
-            for(int j = 0; j < _dimension; j++){
-                _particleSet[i]._velocity[j] *= (v_mod / velocityMod);
-            }
-            _particleSet[i]._fitness = _fitnessFunction(_particleSet[i]);
-            _particleSet[i]._bestFitness = _particleSet[i]._fitness;
-            fitness_temp[i] = _particleSet[i]._bestFitness;
-        }
-        bubbleSort(fitness_temp, _particleCount);
-        _globalBestParticleFitness = fitness_temp[ _particleCount - 1];
-        for(int i = 0; i < _particleCount; i++){
-            if(_particleSet[i]._bestFitness <= _globalBestParticleFitness){
-                globalBestParticleIndex = i;
-            }
-        }
-        if(globalBestParticleIndex != -1){
-            _globalBestParticle.copy(_particleSet[globalBestParticleIndex]);
-        }
-            
-        delete[] good_point_set_temp;
-        delete[] fitness_temp;
-       
-    }
     
     /***************************************************************
      * 函数名：disturbance
@@ -217,35 +217,26 @@ public:
      *  relativeVelocityRate：扰动速度大小上限相对于_maxSpeed的比例，默认为0.05
      * 输出参数：void
     ***************************************************************/
-    void disturbance(PSO_Particle &particle, double relativeVelocityRate = 0.05){
+    void disturbance(PSO_Particle &particle, double disturbanceVelocityCoe){
         // 生成扰动速度
-        double *disturbanceVelocity = new double[_dimension];
-        // 随机生成扰动速度大小
-        double disturbanceVelocityMod = relativeVelocityRate * _maxSpeed * rand0_1();
-        double v_mod = 0;
+        double* disturbanceVelocity = new double[_dimension];
         
         for(int i = 0; i < _dimension; i++){
-            disturbanceVelocity[i] = rand0_1();
-            v_mod += disturbanceVelocity[i] * disturbanceVelocity[i];
+            if(rand0_1() > 0.5){
+                disturbanceVelocity[i] = rand0_1() * disturbanceVelocityCoe * _maxSpeed[i];
+            }
+            else{
+                disturbanceVelocity[i] = rand0_1() * disturbanceVelocityCoe * _minSpeed[i];
+            }
         }
-        v_mod = sqrt(v_mod);
-        // 扰动速度大小归化到 disturbanceVelocityMod
+
         for(int i = 0; i < _dimension; i++){
-            disturbanceVelocity[i] = disturbanceVelocity[i] * (disturbanceVelocityMod / v_mod);
-        }
-            
-        // 扰动粒子速度
-        v_mod = 0;
-        for(int i=0;i<_dimension;i++){
             particle._velocity[i] += disturbanceVelocity[i];
-            v_mod += particle._velocity[i] * particle._velocity[i];
-        }
-        
-        v_mod = sqrt(v_mod);
-        // 粒子速度受限
-        if(v_mod > _maxSpeed){
-            for(int i=0;i<_dimension;i++){
-                particle._velocity[i] *= (_maxSpeed / v_mod);
+            if(particle._velocity[i] > _maxSpeed[i]){
+                particle._velocity[i] = _maxSpeed[i];
+            }
+            else if(particle._velocity[i] < _minSpeed[i]){
+                particle._velocity[i] = _minSpeed[i];
             }
         }
                 
@@ -253,55 +244,55 @@ public:
 		
     }
 
-    void update(double disturbanceRate = 0.1, double disturbanceVelocityCoe = 0.05){
-        double v_mod;
-
+    void update(double disturbanceRate, double disturbanceVelocityCoe){
         for(int i = 0; i < _particleCount; i++){
-            v_mod = 0;
             double r1 = rand0_1();
             double r2 = rand0_1();
-            for(int j=0;j<_particleSet[i]._dimension;j++){
+            for(int j = 0; j < _particleSet[i]._dimension; j++){
                 _particleSet[i]._velocity[j] = _inertGuideCoe * _particleSet[i]._velocity[j] 
                                                 + _globalGuideCoe * r1 * (_globalBestParticle._bestPosition[j] - _particleSet[i]._position[j]) 
-                                                + _localGuideCoe * r2 * (_particleSet[i]._bestPosition[j] - _particleSet[i]._position[j]);                                            
-                
-                v_mod += _particleSet[i]._velocity[j] * _particleSet[i]._velocity[j];
-                
+                                                + _localGuideCoe * r2 * (_particleSet[i]._bestPosition[j] - _particleSet[i]._position[j]); 
+
+                if(_particleSet[i]._velocity[j] > _maxSpeed[j]){
+                    _particleSet[i]._velocity[j] = _maxSpeed[j];
+                } 
+                else if(_particleSet[i]._velocity[j] < _minSpeed[j]){
+                    _particleSet[i]._velocity[j] = _minSpeed[j];
+                }                               
             }
-            v_mod = sqrt(v_mod);            
-            if(v_mod > _maxSpeed){
-                for(int j = 0; j < _particleSet[i]._dimension; j++){
-                    _particleSet[i]._velocity[j] *= (_maxSpeed / v_mod);
-                }
-            }   
             //对粒子速度进行扰动，提高算法局部搜索能力
-            if(rand0_1() < disturbanceRate)
+            if(rand0_1() < disturbanceRate){
                 this->disturbance(_particleSet[i], disturbanceVelocityCoe);
-                
-            //位置更新
+            }
             for(int j = 0; j < _particleSet[i]._dimension; j++){
                 _particleSet[i]._position[j] += _particleSet[i]._velocity[j];
-                //粒子位置受限
-                if(_particleSet[i]._position[j] < _positionMinValue[j])
+                if(_particleSet[i]._position[j] < _positionMinValue[j]){
                     _particleSet[i]._position[j] = _positionMinValue[j];
-                    
-                else if(_particleSet[i]._position[j] > _positionMaxValue[j])
+                }
+                else if(_particleSet[i]._position[j] > _positionMaxValue[j]){
                     _particleSet[i]._position[j] = _positionMaxValue[j];
-                    
+                }
             }
-            
         }
         //更新粒子群适应度
         this->refresh();
         
     }
 
-    void findMin(int interation, PSO_Particle& bestParticle, double disturbanceRate = 0.1, double disturbanceVelocityCoe = 0.05)
+    void findMin(int Iter_Max, PSO_Particle& bestParticle, double disturbanceRate = 0.2, double disturbanceVelocityCoe = 0.05)
     {
         this->randomlyInitial();
-        for(int iter = 0; iter < interation; iter++){            
-            _inertGuideCoe = WMAX - (WMAX - WMIN) / interation * (double)iter;  //  需要对 i 进行类型转换， 因为 _inertGuideCoe 是 double 型变量.
+        for(int iter = 0; iter < Iter_Max; iter++){            
+            _inertGuideCoe = WMAX - (WMAX - WMIN) / Iter_Max * (double)iter;  //  需要对 i 进行类型转换， 因为 _inertGuideCoe 是 double 型变量.
             this->update(disturbanceRate, disturbanceVelocityCoe);
+            if(iter % 100 == 0){
+                cout << "iteration is: " << iter << endl;
+                cout << "_globalBestParticle fitness is: " << _globalBestParticle._fitness << endl;
+                for (int j = 0; j < _globalBestParticle._dimension; j++){
+			        cout << _globalBestParticle._position[j] << "  ";
+		        }
+		        cout << endl;
+            }
         }
         bestParticle.copy(_globalBestParticle);
     }
@@ -478,10 +469,6 @@ int primerange(int start, int end, int* result, int count)
 }
 
 
-
-
-
-
 void bubbleSort(double* arr, int n)
 {
     //  进行排序, max -> min
@@ -501,9 +488,6 @@ void bubbleSort(double* arr, int n)
         }  
     }       
 }
-
-
-
 
 
 
