@@ -230,6 +230,12 @@ forward_kinematics_BINARY_DIR:STATIC=/home/lirun/Documents/test_1/trajectory_pla
 //Value Computed by CMake
 forward_kinematics_SOURCE_DIR:STATIC=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning
 
+//Value Computed by CMake
+test_std_fun_BINARY_DIR:STATIC=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build
+
+//Value Computed by CMake
+test_std_fun_SOURCE_DIR:STATIC=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning
+
 
 ########################
 # INTERNAL cache entries

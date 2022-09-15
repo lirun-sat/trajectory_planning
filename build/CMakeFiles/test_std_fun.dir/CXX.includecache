@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/PSOAlgorithm.h
+iostream
+-
+stdlib.h
+-
+ctime
+-
+cmath
+-
+iomanip
+-
+random
+-
+chrono
+-
+
+../include/WOAAlgorithm.h
+iostream
+-
+stdlib.h
+-
+time.h
+-
+cmath
+-
+iomanip
+-
+random
+-
+chrono
+-
+
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/src/test_main_3.cpp
+WOAAlgorithm.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/src/WOAAlgorithm.h
+PSOAlgorithm.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/src/PSOAlgorithm.h
+

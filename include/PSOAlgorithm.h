@@ -237,7 +237,9 @@ public:
     }
 
     void update(int iter, int Iter_Max, double disturbanceRate, double disturbanceVelocityCoe){
-        _inertGuideCoe = WMAX - (WMAX - WMIN) / Iter_Max * (double)iter;  //  需要对 i 进行类型转换， 因为 _inertGuideCoe 是 double 型变量.
+        // _inertGuideCoe = WMAX - (WMAX - WMIN) / Iter_Max * (double)iter;  //  需要对 i 进行类型转换， 因为 _inertGuideCoe 是 double 型变量.
+
+        _inertGuideCoe = WMAX - (WMAX - WMIN) * (2* double(iter) / double(Iter_Max) - pow(double(iter) / double(Iter_Max), 2));    // non-linear decreasing coefficient
 
         for(int i = 0; i < _particleCount; i++){
             double r1 = rand0_1();
@@ -284,14 +286,11 @@ void MatrixMultiMatrix(int row_1, int col_1, int col_2, double* A, double* B, do
 	 col_2 第二个矩阵的列数
 	*/
     
-    double* A_tempt;
-    A_tempt = new double[row_1 * col_1];
+    double* A_tempt = new double[row_1 * col_1];
     
-    double* B_tempt;
-    B_tempt = new double[col_1 * col_2];
+    double* B_tempt = new double[col_1 * col_2];
     
-    double* AB_tempt;
-    AB_tempt = new double[row_1 * col_2];
+    double* AB_tempt = new double[row_1 * col_2];
     
     for(int i = 0; i < row_1; i++)
     {
@@ -414,7 +413,6 @@ void bubbleSort(double* arr, int n)
 void gen_good_point_set(int num_particles, int dim, double* low_bound, double* up_bound, double* good_point_set)
 {
     // num_particles: 群体个数； dim: 每个个体的维数； low_bound: 各个维度的 下限值；up_bound: 各个维度的 上限值； good_point_set: 生成的 佳点集
-    double pi = 3.14159265358979323846;
     
     double* temp_1 = new double[num_particles];
     double* ones_dim = new double[dim];
@@ -471,7 +469,7 @@ void gen_good_point_set(int num_particles, int dim, double* low_bound, double* u
     
     for(int i=0;i<dim;i++)
     {
-        temp_2[i] = 2 * pi * ind[i] / prime_idx;
+        temp_2[i] = 2 * M_PI * ind[i] / prime_idx;
        
         temp_2[i] = 2 * cos(temp_2[i]);
         
