@@ -19,11 +19,13 @@ int main()
 	
 	int dimension = N;
 	int pso_woa_count = 100;
-	int Iter_Max = 3000;
+	int Iter_Max = 1000;
 	int num_calc = 100;
-	double inertGuideCoe = 0.9;
-	double globalGuideCoe = 1.5;
-	double localGuideCoe = 1.5;
+	double inertGuideCoe = 0.7;
+	// double globalGuideCoe = 1.5;
+	// double localGuideCoe = 1.5;
+	double globalGuideCoe = 1.4961;
+	double localGuideCoe = 1.4961;
 	double disturbanceRate = 0;  // 0.2;
 	double disturbanceVelocityCoe = 0;  // 0.05;
 
@@ -41,21 +43,54 @@ int main()
 
 	double* maxSpeed = new double[N];
 	double* minSpeed = new double[N];
-	maxSpeed[0] = 1.95;
-	maxSpeed[1] = 0.628;
-	maxSpeed[2] = 1.95;
-	maxSpeed[3] = 1.95;
-	maxSpeed[4] = 1.95;
-	maxSpeed[5] = 0.8;
-	maxSpeed[6] = 1.95;
+	// maxSpeed[0] = 1.95;
+	// maxSpeed[1] = 0.628;
+	// maxSpeed[2] = 1.95;
+	// maxSpeed[3] = 1.95;
+	// maxSpeed[4] = 1.95;
+	// maxSpeed[5] = 0.8;
+	// maxSpeed[6] = 1.95;
 
-	minSpeed[0] = -1.95;
+	// minSpeed[0] = -1.95;
+	// minSpeed[1] = -0.628;
+	// minSpeed[2] = -1.95;
+	// minSpeed[3] = -1.95;
+	// minSpeed[4] = -1.95;
+	// minSpeed[5] = -0.8;
+	// minSpeed[6] = -1.95;
+
+	// maxSpeed[0] = 1;
+	// maxSpeed[1] = 0.628;
+	// maxSpeed[2] = 1;
+	// maxSpeed[3] = 1;
+	// maxSpeed[4] = 1;
+	// maxSpeed[5] = 0.8;
+	// maxSpeed[6] = 1;
+
+	// minSpeed[0] = -1;
+	// minSpeed[1] = -0.628;
+	// minSpeed[2] = -1;
+	// minSpeed[3] = -1;
+	// minSpeed[4] = -1;
+	// minSpeed[5] = -0.8;
+	// minSpeed[6] = -1;
+
+	maxSpeed[0] = 1.5;
+	maxSpeed[1] = 0.628;
+	maxSpeed[2] = 1.5;
+	maxSpeed[3] = 1.5;
+	maxSpeed[4] = 1;
+	maxSpeed[5] = 0.8;
+	maxSpeed[6] = 1.5;
+
+	minSpeed[0] = -1.5;
 	minSpeed[1] = -0.628;
-	minSpeed[2] = -1.95;
-	minSpeed[3] = -1.95;
-	minSpeed[4] = -1.95;
+	minSpeed[2] = -1.5;
+	minSpeed[3] = -1.5;
+	minSpeed[4] = -1.5;
 	minSpeed[5] = -0.8;
-	minSpeed[6] = -1.95;
+	minSpeed[6] = -1.5;
+
 
 	cout << "Initial processing..." << endl;
 	cout << "delta_tau = " << "  " << delta_tau << endl;
@@ -73,7 +108,6 @@ int main()
 	cout << "localGuideCoe = " << "  " << localGuideCoe << endl;
 	cout << "disturbanceRate = " << "  " << disturbanceRate << endl;
 	cout << "disturbanceVelocityCoe = " << "  " << disturbanceVelocityCoe << endl;
-
 
 // ***************************************************************************************************************************************
 	calc_para_range(result_min, result_max);
@@ -97,8 +131,7 @@ int main()
 	//构建算法
 	WOA_Algorithm woa(calc_fitness_woa, para_low_bound, para_up_bound, dimension, pso_woa_count / 2);
 
-	PSO_Algorithm pso(calc_fitness_pso, para_low_bound, para_up_bound, dimension, pso_woa_count / 2, 
-					    maxSpeed, minSpeed, inertGuideCoe, globalGuideCoe, localGuideCoe);
+	PSO_Algorithm pso(calc_fitness_pso, para_low_bound, para_up_bound, dimension, pso_woa_count / 2, maxSpeed, minSpeed, inertGuideCoe, globalGuideCoe, localGuideCoe);
 
 // **************************************************************************************************************************************
 	cout << "算法构建完成，进入迭代搜索过程......" << endl;
@@ -137,6 +170,7 @@ int main()
 				for (int j = 0; j < dimension; j++){
 					cout << pso_woa_position[pso_woa_index[pso_woa_count - 1]][j] << "  ";
 				}
+				cout << endl;
 			}
 
 			if (pso_woa_fitness[pso_woa_count - 1] < 1){

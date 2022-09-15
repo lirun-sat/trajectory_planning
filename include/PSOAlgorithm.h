@@ -14,7 +14,7 @@
 
 
 #define WMAX 0.9                           
-#define WMIN 0.2      
+#define WMIN 0.1      
 
 void MatrixMultiMatrix(int row_1, int col_1, int col_2, double* A, double* B, double* AB);
 int primerange(int start, int end, int* result, int count);
