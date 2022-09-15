@@ -19,7 +19,7 @@ int main()
 	
 	int dimension = N;
 	int pso_woa_count = 100;
-	int Iter_Max = 1000;
+	int Iter_Max = 2000;
 	int num_calc = 100;
 	double inertGuideCoe = 0.7;
 	// double globalGuideCoe = 1.5;
