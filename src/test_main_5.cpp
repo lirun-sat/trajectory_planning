@@ -18,7 +18,7 @@ int main()
 
 	
 	int dimension = N;
-	int pso_woa_count = 800;
+	int pso_woa_count = 50;
 	int Iter_Max = 1400;
 	int num_calc = 100;
 	double inertGuideCoe = 1.0;
@@ -172,14 +172,14 @@ int main()
 				}
 				cout << endl;
 			}
-			if((iter > 1900) && (iter % 100 != 0)){
-				cout << "iteration is :" << iter << endl;
-				cout << "pso_woa_fitness is :" << pso_woa_fitness[pso_woa_count - 1] << endl;
-				for (int j = 0; j < dimension; j++){
-					cout << pso_woa_position[pso_woa_index[pso_woa_count - 1]][j] << "  ";
-				}
-				cout << endl;
-			}
+			// if((iter > 1900) && (iter % 100 != 0)){
+			// 	cout << "iteration is :" << iter << endl;
+			// 	cout << "pso_woa_fitness is :" << pso_woa_fitness[pso_woa_count - 1] << endl;
+			// 	for (int j = 0; j < dimension; j++){
+			// 		cout << pso_woa_position[pso_woa_index[pso_woa_count - 1]][j] << "  ";
+			// 	}
+			// 	cout << endl;
+			// }
 
 			if (pso_woa_fitness[pso_woa_count - 1] < 1){
 				cout << "Find solution, iteration is:" << iter << endl;
@@ -283,15 +283,12 @@ double calc_fitness_woa(WOA_Whale& whale){
 		para[i] = whale._position[i];
 	}
 
-	// double K_a = 1 / 0.0087;
     double K_a = 1 / 0.0002;  // 1 degree error tolerance
-	// double K_p = 1 / 0.005;  //  0.005 meter error tolerance
 	double K_p = 1 / 0.002;  //  0.002 meter error tolerance for end-effector
-    // double K_s = 1 / 0.1;  // locus tolerance 0.1 meter.
-    double K_s = 1 / 0.1;  // locus tolerance 0.1 meter.
+    double K_s = 0; // 1 / 0.1;  // locus tolerance 0.1 meter.
     double K_b = 1 / 0.0008;  // attitude error tolerance for base is 5 degree
-    double K_M = 0;
-    double K_t = 0;  //  max allowed motion time is set to 100 seconds, tolerance is 10 seconds.
+    double K_M = 1;
+    double K_t = 1;  // 1 / 10;  //  max allowed motion time is set to 100 seconds, tolerance is 10 seconds.
 
 	double cost_func = 0;
 
@@ -335,28 +332,32 @@ double calc_fitness_woa(WOA_Whale& whale){
                 + K_s * fabs((*locus) - straight_line_locus)  
                 + K_M * (1 / (*manipl)) 
                 + K_t * (*T_min);
+				// K_t * fabs(*T_min - 100);
 				// + (*collision_times);
 
 
-    delete[] para;
+    
     delete eta_end;
-    delete[] xi_end ;
-    delete[] Pe ;
-    delete eta_b ;
-	delete[] xi_b ;
-	delete[] quaternion_end_desired;
+	delete eta_b;
 	delete eta_end_desired;
-	delete[] xi_end_desired ;
 	delete delta_eta_base ;
 	delete delta_eta_end ;
-	delete[] delta_xi_base ;
-	delete[] delta_xi_end ;
-	delete[] delta_Pe_end ; 
-	delete[] p_e_initial ;
 	delete locus ;
 	delete delta_xi_b_distrb_max;
 	delete manipl;
 	delete T_min;
+
+    delete[] xi_end ;
+	delete[] para;
+    delete[] Pe ;
+	delete[] xi_b ;
+	delete[] quaternion_end_desired;
+	delete[] xi_end_desired ;
+	delete[] delta_xi_base ;
+	delete[] delta_xi_end ;
+	delete[] delta_Pe_end ; 
+	delete[] p_e_initial ;
+	
 	// delete collision_times;
 
 	return cost_func;
@@ -390,15 +391,12 @@ double calc_fitness_pso(PSO_Particle& particle){
 	for (int i = 0; i < N; i++){
 		para[i] = particle._position[i];
 	}
-	// double K_a = 1 / 0.0087;
     double K_a = 1 / 0.0002;  // 1 degree error tolerance for end-effector
-	// double K_p = 1 / 0.005;  //  0.005 meter error tolerance for end-effector
 	double K_p = 1 / 0.002;  //  0.002 meter error tolerance for end-effector
-    // double K_s = 1 / 0.1;  // locus tolerance 0.1 meter for end-effector.
-    double K_s = 1 / 0.1;  // locus tolerance 0.1 meter for end-effector.
+    double K_s = 0; // 1 / 0.1;  // locus tolerance 0.1 meter for end-effector.
     double K_b = 1 / 0.0008;  // attitude error tolerance for base is 5 degree
-    double K_M = 0;
-    double K_t = 0;  //  max allowed motion time is set to 100 seconds, tolerance is 10 seconds.
+    double K_M = 1;
+    double K_t = 1;  // 1 / 10;  //  max allowed motion time is set to 100 seconds, tolerance is 10 seconds.
 	double cost_func = 0;
 	double delta_xi_end_mod_temp = 0;
 	double delta_Pe_end_mod_temp = 0;
@@ -436,28 +434,32 @@ double calc_fitness_pso(PSO_Particle& particle){
                 + K_s * fabs(*locus - straight_line_locus)  
                 + K_M * (1 / (*manipl)) 
                 + K_t * (*T_min);
+				// K_t * fabs(*T_min - 100);
 				// + (*collision_times);
 
 
-    delete[] para ;
+    
     delete eta_end ;
-    delete[] xi_end ;
-    delete[] Pe ;
-    delete eta_b ;
-	delete[] xi_b ;
-	delete[] quaternion_end_desired; 
+	delete eta_b ;
 	delete eta_end_desired ;
-	delete[] xi_end_desired ;
 	delete delta_eta_base ;
 	delete delta_eta_end ;
-	delete[] delta_xi_base ;
-	delete[] delta_xi_end ;
-	delete[] delta_Pe_end ;
-	delete[] p_e_initial;
 	delete locus ;
 	delete delta_xi_b_distrb_max ;
 	delete manipl;
 	delete T_min ;
+
+    delete[] xi_end ;
+	delete[] para ;
+    delete[] Pe ;
+	delete[] xi_b ;
+	delete[] quaternion_end_desired; 
+	delete[] xi_end_desired ;
+	delete[] delta_xi_base ;
+	delete[] delta_xi_end ;
+	delete[] delta_Pe_end ;
+	delete[] p_e_initial;
+	
 	// delete collision_times;
 	return cost_func;
 }

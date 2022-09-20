@@ -145,20 +145,24 @@ public:
 	}
 
 	void randomlyInitial(void){
-		double* good_point_set_temp;
-		good_point_set_temp = new double[_whaleCount* _dimension];
-
-		//  产生佳点集
-		gen_good_point_set(_whaleCount, _dimension, _positionMinValue, _positionMaxValue, good_point_set_temp);
+		// double* good_point_set_temp;
+		// good_point_set_temp = new double[_whaleCount* _dimension];
+		// //  产生佳点集
+		// gen_good_point_set(_whaleCount, _dimension, _positionMinValue, _positionMaxValue, good_point_set_temp);
+		// for (int i = 0; i < _whaleCount; ++i){
+		// 	for (int j = 0; j < _dimension; ++j){
+		// 		_whaleSet[i]._position[j] = good_point_set_temp[i * _dimension + j];
+		// 	}
+		// 	_whaleSet[i]._fitness = _fitnessFunction(_whaleSet[i]);
+		// }
+		// delete[] good_point_set_temp;
 
 		for (int i = 0; i < _whaleCount; ++i){
 			for (int j = 0; j < _dimension; ++j){
-				_whaleSet[i]._position[j] = good_point_set_temp[i * _dimension + j];
+				_whaleSet[i]._position[j] = _positionMinValue[j] + rand0_1() * (_positionMaxValue[j] - _positionMinValue[j]);
 			}
 			_whaleSet[i]._fitness = _fitnessFunction(_whaleSet[i]);
 		}
-
-		delete[] good_point_set_temp;
 
 	}
 

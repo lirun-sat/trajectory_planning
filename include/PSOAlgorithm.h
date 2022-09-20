@@ -143,22 +143,32 @@ public:
 
     void randomlyInitial(void){
         int globalBestParticleIndex = -1;
-        double* good_point_set_temp = new double[_particleCount * _dimension];
         double* fitness_temp = new double[_particleCount];
-        
-        //  产生佳点集
-        gen_good_point_set(_particleCount, _dimension, _positionMinValue, _positionMaxValue, good_point_set_temp);
+        // double* good_point_set_temp = new double[_particleCount * _dimension];
+        // //  产生佳点集
+        // gen_good_point_set(_particleCount, _dimension, _positionMinValue, _positionMaxValue, good_point_set_temp);
+        // for(int i = 0; i < _particleCount; i++){
+        //     for(int j = 0; j < _dimension; j++){
+        //         _particleSet[i]._position[j] = good_point_set_temp[i * _dimension + j];
+        //         _particleSet[i]._bestPosition[j] = _particleSet[i]._position[j];
+        //         if(rand0_1() > 0.5){
+        //             _particleSet[i]._velocity[j] = rand0_1() * _maxSpeed[j];
+        //         }
+        //         else{
+        //             _particleSet[i]._velocity[j] = rand0_1() * _minSpeed[j];
+        //         }
+        //     }
+        //     _particleSet[i]._fitness = _fitnessFunction(_particleSet[i]);
+        //     _particleSet[i]._bestFitness = _particleSet[i]._fitness;
+        //     fitness_temp[i] = _particleSet[i]._bestFitness;
+        // }
 
         for(int i = 0; i < _particleCount; i++){
             for(int j = 0; j < _dimension; j++){
-                _particleSet[i]._position[j] = good_point_set_temp[i * _dimension + j];
+                _particleSet[i]._position[j] = _positionMinValue[j] + rand0_1() * (_positionMaxValue[j] - _positionMinValue[j]);
                 _particleSet[i]._bestPosition[j] = _particleSet[i]._position[j];
-                if(rand0_1() > 0.5){
-                    _particleSet[i]._velocity[j] = rand0_1() * _maxSpeed[j];
-                }
-                else{
-                    _particleSet[i]._velocity[j] = rand0_1() * _minSpeed[j];
-                }
+                _particleSet[i]._velocity[j] = _minSpeed[j] + rand0_1() * (_maxSpeed[j] - _minSpeed[j]);
+                
             }
             _particleSet[i]._fitness = _fitnessFunction(_particleSet[i]);
             _particleSet[i]._bestFitness = _particleSet[i]._fitness;
@@ -175,7 +185,7 @@ public:
             _globalBestParticle.copy(_particleSet[globalBestParticleIndex]);
         }
             
-        delete[] good_point_set_temp;
+        // delete[] good_point_set_temp;
         delete[] fitness_temp;
        
     }

@@ -1,1 +1,0 @@
-/usr/bin/c++   -O0 -Wall -g2 -ggdb   CMakeFiles/test_std_fun.dir/src/test_main_3.cpp.o  -o ../bin/test_std_fun 
