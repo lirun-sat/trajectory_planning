@@ -548,4 +548,3 @@ void gen_good_point_set(int num_particles, int dim, double* low_bound, double* u
 
 #endif // _ZPSOALGORITHM_H
 
-

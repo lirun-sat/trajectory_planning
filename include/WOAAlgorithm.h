@@ -232,7 +232,7 @@ public:
 					for (int j = 0; j < _dimension; ++j){
 						X_D[j] = fabs(C * _best_Whale._position[j] - _whaleSet[i]._position[j]);
 						Xnew[j] = _best_Whale._position[j] - A * X_D[j];
-						// Xnew[j] = Xnew[j] + rand0_1() * sign_fun(rand0_1() - 0.5) * levy_flight_step();  // **********************************************
+						Xnew[j] = Xnew[j] + rand0_1() * sign_fun(rand0_1() - 0.5) * levy_flight_step();  // **********************************************
 					}
 				}
 			}
@@ -268,4 +268,3 @@ public:
 
 
 #endif // _ZPSOALGORITHM_H
-

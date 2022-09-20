@@ -18,14 +18,14 @@ int main()
 
 	
 	int dimension = N;
-	int pso_woa_count = 100;
-	int Iter_Max = 2000;
+	int pso_woa_count = 800;
+	int Iter_Max = 1400;
 	int num_calc = 100;
-	double inertGuideCoe = 0.7;
+	double inertGuideCoe = 1.0;
 	// double globalGuideCoe = 1.5;
 	// double localGuideCoe = 1.5;
-	double globalGuideCoe = 1.4961;
-	double localGuideCoe = 1.4961;
+	double globalGuideCoe = 2;
+	double localGuideCoe = 2;
 	double disturbanceRate = 0;  // 0.2;
 	double disturbanceVelocityCoe = 0;  // 0.05;
 
@@ -165,6 +165,14 @@ int main()
 			sort_max2min_main(pso_woa_fitness, pso_woa_count, pso_woa_index);
 
 			if(iter % 100 == 0){
+				cout << "iteration is :" << iter << endl;
+				cout << "pso_woa_fitness is :" << pso_woa_fitness[pso_woa_count - 1] << endl;
+				for (int j = 0; j < dimension; j++){
+					cout << pso_woa_position[pso_woa_index[pso_woa_count - 1]][j] << "  ";
+				}
+				cout << endl;
+			}
+			if((iter > 1900) && (iter % 100 != 0)){
 				cout << "iteration is :" << iter << endl;
 				cout << "pso_woa_fitness is :" << pso_woa_fitness[pso_woa_count - 1] << endl;
 				for (int j = 0; j < dimension; j++){
@@ -478,7 +486,6 @@ void sort_max2min_main(double* a, int length, int* b)
 		}
 	}
 }
-
 
 
 
