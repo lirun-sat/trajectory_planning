@@ -7,11 +7,9 @@
 
 void J_Base2EE(double* r_e, double* r_b, double* J_bE)
 {
-    double* tempt;
-    tempt = new double[9];
-    
-    double* r_b2r_e;
-    r_b2r_e = new double[3];
+    double* tempt = new double[9];
+
+    double* r_b2r_e = new double[3];
 	
 	
 	for(int i = 0; i < 6; i++)
@@ -27,7 +25,6 @@ void J_Base2EE(double* r_e, double* r_b, double* J_bE)
 			}
     }
 	
-	// double r_b2r_e[3] = {0};
 	
 	for(int i = 0; i < 3; i++)
 		r_b2r_e[i] = r_e[i] - r_b[i];

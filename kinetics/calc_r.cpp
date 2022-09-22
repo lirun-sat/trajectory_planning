@@ -23,18 +23,25 @@ void calc_r(double* r_b, double* A_b, double* A_links_transform, double* r)
         if(i == 0)
         {
             for(int j = 0; j < 3; j++)
+            {
+
                 a_tempt[j] = a[i * 3 + j];
-            
-            for(int j = 0; j< 3; j++)
-				for(int k = 0; k < 3; k++)
+
+                for(int k = 0; k < 3; k++)
+                {
                     A_links_transform_tempt[j * 3 + k] = A_links_transform[i * 9 + j * 3 + k];
+                }
+            }				       
             
             MatrixMulti_(3, 3, 1, A_links_transform_tempt, a_tempt, A_links_transform_multi_a_tempt);
             
             MatrixMulti_(3, 3, 1, A_b, b_b, A_b_multi_b_b);
             
             for(int j = 0; j < 3; j++)
+            {
                 r[i * 3 + j] = r_b[j] + A_b_multi_b_b[j] + A_links_transform_multi_a_tempt[j];
+
+            }
             
         }
         else
@@ -46,18 +53,24 @@ void calc_r(double* r_b, double* A_b, double* A_links_transform, double* r)
             }
             
             for(int j = 0; j< 3; j++)
-				for(int k = 0; k < 3; k++)
+            {
+                for(int k = 0; k < 3; k++)
 				{
 					A_links_transform_tempt[j * 3 + k] = A_links_transform[i * 9 + j * 3 + k];
 					A_links_transform_tempt_pre[j * 3 + k] = A_links_transform[(i-1) * 9 + j * 3 + k];
 				}
+            }
+				
             
             MatrixMulti_(3, 3, 1, A_links_transform_tempt, a_tempt, A_links_transform_multi_a_tempt);
             
             MatrixMulti_(3, 3, 1, A_links_transform_tempt_pre, b_tempt, A_links_transform_tempt_pre_multi_b_tempt);
                         
             for(int j = 0; j < 3; j++)
+            {
 			    r[i * 3 + j] = r[(i-1) * 3 + j] + A_links_transform_tempt_pre_multi_b_tempt[j] + A_links_transform_multi_a_tempt[j];
+
+            }
             
         }		    
 	

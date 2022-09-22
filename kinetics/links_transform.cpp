@@ -14,10 +14,8 @@ void links_transform(double* A_base, double* q, double* A_links_transform)
 	double* tempt_A_links_transform_curr = new double[3*3];
 	double* tempt = new double[3*3];
 	
-	for(int i = 0; i < N; i++)
-	{
-		if (i == 0)
-		{
+	for(int i = 0; i < N; i++){
+		if (i == 0){
 			rpy2dc(rpy_joints[i * 3], rpy_joints[i * 3 + 1], rpy_joints[i * 3 + 2], tempt_rpy2dc_joints_initial);
 
 			MatrixMulti_(3, 3, 3, A_base, tempt_rpy2dc_joints_initial, tempt);
@@ -26,35 +24,32 @@ void links_transform(double* A_base, double* q, double* A_links_transform)
 			
 			MatrixMulti_(3, 3, 3, tempt, tempt_rpy2dc_joints_var, tempt_A_links_transform_curr);
 			
-			for(int j = 0; j< 3; j++)
-            {
-				for(int k = 0; k < 3; k++)
-				{
+			for(int j = 0; j< 3; j++){
+				for(int k = 0; k < 3; k++){
 					A_links_transform[i * 9 + j * 3 + k] = tempt_A_links_transform_curr[j * 3 + k];
 
 				}
             }
 
 		}
-		
-		else
-		{
+		else{
 			rpy2dc(rpy_joints[i * 3], rpy_joints[i * 3 + 1], rpy_joints[i * 3 + 2], tempt_rpy2dc_joints_initial);
 			
-			for(int j = 0; j < 3; j++)
-				for(int k = 0; k < 3; k++)
+			for(int j = 0; j < 3; j++){
+				for(int k = 0; k < 3; k++){
 					tempt_A_links_transform_pre[j * 3 + k] = A_links_transform[(i-1) * 9 + j * 3 + k];
-			
+				}
+					
+			}
+
 			MatrixMulti_(3, 3, 3, tempt_A_links_transform_pre, tempt_rpy2dc_joints_initial, tempt);
 			
 			rpy2dc(0, 0, q[i], tempt_rpy2dc_joints_var);
 			
 			MatrixMulti_(3, 3, 3, tempt, tempt_rpy2dc_joints_var, tempt_A_links_transform_curr);
 	
-			for(int j = 0; j< 3; j++)
-            {
-				for(int k = 0; k < 3; k++)
-				{
+			for(int j = 0; j< 3; j++){
+				for(int k = 0; k < 3; k++){
 					A_links_transform[i * 9 + j * 3 + k] = tempt_A_links_transform_curr[j * 3 + k];
 
 				}

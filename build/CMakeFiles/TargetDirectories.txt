@@ -1,4 +1,5 @@
 /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles/edit_cache.dir
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles/test_kinematics.dir
 /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles/rebuild_cache.dir
 /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/CMakeFiles/forward_kinematics.dir
 /home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build/kinetics/CMakeFiles/rebuild_cache.dir

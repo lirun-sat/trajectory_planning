@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/data.h
+
+../include/forward_kinematics.h
+
+../include/utils.h
+stdio.h
+-
+cmath
+-
+iostream
+-
+ctime
+-
+cstring
+-
+cstdlib
+-
+
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/src/test_kinematics.cpp
+forward_kinematics.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/src/forward_kinematics.h
+data.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/src/data.h
+utils.h
+/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/src/utils.h
+

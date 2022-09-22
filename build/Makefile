@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named test_kinematics
+
+# Build rule for target.
+test_kinematics: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_kinematics
+.PHONY : test_kinematics
+
+# fast build rule for target.
+test_kinematics/fast:
+	$(MAKE) -f CMakeFiles/test_kinematics.dir/build.make CMakeFiles/test_kinematics.dir/build
+.PHONY : test_kinematics/fast
+
+#=============================================================================
 # Target rules for targets named forward_kinematics
 
 # Build rule for target.
@@ -149,6 +162,33 @@ utils/fast:
 	$(MAKE) -f utils/CMakeFiles/utils.dir/build.make utils/CMakeFiles/utils.dir/build
 .PHONY : utils/fast
 
+src/test_kinematics.o: src/test_kinematics.cpp.o
+
+.PHONY : src/test_kinematics.o
+
+# target to build an object file
+src/test_kinematics.cpp.o:
+	$(MAKE) -f CMakeFiles/test_kinematics.dir/build.make CMakeFiles/test_kinematics.dir/src/test_kinematics.cpp.o
+.PHONY : src/test_kinematics.cpp.o
+
+src/test_kinematics.i: src/test_kinematics.cpp.i
+
+.PHONY : src/test_kinematics.i
+
+# target to preprocess a source file
+src/test_kinematics.cpp.i:
+	$(MAKE) -f CMakeFiles/test_kinematics.dir/build.make CMakeFiles/test_kinematics.dir/src/test_kinematics.cpp.i
+.PHONY : src/test_kinematics.cpp.i
+
+src/test_kinematics.s: src/test_kinematics.cpp.s
+
+.PHONY : src/test_kinematics.s
+
+# target to generate assembly for a file
+src/test_kinematics.cpp.s:
+	$(MAKE) -f CMakeFiles/test_kinematics.dir/build.make CMakeFiles/test_kinematics.dir/src/test_kinematics.cpp.s
+.PHONY : src/test_kinematics.cpp.s
+
 src/test_main_5.o: src/test_main_5.cpp.o
 
 .PHONY : src/test_main_5.o
@@ -183,10 +223,14 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... test_kinematics"
 	@echo "... rebuild_cache"
 	@echo "... forward_kinematics"
 	@echo "... kinetics"
 	@echo "... utils"
+	@echo "... src/test_kinematics.o"
+	@echo "... src/test_kinematics.i"
+	@echo "... src/test_kinematics.s"
 	@echo "... src/test_main_5.o"
 	@echo "... src/test_main_5.i"
 	@echo "... src/test_main_5.s"

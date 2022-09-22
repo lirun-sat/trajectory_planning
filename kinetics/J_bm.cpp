@@ -7,160 +7,82 @@
 
 void calc_J_bm(double* r, double* r_b, double* A_b, double* A_links_transform, double* p, double* J_bm_w, double* J_bm_v)
 {
-	/*
-    :param I_b_body: 在基座本体系中表示的基座惯量
-    :param I_links_body: 在各个连杆本体系中表示的连杆惯量
-	*/
-	
+    double* I_b = new double[9];
+    double* I_b_tempt_1 = new double[9];
+    double* I_b_tempt_2 = new double[9];
+    double* r_g = new double[3];
+	double* a_tempt_1 = new double[3];
+	double* a_tempt_2 = new double[3];
+	double* A_links_transform_tempt = new double[9];
+	double* A_links_transform_tempt_2 = new double[9];
 
-	// double I_b[9];
-    double* I_b;
-    I_b = new double[9];
-    
-    double* I_b_tempt_2;
-    double* I_b_tempt_1;
-    I_b_tempt_2 = new double[9];
-    I_b_tempt_1 = new double[9];
+    double* I_links_body_tempt = new double[9];
+    double* I_links_tempt_1 = new double[9];
+    double* I_links_tempt_2 = new double[9];
+    double* I_links = new double[N * 3 * 3];
+    double* I_links_i_tempt = new double[9];
 	
-    double* r_g;
-    r_g = new double[3];
-	
+    double* Hw = new double[9];
+    double* r_i_b = new double[3];
+    double* r_i_b_cross_1 = new double[9];
+    double* r_i_b_cross_1_T = new double[9];
+	double* r_i_b_cross_1_tempt = new double[9];
+    double* r_i_b_cross_2 = new double[9];
+
+    double* joint_revolute_axis_1 = new double[3];
+    double* joint_revolute_axis_2 = new double[3];
+
+	double* joint_revolute_axis_cross_r_i_minus_p_i = new double[3];
+    double* joint_revolute_axis_cross_r_i_minus_p_j = new double[3];
+    double* joint_revolute_axis_2_cross = new double[3*3];
+    double* r_i_minus_p_j = new double[3];
+    double* r_g_minus_r_b = new double[3];
+    double* r_g_minus_r_b_cross = new double[9];
+    double* r_g_minus_r_b_cross_multi_r_g_minus_r_b_cross = new double[9];
+    double* r_g_minus_r_b_cross_multi_J_Tw = new double[3*N];
+
+    double* JR = new double[N * N * 3];
+    double* JR_i_tempt = new double[3 * N];
+	double* JT = new double[N * N * 3];
+    double* JT_i_tempt = new double[3 * N];
+	double* J_Tw = new double[3*N];
+    double* J_Tw_tempt = new double[3*N];
+
+	double* H_wq = new double[3*N];
+    double* H_wq_tempt_1 = new double[3*N];
+    double* H_wq_tempt_2 = new double[3*N];
+    double* H_wq_tempt_3 = new double[3*N];
+
+	double* H_s = new double[3*3];
+	double* H_q = new double[3*N];
+    double* r_g_minus_r_b_cross_multi_H_s_inv = new double[3*3];
+    double* r_g_minus_r_b_cross_multi_H_s_inv_multi_H_q = new double[3*N];
+    double* H_s_inv = new double[3*3];
+    double* H_s_inv_tempt = new double[3*3];
+
 	double total_mass = m_b;
-
-	double* a_tempt_1;
-	double* a_tempt_2;
-	double* A_links_transform_tempt;
-	double* A_links_transform_tempt_2;
-    // p_tempt_1 = new double[3];
-    // p_tempt_2 = new double[3];
-    a_tempt_1 = new double[3];
-    a_tempt_2 = new double[3];
-    A_links_transform_tempt = new double[9];
-    A_links_transform_tempt_2 = new double[9];
-    
-	
-	double* I_links_body_tempt;
-	double* I_links_tempt_1;
-	double* I_links_tempt_2;
-	double* I_links;
-	double* I_links_i_tempt;
-    I_links_body_tempt = new double[9];
-    I_links_tempt_1 = new double[9];
-    I_links_tempt_2 = new double[9];
-    I_links = new double[N * 3 * 3];
-    I_links_i_tempt = new double[9];
-	
-    double* Hw;
-    Hw = new double[9];
-	
- 
-    double* r_i_b;
-    double* r_i_b_cross_1;
-    double* r_i_b_cross_1_T;
-    double* r_i_b_cross_1_tempt;
-    double* r_i_b_cross_2;
-    r_i_b = new double[3];
-    r_i_b_cross_1 = new double[9];
-    r_i_b_cross_1_T = new double[9];
-	r_i_b_cross_1_tempt = new double[9];
-    r_i_b_cross_2 = new double[9];
-	
-    double* joint_revolute_axis_1;
-    double* joint_revolute_axis_2;
-    joint_revolute_axis_1 = new double[3];
-    joint_revolute_axis_2 = new double[3];
-	
-
-    double* JR;
-    double* JR_i_tempt;
-    JR = new double[N * N * 3];
-    JR_i_tempt = new double[3 * N];
     
     for(int i = 0; i < N; i++)
         for(int j = 0; j < 3; j++)
             for(int k = 0; k < N; k++)
-                JR[i * 3*N + j * N + k] = 0;  // ******************************************************************************************************************************
+                JR[i * 3*N + j * N + k] = 0;
 
-
-
-    double* JT;
-    double* JT_i_tempt;
-    JT = new double[N * N * 3];
-    JT_i_tempt = new double[3 * N];
-    
     
     for(int i = 0; i < N; i++)
         for(int j = 0; j < 3; j++)
             for(int k = 0; k < N; k++)
                 JT[i * 3*N + j * N + k] = 0;
-
- 
-    double* J_Tw;
-    double* J_Tw_tempt;
-    J_Tw = new double[3*N];
-    J_Tw_tempt = new double[3*N];
+    
     
     for(int i = 0; i < 3; i++)
         for(int j = 0; j < N ; j++)
             J_Tw[i * N + j] = 0;
-	
 
-    double* J_bm_w_tempt;
 
-    J_bm_w_tempt = new double[3*N];
-	
-    double* joint_revolute_axis_cross_r_i_minus_p_i;
-    double* joint_revolute_axis_cross_r_i_minus_p_j;
-    joint_revolute_axis_cross_r_i_minus_p_i = new double[3];
-    joint_revolute_axis_cross_r_i_minus_p_j = new double[3];
-
-    double* joint_revolute_axis_2_cross;
-
-    joint_revolute_axis_2_cross = new double[3*3];
-	
-    double* r_i_minus_p_j;
-    double* r_g_minus_r_b;
-    double* r_g_minus_r_b_cross;
-    double* r_g_minus_r_b_cross_multi_r_g_minus_r_b_cross;
-    r_i_minus_p_j = new double[3];
-    r_g_minus_r_b = new double[3];
-    r_g_minus_r_b_cross = new double[9];
-    r_g_minus_r_b_cross_multi_r_g_minus_r_b_cross = new double[9];
-    
-    double* r_g_minus_r_b_cross_multi_J_Tw;
-    r_g_minus_r_b_cross_multi_J_Tw = new double[3*N];
-	
-    double* H_wq;
-    double* H_wq_tempt_1;
-    double* H_wq_tempt_2;
-    double* H_wq_tempt_3;
-    H_wq = new double[3*N];
-    H_wq_tempt_1 = new double[3*N];
-    H_wq_tempt_2 = new double[3*N];
-    H_wq_tempt_3 = new double[3*N];
-    
     for(int i = 0; i < 3; i++)
         for(int j = 0; j < N ; j++)
             H_wq[i * N + j] = 0;
     
-	
-    double* H_s;
-    H_s = new double[3*3];
-
-	
-	double* H_q;
-    H_q = new double[3*N];
-	
-    double* r_g_minus_r_b_cross_multi_H_s_inv;
-    double* r_g_minus_r_b_cross_multi_H_s_inv_multi_H_q;
-    r_g_minus_r_b_cross_multi_H_s_inv = new double[3*3];
-    r_g_minus_r_b_cross_multi_H_s_inv_multi_H_q = new double[3*N];
-    
-    double* H_s_inv;
-    double* H_s_inv_tempt;
-    H_s_inv = new double[3*3];
-    H_s_inv_tempt = new double[3*3];
-	
 	
 	// 计算惯性系中表示的基座惯量
     
@@ -175,11 +97,11 @@ void calc_J_bm(double* r, double* r_b, double* A_b, double* A_links_transform, d
 	ScaleMatrix_( 1, 3, m_b, r_b, r_g);
 	
 	
-	for(int i=0;i<N;i++)
+	for(int i = 0; i < N; i++)
 	{
 		total_mass += m[i];  //  total_mass 初始化为 m_b
 		
-		for(int j=0;j<3;j++)
+		for(int j = 0; j < 3; j++)
 			r_g[j] = r_g[j] + m[i] * r[i * 3 + j];
 	}
 	
@@ -211,21 +133,21 @@ void calc_J_bm(double* r, double* r_b, double* A_b, double* A_links_transform, d
 	
 	
 	//  初始化 Hw
-	for(int j=0;j<3;j++)
-		for(int k=0;k<3;k++)
+	for(int j = 0; j < 3; j++)
+		for(int k = 0; k < 3; k++)
 			Hw[j * 3 + k] = I_b[j * 3 + k];
 	
 	
 	for(int i = 0; i < N; i++)
 	{
-		for(int j=0;j<3;j++)
+		for(int j = 0; j < 3; j++)
 			r_i_b[j] = r[i * 3 + j] - r_b[j];
 			
 		cross(r_i_b, r_i_b_cross_1);  // r_i_b cross
 		
-		for(int j=0;j<3;j++)
+		for(int j = 0; j < 3; j++)
         {
-			for(int k=0;k<3;k++)
+			for(int k = 0; k < 3; k++)
 			{
 				r_i_b_cross_1_tempt[j * 3 + k] = r_i_b_cross_1[j * 3 + k];
 				
@@ -235,17 +157,17 @@ void calc_J_bm(double* r, double* r_b, double* A_b, double* A_links_transform, d
 			}
         }
 		
-		MatrixTranspose_(3, 3, r_i_b_cross_1, r_i_b_cross_1_T);    // MatrixTranspose(r_i_b_cross_1);  // (r_i -r_b)叉 转置
-		MatrixMulti_(3, 3, 3, r_i_b_cross_1_T, r_i_b_cross_1_tempt, r_i_b_cross_2);  //  r_i_b_cross_2 = (r_i -r_b)叉.T * (r_i -r_b)叉
+		MatrixTranspose_(3, 3, r_i_b_cross_1, r_i_b_cross_1_T);    
+
+		MatrixMulti_(3, 3, 3, r_i_b_cross_1_T, r_i_b_cross_1_tempt, r_i_b_cross_2);  
 	
 		MatrixMulti_(3, 3, 3, A_links_transform_tempt, I_links_body_tempt, I_links_tempt_1);
 		
-		MatrixMultiTranspose(I_links_tempt_1, A_links_transform_tempt, I_links_tempt_2);  // I_links_tempt_2   第 i 个连杆 在 惯性系 下的 惯量
+		MatrixMultiTranspose(I_links_tempt_1, A_links_transform_tempt, I_links_tempt_2);  
 		
-		
-		for(int j=0;j<3;j++)
+		for(int j = 0; j < 3; j++)
 		{	
-			for(int k=0;k<3;k++)
+			for(int k = 0; k < 3; k++)
 		    {
 				I_links[i * 9 + j * 3 + k] = I_links_tempt_2[j * 3 + k];
 				
@@ -271,7 +193,9 @@ void calc_J_bm(double* r, double* r_b, double* A_b, double* A_links_transform, d
 				r_i_minus_p_j[jj] = r[i * 3 + jj] - p[j * 3 + jj];    // 求 r_i - p_j （r_i_minus_p_j） 
 				
 				for(int kk = 0; kk < 3; kk++)
+				{
 					A_links_transform_tempt_2[jj * 3 + kk] = A_links_transform[j * 9 + jj * 3 + kk];  //  缓存 第 j 个连杆的旋转矩阵
+				}
 				
 			}
 			
@@ -422,19 +346,14 @@ void calc_J_bm(double* r, double* r_b, double* A_b, double* A_links_transform, d
 	
 	MatrixCopy_( 3, 3, H_s_inv, H_s_inv_tempt );
 	
-	/*
-	for(int i=0;i<3;i++)
-		for(int j=0;j<3;j++)
-			H_s_inv_tempt[i * 3 + j] = H_s_inv[i * 3 + j];
-	*/
+	MatrixMulti_(3, 3, N, H_s_inv_tempt, H_q, J_bm_w);
 	
-	MatrixMulti_(3, 3, N, H_s_inv_tempt, H_q, J_bm_w_tempt);
-	
-	ScaleMatrix_( 3, N, (-1), J_bm_w_tempt, J_bm_w);
+	ScaleMatrix_( 3, N, (-1), J_bm_w, J_bm_w);
 	
 	ScaleMatrix_( 3, N, 1/total_mass, J_Tw, J_Tw_tempt);
 	
 	MatrixMulti_(3, 3, 3, r_g_minus_r_b_cross, H_s_inv_tempt, r_g_minus_r_b_cross_multi_H_s_inv);
+
 	MatrixMulti_(3, 3, N, r_g_minus_r_b_cross_multi_H_s_inv, H_q, r_g_minus_r_b_cross_multi_H_s_inv_multi_H_q);
 	
 	MatrixAdd_( 3, N, J_Tw_tempt, r_g_minus_r_b_cross_multi_H_s_inv_multi_H_q, J_bm_v);
@@ -480,7 +399,6 @@ void calc_J_bm(double* r, double* r_b, double* A_b, double* A_links_transform, d
     delete[] JT_i_tempt;
     delete[] J_Tw;
     delete[] J_Tw_tempt;
-    delete[] J_bm_w_tempt;
     delete[] joint_revolute_axis_cross_r_i_minus_p_i;
     delete[] joint_revolute_axis_cross_r_i_minus_p_j;
     delete[] joint_revolute_axis_2_cross;

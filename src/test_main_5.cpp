@@ -288,7 +288,7 @@ double calc_fitness_woa(WOA_Whale& whale){
     double K_s = 0; // 1 / 0.1;  // locus tolerance 0.1 meter.
     double K_b = 1 / 0.0008;  // attitude error tolerance for base is 5 degree
     double K_M = 1;
-    double K_t = 1;  // 1 / 10;  //  max allowed motion time is set to 100 seconds, tolerance is 10 seconds.
+    double K_t = 1 / 100;  // 1 / 10;  // 1;  // 1 / 10;  //  max allowed motion time is set to 100 seconds, tolerance is 10 seconds.
 
 	double cost_func = 0;
 
@@ -301,7 +301,7 @@ double calc_fitness_woa(WOA_Whale& whale){
 // ********************************************************  straight_line_locus  ************************************************************
     double delta_p_e = 0;
     double straight_line_locus = 0;
-    for(int i=0;i<3;i++){
+    for(int i = 0; i < 3; i++){
         delta_p_e = p_e_initial[i] - Pe[i];
         straight_line_locus += delta_p_e * delta_p_e;
     }
@@ -313,8 +313,7 @@ double calc_fitness_woa(WOA_Whale& whale){
 	for (int i = 0; i<3; i++){
 		xi_end_desired[i] = quaternion_end_desired[i + 1];
 	}
-	delta_var(Pe_DESIRED, eta_end_desired, xi_end_desired, Pe, *eta_end, xi_end, 
-			  *eta_b, xi_b, delta_eta_end, delta_xi_end, delta_Pe_end, delta_eta_base, delta_xi_base);
+	delta_var(Pe_DESIRED, eta_end_desired, xi_end_desired, Pe, *eta_end, xi_end, *eta_b, xi_b, delta_eta_end, delta_xi_end, delta_Pe_end, delta_eta_base, delta_xi_base);
 	for (int i = 0; i < 3; i++){
 		delta_xi_end_mod_temp += delta_xi_end[i] * delta_xi_end[i];
 		delta_Pe_end_mod_temp += delta_Pe_end[i] * delta_Pe_end[i];
@@ -332,8 +331,7 @@ double calc_fitness_woa(WOA_Whale& whale){
                 + K_s * fabs((*locus) - straight_line_locus)  
                 + K_M * (1 / (*manipl)) 
                 + K_t * (*T_min);
-				// K_t * fabs(*T_min - 100);
-				// + (*collision_times);
+			
 
 
     
@@ -396,7 +394,7 @@ double calc_fitness_pso(PSO_Particle& particle){
     double K_s = 0; // 1 / 0.1;  // locus tolerance 0.1 meter for end-effector.
     double K_b = 1 / 0.0008;  // attitude error tolerance for base is 5 degree
     double K_M = 1;
-    double K_t = 1;  // 1 / 10;  //  max allowed motion time is set to 100 seconds, tolerance is 10 seconds.
+    double K_t = 1 / 100;  // 1 / 10;  // 1;  // 1 / 10;  //  max allowed motion time is set to 100 seconds, tolerance is 10 seconds.
 	double cost_func = 0;
 	double delta_xi_end_mod_temp = 0;
 	double delta_Pe_end_mod_temp = 0;
@@ -405,7 +403,7 @@ double calc_fitness_pso(PSO_Particle& particle){
 // ********************************************************  straight_line_locus  ****************************************************
     double delta_p_e = 0;
     double straight_line_locus = 0;
-    for(int i=0;i<3;i++){
+    for(int i = 0; i < 3; i++){
         delta_p_e = p_e_initial[i] - Pe[i];
         straight_line_locus += delta_p_e * delta_p_e;
     }
@@ -417,8 +415,7 @@ double calc_fitness_pso(PSO_Particle& particle){
 		xi_end_desired[i] = quaternion_end_desired[i + 1];
 	}
 
-	delta_var(Pe_DESIRED, eta_end_desired, xi_end_desired, Pe, *eta_end, xi_end, 
-			  *eta_b, xi_b, delta_eta_end, delta_xi_end, delta_Pe_end, delta_eta_base, delta_xi_base);
+	delta_var(Pe_DESIRED, eta_end_desired, xi_end_desired, Pe, *eta_end, xi_end, *eta_b, xi_b, delta_eta_end, delta_xi_end, delta_Pe_end, delta_eta_base, delta_xi_base);
 
 	for (int i = 0; i < 3; i++){
 		delta_xi_end_mod_temp += delta_xi_end[i] * delta_xi_end[i];
@@ -428,13 +425,14 @@ double calc_fitness_pso(PSO_Particle& particle){
 	delta_xi_end_mod_temp = sqrt(delta_xi_end_mod_temp);
 	delta_Pe_end_mod_temp = sqrt(delta_Pe_end_mod_temp);
 	delta_xi_base_mod_temp = sqrt(delta_xi_base_mod_temp);
+
     cost_func = K_a * delta_xi_end_mod_temp 
                 + K_p * delta_Pe_end_mod_temp 
                 + K_b * (*delta_xi_b_distrb_max) 
                 + K_s * fabs(*locus - straight_line_locus)  
                 + K_M * (1 / (*manipl)) 
                 + K_t * (*T_min);
-				// K_t * fabs(*T_min - 100);
+				// + K_t * fabs(*T_min - 100);
 				// + (*collision_times);
 
 
