@@ -145,7 +145,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=forward_kinematics
+CMAKE_PROJECT_NAME:STATIC=test_kinematics
 
 //Value Computed by CMake
 CMAKE_PROJECT_VERSION:STATIC=1.0
@@ -229,6 +229,12 @@ forward_kinematics_BINARY_DIR:STATIC=/home/lirun/Documents/test_1/trajectory_pla
 
 //Value Computed by CMake
 forward_kinematics_SOURCE_DIR:STATIC=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning
+
+//Value Computed by CMake
+test_kinematics_BINARY_DIR:STATIC=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning/build
+
+//Value Computed by CMake
+test_kinematics_SOURCE_DIR:STATIC=/home/lirun/Documents/test_1/trajectory_planning_for_AA/simulations/trajectory_planning
 
 
 ########################

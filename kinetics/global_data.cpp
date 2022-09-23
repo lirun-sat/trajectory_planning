@@ -48,7 +48,7 @@ int N = 7;
 double Ez[] = {0, 0, 1};
 double eye[] = {1, 0, 0, 0, 1, 0, 0, 0, 1}; 
 double joint_angle_velocity_min_limit = -0.0873;
-double joint_angle_velocity_max_limit = 0.0873;  // angle velocity 5 deg/s
+double joint_angle_velocity_max_limit = 0.0873;    // angle velocity 5 deg/s
 double joint_angle_acceleration_min_limit = -0.00873;
 double joint_angle_acceleration_max_limit = 0.00873;
 

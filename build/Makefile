@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /home/lirun/Documents/test_1/trajectory_planning_for_AA/simul
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -77,6 +66,17 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -122,19 +122,6 @@ test_kinematics: cmake_check_build_system
 test_kinematics/fast:
 	$(MAKE) -f CMakeFiles/test_kinematics.dir/build.make CMakeFiles/test_kinematics.dir/build
 .PHONY : test_kinematics/fast
-
-#=============================================================================
-# Target rules for targets named forward_kinematics
-
-# Build rule for target.
-forward_kinematics: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 forward_kinematics
-.PHONY : forward_kinematics
-
-# fast build rule for target.
-forward_kinematics/fast:
-	$(MAKE) -f CMakeFiles/forward_kinematics.dir/build.make CMakeFiles/forward_kinematics.dir/build
-.PHONY : forward_kinematics/fast
 
 #=============================================================================
 # Target rules for targets named kinetics
@@ -189,51 +176,20 @@ src/test_kinematics.cpp.s:
 	$(MAKE) -f CMakeFiles/test_kinematics.dir/build.make CMakeFiles/test_kinematics.dir/src/test_kinematics.cpp.s
 .PHONY : src/test_kinematics.cpp.s
 
-src/test_main_5.o: src/test_main_5.cpp.o
-
-.PHONY : src/test_main_5.o
-
-# target to build an object file
-src/test_main_5.cpp.o:
-	$(MAKE) -f CMakeFiles/forward_kinematics.dir/build.make CMakeFiles/forward_kinematics.dir/src/test_main_5.cpp.o
-.PHONY : src/test_main_5.cpp.o
-
-src/test_main_5.i: src/test_main_5.cpp.i
-
-.PHONY : src/test_main_5.i
-
-# target to preprocess a source file
-src/test_main_5.cpp.i:
-	$(MAKE) -f CMakeFiles/forward_kinematics.dir/build.make CMakeFiles/forward_kinematics.dir/src/test_main_5.cpp.i
-.PHONY : src/test_main_5.cpp.i
-
-src/test_main_5.s: src/test_main_5.cpp.s
-
-.PHONY : src/test_main_5.s
-
-# target to generate assembly for a file
-src/test_main_5.cpp.s:
-	$(MAKE) -f CMakeFiles/forward_kinematics.dir/build.make CMakeFiles/forward_kinematics.dir/src/test_main_5.cpp.s
-.PHONY : src/test_main_5.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... test_kinematics"
-	@echo "... rebuild_cache"
-	@echo "... forward_kinematics"
 	@echo "... kinetics"
 	@echo "... utils"
 	@echo "... src/test_kinematics.o"
 	@echo "... src/test_kinematics.i"
 	@echo "... src/test_kinematics.s"
-	@echo "... src/test_main_5.o"
-	@echo "... src/test_main_5.i"
-	@echo "... src/test_main_5.s"
 .PHONY : help
 
 
