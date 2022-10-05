@@ -1,1 +1,0 @@
-/usr/bin/c++   -O0 -Wall -g2 -ggdb   CMakeFiles/forward_kinematics.dir/src/test_main_5.cpp.o  -o ../bin/forward_kinematics  ../lib/libkinetics.a ../lib/libutils.a 

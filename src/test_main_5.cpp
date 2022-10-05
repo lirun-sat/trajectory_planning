@@ -4,6 +4,7 @@
 #include "utils.h"
 #include "WOAAlgorithm.h"
 #include "PSOAlgorithm.h"
+#include <fstream>
 
 
 double calc_fitness_woa(WOA_Whale& whale);
@@ -18,12 +19,10 @@ int main()
 
 	
 	int dimension = N;
-	int pso_woa_count = 50;
-	int Iter_Max = 1400;
-	int num_calc = 100;
+	int pso_woa_count = 10;
+	int Iter_Max = 50;
+	int num_calc = 10;
 	double inertGuideCoe = 1.0;
-	// double globalGuideCoe = 1.5;
-	// double localGuideCoe = 1.5;
 	double globalGuideCoe = 2;
 	double localGuideCoe = 2;
 	double disturbanceRate = 0;  // 0.2;
@@ -37,7 +36,8 @@ int main()
 	int* pso_woa_index = new int[pso_woa_count];
 	
 	double** pso_woa_position = new double*[pso_woa_count];
-	for (int i = 0; i < pso_woa_count; i++){
+	for (int i = 0; i < pso_woa_count; i++)
+	{
 		pso_woa_position[i] = new double[dimension];
 	}
 
@@ -136,6 +136,22 @@ int main()
 // **************************************************************************************************************************************
 	cout << "算法构建完成，进入迭代搜索过程......" << endl;
 
+	// *************************  写txt文件  *******************************
+	// ofstream OutFile;
+    // OutFile.open("test.txt");
+	// cout << "creating file......" << endl;
+	// ofstream outfile;
+	// outfile.open("test.txt", ios::app);
+	// if (outfile.is_open()) 
+    // {
+    //     outfile << "This is a line.\n";
+    //     outfile << "This is another line.\n";
+    //     outfile.close();
+	// }
+	// // outfile.close();
+	
+
+
 	for (int kk = 0; kk < num_calc; kk++){	
 		cout << "第" << kk << "次搜索......" << endl;
 		start = clock();
@@ -227,16 +243,51 @@ int main()
 
 		sort_max2min_main(pso_woa_fitness, pso_woa_count, pso_woa_index);
 
+
+
+		
+		// for(int i = 0; i < pso_woa_count; i++)
+		// {
+		// 	OutFile << "fitness is: ";
+		// 	OutFile << pso_woa_fitness[i];
+		// 	OutFile << endl; 
+		// 	for (int j = 0; j < dimension; j++)
+		// 	{
+		// 		OutFile << pso_woa_position[pso_woa_index[i]][j];
+		// 		OutFile << "  ";
+		// 	}
+		// 	OutFile << endl; 
+		// }
+
+
+		for(int i = 0; i < pso_woa_count; i++)
+		{
+			cout << "fitness is: " << pso_woa_fitness[i] << endl; 
+			for (int j = 0; j < dimension; j++)
+			{
+				cout << pso_woa_position[pso_woa_index[i]][j] << "  ";
+			}
+			cout << endl; 
+		}
+
+
 		cout << "best fitness found is: " << "  " << pso_woa_fitness[pso_woa_count - 1] << endl;
-		for (int j = 0; j < dimension; j++){
+		for (int j = 0; j < dimension; j++)
+		{
 			cout << pso_woa_position[pso_woa_index[pso_woa_count - 1]][j] << "  ";
 		}
 		cout << endl;
+
 
 		end = clock();   //结束时间
 		cout << "time = " << double(end - start) / CLOCKS_PER_SEC << "s" << endl;  //输出时间（单位：ｓ）
 
 	}
+
+	// OutFile.close();   
+
+
+
 
 	delete[] pso_woa_fitness;
 	delete[] pso_woa_index;

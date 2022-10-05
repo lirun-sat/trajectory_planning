@@ -1,1 +1,0 @@
-/usr/bin/c++   -O0 -Wall -g2 -ggdb   CMakeFiles/test_kinematics.dir/src/test_kinematics.cpp.o  -o ../bin/test_kinematics  ../lib/libkinetics.a ../lib/libutils.a 
