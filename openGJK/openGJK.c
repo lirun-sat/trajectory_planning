@@ -1,26 +1,6 @@
-//                           _____      _ _  __                                   //
-//                          / ____|    | | |/ /                                   //
-//    ___  _ __   ___ _ __ | |  __     | | ' /                                    //
-//   / _ \| '_ \ / _ \ '_ \| | |_ |_   | |  <                                     //
-//  | (_) | |_) |  __/ | | | |__| | |__| | . \                                    //
-//   \___/| .__/ \___|_| |_|\_____|\____/|_|\_\                                   //
-//        | |                                                                     //
-//        |_|                                                                     //
-//                                                                                //
-// Copyright 2022 Mattia Montanari, University of Oxford                          //
-//                                                                                //
-// This program is free software: you can redistribute it and/or modify it under  //
-// the terms of the GNU General Public License as published by the Free Software  //
-// Foundation, either version 3 of the License. You should have received a copy   //
-// of the GNU General Public License along with this program. If not, visit       //
-//                                                                                //
-//     https://www.gnu.org/licenses/                                              //
-//                                                                                //
-// This program is distributed in the hope that it will be useful, but WITHOUT    //
-// ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS  //
-// FOR A PARTICULAR PURPOSE. See GNU General Public License for details.          //
 
-#include "openGJK/openGJK.h"
+
+#include "openGJK.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -588,7 +568,8 @@ inline static void subalgorithm(gkSimplex *s, gkFloat *v) {
 gkFloat compute_minimum_distance(gkPolytope bd1, gkPolytope bd2, gkSimplex *s) {
   int k = 0;                   /**< Iteration counter            */
   int i;                       /**< General purpose counter      */
-  int mk = 25;                 /**< Maximum number of iterations of the GJK algorithm */
+  // int mk = 25;                 /**< Maximum number of iterations of the GJK algorithm */
+  int mk = 50;
   int absTestin;
   gkFloat norm2Wmax = 0;
   gkFloat tesnorm;

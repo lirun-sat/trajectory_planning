@@ -101,8 +101,6 @@ void forward_kin_3(double* para, double* eta_end, double* xi_end, double* Pe, do
     double T_min_temp = 0;
 
 
-
-
     double* base_object_tempt = new double[nvrtx * 3];
     double* left_solar_object_tempt = new double[nvrtx * 3];
     double* right_solar_object_tempt = new double[nvrtx * 3];
@@ -903,6 +901,7 @@ void forward_kin_3(double* para, double* eta_end, double* xi_end, double* Pe, do
         distance_base2link_567[2] = distance_base2link_5_part_3; distance_base2link_567[3] = distance_base2link_5_part_4; 
         distance_base2link_567[4] = distance_base2link_5_part_5; distance_base2link_567[5] = distance_base2link_6_part_1; 
         distance_base2link_567[6] = distance_base2link_6_part_2; distance_base2link_567[7] = distance_base2link_7; 
+
         for(int ii = 0; ii < 8; ii++)
         {
             if(distance_base2link_567[ii] > distance_limit)
@@ -910,10 +909,12 @@ void forward_kin_3(double* para, double* eta_end, double* xi_end, double* Pe, do
                 collision_test_base_link567 += 1; 
             }
         }
+
         distance_left2link_567[0] = distance_left2link_5_part_2; distance_left2link_567[1] = distance_left2link_5_part_3; 
         distance_left2link_567[2] = distance_left2link_5_part_4; distance_left2link_567[3] = distance_left2link_5_part_5; 
         distance_left2link_567[4] = distance_left2link_6_part_1; distance_left2link_567[5] = distance_left2link_6_part_2;
         distance_left2link_567[6] = distance_left2link_7;  
+
         for(int ii = 0; ii < 7; ii++)
         {
             if(distance_left2link_567[ii] > distance_limit)
@@ -921,10 +922,12 @@ void forward_kin_3(double* para, double* eta_end, double* xi_end, double* Pe, do
                 collision_test_left_link567 += 1; 
             }
         }
+
         distance_right2link_567[0] = distance_right2link_5_part_2; distance_right2link_567[1] = distance_right2link_5_part_3;
         distance_right2link_567[2] = distance_right2link_5_part_4; distance_right2link_567[3] = distance_right2link_5_part_5;
         distance_right2link_567[4] = distance_right2link_6_part_1; distance_right2link_567[5] = distance_right2link_6_part_2;
         distance_right2link_567[6] = distance_right2link_7;
+
         for(int ii = 0; ii < 7; ii++)
         {
             if(distance_right2link_567[ii] > distance_limit)
@@ -932,6 +935,7 @@ void forward_kin_3(double* para, double* eta_end, double* xi_end, double* Pe, do
                 collision_test_right_link567 += 1; 
             }
         }
+
         distance_link_12link_567[0]  = distance_link_1_part_1_link_5_part_2; distance_link_12link_567[1]  = distance_link_1_part_1_link_5_part_3; 
         distance_link_12link_567[2]  = distance_link_1_part_1_link_5_part_4; distance_link_12link_567[3]  = distance_link_1_part_1_link_5_part_5; 
         distance_link_12link_567[4]  = distance_link_1_part_1_link_6_part_1; distance_link_12link_567[5]  = distance_link_1_part_1_link_6_part_2; 
@@ -939,6 +943,7 @@ void forward_kin_3(double* para, double* eta_end, double* xi_end, double* Pe, do
         distance_link_12link_567[8]  = distance_link_1_part_2_link_5_part_3; distance_link_12link_567[9]  = distance_link_1_part_2_link_5_part_4; 
         distance_link_12link_567[10] = distance_link_1_part_2_link_5_part_5; distance_link_12link_567[11] = distance_link_1_part_2_link_6_part_1; 
         distance_link_12link_567[12] = distance_link_1_part_2_link_6_part_2; distance_link_12link_567[13] = distance_link_1_part_2_link_7; 
+
         for(int ii = 0; ii < 14; ii++)
         {
             if(distance_link_12link_567[ii] > distance_limit)
@@ -946,6 +951,7 @@ void forward_kin_3(double* para, double* eta_end, double* xi_end, double* Pe, do
                 collision_test_link_1_link567 += 1; 
             }
         }
+
         distance_link_22link_567[0]  = distance_link_2_part_1_link_5_part_2; distance_link_22link_567[1]  = distance_link_2_part_1_link_5_part_3; 
         distance_link_22link_567[2]  = distance_link_2_part_1_link_5_part_4; distance_link_22link_567[3]  = distance_link_2_part_1_link_5_part_5; 
         distance_link_22link_567[4]  = distance_link_2_part_1_link_6_part_1; distance_link_22link_567[5]  = distance_link_2_part_1_link_6_part_2; 
@@ -953,6 +959,7 @@ void forward_kin_3(double* para, double* eta_end, double* xi_end, double* Pe, do
         distance_link_22link_567[8]  = distance_link_2_part_2_link_5_part_3; distance_link_22link_567[9]  = distance_link_2_part_2_link_5_part_4; 
         distance_link_22link_567[10] = distance_link_2_part_2_link_5_part_5; distance_link_22link_567[11] = distance_link_2_part_2_link_6_part_1; 
         distance_link_22link_567[12] = distance_link_2_part_2_link_6_part_2; distance_link_22link_567[13] = distance_link_2_part_2_link_7; 
+        
         for(int ii = 0; ii < 14; ii++)
         {
             if(distance_link_22link_567[ii] > distance_limit)
