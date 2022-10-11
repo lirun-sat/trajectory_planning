@@ -5,7 +5,6 @@
 double delta_tau = 0.01;
 // double delta_tau = 0.001;
 
-
 double rpy_joints[] = {
       0,      0, M_PI/2,
 -M_PI/2, M_PI/2,      0,
@@ -14,19 +13,6 @@ double rpy_joints[] = {
  M_PI/2,      0,   M_PI,
  M_PI/2,      0,      0,
 -M_PI/2,      0,      0};
-
-
-/*
-double q_INITIAL[] = {
-0, 
-0.78, 
-1.57,
-0.78, 
-0, 
--1.57, 
-0};
-*/
-
 
 double q_INITIAL[] = {
 0, 
