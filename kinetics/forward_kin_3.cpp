@@ -260,7 +260,7 @@ void forward_kin_3(double* para, double* eta_end, double* xi_end, double* Pe, do
     double distance_link_2_part_2_link_6_part_2 = 0;
     double distance_link_2_part_2_link_7        = 0;
 
-    double distance_limit = 0.005;
+    double distance_limit = 0.001;
 
     // transform two dimensional array to one array
     
@@ -904,7 +904,7 @@ void forward_kin_3(double* para, double* eta_end, double* xi_end, double* Pe, do
 
         for(int ii = 0; ii < 8; ii++)
         {
-            if(distance_base2link_567[ii] > distance_limit)
+            if(distance_base2link_567[ii] < distance_limit)
             {
                 collision_test_base_link567 += 1; 
             }
@@ -917,7 +917,7 @@ void forward_kin_3(double* para, double* eta_end, double* xi_end, double* Pe, do
 
         for(int ii = 0; ii < 7; ii++)
         {
-            if(distance_left2link_567[ii] > distance_limit)
+            if(distance_left2link_567[ii] < distance_limit)
             {
                 collision_test_left_link567 += 1; 
             }
@@ -930,7 +930,7 @@ void forward_kin_3(double* para, double* eta_end, double* xi_end, double* Pe, do
 
         for(int ii = 0; ii < 7; ii++)
         {
-            if(distance_right2link_567[ii] > distance_limit)
+            if(distance_right2link_567[ii] < distance_limit)
             {
                 collision_test_right_link567 += 1; 
             }
@@ -946,7 +946,7 @@ void forward_kin_3(double* para, double* eta_end, double* xi_end, double* Pe, do
 
         for(int ii = 0; ii < 14; ii++)
         {
-            if(distance_link_12link_567[ii] > distance_limit)
+            if(distance_link_12link_567[ii] < distance_limit)
             {
                 collision_test_link_1_link567 += 1; 
             }
@@ -959,10 +959,10 @@ void forward_kin_3(double* para, double* eta_end, double* xi_end, double* Pe, do
         distance_link_22link_567[8]  = distance_link_2_part_2_link_5_part_3; distance_link_22link_567[9]  = distance_link_2_part_2_link_5_part_4; 
         distance_link_22link_567[10] = distance_link_2_part_2_link_5_part_5; distance_link_22link_567[11] = distance_link_2_part_2_link_6_part_1; 
         distance_link_22link_567[12] = distance_link_2_part_2_link_6_part_2; distance_link_22link_567[13] = distance_link_2_part_2_link_7; 
-        
+
         for(int ii = 0; ii < 14; ii++)
         {
-            if(distance_link_22link_567[ii] > distance_limit)
+            if(distance_link_22link_567[ii] < distance_limit)
             {
                 collision_test_link_2_link567 += 1; 
             }
@@ -983,16 +983,20 @@ void forward_kin_3(double* para, double* eta_end, double* xi_end, double* Pe, do
 	// ****************************************************    计算最终时刻的可操作度   ****************************************************
 	
     double manipl_temp_2 = 0;
+
 	MatrixDiagExpand( A_b, 3, 3, A_b_expand);
+
 	MatrixTranspose_(6, 6, A_b_expand, A_b_expand_transpose);
+
 	MatrixMulti_(6, 6, N, A_b_expand_transpose, J_g, A_b_expand_transpose_multi_J_g);
+
 	MatrixTranspose_(6, N, A_b_expand_transpose_multi_J_g, A_b_expand_transpose_multi_J_g_transpose);
+
 	MatrixMulti_(6, N, 6, A_b_expand_transpose_multi_J_g, A_b_expand_transpose_multi_J_g_transpose, manipl_temp);
+
 	manipl_temp_2 = calc_determinantOfMatrix(manipl_temp, 6*6, 6, 6, 6);
 
 	*manipl = sqrt(manipl_temp_2);
-
-
 
 
     delete[] base_object_tempt;
